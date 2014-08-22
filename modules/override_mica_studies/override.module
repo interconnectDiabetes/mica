@@ -1,0 +1,81 @@
+<?php
+
+
+require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.module');
+
+/**
+ * Implements hook_form_alter
+ * To add dependent fields when filling out the form
+ */
+function override_form_alter(&$form, &$form_state, $form_id) {
+
+  	 
+  switch ($form_id) {
+    case 'study_node_form':
+	override_study_form_alter($form, $form_state, $form_id);
+      
+      break;
+
+  }
+  	// drupal_set_message(t('it ran'));
+}
+
+function override_study_form_alter(&$form, &$form_state, $form_id) {
+  
+//debug($form['#groups']['group_nb_participants']->type);
+
+    // hide investigators field
+  $form['field_investigators']['#type'] = 'hidden';
+    // hide objectives field
+  $form['body']['#type'] = 'hidden';
+  
+    // hide old study design field
+  $form['field_design']['#type'] = 'hidden';
+    // hide study design follow up field
+  $form['field_info_design_follow_up']['#type'] = 'hidden';
+  
+  
+    // hide participants group
+  $form['#groups']['group_nb_participants']->format_type = 'hidden';
+    // hide participants sub group
+  $form['#groups']['group_target_nb_participants']->format_type = 'hidden';
+  
+    // hide participants field
+  $form['field_target_number_participants']['#type'] = 'hidden';
+    // hide participant limit field
+  $form['field_no_limits_participants']['#type'] = 'hidden';
+  
+    // hide samples sub group
+  $form['#groups']['group_target_nb_samples']->format_type = 'hidden';
+  
+    // hide target biosamples field
+  $form['field_target_number_biosamples']['#type'] = 'hidden';
+    // hide biosample limit field
+  $form['field_no_limits_samples']['#type'] = 'hidden';
+    // hide supp info field
+  $form['field_target_nb_supp_info']['#type'] = 'hidden';
+  
+    // hide study timeline group
+  $form['#groups']['group_study_timeline']->format_type = 'hidden';
+     // hide start year field
+  $form['field_study_start_year']['#type'] = 'hidden';
+    // hide end year limit field
+  $form['field_study_end_year']['#type'] = 'hidden';
+ 
+   // move the added fields into the right group
+  array_splice($form['#groups']['group_study_design']->children,0,0, 'field_study_design_ic'); 
+  $form['#group_children']['field_study_design_ic'] = 'group_study_design'; 
+  array_splice($form['#groups']['group_study_design']->children,3,0, 'field_cohort_study_sp'); 
+  $form['#group_children']['field_cohort_study_sp'] = 'group_study_design';
+  $form['field_cohort_study_sp']['#weight'] = '10';
+  
+  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_design_other_sp', 'other');
+  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_cohort_study_sp', 'cohort_study');
+  
+//debug($form);
+dpm($form, $name = NULL);
+  
+  // display additional text field for cohort study
+	// _mica_add_dependent_field_checked($form, 'field_design_ic', 'field_cohort_study_sp', 'cohort_study');  
+  
+}
