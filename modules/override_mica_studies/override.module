@@ -69,6 +69,8 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
   $form['#group_children']['field_cohort_study_sp'] = 'group_study_design';
   $form['field_cohort_study_sp']['#weight'] = '10';
   
+  //set up dependent fields
+  
   _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_design_other_sp', 'other');
   _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_cohort_study_sp', 'cohort_study');
   
