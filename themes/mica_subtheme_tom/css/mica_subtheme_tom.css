@@ -1,0 +1,22 @@
+
+
+header#navbar a.logo img{width:auto;height:50px}
+
+.front .page-header{
+   display:none
+}
+
+body.toolbar-drawer {
+	padding-top: 150px !important;
+}
+
+
+.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-draggable[style] {
+	display: block; height: auto; width: 947.25px; top: 100px !important; left: 154px;
+}
+
+.help-block {
+	padding-top: 10px;
+}
+
+/* header#navbar{text-transform:uppercase;margin:0;font-family:"Oswald",sans-serif;font-size:14px;line-height:1.5;color:#495961;background-color:#fff}*/
