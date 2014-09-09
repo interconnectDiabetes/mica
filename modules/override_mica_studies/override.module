@@ -17,7 +17,9 @@ function override_form_alter(&$form, &$form_state, $form_id) {
     case 'population_node_form':
       override_population_form_alter($form, $form_state, $form_id);
     break;
-
+    case 'data_collection_event_node_form':
+      override_data_collection_event_form_alter($form, $form_state, $form_id);
+    break;
   }
 
 }
@@ -74,6 +76,10 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
   //hide logo field and old document files
   $form['field_logo']['#type'] = 'hidden';
   $form['field_documents']['#type'] = 'hidden';
+  
+  //hide datasets group
+  $form['#groups']['group_datasets']->format_type = 'hidden';
+  $form['mica_opal']['#type'] = 'hidden';
   
   //move new documents fields to the right place
   
@@ -179,25 +185,57 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
   
   
   //set up dependent fields for study design
+
+  //:input[name="field_study_design_ic[und]"]
   
-  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_case_definition', 'case_control');  
-  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_number_cases', 'case_control');
+  
+
+  
+$options = array(
+	'case_control',
+	'case_only',
+	'clinical_trial',
+	'cohort_study',
+	'cross_sectional',
+	'other',
+	'_none');
+	
+$visible_options = array(
+		'case_control',
+	'case_only');
+  
+  _double_simple($form, 'field_study_design_ic', 'field_case_definition', $options, $visible_options);
+  _double_simple($form, 'field_study_design_ic', 'field_number_cases', $options, $visible_options);
+  //_mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_case_definition', 'case_control');
+  //_mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_number_cases', 'case_control');
   _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_control_selection', 'case_control');
   _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_number_controls', 'case_control');
 
-  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_case_definition', 'case_only');  
-  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_number_cases', 'case_only');
+ // _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_case_definition', 'case_only');  
+  //_mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_number_cases', 'case_only');
    
   _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_num_int_group', 'clinical_trial');  
   _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_num_contr_group', 'clinical_trial');
-  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_duration_follow', 'clinical_trial');
-  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_endpoints', 'clinical_trial');
+  
+  $visible_options = array(
+		'clinical_trial',
+	'cohort_study');
+   _double_simple($form, 'field_study_design_ic', 'field_duration_follow', $options, $visible_options);
+   _double_simple($form, 'field_study_design_ic', 'field_endpoints', $options, $visible_options);
+  //_mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_duration_follow', 'clinical_trial');
+  //_mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_endpoints', 'clinical_trial');
  
-  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_number_of_participants', 'cohort_study');
-  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_duration_follow', 'cohort_study');
-  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_endpoints', 'cohort_study');
+    $visible_options = array(
+		'cohort_study',
+	'cross_sectional');
+  _double_simple($form, 'field_study_design_ic', 'field_number_of_participants', $options, $visible_options);
 
-  _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_number_of_participants', 'cross_sectional');
+ 
+  //_mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_number_of_participants', 'cohort_study');
+  //_mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_duration_follow', 'cohort_study');
+  //_mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_endpoints', 'cohort_study');
+
+  //_mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_number_of_participants', 'cross_sectional');
   _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_disease_hist', 'cross_sectional');
   _mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_traits', 'cross_sectional');
   
@@ -224,17 +262,33 @@ function override_population_form_alter(&$form, &$form_state, $form_id) {
   
   $form['#group_children']['field_participants_from_exist_ic'] = 'group_pop_recruitment_procedures';
   $form['field_participants_from_exist_ic']['#weight'] = '11';
+  
+   $form['field_pop_specific_pop']['#weight'] = '11'; 
+
+	//hide general population recruitment field and supp info
+	
+	$form['field_pop_general_pop_recruit']['#type'] = 'hidden';
+	$form['field_recruitment_supp_info']['#type'] = 'hidden';   
+   
+   
+  // move ic recruitment target fields to recruitment group
+  
+    $form['#group_children']['field_recruitment_target_ic'] = 'group_pop_recruitment_procedures';
+	$form['field_recruitment_target_ic']['#weight'] = '1';
+	$form['#group_children']['field_other_recruitment_targ_ic'] = 'group_pop_recruitment_procedures';
+	$form['field_other_recruitment_targ_ic']['#weight'] = '2';
 	
   _mica_add_dependent_field_checked($form, 'field_sources_of_recruitment', 'field_pop_specific_pop', 'specific_population');
 	
   _mica_add_dependent_field_checked($form, 'field_participants_from_exist_ic', 'field_pop_exist_study_part', 'exist');
 
+   _mica_add_dependent_field_checked($form, 'field_recruitment_target_ic', 'field_other_recruitment_targ_ic', 'other');
 
 dpm($form, $name = NULL);
 }
  function _override_validate($node, $form) {
 
-  dpm($node, $name = NULL);
+  //dpm($node, $name = NULL);
  /*
  debug($node['field_ancestry_1']['und']['0']['value']['#value']); */
 
@@ -247,4 +301,89 @@ if($total != 100){
     
 }
 
-} 
+}
+
+function override_data_collection_event_form_alter(&$form, &$form_state, $form_id) {
+debug("jsdjksdfjksfd");
+dpm($form, $name = NULL);
+}
+
+
+
+function _double_simple(&$form, $dependee, $dependent, $options, $visible_options) {
+	$lang = $form[$dependee]['#language'];
+	$input = ':input[name="' . $dependee . '[' . $lang . ']"]';
+
+	foreach (array_diff($options, $visible_options) as $i => $vocab) {
+	$form[$dependent]['#states']['visible'][$input . ', my-nonsense-dummy-element-' . $i] =
+		array('!value' => $vocab);
+
+		}
+}
+
+
+
+function _double_dependent_field_checked(&$form, $dependee1, $dependee2, $dependent, $key_selected1, $key_selected2) {
+ if (array_key_exists($dependee1, $form) && array_key_exists($dependent, $form) && array_key_exists($dependee2, $form)) {
+	$lang = $form[$dependee1]['#language'];
+    $type = $form[$dependee1][$lang]['#type'];
+    $input1 = ':input[name="' . $dependee1 . '[' . $lang . ']';
+    $rule1 = array();
+    if ($type != 'radios') {
+      $input1 = $input1 . '[' . $key_selected1 . ']';
+      $rule1['checked'] = TRUE;
+    }
+    else {
+      $rule1['value'] = $key_selected1;
+    }
+
+    $lang = $form[$dependee2]['#language'];
+    $type = $form[$dependee2][$lang]['#type'];
+    $input2 = ':input[name="' . $dependee2 . '[' . $lang . ']';
+    $rule2 = array();
+    if ($type != 'radios') {
+      $input2 = $input2 . '[' . $key_selected2 . ']';
+      $rule2['checked'] = TRUE;
+    }
+    else {
+      $rule2['value'] = $key_selected2;
+    }
+
+    $input1 = $input1 . '"]';
+    $input2 = $input2 . '"]';
+	
+	if ($dependee1 == $dependee2){
+		$form[$dependent]['#states'] = array(
+		'visible' => array(
+        $input1 => array($rule1, $rule2)
+		  ),
+		);
+	}
+	else {
+		$form[$dependent]['#states'] = array(
+		  'visible' => array(
+			$input1 => $rule1,
+			$input2 => $rule2,
+		  ),
+		);
+	}
+
+	dpm(array(
+      'visible' => array(
+        ':input[name="student_type"]' => array(
+          array('value' => 'high_school'),
+          array('value' => 'undergraduate'),
+        ),
+      ),
+    ));
+	dpm(array(
+		  'visible' => array(
+			$input1 => array($rule1, $rule2)
+		  ),
+		));
+	
+  }
+//  else {
+//    debug('dependee "' . $dependee1 . '" or dependent "' . $dependent . '"not found');
+//  }
+}
