@@ -26,7 +26,17 @@ function override_form_alter(&$form, &$form_state, $form_id) {
 
 function override_study_form_alter(&$form, &$form_state, $form_id) {
   
-
+   // remove horizontal tabs
+   
+    $form['#groups']['group_general_info']->parent_name = '';
+    $form['#groups']['group_methods']->parent_name = ''; 
+	
+	unset($form['#group_children']['group_general_info']);
+	unset($form['#group_children']['group_methods']);
+			
+	$form['#groups']['group_general_info']->format_settings['formatter'] = 'open';
+	$form['#groups']['group_methods']->format_settings['formatter'] = 'open';
+	
     // hide investigators field
   $form['field_investigators']['#type'] = 'hidden';
     // hide objectives field
@@ -83,37 +93,24 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
   
   //move new documents fields to the right place
   
-  $form['#group_children']['field_questionnaires_file'] = 'group_documents';
-  $form['field_questionnaires_file']['#weight'] = '10';
-  $form['#group_children']['field_questionnaires'] = 'group_documents';
-  $form['field_questionnaires']['#weight'] = '11';
-  
-  $form['#group_children']['field_standard_operating_pro_fil'] = 'group_documents';
-  $form['field_standard_operating_pro_fil']['#weight'] = '12';
-  $form['#group_children']['field_standard_operating_procedu'] = 'group_documents';
-  $form['field_standard_operating_procedu']['#weight'] = '13';
-
-  $form['#group_children']['field_data_dictionaries_code_fil'] = 'group_documents';
+  $form['#group_children']['field_data_dictionaries_code_fil'] = 'group_general_info';
   $form['field_data_dictionaries_code_fil']['#weight'] = '14';
-  $form['#group_children']['field_data_dictionaries_codebook'] = 'group_documents';
-  $form['field_data_dictionaries_codebook']['#weight'] = '15';
 
-  $form['#group_children']['field_other_document_files'] = 'group_documents';
-  $form['field_other_document_files']['#weight'] = '16';   
-  $form['#group_children']['field_documents_link'] = 'group_documents';
-  $form['field_documents_link']['#weight'] = '17';
+
+
 
   
   
-	// move access tab next to general info
-   
-  $form['#groups']['group_access']->weight = '6';
+	// hide access tab 
+  $form['#groups']['group_access']->format_type = 'hidden';
+ 
   
    // Change access tab description
-   $form['#groups']['group_access']->format_settings['instance_settings']['description'] = 'The InterConnect Registry aims to enable researchers to know what resources are available globally for the study of gene – lifestyle interaction on the risk of diabetes and obesity. We hope studies are willing to consider requests for data, samples or other materials.';
+  // $form['#groups']['group_access']->format_settings['instance_settings']['description'] = 'The InterConnect Registry aims to enable researchers to know what resources are available globally for the study of gene – lifestyle interaction on the risk of diabetes and obesity. We hope studies are willing to consider requests for data, samples or other materials.';
    
-   // hide other access fields
-   
+   // hide access fields
+   $form['field_access_data']['#type'] = 'hidden';   
+   $form['field_access_biosamples']['#type'] = 'hidden';    
    $form['field_access_other']['#type'] = 'hidden';   
    $form['field_access_other_sp']['#type'] = 'hidden';      
    
@@ -310,9 +307,11 @@ function override_population_form_alter(&$form, &$form_state, $form_id) {
 	
 	//_dependent_value($form, 'field_test_field', 'field_other_ancestry_spec', 'specific_population');
 
+	//_dependent_value($form, 'field_test_field', 'field_dep_field');
+	
 	$form['field_other_ancestry_spec']['#states'] = array(
       'visible' => array(
-        ':input[name="field_test_field[und]"]' => array('filled' => TRUE),
+        ':input[name="field_other_ancestry[und][0][value]"]' => array('filled' => TRUE),
       ),
     );
 	
