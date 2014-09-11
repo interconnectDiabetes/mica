@@ -258,42 +258,86 @@ function override_population_form_alter(&$form, &$form_state, $form_id) {
 	// use new recruitment fields
 	
   $form['#group_children']['field_sources_of_recruitment'] = 'group_pop_recruitment_procedures';
-  $form['field_sources_of_recruitment']['#weight'] = '11';
+  $form['field_sources_of_recruitment']['#weight'] = '10';
   
-  $form['#group_children']['field_participants_from_exist_ic'] = 'group_pop_recruitment_procedures';
-  $form['field_participants_from_exist_ic']['#weight'] = '11';
+  $form['#group_children']['field_participants_from_existing'] = 'group_pop_recruitment_procedures';
+  $form['field_participants_from_existing']['#weight'] = '11';
   
-   $form['field_pop_specific_pop']['#weight'] = '11'; 
+   $form['field_pop_specific_pop']['#weight'] = '10'; 
 
+   // hide Supplementary information about recruitment procedures 
+   $form['field_pop_recruit_supp_info']['#type'] = 'hidden';
+   
 	//hide general population recruitment field and supp info
 	
 	$form['field_pop_general_pop_recruit']['#type'] = 'hidden';
-	$form['field_recruitment_supp_info']['#type'] = 'hidden';   
+	$form['field_recruitment_supp_info']['#type'] = 'hidden';
+
+ 
+   	//hide territory or city of residence field
+	
+	$form['field_pop_territory']['#type'] = 'hidden';
+   	
+	//hide old pregnancy field
+	$form['field_pop_select_criteria']['#type'] = 'hidden';	
+	
+	// add pregnant women field to selection criteria
+
+	$form['#group_children']['field_pregnancy'] = 'group_pop_selection_criteria';
+    $form['field_pregnancy']['#weight'] = '6';
+
+	//hide health status field
+	$form['field_pop_health_status']['#type'] = 'hidden';		
+
+	//hide recruitment procedure supplementary info field
+	$form['field_pop_partcipant_sel_supp_in']['#type'] = 'hidden';
    
-   
-  // move ic recruitment target fields to recruitment group
+  // move ic recruitment target fields to general info group
   
-    $form['#group_children']['field_recruitment_target_ic'] = 'group_pop_recruitment_procedures';
-	$form['field_recruitment_target_ic']['#weight'] = '1';
-	$form['#group_children']['field_other_recruitment_targ_ic'] = 'group_pop_recruitment_procedures';
-	$form['field_other_recruitment_targ_ic']['#weight'] = '2';
+    $form['#group_children']['field_recruitment_target_ic'] = 'group_general_info';
+	$form['field_recruitment_target_ic']['#weight'] = '4';
+	$form['#group_children']['field_other_recruitment_targ_ic'] = 'group_general_info';
+	$form['field_other_recruitment_targ_ic']['#weight'] = '5';
+	
+	//move group_pop_selection_criteria to 2nd position
+	
+	$form['#groups']['group_pop_selection_criteria']->weight = '1';
+	
+	//ancestries
+	
+	$form['#groups']['group_ancestries']->parent_name = 'group_pop_selection_criteria';
+	$form['#group_children']['group_ancestries'] = 'group_pop_selection_criteria';
+	
+	//_dependent_value($form, 'field_test_field', 'field_other_ancestry_spec', 'specific_population');
+
+	$form['field_other_ancestry_spec']['#states'] = array(
+      'visible' => array(
+        ':input[name="field_test_field[und]"]' => array('filled' => TRUE),
+      ),
+    );
+	
+	// dependent fields
 	
   _mica_add_dependent_field_checked($form, 'field_sources_of_recruitment', 'field_pop_specific_pop', 'specific_population');
 	
-  _mica_add_dependent_field_checked($form, 'field_participants_from_exist_ic', 'field_pop_exist_study_part', 'exist');
+  _mica_add_dependent_field_checked($form, 'field_participants_from_existing', 'field_pop_exist_study_part', 'PartEx');
 
    _mica_add_dependent_field_checked($form, 'field_recruitment_target_ic', 'field_other_recruitment_targ_ic', 'other');
 
+   _mica_add_dependent_field_checked($form, 'field_recruitment_target_ic', 'field_pop_recruitment_other', 'other');
+  
+   
 dpm($form, $name = NULL);
 }
+
  function _override_validate($node, $form) {
 
   //dpm($node, $name = NULL);
- /*
- debug($node['field_ancestry_1']['und']['0']['value']['#value']); */
 
- $total = $node['field_ancestry_1']['und']['0']['value']['#value'] + $node['field_ancestry_2']['und']['0']['value']['#value'];
+ debug($node['field_african_african_american_b']['und']['0']['value']['#value']); 
 
+ $total = $node['field_african_african_american_b']['und']['0']['value']['#value'] + $node['field_caucasian_european_white']['und']['0']['value']['#value']
+			+ $node['field_asian_native_american']['und']['0']['value']['#value'] + $node['field_other_ancestry']['und']['0']['value']['#value'];
  debug($total);
 
 if($total != 100){
@@ -319,6 +363,19 @@ function _double_simple(&$form, $dependee, $dependent, $options, $visible_option
 		array('!value' => $vocab);
 
 		}
+}
+
+function _dependent_value(&$form, $dependee, $dependent) {
+	$lang = $form[$dependee]['#language'];
+	$input = ':input[name="' . $dependee . '[' . $lang . ']"]';
+
+
+	$form[$dependent]['#states'] = array(
+		'visible' => array(
+			$input => array('filled' => TRUE)
+			)
+		);
+
 }
 
 
