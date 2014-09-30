@@ -86,49 +86,6 @@ function override_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-study-field_data_dictionaries_code_fil'
-  $field_instances['node-study-field_data_dictionaries_code_fil'] = array(
-    'bundle' => 'study',
-    'deleted' => 0,
-    'description' => 'Please provide Data dictionaries (codebooks) for the study',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 61,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'display_label' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_data_dictionaries_code_fil',
-    'label' => 'Data dictionary (codebook) Files and Links',
-    'required' => 0,
-    'settings' => array(
-      'description_field' => 1,
-      'file_directory' => '',
-      'file_extensions' => 'pdf doc docx xls xlsx csv txt',
-      'max_filesize' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'file',
-      'settings' => array(
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'file_generic',
-      'weight' => 22,
-    ),
-  );
-
   // Exported field_instance: 'node-study-field_data_dictionaries_codebook'
   $field_instances['node-study-field_data_dictionaries_codebook'] = array(
     'bundle' => 'study',
@@ -877,7 +834,11 @@ function override_field_default_field_instances() {
   // Exported field_instance: 'node-study-field_study_design_ic'
   $field_instances['node-study-field_study_design_ic'] = array(
     'bundle' => 'study',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 'case_control',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -898,7 +859,7 @@ function override_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_study_design_ic',
     'label' => 'Study design',
-    'required' => FALSE,
+    'required' => TRUE,
     'settings' => array(
       'user_register_form' => FALSE,
     ),

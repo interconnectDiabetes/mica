@@ -39,7 +39,7 @@ function override_features_override_default_overrides() {
   $overrides["field_instance.node-study-field_marker_paper.label"] = 'Study Reference Paper';
 
   // Exported overrides for: field_group
-  $overrides["field_group.group_marker_paper|node|study|form.data|label"] = 'Study Reference Paper';
+  //$overrides["field_group.group_marker_paper|node|study|form.data|label"] = 'Study Reference Paper';
   
  return $overrides;
 }

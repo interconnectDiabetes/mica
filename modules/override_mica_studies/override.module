@@ -37,6 +37,11 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
 	$form['#groups']['group_general_info']->format_settings['formatter'] = 'open';
 	$form['#groups']['group_methods']->format_settings['formatter'] = 'open';
 	
+	//hide some groups
+	 $form['#groups']['group_study_name']->format_type = 'hidden';
+	 $form['#groups']['group_marker_paper']->format_type = 'hidden';	 
+
+	
     // hide investigators field
   $form['field_investigators']['#type'] = 'hidden';
     // hide objectives field
@@ -46,6 +51,9 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
   $form['field_design']['#type'] = 'hidden';
     // hide study design follow up field
   $form['field_info_design_follow_up']['#type'] = 'hidden';
+  
+    // hide study design supp info field
+  $form['field_recruitment_supp_info']['#type'] = 'hidden';  
   
     // hide participants group
   $form['#groups']['group_nb_participants']->format_type = 'hidden';
@@ -123,15 +131,15 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
   // Change group marker paper text to be study reference (cannot be done as a feature)
   
   //$form['field_marker_paper']['und']['0']['value']['#title'] = 'Study reference paper';
-  $form['#groups']['group_marker_paper']->label = 'Study reference paper';
+  //$form['#groups']['group_marker_paper']->label = 'Study reference paper';
   //$form['field_pubmedid']['und']['0']['value']['#description'] = 'If applicable, enter paper’s Pubmed ID. ';
   
   // move study ref paper fields into general info
    
-  $form['#group_children']['group_marker_paper'] = 'group_general_info';
-  $form['#groups']['group_marker_paper']->weight = '5';
-  $form['#groups']['group_marker_paper']->format_type = 'fieldset';
-  $form['#groups']['group_marker_paper']->format_settings['formatter'] = 'open';
+  //$form['#group_children']['group_marker_paper'] = 'group_general_info';
+  //$form['#groups']['group_marker_paper']->weight = '5';
+  //$form['#groups']['group_marker_paper']->format_type = 'fieldset';
+  //$form['#groups']['group_marker_paper']->format_settings['formatter'] = 'open';
   
     // move methods tab next to access
    
@@ -200,8 +208,9 @@ $options = array(
 $visible_options = array(
 		'case_control',
 	'case_only');
-  
+
   _double_simple($form, 'field_study_design_ic', 'field_case_definition', $options, $visible_options);
+  //  $form['field_case_definition']['#type'] = 'hidden';
   _double_simple($form, 'field_study_design_ic', 'field_number_cases', $options, $visible_options);
   //_mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_case_definition', 'case_control');
   //_mica_add_dependent_field_checked($form, 'field_study_design_ic', 'field_number_cases', 'case_control');
@@ -356,7 +365,7 @@ dpm($form, $name = NULL);
 function _double_simple(&$form, $dependee, $dependent, $options, $visible_options) {
 	$lang = $form[$dependee]['#language'];
 	$input = ':input[name="' . $dependee . '[' . $lang . ']"]';
-
+debug("double_simple");
 	foreach (array_diff($options, $visible_options) as $i => $vocab) {
 	$form[$dependent]['#states']['visible'][$input . ', my-nonsense-dummy-element-' . $i] =
 		array('!value' => $vocab);
