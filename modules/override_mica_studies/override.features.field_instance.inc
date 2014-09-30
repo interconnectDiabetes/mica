@@ -10,6 +10,8 @@
 function override_field_default_field_instances() {
   $field_instances = array();
 
+  /*
+  
   // Exported field_instance: 'node-study-field_case_definition'
   $field_instances['node-study-field_case_definition'] = array(
     'bundle' => 'study',
@@ -871,6 +873,328 @@ function override_field_default_field_instances() {
     ),
   );
 
+  */
+  
+  /*----------------------------------------------*/
+  
+    // Exported field_instance: 'node-study-title_field_ic'
+  $field_instances['node-study-title_field_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter the official study name',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 27,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'title_field_ic',
+    'label' => 'Name of the study',
+    'required' => 1,
+    'settings' => array(
+      'hide_label' => array(
+        'entity' => 0,
+        'page' => 0,
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
+    ),
+  );
+  
+   // Exported field_instance: 'node-study-field_acronym_ic'
+  $field_instances['node-study-field_acronym_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'If applicable, enter study acronym',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 32,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => 'Acronym',
+    'entity_type' => 'node',
+    'field_name' => 'field_acronym_ic',
+    'label' => 'Acronym',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -3,
+    ),
+  );
+  
+    // Exported field_instance: 'node-study-field_contacts_ref_ic'
+  $field_instances['node-study-field_contacts_ref_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter the contact details of the person(s) that could provide additional information about the study',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 34,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_contacts_ref_ic',
+    'label' => 'Contacts',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'node_reference',
+      'settings' => array(
+        'autocomplete_match' => 'contains',
+        'autocomplete_path' => 'node_reference/autocomplete',
+        'references_dialog_add' => 1,
+        'references_dialog_edit' => 1,
+        'references_dialog_search' => 1,
+        'references_dialog_search_view' => '',
+        'size' => 60,
+      ),
+      'type' => 'node_reference_autocomplete',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_refer_paper_ic'
+  $field_instances['node-study-field_refer_paper_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'If applicable, enter a bibliographic citation (i.e. published sources such as journal article, web site, or report) which describes the study design',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_refer_paper_ic',
+    'label' => 'Study reference paper',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 125,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+  
+  
+  // Exported field_instance: 'node-study-field_pubmedid_ic'
+  $field_instances['node-study-field_pubmedid_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'If applicable, enter the paper’s Pubmed ID  ',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_pubmedid_ic',
+    'label' => 'Pubmed ID',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 20,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 5,
+    ),
+  );
+  
+    // Exported field_instance: 'node-study-field_website_ic'
+  $field_instances['node-study-field_website_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Enter the study website URL',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_website_ic',
+    'label' => 'Website',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => '_blank',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 0,
+      'title' => 'none',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 6,
+    ),
+  );
+
+  
+    // Exported field_instance: 'node-study-field_data_dict_ic'
+  $field_instances['node-study-field_data_dict_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'If applicable, enter the website URL for the data dictionaries or codebooks',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_data_dict_ic',
+    'label' => 'Data dictionaries',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => '_blank',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 0,
+      'title' => 'none',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 7,
+    ),
+  );  
+  
+  
 
   // Translatables
   // Included for use with string extractors like potx.

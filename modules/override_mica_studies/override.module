@@ -3,6 +3,9 @@
 
 require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.module');
 
+
+
+
 /**
  * Implements hook_form_alter
  * To add dependent fields when filling out the form
@@ -28,20 +31,91 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
   
    // remove horizontal tabs
    
-    $form['#groups']['group_general_info']->parent_name = '';
+/*     $form['#groups']['group_general_info']->parent_name = '';
     $form['#groups']['group_methods']->parent_name = ''; 
 	
 	unset($form['#group_children']['group_general_info']);
 	unset($form['#group_children']['group_methods']);
 			
 	$form['#groups']['group_general_info']->format_settings['formatter'] = 'open';
-	$form['#groups']['group_methods']->format_settings['formatter'] = 'open';
+	$form['#groups']['group_methods']->format_settings['formatter'] = 'open'; */
 	
-	//hide some groups
-	 $form['#groups']['group_study_name']->format_type = 'hidden';
-	 $form['#groups']['group_marker_paper']->format_type = 'hidden';	 
+	$form['#groups']['group_access']->format_type = 'hidden';
+$form['#groups']['group_authorization_maelstrom']->format_type = 'hidden';
+$form['#groups']['group_authorization_specific']->format_type = 'hidden';
+$form['#groups']['group_authorization']->format_type = 'hidden';
+$form['#groups']['group_datasets']->format_type = 'hidden';
+$form['#groups']['group_documents']->format_type = 'hidden';
+$form['#groups']['group_general_design']->format_type = 'hidden';
+$form['#groups']['group_general_info']->format_type = 'hidden';
+$form['#groups']['group_institution']->format_type = 'hidden';
+$form['#groups']['group_marker_paper']->format_type = 'hidden';
+$form['#groups']['group_methods']->format_type = 'hidden';
+$form['#groups']['group_nb_participants']->format_type = 'hidden';
+$form['#groups']['group_pop_age']->format_type = 'hidden';
+$form['#groups']['group_study_design']->format_type = 'hidden';
+$form['#groups']['group_study_name']->format_type = 'hidden';
+$form['#groups']['group_study_timeline']->format_type = 'hidden';
+$form['#groups']['group_supp_info']->format_type = 'hidden';
+//$form['#groups']['group_tabs']->format_type = 'hidden';
+$form['#groups']['group_target_nb_participants']->format_type = 'hidden';
+$form['#groups']['group_target_nb_samples']->format_type = 'hidden';
 
-	
+
+	 
+$form['body']['#type'] = 'hidden';
+$form['field_access_biosamples']['#type'] = 'hidden';
+$form['field_access_data']['#type'] = 'hidden';
+$form['field_access_other']['#type'] = 'hidden';
+$form['field_access_other_sp']['#type'] = 'hidden';
+$form['field_acroym']['#type'] = 'hidden';
+$form['field_address']['#type'] = 'hidden';
+$form['field_authorising_date']['#type'] = 'hidden';
+$form['field_authorising_date_m']['#type'] = 'hidden';
+$form['field_authorising_person_name']['#type'] = 'hidden';
+$form['field_authorising_person_name_m']['#type'] = 'hidden';
+$form['field_authorization_maelstrom']['#type'] = 'hidden';
+$form['field_authorization_specific']['#type'] = 'hidden';
+$form['field_city']['#type'] = 'hidden';
+$form['field_contact_country']['#type'] = 'hidden';
+$form['field_contact_email']['#type'] = 'hidden';
+$form['field_contact_name']['#type'] = 'hidden';
+$form['field_contacts_ref']['#type'] = 'hidden';
+$form['field_department_unit']['#type'] = 'hidden';
+$form['field_design']['#type'] = 'hidden';
+$form['field_design_other_sp']['#type'] = 'hidden';
+$form['field_documents']['#type'] = 'hidden';
+$form['field_files']['#type'] = 'hidden';
+$form['field_info_design_follow_up']['#type'] = 'hidden';
+$form['field_institution_name']['#type'] = 'hidden';
+$form['field_investigators']['#type'] = 'hidden';
+$form['field_logo']['#type'] = 'hidden';
+$form['field_marker_paper']['#type'] = 'hidden';
+$form['field_no_limits_participants']['#type'] = 'hidden';
+$form['field_no_limits_samples']['#type'] = 'hidden';
+$form['field_postal_code']['#type'] = 'hidden';
+$form['field_pubmedid']['#type'] = 'hidden';
+$form['field_recruitment']['#type'] = 'hidden';
+$form['field_recruitment_other_sp']['#type'] = 'hidden';
+$form['field_recruitment_supp_info']['#type'] = 'hidden';
+$form['field_state']['#type'] = 'hidden';
+$form['field_study_end_year']['#type'] = 'hidden';
+$form['field_study_populations']['#type'] = 'hidden';
+$form['field_study_start_year']['#type'] = 'hidden';
+$form['field_study_study_variable_att']['#type'] = 'hidden';
+$form['field_supp_infos']['#type'] = 'hidden';
+$form['field_target_nb_supp_info']['#type'] = 'hidden';
+$form['field_target_number_biosamples']['#type'] = 'hidden';
+$form['field_target_number_participants']['#type'] = 'hidden';
+$form['field_telephone']['#type'] = 'hidden';
+$form['field_website']['#type'] = 'hidden';
+$form['mica_dataset']['#type'] = 'hidden';
+$form['mica_opal']['#type'] = 'hidden';
+$form['title_field']['#type'] = 'hidden';
+
+
+
+/*	
     // hide investigators field
   $form['field_investigators']['#type'] = 'hidden';
     // hide objectives field
@@ -102,12 +176,7 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
   //move new documents fields to the right place
   
   $form['#group_children']['field_data_dictionaries_code_fil'] = 'group_general_info';
-  $form['field_data_dictionaries_code_fil']['#weight'] = '14';
-
-
-
-
-  
+  $form['field_data_dictionaries_code_fil']['#weight'] = '14'; 
   
 	// hide access tab 
   $form['#groups']['group_access']->format_type = 'hidden';
@@ -121,6 +190,8 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
    $form['field_access_biosamples']['#type'] = 'hidden';    
    $form['field_access_other']['#type'] = 'hidden';   
    $form['field_access_other_sp']['#type'] = 'hidden';      
+
+ */
    
    
    // Tidy up the spacing on the access questions to make it clearer
@@ -141,7 +212,7 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
   //$form['#groups']['group_marker_paper']->format_type = 'fieldset';
   //$form['#groups']['group_marker_paper']->format_settings['formatter'] = 'open';
   
-    // move methods tab next to access
+/*     // move methods tab next to access
    
   $form['#groups']['group_methods']->weight = '7';
   
@@ -188,13 +259,13 @@ function override_study_form_alter(&$form, &$form_state, $form_id) {
   $form['field_recruitment']['#weight'] = '14';
   
   
-  
+  */ 
   //set up dependent fields for study design
 
   //:input[name="field_study_design_ic[und]"]
   
   
-
+/* 
   
 $options = array(
 	'case_control',
@@ -250,7 +321,7 @@ $visible_options = array(
   //set up data validation
   
   //$form['#validate'][] = '_override_validate';
-  
+   */
 //debug($form);
 dpm($form, $name = NULL);
 
@@ -365,7 +436,6 @@ dpm($form, $name = NULL);
 function _double_simple(&$form, $dependee, $dependent, $options, $visible_options) {
 	$lang = $form[$dependee]['#language'];
 	$input = ':input[name="' . $dependee . '[' . $lang . ']"]';
-debug("double_simple");
 	foreach (array_diff($options, $visible_options) as $i => $vocab) {
 	$form[$dependent]['#states']['visible'][$input . ', my-nonsense-dummy-element-' . $i] =
 		array('!value' => $vocab);
