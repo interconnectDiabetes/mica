@@ -11,6 +11,7 @@
  */
 function override_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "field_group" && $api == "field_group") {
+  dpm("I got called");
     return array("version" => "1");
   }
 }

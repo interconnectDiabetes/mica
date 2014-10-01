@@ -11,7 +11,7 @@ function override_field_group_info() {
    $export = array();
   
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = FALSE; 
   $field_group->api_version = 1;
   $field_group->identifier = 'group_gen_info_ic|node|study|form';
   $field_group->group_name = 'group_gen_info_ic';
@@ -44,29 +44,33 @@ function override_field_group_info() {
   $export['group_gen_info_ic|node|study|form'] = $field_group;
 
   $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->disabled = FALSE; 
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_study_ref_paper3|node|study|form';
-  $field_group->group_name = 'group_study_ref_paper3';
+  $field_group->identifier = 'group_study_des_ic|node|study|form';
+  $field_group->group_name = 'group_study_des_ic';
   $field_group->entity_type = 'node';
   $field_group->bundle = 'study';
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_tabs';
   $field_group->data = array(
-    'label' => 'Study Reference Paper',
-    'weight' => '25',
-    'children' => array(),
+    'label' => 'Overall main study design informing selection',
+    'weight' => '1',
+    'children' => array(
+					0 => 'field_study_design_ic',
+					),
     'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
         'description' => '',
-        'classes' => 'group-study-ref-paper3 field-group-fieldset',
+        'classes' => 'group-gen-info-ic field-group-fieldset',
         'required_fields' => 1,
       ),
     ),
   );
-  $export['group_study_ref_paper3|node|study|form'] = $field_group;
+  $export['group_study_des_ic|node|study|form'] = $field_group;
+  
+  dpm($export);
   
   return $export;
 }

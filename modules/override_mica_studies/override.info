@@ -17,7 +17,7 @@ features[ctools][] = field_group:field_group:1
 features[features_api][] = api:2
 features[features_override_items][] = field_instance.node-study-body
 features[features_overrides][] = field_instance.node-study-body.required
-/*features[field_base][] = field_study_design_ic
+/*
 features[field_base][] = field_case_definition
 features[field_base][] = field_control_selection
 features[field_base][] = field_data_dictionaries_codebook
@@ -45,10 +45,11 @@ features[field_base][] = field_refer_paper_ic
 features[field_base][] = field_pubmedid_ic
 features[field_base][] = field_website_ic
 features[field_base][] = field_data_dict_ic
+features[field_base][] = field_study_design_ic
 features[field_group][] = group_gen_info_ic|node|study|form
-features[field_group][] = group_study_ref_paper3|node|study|form
 features[field_group][] = group_test_group|node|study|form
-/*features[field_instance][] = node-study-field_study_design_ic
+features[field_group][] = group_study_des_ic|node|study|form
+/*
 features[field_instance][] = node-study-field_case_definition
 features[field_instance][] = node-study-field_control_selection
 features[field_instance][] = node-study-field_data_dictionaries_codebook
@@ -74,3 +75,4 @@ features[field_instance][] = node-study-field_refer_paper_ic
 features[field_instance][] = node-study-field_pubmedid_ic
 features[field_instance][] = node-study-field_website_ic
 features[field_instance][] = node-study-field_data_dict_ic
+features[field_instance][] = node-study-field_study_design_ic

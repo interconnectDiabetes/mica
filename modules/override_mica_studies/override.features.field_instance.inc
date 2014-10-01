@@ -833,50 +833,12 @@ function override_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-study-field_study_design_ic'
-  $field_instances['node-study-field_study_design_ic'] = array(
-    'bundle' => 'study',
-    'default_value' => array(
-      0 => array(
-        'value' => 'case_control',
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 40,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_study_design_ic',
-    'label' => 'Study design',
-    'required' => TRUE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_buttons',
-      'weight' => 8,
-    ),
-  );
+
 
   */
   
   /*----------------------------------------------*/
-  
+
     // Exported field_instance: 'node-study-title_field_ic'
   $field_instances['node-study-title_field_ic'] = array(
     'bundle' => 'study',
@@ -1194,8 +1156,48 @@ function override_field_default_field_instances() {
     ),
   );  
   
-  
+    // Exported field_instance: 'node-study-field_study_design_ic'
+  $field_instances['node-study-field_study_design_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => array(
+      0 => array(
+        'value' => 'case_control',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 40,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_study_design_ic',
+    'label' => 'Study design',
+    'required' => TRUE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 8,
+    ),
+  );
 
+  
+  
   // Translatables
   // Included for use with string extractors like potx.
   t('Case Definition');

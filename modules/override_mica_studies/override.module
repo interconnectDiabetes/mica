@@ -3,7 +3,7 @@
 
 require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.module');
 
-
+require_once('/etc/mica/sites/all/modules/override_mica_studies/override.features.inc');
 
 
 /**
@@ -63,7 +63,7 @@ $form['#groups']['group_target_nb_samples']->format_type = 'hidden';
 
 
 	 
-$form['body']['#type'] = 'hidden';
+ $form['body']['#type'] = 'hidden';
 $form['field_access_biosamples']['#type'] = 'hidden';
 $form['field_access_data']['#type'] = 'hidden';
 $form['field_access_other']['#type'] = 'hidden';
@@ -111,7 +111,7 @@ $form['field_telephone']['#type'] = 'hidden';
 $form['field_website']['#type'] = 'hidden';
 $form['mica_dataset']['#type'] = 'hidden';
 $form['mica_opal']['#type'] = 'hidden';
-$form['title_field']['#type'] = 'hidden';
+$form['title_field']['#type'] = 'hidden'; 
 
 
 
@@ -322,8 +322,8 @@ $visible_options = array(
   
   //$form['#validate'][] = '_override_validate';
    */
-//debug($form);
-dpm($form, $name = NULL);
+debug($form);
+//dpm($form, $name = NULL);
 
 }
 
@@ -406,7 +406,7 @@ function override_population_form_alter(&$form, &$form_state, $form_id) {
    _mica_add_dependent_field_checked($form, 'field_recruitment_target_ic', 'field_pop_recruitment_other', 'other');
   
    
-dpm($form, $name = NULL);
+//dpm($form, $name = NULL);
 }
 
  function _override_validate($node, $form) {
@@ -428,7 +428,7 @@ if($total != 100){
 
 function override_data_collection_event_form_alter(&$form, &$form_state, $form_id) {
 debug("jsdjksdfjksfd");
-dpm($form, $name = NULL);
+//dpm($form, $name = NULL);
 }
 
 
@@ -503,7 +503,7 @@ function _double_dependent_field_checked(&$form, $dependee1, $dependee2, $depend
 		);
 	}
 
-	dpm(array(
+	/*dpm(array(
       'visible' => array(
         ':input[name="student_type"]' => array(
           array('value' => 'high_school'),
@@ -515,7 +515,7 @@ function _double_dependent_field_checked(&$form, $dependee1, $dependee2, $depend
 		  'visible' => array(
 			$input1 => array($rule1, $rule2)
 		  ),
-		));
+		));*/
 	
   }
 //  else {

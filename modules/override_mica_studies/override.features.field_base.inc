@@ -10,35 +10,7 @@
 function override_field_default_field_bases() {
   $field_bases = array();
 /*
-   // Exported field_base: 'field_study_design_ic'
-  $field_bases['field_study_design_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_study_design_ic',
-    'foreign keys' => array(),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        'case_control' => 'Case-control study',
-        'case_only' => 'Case only study',
-        'clinical_trial' => 'Clinical trial / intervention trial',
-        'cohort_study' => 'Cohort study (including case-control and case-cohort studies)',
-        'cross_sectional' => 'Cross-sectional study',
-        'other' => 'Other',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_text',
-  );
+
   
   // Exported field_base: 'field_case_definition'
   $field_bases['field_case_definition'] = array(
@@ -117,46 +89,6 @@ function override_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_data_dictionaries_codebook'
-  $field_bases['field_data_dictionaries_codebook'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_data_dictionaries_codebook',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'link',
-    'settings' => array(
-      'attributes' => array(
-        'class' => '',
-        'rel' => '',
-        'target' => 'default',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 1,
-      'field_description_infos' => array(
-        'field_description' => 0,
-        'field_description_body' => '',
-        'field_description_label' => '',
-        'field_description_value_type' => 'text',
-      ),
-      'profile2_private' => FALSE,
-      'title' => 'optional',
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
-    ),
-    'translatable' => 0,
-    'type' => 'link_field',
-  );
-
   // Exported field_base: 'field_disease_hist'
   $field_bases['field_disease_hist'] = array(
     'active' => 1,
@@ -192,46 +124,6 @@ function override_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_text',
-  );
-
-  // Exported field_base: 'field_documents_link'
-  $field_bases['field_documents_link'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_documents_link',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'link',
-    'settings' => array(
-      'attributes' => array(
-        'class' => '',
-        'rel' => '',
-        'target' => 'default',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 1,
-      'field_description_infos' => array(
-        'field_description' => 0,
-        'field_description_body' => '',
-        'field_description_label' => '',
-        'field_description_value_type' => 'text',
-      ),
-      'profile2_private' => FALSE,
-      'title' => 'optional',
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
-    ),
-    'translatable' => 0,
-    'type' => 'link_field',
   );
 
   // Exported field_base: 'field_duration_follow'
@@ -435,41 +327,6 @@ function override_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_other_document_files'
-  $field_bases['field_other_document_files'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_other_document_files',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'file',
-    'settings' => array(
-      'display_default' => 1,
-      'display_field' => 1,
-      'profile2_private' => FALSE,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'file',
-  );
-
   // Exported field_base: 'field_participants_from_exist_ic'
   $field_bases['field_participants_from_exist_ic'] = array(
     'active' => 1,
@@ -503,81 +360,6 @@ function override_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_text',
-  );
-
-  // Exported field_base: 'field_questionnaires'
-  $field_bases['field_questionnaires'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_questionnaires',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'link',
-    'settings' => array(
-      'attributes' => array(
-        'class' => '',
-        'rel' => '',
-        'target' => 'default',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 1,
-      'field_description_infos' => array(
-        'field_description' => 0,
-        'field_description_body' => '',
-        'field_description_label' => '',
-        'field_description_value_type' => 'text',
-      ),
-      'profile2_private' => FALSE,
-      'title' => 'optional',
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
-    ),
-    'translatable' => 0,
-    'type' => 'link_field',
-  );
-
-  // Exported field_base: 'field_questionnaires_file'
-  $field_bases['field_questionnaires_file'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_questionnaires_file',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'file',
-    'settings' => array(
-      'display_default' => 1,
-      'display_field' => 1,
-      'profile2_private' => FALSE,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'file',
   );
 
   // Exported field_base: 'field_sources_of_recruitment'
@@ -614,81 +396,6 @@ function override_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_text',
-  );
-
-  // Exported field_base: 'field_standard_operating_pro_fil'
-  $field_bases['field_standard_operating_pro_fil'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_standard_operating_pro_fil',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(
-      'fid' => array(
-        'columns' => array(
-          'fid' => 'fid',
-        ),
-        'table' => 'file_managed',
-      ),
-    ),
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'file',
-    'settings' => array(
-      'display_default' => 1,
-      'display_field' => 1,
-      'profile2_private' => FALSE,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'file',
-  );
-
-  // Exported field_base: 'field_standard_operating_procedu'
-  $field_bases['field_standard_operating_procedu'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_standard_operating_procedu',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'link',
-    'settings' => array(
-      'attributes' => array(
-        'class' => '',
-        'rel' => '',
-        'target' => 'default',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 1,
-      'field_description_infos' => array(
-        'field_description' => 0,
-        'field_description_body' => '',
-        'field_description_label' => '',
-        'field_description_value_type' => 'text',
-      ),
-      'profile2_private' => FALSE,
-      'title' => 'optional',
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
-    ),
-    'translatable' => 0,
-    'type' => 'link_field',
   );
 
   // Exported field_base: 'field_traits'
@@ -728,6 +435,7 @@ function override_field_default_field_bases() {
   ); */
 
   /*-----------------------------------------------------------*/
+  
   
    // Exported field_base: 'title_field_ic'
   $field_bases['title_field_ic'] = array(
@@ -1017,5 +725,35 @@ function override_field_default_field_bases() {
     'type' => 'link_field',
   );  
   
+     // Exported field_base: 'field_study_design_ic'
+  $field_bases['field_study_design_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_study_design_ic',
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+		'cohort_study' => 'Prospective cohort study (including case-control and case-cohort studies)',
+		'clinical_trial' => 'Clinical trial / intervention trial',
+		'cross_sectional' => 'Cross-sectional study',
+        'case_control' => 'Case-control study',
+        'case_only' => 'Case only study',
+        'other' => 'Other, please specify',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+ 
   return $field_bases;
 }
