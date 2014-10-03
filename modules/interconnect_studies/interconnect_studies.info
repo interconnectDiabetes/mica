@@ -1,0 +1,45 @@
+name = interconnect features	
+description = provide features to implement interconnect form
+core = 7.x
+package = Features
+version = 7.x-1.0-beta1
+project = interconnect_studies
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = field_group
+dependencies[] = file
+dependencies[] = link
+dependencies[] = list
+dependencies[] = mica_studies
+dependencies[] = number
+dependencies[] = options
+dependencies[] = references_dialog
+features[ctools][] = field_group:field_group:1
+features[features_api][] = api:2
+features[features_override_items][] = field_instance.node-study-body
+features[features_override_items][] = field_base.field_design
+features[features_override_items][] = field_instance.node-study-field_design
+features[features_override_items][] = field_group.group_marker_paper|node|study|form
+features[features_override_items][] = field_instance.node-study-field_contacts_ref
+features[features_override_items][] = field_instance.node-study-field_marker_paper
+features[features_override_items][] = field_instance.node-study-title_field
+features[features_overrides][] = field_instance.node-study-body.required
+features[features_overrides][] = field_base.field_design.settings|allowed_values|cohort_study
+features[features_overrides][] = field_base.field_design.settings|profile2_private
+features[features_overrides][] = field_base.field_design.cardinality
+features[features_overrides][] = field_instance.node-study-field_design.default_value|0
+features[features_overrides][] = field_group.group_marker_paper|node|study|form.data|label
+features[features_overrides][] = field_instance.node-study-field_contacts_ref.description
+features[features_overrides][] = field_instance.node-study-field_contacts_ref.widget|module
+features[features_overrides][] = field_instance.node-study-field_contacts_ref.widget|settings
+features[features_overrides][] = field_instance.node-study-field_contacts_ref.widget|type
+features[features_overrides][] = field_instance.node-study-field_marker_paper.label
+features[features_overrides][] = field_instance.node-study-title_field.description
+features[field_base][] = field_data_dict_ic
+features[field_instance][] = node-study-field_data_dict_ic
+
+
+
+
+
+

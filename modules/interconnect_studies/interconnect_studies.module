@@ -1,0 +1,517 @@
+<?php
+
+
+require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.module');
+
+require_once('/etc/mica/sites/all/modules/interconnect_studies/interconnect_studies.features.inc');
+
+
+/**
+ * Implements hook_form_alter
+ * To add dependent fields when filling out the form
+ */
+function interconnect_studies_form_alter(&$form, &$form_state, $form_id) {
+
+  	 
+  switch ($form_id) {
+    case 'study_node_form':
+		interconnect_studies_study_form_alter($form, $form_state, $form_id);
+	break;
+    case 'population_node_form':
+      interconnect_studies_population_form_alter($form, $form_state, $form_id);
+    break;
+    case 'data_collection_event_node_form':
+      interconnect_studies_data_collection_event_form_alter($form, $form_state, $form_id);
+    break;
+  }
+
+}
+
+function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
+  
+   
+    $form['#groups']['group_general_info']->parent_name = '';
+    $form['#groups']['group_methods']->parent_name = ''; 
+	$form['#groups']['group_marker_paper']->parent_name = '';
+	
+	unset($form['#group_children']['group_general_info']);
+	unset($form['#group_children']['group_methods']);
+	unset($form['#group_children']['group_marker_paper']);
+			
+	$form['#groups']['group_general_info']->format_settings['formatter'] = 'open';
+	$form['#groups']['group_methods']->format_settings['formatter'] = 'open';
+	$form['#groups']['group_marker_paper']->format_settings['formatter'] = 'open';
+	
+$form['#groups']['group_access']->format_type = 'hidden';
+$form['#groups']['group_authorization_maelstrom']->format_type = 'hidden';
+$form['#groups']['group_authorization_specific']->format_type = 'hidden';
+$form['#groups']['group_authorization']->format_type = 'hidden';
+$form['#groups']['group_datasets']->format_type = 'hidden';
+$form['#groups']['group_documents']->format_type = 'hidden';
+$form['#groups']['group_institution']->format_type = 'hidden';
+//$form['#groups']['group_marker_paper']->format_type = 'hidden';
+$form['#groups']['group_methods']->format_type = 'hidden';
+$form['#groups']['group_nb_participants']->format_type = 'hidden';
+$form['#groups']['group_pop_age']->format_type = 'hidden';
+$form['#groups']['group_study_name']->format_type = 'hidden';
+$form['#groups']['group_study_timeline']->format_type = 'hidden';
+$form['#groups']['group_supp_info']->format_type = 'hidden';
+$form['#groups']['group_target_nb_participants']->format_type = 'hidden';
+$form['#groups']['group_target_nb_samples']->format_type = 'hidden';
+
+
+	 
+$form['body']['#type'] = 'hidden';
+$form['field_access_biosamples']['#type'] = 'hidden';
+$form['field_access_data']['#type'] = 'hidden';
+$form['field_access_other']['#type'] = 'hidden';
+$form['field_access_other_sp']['#type'] = 'hidden';
+$form['field_address']['#type'] = 'hidden';
+$form['field_authorising_date']['#type'] = 'hidden';
+$form['field_authorising_date_m']['#type'] = 'hidden';
+$form['field_authorising_person_name']['#type'] = 'hidden';
+$form['field_authorising_person_name_m']['#type'] = 'hidden';
+$form['field_authorization_maelstrom']['#type'] = 'hidden';
+$form['field_authorization_specific']['#type'] = 'hidden';
+$form['field_city']['#type'] = 'hidden';
+$form['field_contact_country']['#type'] = 'hidden';
+$form['field_contact_email']['#type'] = 'hidden';
+$form['field_contact_name']['#type'] = 'hidden';
+$form['field_department_unit']['#type'] = 'hidden';
+$form['field_documents']['#type'] = 'hidden';
+$form['field_files']['#type'] = 'hidden';
+$form['field_info_design_follow_up']['#type'] = 'hidden';
+$form['field_institution_name']['#type'] = 'hidden';
+$form['field_investigators']['#type'] = 'hidden';
+$form['field_logo']['#type'] = 'hidden';
+$form['field_no_limits_participants']['#type'] = 'hidden';
+$form['field_no_limits_samples']['#type'] = 'hidden';
+$form['field_postal_code']['#type'] = 'hidden';
+$form['field_recruitment']['#type'] = 'hidden';
+$form['field_recruitment_other_sp']['#type'] = 'hidden';
+$form['field_recruitment_supp_info']['#type'] = 'hidden';
+$form['field_state']['#type'] = 'hidden';
+$form['field_study_end_year']['#type'] = 'hidden';
+$form['field_study_start_year']['#type'] = 'hidden';
+$form['field_study_study_variable_att']['#type'] = 'hidden';
+$form['field_supp_infos']['#type'] = 'hidden';
+$form['field_target_nb_supp_info']['#type'] = 'hidden';
+$form['field_target_number_biosamples']['#type'] = 'hidden';
+$form['field_target_number_participants']['#type'] = 'hidden';
+$form['field_telephone']['#type'] = 'hidden';
+$form['mica_dataset']['#type'] = 'hidden';
+$form['mica_opal']['#type'] = 'hidden';
+
+
+
+/*	
+    // hide investigators field
+  $form['field_investigators']['#type'] = 'hidden';
+    // hide objectives field
+  $form['body']['#type'] = 'hidden';
+  
+    // hide old study design field
+  $form['field_design']['#type'] = 'hidden';
+    // hide study design follow up field
+  $form['field_info_design_follow_up']['#type'] = 'hidden';
+  
+    // hide study design supp info field
+  $form['field_recruitment_supp_info']['#type'] = 'hidden';  
+  
+    // hide participants group
+  $form['#groups']['group_nb_participants']->format_type = 'hidden';
+    // hide participants sub group
+  $form['#groups']['group_target_nb_participants']->format_type = 'hidden';
+  
+    // hide participants field
+  $form['field_target_number_participants']['#type'] = 'hidden';
+    // hide participant limit field
+  $form['field_no_limits_participants']['#type'] = 'hidden';
+  
+    // hide samples sub group
+  $form['#groups']['group_target_nb_samples']->format_type = 'hidden';
+  
+    // hide target biosamples field
+  $form['field_target_number_biosamples']['#type'] = 'hidden';
+    // hide biosample limit field
+  $form['field_no_limits_samples']['#type'] = 'hidden';
+    // hide supp info field
+  $form['field_target_nb_supp_info']['#type'] = 'hidden';
+  
+    // hide study timeline group
+  $form['#groups']['group_study_timeline']->format_type = 'hidden';
+     // hide start year field
+  $form['field_study_start_year']['#type'] = 'hidden';
+    // hide end year limit field
+  $form['field_study_end_year']['#type'] = 'hidden';
+
+   //hide authorisation group
+  $form['#groups']['group_authorization']->format_type = 'hidden';
+  $form['#groups']['group_authorization_maelstrom']->format_type = 'hidden';
+  $form['#groups']['group_authorization_specific']->format_type = 'hidden';
+  
+   //hide supplementary information group
+  $form['#groups']['group_supp_info']->format_type = 'hidden';
+  $form['field_supp_infos']['#type'] = 'hidden';
+  
+  //hide logo field and old document files
+  $form['field_logo']['#type'] = 'hidden';
+  $form['field_documents']['#type'] = 'hidden';
+  
+  //hide datasets group
+  $form['#groups']['group_datasets']->format_type = 'hidden';
+  $form['mica_opal']['#type'] = 'hidden';
+  
+  //move new documents fields to the right place
+  
+  $form['#group_children']['field_data_dictionaries_code_fil'] = 'group_general_info';
+  $form['field_data_dictionaries_code_fil']['#weight'] = '14'; 
+  
+	// hide access tab 
+  $form['#groups']['group_access']->format_type = 'hidden';
+ 
+  
+   // Change access tab description
+  // $form['#groups']['group_access']->format_settings['instance_settings']['description'] = 'The InterConnect Registry aims to enable researchers to know what resources are available globally for the study of gene – lifestyle interaction on the risk of diabetes and obesity. We hope studies are willing to consider requests for data, samples or other materials.';
+   
+   // hide access fields
+   $form['field_access_data']['#type'] = 'hidden';   
+   $form['field_access_biosamples']['#type'] = 'hidden';    
+   $form['field_access_other']['#type'] = 'hidden';   
+   $form['field_access_other_sp']['#type'] = 'hidden';      
+
+ */
+   
+   
+   // Tidy up the spacing on the access questions to make it clearer
+   
+/*    $form['field_access_data']['und']['#title'] = '<br>'.$form['field_access_data']['und']['#title'];
+   $form['field_access_biosamples']['und']['#title'] = '<br>'.$form['field_access_biosamples']['und']['#title'];
+   */ 
+   
+ // Change group marker paper text to be study reference (cannot be done as a feature)
+  
+  // $form['field_marker_paper']['und']['0']['value']['#title'] = 'Study reference paper';
+  // $form['#groups']['group_marker_paper']->label = 'Study reference paper';
+  // $form['field_pubmedid']['und']['0']['value']['#description'] = 'If applicable, enter paper’s Pubmed ID. ';
+  
+  // move study ref paper fields into general info
+   
+  $form['#group_children']['group_marker_paper'] = 'group_general_info';
+  $form['#groups']['group_marker_paper']->weight = '5';
+  $form['#groups']['group_marker_paper']->format_type = 'fieldset';
+  $form['#groups']['group_marker_paper']->format_settings['formatter'] = 'open';
+   
+   // move the new study design fields into the right group
+  
+//  array_splice($form['#groups']['group_study_design']->children,0,0, 'field_study_design_ic'); 
+  $form['#group_children']['field_study_design_ic'] = 'group_study_design'; 
+  
+  $form['#group_children']['field_case_definition'] = 'group_study_design';
+  $form['field_case_definition']['#weight'] = '10';
+  
+  $form['#group_children']['field_number_cases'] = 'group_study_design';
+  $form['field_number_cases']['#weight'] = '11';
+  
+  $form['#group_children']['field_control_selection'] = 'group_study_design';
+  $form['field_control_selection']['#weight'] = '12';
+  
+  $form['#group_children']['field_number_controls'] = 'group_study_design';
+  $form['field_number_controls']['#weight'] = '13';
+  
+  $form['#group_children']['field_num_int_group'] = 'group_study_design';
+  $form['field_num_int_group']['#weight'] = '10';
+  
+  $form['#group_children']['field_num_contr_group'] = 'group_study_design';
+  $form['field_num_contr_group']['#weight'] = '11';
+  
+  $form['#group_children']['field_duration_follow'] = 'group_study_design';
+  $form['field_duration_follow']['#weight'] = '12';
+  
+  $form['#group_children']['field_number_of_participants'] = 'group_study_design';
+  $form['field_number_of_participants']['#weight'] = '10';
+  
+  $form['#group_children']['field_endpoints'] = 'group_study_design';
+  $form['field_endpoints']['#weight'] = '13';
+  
+  $form['#group_children']['field_disease_hist'] = 'group_study_design';
+  $form['field_disease_hist']['#weight'] = '11';
+  
+  $form['#group_children']['field_traits'] = 'group_study_design';
+  $form['field_traits']['#weight'] = '12';  
+  
+  
+  
+  $form['#group_children']['field_data_dict_ic'] = 'group_general_info';
+  $form['field_data_dict_ic']['#weight'] = '12';
+
+  $form['field_study_populations']['#type'] = 'container';
+    
+  $form['field_study_populations']['#type'] = 'container';
+  
+  //set up dependent fields for study design
+
+
+ 
+  
+$options = array(
+	'case_control',
+	'case_only',
+	'clinical_trial',
+	'cohort_study',
+	'cross_sectional',
+	'other',
+	'_none'
+	);
+	$form['field_design']['und']['#default_value'] = '_none';
+	
+	// $options = array(
+	// 0 => 'case_control',
+	// 1 => 'case_only',
+	// 2 => 'clinical_trial',
+	// 3 => 'cohort_study',
+	// 4 => 'cross_sectional',
+	// 5 => 'other',
+	// 6 => NULL);
+	
+$visible_options = array(
+		'case_control',
+	'case_only');
+
+  _double_simple($form, 'field_design', 'field_case_definition', $options, $visible_options);
+  _double_simple($form, 'field_design', 'field_number_cases', $options, $visible_options);
+  _mica_add_dependent_field_checked($form, 'field_design', 'field_control_selection', 'case_control');
+  _mica_add_dependent_field_checked($form, 'field_design', 'field_number_controls', 'case_control');
+ 
+  _mica_add_dependent_field_checked($form, 'field_design', 'field_num_int_group', 'clinical_trial');  
+  _mica_add_dependent_field_checked($form, 'field_design', 'field_num_contr_group', 'clinical_trial');
+  
+  $visible_options = array(
+		'clinical_trial',
+	'cohort_study');
+	
+   _double_simple($form, 'field_design', 'field_duration_follow', $options, $visible_options);
+   _double_simple($form, 'field_design', 'field_endpoints', $options, $visible_options);
+
+    $visible_options = array(
+		'cohort_study',
+	'cross_sectional');
+  _double_simple($form, 'field_design', 'field_number_of_participants', $options, $visible_options);
+
+  _mica_add_dependent_field_checked($form, 'field_design', 'field_disease_hist', 'cross_sectional');
+  _mica_add_dependent_field_checked($form, 'field_design', 'field_traits', 'cross_sectional');
+  
+  _mica_add_dependent_field_checked($form, 'field_design', 'field_design_other_sp', 'other');
+  
+  //set up data validation
+  
+  //$form['#validate'][] = '_interconnect_studies_validate';
+   
+     $form['actions']['_mica_studies_save_add_population_submit'] = array(
+    '#access' => TRUE,
+    '#value' => t('Save & Add Sampling Frame'),
+    '#weight' => 6,
+    '#type' => 'submit',
+    '#submit' => array('node_form_submit', '_mica_studies_save_add_population_submit'),
+  );
+   
+   
+dpm($form, $name = NULL);
+
+}
+
+function interconnect_studies_population_form_alter(&$form, &$form_state, $form_id) {
+	
+	// hide old recruitment field
+  $form['field_pop_src_recruit']['#type'] = 'hidden';
+	
+	// use new recruitment fields
+	
+  $form['#group_children']['field_sources_of_recruitment'] = 'group_pop_recruitment_procedures';
+  $form['field_sources_of_recruitment']['#weight'] = '10';
+  
+  $form['#group_children']['field_participants_from_existing'] = 'group_pop_recruitment_procedures';
+  $form['field_participants_from_existing']['#weight'] = '11';
+  
+   $form['field_pop_specific_pop']['#weight'] = '10'; 
+
+   // hide Supplementary information about recruitment procedures 
+   $form['field_pop_recruit_supp_info']['#type'] = 'hidden';
+   
+	//hide general population recruitment field and supp info
+	
+	$form['field_pop_general_pop_recruit']['#type'] = 'hidden';
+	$form['field_recruitment_supp_info']['#type'] = 'hidden';
+
+ 
+   	//hide territory or city of residence field
+	
+	$form['field_pop_territory']['#type'] = 'hidden';
+   	
+	//hide old pregnancy field
+	$form['field_pop_select_criteria']['#type'] = 'hidden';	
+	
+	// add pregnant women field to selection criteria
+
+	$form['#group_children']['field_pregnancy'] = 'group_pop_selection_criteria';
+    $form['field_pregnancy']['#weight'] = '6';
+
+	//hide health status field
+	$form['field_pop_health_status']['#type'] = 'hidden';		
+
+	//hide recruitment procedure supplementary info field
+	$form['field_pop_partcipant_sel_supp_in']['#type'] = 'hidden';
+   
+  // move ic recruitment target fields to general info group
+  
+    $form['#group_children']['field_recruitment_target_ic'] = 'group_general_info';
+	$form['field_recruitment_target_ic']['#weight'] = '4';
+	$form['#group_children']['field_other_recruitment_targ_ic'] = 'group_general_info';
+	$form['field_other_recruitment_targ_ic']['#weight'] = '5';
+	
+	//move group_pop_selection_criteria to 2nd position
+	
+	$form['#groups']['group_pop_selection_criteria']->weight = '1';
+	
+	//ancestries
+	
+	$form['#groups']['group_ancestries']->parent_name = 'group_pop_selection_criteria';
+	$form['#group_children']['group_ancestries'] = 'group_pop_selection_criteria';
+	
+	//_dependent_value($form, 'field_test_field', 'field_other_ancestry_spec', 'specific_population');
+
+	//_dependent_value($form, 'field_test_field', 'field_dep_field');
+	
+	$form['field_other_ancestry_spec']['#states'] = array(
+      'visible' => array(
+        ':input[name="field_other_ancestry[und][0][value]"]' => array('filled' => TRUE),
+      ),
+    );
+	
+	// dependent fields
+	
+  _mica_add_dependent_field_checked($form, 'field_sources_of_recruitment', 'field_pop_specific_pop', 'specific_population');
+	
+  _mica_add_dependent_field_checked($form, 'field_participants_from_existing', 'field_pop_exist_study_part', 'PartEx');
+
+   _mica_add_dependent_field_checked($form, 'field_recruitment_target_ic', 'field_other_recruitment_targ_ic', 'other');
+
+   _mica_add_dependent_field_checked($form, 'field_recruitment_target_ic', 'field_pop_recruitment_other', 'other');
+  
+   
+//dpm($form, $name = NULL);
+}
+
+ function _interconnect_studies_validate($node, $form) {
+
+  //dpm($node, $name = NULL);
+
+ debug($node['field_african_african_american_b']['und']['0']['value']['#value']); 
+
+ $total = $node['field_african_african_american_b']['und']['0']['value']['#value'] + $node['field_caucasian_european_white']['und']['0']['value']['#value']
+			+ $node['field_asian_native_american']['und']['0']['value']['#value'] + $node['field_other_ancestry']['und']['0']['value']['#value'];
+ debug($total);
+
+if($total != 100){
+    form_set_error('title', 'The ancestries must sum to 100% ');
+    
+}
+
+}
+
+function interconnect_studies_data_collection_event_form_alter(&$form, &$form_state, $form_id) {
+debug("jsdjksdfjksfd");
+//dpm($form, $name = NULL);
+}
+
+
+
+function _double_simple(&$form, $dependee, $dependent, $options, $visible_options) {
+	$lang = $form[$dependee]['#language'];
+	$input = ':input[name="' . $dependee . '[' . $lang . ']"]';
+	foreach (array_diff($options, $visible_options) as $i => $vocab) {
+	$form[$dependent]['#states']['visible'][$input . ', my-nonsense-dummy-element-' . $i] =
+		array('!value' => $vocab);
+
+		}
+}
+
+function _dependent_value(&$form, $dependee, $dependent) {
+	$lang = $form[$dependee]['#language'];
+	$input = ':input[name="' . $dependee . '[' . $lang . ']"]';
+
+
+	$form[$dependent]['#states'] = array(
+		'visible' => array(
+			$input => array('filled' => TRUE)
+			)
+		);
+
+}
+
+
+
+function _double_dependent_field_checked(&$form, $dependee1, $dependee2, $dependent, $key_selected1, $key_selected2) {
+ if (array_key_exists($dependee1, $form) && array_key_exists($dependent, $form) && array_key_exists($dependee2, $form)) {
+	$lang = $form[$dependee1]['#language'];
+    $type = $form[$dependee1][$lang]['#type'];
+    $input1 = ':input[name="' . $dependee1 . '[' . $lang . ']';
+    $rule1 = array();
+    if ($type != 'radios') {
+      $input1 = $input1 . '[' . $key_selected1 . ']';
+      $rule1['checked'] = TRUE;
+    }
+    else {
+      $rule1['value'] = $key_selected1;
+    }
+
+    $lang = $form[$dependee2]['#language'];
+    $type = $form[$dependee2][$lang]['#type'];
+    $input2 = ':input[name="' . $dependee2 . '[' . $lang . ']';
+    $rule2 = array();
+    if ($type != 'radios') {
+      $input2 = $input2 . '[' . $key_selected2 . ']';
+      $rule2['checked'] = TRUE;
+    }
+    else {
+      $rule2['value'] = $key_selected2;
+    }
+
+    $input1 = $input1 . '"]';
+    $input2 = $input2 . '"]';
+	
+	if ($dependee1 == $dependee2){
+		$form[$dependent]['#states'] = array(
+		'visible' => array(
+        $input1 => array($rule1, $rule2)
+		  ),
+		);
+	}
+	else {
+		$form[$dependent]['#states'] = array(
+		  'visible' => array(
+			$input1 => $rule1,
+			$input2 => $rule2,
+		  ),
+		);
+	}
+
+	/*dpm(array(
+      'visible' => array(
+        ':input[name="student_type"]' => array(
+          array('value' => 'high_school'),
+          array('value' => 'undergraduate'),
+        ),
+      ),
+    ));
+	dpm(array(
+		  'visible' => array(
+			$input1 => array($rule1, $rule2)
+		  ),
+		));*/
+	
+  }
+//  else {
+//    debug('dependee "' . $dependee1 . '" or dependent "' . $dependent . '"not found');
+//  }
+}

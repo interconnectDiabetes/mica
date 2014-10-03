@@ -1,4 +1,4 @@
-y<?php
+<?php
 /**
  * @file
  * override.field_group.inc
