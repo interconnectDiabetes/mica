@@ -26,7 +26,7 @@ features[features_override_items][] = field_instance.node-study-title_field
 features[features_overrides][] = field_instance.node-study-body.required
 features[features_overrides][] = field_base.field_design.settings|allowed_values|cohort_study
 features[features_overrides][] = field_base.field_design.settings|profile2_private
-features[features_overrides][] = field_base.field_design.cardinality
+
 features[features_overrides][] = field_instance.node-study-field_design.default_value|0
 features[features_overrides][] = field_group.group_marker_paper|node|study|form.data|label
 features[features_overrides][] = field_instance.node-study-field_contacts_ref.description

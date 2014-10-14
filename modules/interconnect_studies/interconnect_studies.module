@@ -29,6 +29,65 @@ function interconnect_studies_form_alter(&$form, &$form_state, $form_id) {
 
 function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
   
+    //$form['#validate'][] = '_interconnect_studies_validate';
+   
+     $form['actions']['_mica_studies_save_add_population_submit'] = array(
+    '#access' => TRUE,
+    '#value' => t('Save & Add Sampling Frame'),
+    '#weight' => 6,
+    '#type' => 'submit',
+    '#submit' => array('node_form_submit', '_mica_studies_save_add_population_submit'),
+  );
+  
+    $form['field_custom'] = array(
+	'#title' => t('the first question'),
+    '#type' => 'radios',
+	'#options' => array('case_only' => 'case_only', 'case_control' => 'case_control',
+						'clinical_trial' => 'clinical_trial', 'cohort_study' => 'cohort_study'),
+	'#attributes' => array(
+		'class' => array(
+				'field-type-list-text',
+				'field-name-field-design',
+				'field-widget-options-buttons',
+		  )
+		),
+	'#weight' => -1000,
+	'#tree' => TRUE,
+	'#access' => TRUE,
+	
+  );
+  
+	function interconnect_studies_node_insert($node)
+{
+dpm($node);
+  db_query(
+    'INSERT INTO field_revision_field_design (entity_type, bundle, deleted, entity_id,
+	revision_id, language, delta, field_design_value) VALUES (:entity_type, :bundle, :deleted,
+	  :entity_id, :revision_id, :language, :delta, :field_design_value)',
+    array(
+      ':entity_type' => 'node',
+	  ':bundle' => $node->type,
+	  ':deleted' => 0,
+	  ':entity_id' => $node->nid,
+	  ':revision_id' => $node->vid,
+	  ':language' => $node->language,
+	  ':delta' => 0,
+      ':field_design_value' => $node->field_custom,
+    )
+  );
+}
+  
+  function interconnect_studies_node_update($node)
+{
+  db_query(
+    'UPDATE field_design SET value = :value WHERE nid = :nid',
+    array(
+      ':value' => $node->field_custom,
+      ':nid' => $node->nid,
+    )
+  );
+}
+  
    
     $form['#groups']['group_general_info']->parent_name = '';
     $form['#groups']['group_methods']->parent_name = ''; 
@@ -245,9 +304,8 @@ $form['mica_opal']['#type'] = 'hidden';
   $form['#group_children']['field_data_dict_ic'] = 'group_general_info';
   $form['field_data_dict_ic']['#weight'] = '12';
 
-  $form['field_study_populations']['#type'] = 'container';
+//  $form['field_study_populations']['#type'] = 'container';
     
-  $form['field_study_populations']['#type'] = 'container';
   
   //set up dependent fields for study design
 
@@ -305,15 +363,7 @@ $visible_options = array(
   
   //set up data validation
   
-  //$form['#validate'][] = '_interconnect_studies_validate';
-   
-     $form['actions']['_mica_studies_save_add_population_submit'] = array(
-    '#access' => TRUE,
-    '#value' => t('Save & Add Sampling Frame'),
-    '#weight' => 6,
-    '#type' => 'submit',
-    '#submit' => array('node_form_submit', '_mica_studies_save_add_population_submit'),
-  );
+
    
    
 dpm($form, $name = NULL);
@@ -450,68 +500,170 @@ function _dependent_value(&$form, $dependee, $dependent) {
 }
 
 
-
-function _double_dependent_field_checked(&$form, $dependee1, $dependee2, $dependent, $key_selected1, $key_selected2) {
- if (array_key_exists($dependee1, $form) && array_key_exists($dependent, $form) && array_key_exists($dependee2, $form)) {
-	$lang = $form[$dependee1]['#language'];
-    $type = $form[$dependee1][$lang]['#type'];
-    $input1 = ':input[name="' . $dependee1 . '[' . $lang . ']';
-    $rule1 = array();
-    if ($type != 'radios') {
-      $input1 = $input1 . '[' . $key_selected1 . ']';
-      $rule1['checked'] = TRUE;
-    }
-    else {
-      $rule1['value'] = $key_selected1;
-    }
-
-    $lang = $form[$dependee2]['#language'];
-    $type = $form[$dependee2][$lang]['#type'];
-    $input2 = ':input[name="' . $dependee2 . '[' . $lang . ']';
-    $rule2 = array();
-    if ($type != 'radios') {
-      $input2 = $input2 . '[' . $key_selected2 . ']';
-      $rule2['checked'] = TRUE;
-    }
-    else {
-      $rule2['value'] = $key_selected2;
-    }
-
-    $input1 = $input1 . '"]';
-    $input2 = $input2 . '"]';
-	
-	if ($dependee1 == $dependee2){
-		$form[$dependent]['#states'] = array(
-		'visible' => array(
-        $input1 => array($rule1, $rule2)
-		  ),
-		);
-	}
-	else {
-		$form[$dependent]['#states'] = array(
-		  'visible' => array(
-			$input1 => $rule1,
-			$input2 => $rule2,
-		  ),
-		);
-	}
-
-	/*dpm(array(
-      'visible' => array(
-        ':input[name="student_type"]' => array(
-          array('value' => 'high_school'),
-          array('value' => 'undergraduate'),
-        ),
-      ),
-    ));
-	dpm(array(
-		  'visible' => array(
-			$input1 => array($rule1, $rule2)
-		  ),
-		));*/
-	
-  }
-//  else {
-//    debug('dependee "' . $dependee1 . '" or dependent "' . $dependent . '"not found');
-//  }
+/**
+ * Implements hook_block_info().
+ */
+function interconnect_studies_block_info() {
+  $pages = "<?php if(arg(0) == 'node' && is_numeric(arg(1)) && ((arg(2) == ''|| arg(2) == 'view' || arg(2) == 'draft'))) return TRUE; ?>";
+  return array(
+    // 'study-general-info' => array(
+      // 'info' => t('Study General Information'),
+      // 'weight' => '10',
+      // 'status' => TRUE,
+      // 'region' => 'content',
+      // 'visibility' => BLOCK_VISIBILITY_PHP,
+      // 'pages' => $pages,
+      // 'cache' => DRUPAL_CACHE_PER_PAGE,
+    // ),
+    'study-general-design' => array(
+      'info' => t('Study General Design'),
+      'weight' => '20',
+      'status' => TRUE,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_PHP,
+      'pages' => $pages,
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
+    // 'study-marker-paper' => array(
+      // 'info' => t('Study Marker Paper'),
+      // 'weight' => '40',
+      // 'status' => TRUE,
+      // 'region' => 'content',
+      // 'visibility' => BLOCK_VISIBILITY_PHP,
+      // 'pages' => $pages,
+      // 'cache' => DRUPAL_CACHE_PER_PAGE,
+    // ),
+    // 'study-populations' => array(
+      // 'info' => t('Study Populations'),
+      // 'weight' => '80',
+      // 'status' => TRUE,
+      // 'region' => 'content',
+      // 'visibility' => BLOCK_VISIBILITY_PHP,
+      // 'pages' => $pages,
+      // 'cache' => DRUPAL_CACHE_PER_PAGE,
+    // ),
+    // 'study-datasets' => array(
+      // 'info' => t('Study Datasets'),
+      // 'weight' => '90',
+      // 'status' => TRUE,
+      // 'region' => 'content',
+      // 'visibility' => BLOCK_VISIBILITY_PHP,
+      // 'pages' => $pages,
+      // 'cache' => DRUPAL_CACHE_PER_PAGE,
+    // ),
+//    'study-menu' => array(
+//      'info' => t('Study Menu'),
+//      'weight' => '10',
+//      'status' => TRUE,
+//      'region' => 'sidebar_second',
+//      'visibility' => BLOCK_VISIBILITY_PHP,
+//      'pages' => $pages,
+//      'cache' => DRUPAL_CACHE_PER_PAGE,
+//    ),
+  );
 }
+
+
+/**
+ * Implements hook_block_view().
+ */
+function interconnect_studies_block_view($delta = '') {
+  module_load_include('inc', 'mica_studies', 'mica_studies.blocks');
+  $study = menu_get_object();
+
+  $show_draft = (strpos(current_path(), '/draft') > 0 || $study->status == NODE_NOT_PUBLISHED);
+  if ($show_draft) {
+    $study = workbench_moderation_node_current_load($study);
+  }
+
+  if (empty($study)) {
+    return NULL;
+  }
+  switch ($delta) {
+    case 'study-general-info':
+      return _mica_studies_block_study_general_info($study);
+    case 'study-general-design':
+      //module_load_include('inc', 'mica_studies', 'mica_studies.blocks.general_design');
+      return _interconnect_studies_block_study_general_design($study);
+    case 'study-access':
+      return _mica_studies_block_study_access($study);
+    case 'study-marker-paper':
+      return _mica_studies_block_study_marker_paper($study);
+    case 'study-documents':
+      return _mica_studies_block_study_documents($study);
+    case 'study-supp-infos':
+      return _mica_studies_block_study_supp_infos($study);
+    case 'study-populations':
+      return _mica_studies_block_study_populations($study, $show_draft);
+    case 'study-timeline':
+      module_load_include('inc', 'mica_studies', 'mica_studies.blocks.timeline');
+      return _mica_studies_block_study_timeline($study, $show_draft);
+    case 'study-datasets':
+      return _mica_studies_block_study_datasets($study);
+    case 'study-authorization':
+      module_load_include('inc', 'mica_studies', 'mica_studies.blocks.authorization');
+      return _mica_studies_block_study_authorization($study);
+//    case 'study-menu':
+//      module_load_include('inc', 'mica_studies', 'mica_studies.blocks.menu');
+//      return _mica_studies_block_study_menu($study);
+    default:
+      return NULL;
+  }
+}
+
+function _interconnect_studies_block_study_general_design($study) {
+  // $study can be the study nid
+  if (is_numeric($study)) {
+    $study = node_load($study);
+  }
+
+  $weight = 0;
+
+  $wrapper = entity_metadata_wrapper('node', $study);
+  dpm($wrapper->value());
+  $content = array();
+  $content[] = _interconnect_studies_block_study_general_design_field_design($wrapper, ++$weight);
+  $content[] = field_view_field('node', $study, 'field_info_design_follow_up', array(
+    'label' => 'inline',
+    'weight' => ++$weight
+  ));
+  //$content[] = _mica_studies_block_study_general_design_field_recruitment($wrapper, ++$weight);
+
+  //$content[] = _mica_studies_block_study_general_design_field_nb_participants($wrapper, ++$weight);
+  //$content[] = _mica_studies_block_study_general_design_field_nb_samples($wrapper, ++$weight);
+  $content[] = field_view_field('node', $study, 'field_target_nb_supp_info', array(
+    'label' => 'inline',
+    'weight' => ++$weight,
+    'type' => module_exists('i18n') ? 'i18n_text' : 'text'
+  ));
+
+  $content[] = field_view_field('node', $study, 'field_recruitment_supp_info', array(
+    'label' => 'inline',
+    'weight' => ++$weight,
+    'type' => module_exists('i18n') ? 'i18n_text_log' : 'text_long',
+
+  ));
+  return array(
+    'subject' => t('General Design') . '<a name="general-design"> </a>',
+    'content' => array_filter($content),
+  );
+}
+
+function _interconnect_studies_block_study_general_design_field_design($study_wrapper, $weight) {
+  $field_view = field_view_field('node', $study_wrapper->value(), 'field_design', array(
+    'label' => 'inline',
+    'weight' => $weight,
+    'type' => module_exists('i18n') ? 'i18n_list_default' : 'list_default',
+  ));
+  $design = $study_wrapper->field_design->value();
+dpm($design);
+  // $other_sp = $study_wrapper->field_design_other_sp->value();
+  // if (in_array('other', $design) && !empty($other_sp)) {
+    // $design_other_sp_view = field_view_field('node', $study_wrapper->value(), 'field_design_other_sp');
+    // $label = '<span class="other-sub-title">' . $field_view[count($design) - 1]['#markup'] . ': </span>';
+    // $field_view[count($design) - 1]['#markup'] = $label . '<span class="other-sub-value">' . $design_other_sp_view[0]['#markup'] . '</span>';
+  // }
+  return $field_view;
+}
+
+

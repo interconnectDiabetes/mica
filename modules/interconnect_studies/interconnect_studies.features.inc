@@ -19,10 +19,10 @@ function interconnect_studies_ctools_plugin_api($module = NULL, $api = NULL) {
  */
 function interconnect_studies_field_default_field_bases_alter(&$data) {
   if (isset($data['field_design'])) {
-  dpm("I should be run");
+
     $data['field_design']['settings']['allowed_values']['cohort_study'] = 'Prospective cohort study'; /* WAS: 'Cohort study' */
     $data['field_design']['settings']['profile2_private'] = FALSE; /* WAS: '' */
-	$data['field_design']['cardinality'] = 1; /* WAS: -1 */
+	//$data['field_design']['cardinality'] = 1; /* WAS: -1 */
   }
   
 }
@@ -75,7 +75,6 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
  */
 function interconnect_studies_field_group_info_alter(&$data) {
   if (isset($data['group_marker_paper|node|study|form'])) {
-  dpm("I should be called to change the marker paper");
     $data['group_marker_paper|node|study|form']->data['label'] = 'Study Reference Paper'; /* WAS: 'Marker paper' */
   }
 }
