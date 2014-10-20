@@ -20,23 +20,34 @@ features[features_override_items][] = field_instance.node-study-body
 features[features_override_items][] = field_base.field_design
 features[features_override_items][] = field_instance.node-study-field_design
 features[features_override_items][] = field_group.group_marker_paper|node|study|form
+features[features_override_items][] = field_group.group_study_design|node|study|form
 features[features_override_items][] = field_instance.node-study-field_contacts_ref
 features[features_override_items][] = field_instance.node-study-field_marker_paper
 features[features_override_items][] = field_instance.node-study-title_field
+features[features_override_items][] = field_instance.node-study-field_acroym
+features[features_override_items][] = field_instance.node-study-field_pubmedid
+features[features_override_items][] = field_instance.node-study-field_website
+
 features[features_overrides][] = field_instance.node-study-body.required
 features[features_overrides][] = field_base.field_design.settings|allowed_values|cohort_study
 features[features_overrides][] = field_base.field_design.settings|profile2_private
-
 features[features_overrides][] = field_instance.node-study-field_design.default_value|0
 features[features_overrides][] = field_group.group_marker_paper|node|study|form.data|label
+features[features_overrides][] = field_group.group_study_design|node|study|form.data|label
 features[features_overrides][] = field_instance.node-study-field_contacts_ref.description
-features[features_overrides][] = field_instance.node-study-field_contacts_ref.widget|module
-features[features_overrides][] = field_instance.node-study-field_contacts_ref.widget|settings
-features[features_overrides][] = field_instance.node-study-field_contacts_ref.widget|type
+features[features_overrides][] = field_instance.node-study-field_contacts_ref.label
 features[features_overrides][] = field_instance.node-study-field_marker_paper.label
+features[features_overrides][] = field_instance.node-study-field_marker_paper.description
 features[features_overrides][] = field_instance.node-study-title_field.description
+features[features_overrides][] = field_instance.node-study-field_acroym.description
+features[features_overrides][] = field_instance.node-study-field_pubmedid.description
+features[features_overrides][] = field_instance.node-study-field_website.description
 
 features[field_group][] = group_ethnic_race_ic|node|study|form
+features[field_group][] = group_pop_his_lat_ic|node|study|form
+features[field_group][] = group_pop_race_ic|node|study|form
+features[field_group][] = group_pop_particip_char_ic|node|study|form
+features[field_group][] = group_pop_recruitment_target_ic|node|study|form
 
 features[field_base][] = field_b_line_rec_end_ic
 features[field_base][] = field_b_line_rec_start_ic

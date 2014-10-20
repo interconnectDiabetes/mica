@@ -226,81 +226,79 @@ dpm($form, $name = NULL);
 
 function interconnect_studies_population_form_alter(&$form, &$form_state, $form_id) {
 	
-	// hide old recruitment field
-  $form['field_pop_src_recruit']['#type'] = 'hidden';
-	
-	// use new recruitment fields
-	
-  $form['#group_children']['field_sources_of_recruitment'] = 'group_pop_recruitment_procedures';
-  $form['field_sources_of_recruitment']['#weight'] = '10';
-  
-  $form['#group_children']['field_participants_from_existing'] = 'group_pop_recruitment_procedures';
-  $form['field_participants_from_existing']['#weight'] = '11';
-  
-   $form['field_pop_specific_pop']['#weight'] = '10'; 
-
-   // hide Supplementary information about recruitment procedures 
-   $form['field_pop_recruit_supp_info']['#type'] = 'hidden';
-   
-	//hide general population recruitment field and supp info
-	
+	// hide old fields
+	$form['body']['#type'] = 'hidden';
+	$form['field_pop_dce']['#type'] = 'hidden';
+	$form['field_pop_ethnic_origin']['#type'] = 'hidden';
+	$form['field_pop_exist_study_part']['#type'] = 'hidden';
+	$form['field_pop_gender']['#type'] = 'hidden';
 	$form['field_pop_general_pop_recruit']['#type'] = 'hidden';
-	$form['field_recruitment_supp_info']['#type'] = 'hidden';
-
- 
-   	//hide territory or city of residence field
-	
-	$form['field_pop_territory']['#type'] = 'hidden';
-   	
-	//hide old pregnancy field
-	$form['field_pop_select_criteria']['#type'] = 'hidden';	
-	
-	// add pregnant women field to selection criteria
-
-	$form['#group_children']['field_pregnancy'] = 'group_pop_selection_criteria';
-    $form['field_pregnancy']['#weight'] = '6';
-
-	//hide health status field
-	$form['field_pop_health_status']['#type'] = 'hidden';		
-
-	//hide recruitment procedure supplementary info field
+	$form['field_pop_health_status']['#type'] = 'hidden';
+	$form['field_pop_no_lim_participants_s']['#type'] = 'hidden';
+	$form['field_pop_no_limits_participants']['#type'] = 'hidden';
 	$form['field_pop_partcipant_sel_supp_in']['#type'] = 'hidden';
-   
-  // move ic recruitment target fields to general info group
-  
-    $form['#group_children']['field_recruitment_target_ic'] = 'group_general_info';
-	$form['field_recruitment_target_ic']['#weight'] = '4';
-	$form['#group_children']['field_other_recruitment_targ_ic'] = 'group_general_info';
-	$form['field_other_recruitment_targ_ic']['#weight'] = '5';
-	
-	//move group_pop_selection_criteria to 2nd position
-	
-	$form['#groups']['group_pop_selection_criteria']->weight = '1';
-	
-	//ancestries
-	
-	$form['#groups']['group_ancestries']->parent_name = 'group_pop_selection_criteria';
-	$form['#group_children']['group_ancestries'] = 'group_pop_selection_criteria';
-	
-	
-	$form['field_other_ancestry_spec']['#states'] = array(
-      'visible' => array(
-        ':input[name="field_other_ancestry[und][0][value]"]' => array('filled' => TRUE),
-      ),
-    );
-	
-	// dependent fields
-	
-  _mica_add_dependent_field_checked($form, 'field_sources_of_recruitment', 'field_pop_specific_pop', 'specific_population');
-	
-  _mica_add_dependent_field_checked($form, 'field_participants_from_existing', 'field_pop_exist_study_part', 'PartEx');
+	$form['field_pop_participants_nb']['#type'] = 'hidden';
+	$form['field_pop_participants_nb_s']['#type'] = 'hidden';
+	$form['field_pop_participants_nb_supp_i']['#type'] = 'hidden';
+	$form['field_pop_recruit_supp_info']['#type'] = 'hidden';
+	$form['field_pop_recruitment_other']['#type'] = 'hidden';
+	$form['field_pop_select_criteria']['#type'] = 'hidden';
+	$form['field_pop_selection_others_sp']['#type'] = 'hidden';
+	$form['field_pop_specific_pop']['#type'] = 'hidden';
+	$form['field_pop_specific_pop_other_sp']['#type'] = 'hidden';
+	$form['field_pop_src_recruit']['#type'] = 'hidden';
+	$form['field_pop_study']['#type'] = 'hidden';
+	$form['field_pop_supp_infos']['#type'] = 'hidden';
+	$form['field_pop_territory']['#type'] = 'hidden';
 
-   _mica_add_dependent_field_checked($form, 'field_recruitment_target_ic', 'field_other_recruitment_targ_ic', 'other');
+	//hide groups
+	
+	$form['#groups']['group_general_info']->format_type = 'hidden';
+	$form['#groups']['group_pop_age']->format_type = 'hidden';
+	$form['#groups']['group_pop_countries']->format_type = 'hidden';
+	$form['#groups']['group_pop_participants_number']->format_type = 'hidden';
+	//$form['#groups']['group_pop_recruitment_procedures']->format_type = 'hidden';
+	$form['#groups']['group_pop_selection_criteria']->format_type = 'hidden';
+	$form['#groups']['group_pop_supp_info']->format_type = 'hidden';	
 
-   _mica_add_dependent_field_checked($form, 'field_recruitment_target_ic', 'field_pop_recruitment_other', 'other');
-  
+	
+	//move new fields to recruitment procedure group
+	
+	$form['#group_children']['field_pop_recruitment_proc_ic'] = 'group_pop_recruitment_procedures';
+	$form['field_pop_recruitment_proc_ic']['#weight'] = '10';
+
+	$form['#group_children']['field_pop_rec_proc_select_ic'] = 'group_pop_recruitment_procedures';
+	$form['field_pop_rec_proc_select_ic']['#weight'] = '11';
+	
+	$form['#group_children']['field_pop_rec_proc_locality_ic'] = 'group_pop_recruitment_procedures';
+	$form['field_pop_rec_proc_locality_ic']['#weight'] = '12';
+	
+	$form['#group_children']['field_pop_rec_proc_occup_ic'] = 'group_pop_recruitment_procedures';
+	$form['field_pop_rec_proc_occup_ic']['#weight'] = '13';
+
+	$form['#group_children']['field_pop_rec_proc_gender_ic'] = 'group_pop_recruitment_procedures';
+	$form['field_pop_rec_proc_gender_ic']['#weight'] = '14';
+
+	$form['#group_children']['field_pop_rec_proc_other_ic'] = 'group_pop_recruitment_procedures';
+	$form['field_pop_rec_proc_other_ic']['#weight'] = '15';
+
+	_mica_add_dependent_field_checked($form, 'field_pop_recruitment_proc_ic', 'field_pop_rec_proc_select_ic',  'sel');
+	_mica_add_dependent_field_checked($form, 'field_pop_rec_proc_select_ic', 'field_pop_rec_proc_locality_ic', 'loc');
+	_mica_add_dependent_field_checked($form, 'field_pop_rec_proc_select_ic', 'field_pop_rec_proc_occup_ic', 'occ');
+	_mica_add_dependent_field_checked($form, 'field_pop_rec_proc_select_ic', 'field_pop_rec_proc_gender_ic', 'gen');	
+	_mica_add_dependent_field_checked($form, 'field_pop_rec_proc_select_ic', 'field_pop_rec_proc_other_ic', 'other');
+
+	_mica_add_dependent_field_checked($form, 'field_pop_rec_target_ic', 'field_pop_rec_target_other_ic', 'other');	
+
+     $form['actions']['_mica_studies_save_add_dce_submit'] = array(
+    '#access' => TRUE,
+    '#value' => t('Save & Add Sampling Frame'),
+    '#weight' => 6,
+    '#type' => 'hidden',
+    '#submit' => array('node_form_submit', '_mica_studies_save_add_population_submit'),
+  );	
    
-//dpm($form, $name = NULL);
+dpm($form, $name = NULL);
 }
 
  function _interconnect_studies_validate($node, $form) {
