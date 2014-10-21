@@ -106,7 +106,7 @@ function interconnect_studies_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_pop_recruitment_target_ic|node|study|form';
+  $field_group->identifier = 'group_pop_recruitment_target_ic|node|population|form';
   $field_group->group_name = 'group_pop_recruitment_target_ic';
   $field_group->entity_type = 'node';
   $field_group->bundle = 'population';
@@ -129,12 +129,12 @@ function interconnect_studies_field_group_info() {
       ),
     ),
   );
-  $export['group_pop_recruitment_target_ic|node|study|form'] = $field_group;  
+  $export['group_pop_recruitment_target_ic|node|population|form'] = $field_group;  
   
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_pop_particip_char_ic|node|study|form';
+  $field_group->identifier = 'group_pop_particip_char_ic|node|population|form';
   $field_group->group_name = 'group_pop_particip_char_ic';
   $field_group->entity_type = 'node';
   $field_group->bundle = 'population';
@@ -158,7 +158,39 @@ function interconnect_studies_field_group_info() {
       ),
     ),
   );
-  $export['group_pop_particip_char_ic|node|study|form'] = $field_group;  
+  $export['group_pop_particip_char_ic|node|population|form'] = $field_group;
+  
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_pop_sampling_frame_ic|node|population|form';
+  $field_group->group_name = 'group_pop_sampling_frame_ic';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'population';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Population from which the sample is drawn',
+    'weight' => '15',
+    'children' => array(
+	  0 => 'title_field',
+	  1 => 'group_pop_recruitment_procedures',
+      2 => 'group_pop_recruitment_target_ic',
+      3 => 'group_pop_particip_char_ic',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => 'All studies represent samples from a within a larger population and the term 
+		 sampling frame defines those within the population who were sampled. Some studies will have multiple
+		 sampling frames. Please complete the next questions for each separate sampling frame.',
+        'classes' => 'group-pop-sampling-frame-ic field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_pop_sampling_frame_ic|node|population|form'] = $field_group;
   
   return $export;
 }

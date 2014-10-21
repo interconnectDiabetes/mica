@@ -27,6 +27,7 @@ features[features_override_items][] = field_instance.node-study-title_field
 features[features_override_items][] = field_instance.node-study-field_acroym
 features[features_override_items][] = field_instance.node-study-field_pubmedid
 features[features_override_items][] = field_instance.node-study-field_website
+features[features_override_items][] = field_instance.node-population-title_field
 
 features[features_overrides][] = field_instance.node-study-body.required
 features[features_overrides][] = field_base.field_design.settings|allowed_values|cohort_study
@@ -42,12 +43,16 @@ features[features_overrides][] = field_instance.node-study-title_field.descripti
 features[features_overrides][] = field_instance.node-study-field_acroym.description
 features[features_overrides][] = field_instance.node-study-field_pubmedid.description
 features[features_overrides][] = field_instance.node-study-field_website.description
+features[features_overrides][] = field_instance.node-population-title_field.label
+features[features_overrides][] = field_instance.node-population-title_field.description
 
 features[field_group][] = group_ethnic_race_ic|node|study|form
 features[field_group][] = group_pop_his_lat_ic|node|study|form
 features[field_group][] = group_pop_race_ic|node|study|form
-features[field_group][] = group_pop_particip_char_ic|node|study|form
-features[field_group][] = group_pop_recruitment_target_ic|node|study|form
+features[field_group][] = group_pop_particip_char_ic|node|population|form
+features[field_group][] = group_pop_recruitment_target_ic|node|population|form
+features[field_group][] = group_pop_sampling_frame_ic|node|population|form
+features[field_group][] = group_introduction_ic|node|study|form
 
 features[field_base][] = field_b_line_rec_end_ic
 features[field_base][] = field_b_line_rec_start_ic
@@ -88,6 +93,7 @@ features[field_base][] = field_race_mid_e_ic
 features[field_base][] = field_race_other_ic
 features[field_base][] = field_race_other_text_ic
 features[field_base][] = field_race_s_asian_ic
+features[field_base][] = field_trial_number
 features[field_instance][] = node-study-field_b_line_rec_end_ic
 features[field_instance][] = node-study-field_b_line_rec_start_ic
 features[field_instance][] = node-study-field_b_line_rec_status_ic
@@ -127,9 +133,4 @@ features[field_instance][] = node-study-field_race_mid_e_ic
 features[field_instance][] = node-study-field_race_other_ic
 features[field_instance][] = node-study-field_race_other_text_ic
 features[field_instance][] = node-study-field_race_s_asian_ic
-
-
-
-
-
-
+features[field_instance][] = node-study-field_trial_number

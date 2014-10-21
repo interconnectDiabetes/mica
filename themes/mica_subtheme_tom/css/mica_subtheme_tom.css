@@ -1,19 +1,19 @@
-.field-type-datestamp fieldset .fieldset-legend {
+.field-type-date fieldset .fieldset-legend {
   font-size: 12px;
   color: #445668;
   padding: 7px 0 2px;
   font-weight: normal;
 }
-.field-type-datestamp fieldset {
+.field-type-date fieldset {
   border: none;
   background: none;
   padding: 0;
   margin: 7px 0 0 0;
 }
-.field-type-datestamp fieldset label {
+.field-type-date fieldset label {
   display: none;
 }
-.field-type-datestamp fieldset .date-padding {
+.field-type-date fieldset .date-padding {
   padding: 0;
 }
 

@@ -38,8 +38,36 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
     '#type' => 'submit',
     '#submit' => array('node_form_submit', '_mica_studies_save_add_population_submit'),
   );
-   
-   
+  
+  	// add some custom text
+	
+	$form['acustomtext'] = array(
+        '#type' => 'item',
+        '#markup' => '<div >   InterConnect (www.interconnect-diabetes.eu) is a European Union FP-7 funded project that
+		aims to change the way that data is used in population research into the causes of diabetes and obesity. 
+		It seeks to create the foundation to enable research to move from explaining the differences in risk of diabetes 
+		and obesity within populations to being able to explain differences in risk between populations.
+		<br>
+		<br>
+		A registry is being set up with the initial purpose of enabling researchers to discover studies relevant
+		to studying gene-environment interaction on the risk of type 1 diabetes, type 2 diabetes or obesity. 
+		This first phase of development of the registry is therefore focused on describing the key characteristics
+		of studies in a searchable format. The registry data collection form has been designed with a view to minimising
+		the request made of Investigators. We have populated it as fully as we can from publicly available information and
+		therefore ask that you simply check that it is correct and add further information as appropriate. The entry will
+		then be displayed on the InterConnect website as part of the study registry.
+		<br>
+		<br>
+		No single study will have all the information required to understand the basis of difference in risk of diabetes 
+		and obesity between populations and systems to facilitate cross-study analysis are required; the development of 
+		the study registry is the first step in creating an integrated platform to this end. We hope that you will be 
+		interested in engaging with InterConnect in the future, as we further develop the study registry with more 
+		detailed information to support processes for data harmonisation and provide tools to facilitate international 
+		collaboration and cross-study analyses.
+		</div>',
+        '#weight' => -10, // Adjust so that you can place it whereever 
+        );
+
     $form['#groups']['group_general_info']->parent_name = '';
     $form['#groups']['group_methods']->parent_name = ''; 
 	$form['#groups']['group_marker_paper']->parent_name = '';
@@ -126,32 +154,44 @@ $form['mica_opal']['#type'] = 'hidden';
   $form['#group_children']['field_dna_ic'] = 'group_general_info';
   $form['field_dna_ic']['#weight'] = '7';
 
-  
+ // move study study design group into general info
+    $form['#group_children']['group_study_design'] = 'group_general_info';
+	$form['#groups']['group_study_design']->weight = '8';
+	
 // move the new study design fields into the right group
 
+  $form['#group_children']['field_design_ic'] = 'group_study_design';
+  $form['field_design_ic']['#weight'] = '1';
+
+  $form['#group_children']['field_trial_number'] = 'group_study_design';
+  $form['field_trial_number']['#weight'] = '1';  
+
   $form['#group_children']['field_b_line_rec_start_ic'] = 'group_study_design';
-  $form['field_b_line_rec_start_ic']['#weight'] = '1';
+  $form['field_b_line_rec_start_ic']['#weight'] = '2';
   
   $form['#group_children']['field_b_line_rec_status_ic'] = 'group_study_design';
-  $form['field_b_line_rec_status_ic']['#weight'] = '2';
+  $form['field_b_line_rec_status_ic']['#weight'] = '3';
   
   $form['#group_children']['field_b_line_rec_end_ic'] = 'group_study_design';
-  $form['field_b_line_rec_end_ic']['#weight'] = '3';
+  $form['field_b_line_rec_end_ic']['#weight'] = '4';
   
   $form['#group_children']['field_number_of_participants_ic'] = 'group_study_design';
-  $form['field_number_of_participants_ic']['#weight'] = '4';
+  $form['field_number_of_participants_ic']['#weight'] = '5';
 
   $form['#group_children']['field_participants_date_ic'] = 'group_study_design';
-  $form['field_participants_date_ic']['#weight'] = '5';
+  $form['field_participants_date_ic']['#weight'] = '6';
 
   $form['#group_children']['field_follow_up_ic'] = 'group_study_design';
-  $form['field_follow_up_ic']['#weight'] = '6';
+  $form['field_follow_up_ic']['#weight'] = '7';
   
   $form['#group_children']['field_follow_up_date_ic'] = 'group_study_design';
-  $form['field_follow_up_date_ic']['#weight'] = '7';  
+  $form['field_follow_up_date_ic']['#weight'] = '8';
 
-  $form['#group_children']['field_design_ic'] = 'group_study_design';
-  $form['field_design_ic']['#weight'] = '10'; 
+  $form['#group_children']['field_interv_type_ic'] = 'group_study_design';
+  $form['field_interv_type_ic']['#weight'] = '9';
+  
+  $form['#group_children']['field_interv_other_ic'] = 'group_study_design';
+  $form['field_interv_other_ic']['#weight'] = '10';   
   
   $form['#group_children']['field_outcomes_ic'] = 'group_study_design';
   $form['field_outcomes_ic']['#weight'] = '11';
@@ -171,11 +211,7 @@ $form['mica_opal']['#type'] = 'hidden';
   $form['#group_children']['field_case_definition_ic'] = 'group_study_design';
   $form['field_case_definition_ic']['#weight'] = '11'; 
 
-  $form['#group_children']['field_interv_type_ic'] = 'group_study_design';
-  $form['field_interv_type_ic']['#weight'] = '14';
-  
-  $form['#group_children']['field_interv_other_ic'] = 'group_study_design';
-  $form['field_interv_other_ic']['#weight'] = '15';  
+ 
   
   //set up dependent fields for study design
   
@@ -202,7 +238,8 @@ $visible_options = array(
 // clinical trial only   
    
    _mica_add_dependent_field_checked($form, 'field_design_ic', 'field_interv_type_ic', 'clinical_trial');
-   _mica_add_dependent_field_checked($form, 'field_interv_type_ic', 'field_interv_other_ic', 'other');   
+   _mica_add_dependent_field_checked($form, 'field_interv_type_ic', 'field_interv_other_ic', 'other');
+   _mica_add_dependent_field_checked($form, 'field_design_ic', 'field_trial_number', 'clinical_trial');   
 	
 // cross sectional trial only   
 
@@ -220,6 +257,32 @@ $visible_options = array(
   _double_simple($form, 'field_design_ic', 'field_case_definition_ic', $options, $visible_options);
   _mica_add_dependent_field_checked($form, 'field_case_definition_ic', 'field_other_pr_diabetes_ic', 'other');
 
+// for the baseline and number of participant fields, these appear for all options
+	$visible_options = array(
+	'case_control',
+	'case_only',
+	'clinical_trial',
+	'cohort_study',
+	'cross_sectional',
+	'other'
+	);
+    _double_simple($form, 'field_design_ic', 'field_b_line_rec_start_ic', $options, $visible_options);
+    _double_simple($form, 'field_design_ic', 'field_b_line_rec_status_ic', $options, $visible_options);
+    _double_simple($form, 'field_design_ic', 'field_b_line_rec_end_ic', $options, $visible_options);
+    _double_simple($form, 'field_design_ic', 'field_number_of_participants_ic', $options, $visible_options);
+    _double_simple($form, 'field_design_ic', 'field_participants_date_ic', $options, $visible_options);
+	_mica_add_dependent_field_checked($form, 'field_b_line_rec_status_ic', 'field_b_line_rec_end_ic', '0');
+
+
+// follow up fields for cohort and clincal trial
+	$visible_options = array(
+		'clinical_trial',
+		'cohort_study');
+			
+	_double_simple($form, 'field_design_ic', 'field_follow_up_ic', $options, $visible_options);
+    _double_simple($form, 'field_design_ic', 'field_follow_up_date_ic', $options, $visible_options);
+	_mica_add_dependent_field_checked($form, 'field_follow_up_ic', 'field_follow_up_date_ic', '0');
+  
 dpm($form, $name = NULL);
 
 }
@@ -261,6 +324,27 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	$form['#groups']['group_pop_selection_criteria']->format_type = 'hidden';
 	$form['#groups']['group_pop_supp_info']->format_type = 'hidden';	
 
+	// add some custom text
+	
+	// $form['acustomtext'] = array(
+        // '#type' => 'item',
+        // '#markup' => '<div > All studies represent samples from a within a larger population and the term 
+		// sampling frame defines those within the population who were sampled. Some studies will have multiple
+		// sampling frames. Please complete the next questions for each separate sampling frame. </div>',
+        // '#weight' => -10, // Adjust so that you can place it whereever 
+        // );
+	
+	// set the title
+	
+	//if ($form_id == 'population_node_form') {
+    //    drupal_set_title(t("Create Sampling Frame"));
+    //  }
+	
+	
+	// move title field to sampling frame group
+	
+	// $form['#group_children']['title_field'] = 'group_pop_sampling_frame_ic';
+	// $form['title_field']['#weight'] = '1';
 	
 	//move new fields to recruitment procedure group
 	

@@ -43,7 +43,7 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   }
 
  if (isset($data['node-study-field_contacts_ref'])) {
-     $data['node-study-field_contacts_ref']['description'] = 'Enter the contact details of the person(s) that could provide additional information about the study. More contacts can be added with the ""Add another item"" button. You will be able to edit these Contacts after saving the Study.'; /* WAS: 'Enter the Contact full name. You will be able to edit these Contacts once the Study will be saved.' */
+     $data['node-study-field_contacts_ref']['description'] = 'Enter the contact details of the person(s) that could provide additional information about the study. More contacts can be added with the "Add another item" button. You will be able to edit these Contacts after saving the Study.'; /* WAS: 'Enter the Contact full name. You will be able to edit these Contacts once the Study will be saved.' */
 	 $data['node-study-field_contacts_ref']['label'] = 'Contact person(s)'; /* WAS: 'Contacts' */ 
     // $data['node-study-field_contacts_ref']['widget']['module'] = 'node_reference'; /* WAS: 'noderefcreate' */
     // $data['node-study-field_contacts_ref']['widget']['settings'] = array(
@@ -77,7 +77,16 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   
     if (isset($data['node-study-field_acroym'])) {
     $data['node-study-field_acroym']['description'] = 'If available, enter the study acronym'; /* WAS: 'Acronym of the study if applicable.' */
+  }
+
+    if (isset($data['node-population-title_field'])) {
+    $data['node-population-title_field']['label'] = 'Name'; /* WAS: 'Title' */
+  }
+
+    if (isset($data['node-population-title_field'])) {
+    $data['node-population-title_field']['description'] = 'Enter the name of the sampling frame'; /* WAS: '' */
   }  
+  
     // if (isset($data['node-study-field_design'])) {
     // $data['node-study-field_design']['default_value'] = array(
       // 'value' => '_none',
@@ -93,11 +102,9 @@ function interconnect_studies_field_group_info_alter(&$data) {
   if (isset($data['group_marker_paper|node|study|form'])) {
     $data['group_marker_paper|node|study|form']->data['label'] = 'Study Reference Paper'; /* WAS: 'Marker paper' */
   }
-}
-  
-function interconnect_studies_field_group_study_design_alter(&$data) {
+
   if (isset($data['group_study_design|node|study|form'])) {
-    $data['group_study_design|node|study|form']->data['label'] = 'Overall main study design informing recruitment'; /* WAS: 'Study Reference Paper' */
-  }  
+    $data['group_study_design|node|study|form']->data['label'] = 'Overall main study design informing recruitment'; /* WAS: 'Study Design' */
+  }
   
 }

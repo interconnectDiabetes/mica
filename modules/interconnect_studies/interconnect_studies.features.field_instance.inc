@@ -17,7 +17,7 @@ function interconnect_studies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
           'format_type' => 'long',
@@ -55,7 +55,7 @@ function interconnect_studies_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
-        'label_position' => 'above',
+        'label_position' => 'hidden',
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
@@ -109,7 +109,7 @@ function interconnect_studies_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
-        'label_position' => 'above',
+        'label_position' => 'hidden',
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
@@ -409,7 +409,7 @@ function interconnect_studies_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
-        'label_position' => 'above',
+        'label_position' => 'hidden',
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
@@ -882,7 +882,7 @@ function interconnect_studies_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
-        'label_position' => 'above',
+        'label_position' => 'hidden',
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
@@ -1600,7 +1600,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_race_other_ic',
-    'label' => 'Other, please specify',
+    'label' => 'Other group, please specify below',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -1623,7 +1623,7 @@ function interconnect_studies_field_default_field_instances() {
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'If you entered a percentage in the other group field above, please describe that group here',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1642,7 +1642,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_race_other_text_ic',
-    'label' => 'Other group',
+    'label' => 'Description of other group',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -1705,6 +1705,54 @@ function interconnect_studies_field_default_field_instances() {
       'weight' => 146,
     ),
   );
+  
+  // Exported field_instance: 'node-study-field_trial_number'
+  $field_instances['node-study-field_trial_number'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'If available, please enter the trial registration number',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 59,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_trial_number',
+    'label' => 'Trial registration number',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 146,
+    ),
+  );
+  
 
   // Translatables
   // Included for use with string extractors like potx.

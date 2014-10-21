@@ -30,9 +30,10 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-study-title_field.description"] = 'Enter the official study name';
   $overrides["field_instance.node-study-field_acroym.description"] = 'If available, enter the study acronym';
   $overrides["field_instance.node-study-field_contacts_ref.label"] = 'Contact person(s)';
-  $overrides["field_instance.node-study-field_contacts_ref.description"] = 'Enter the contact details of the person(s) that could provide additional information about the study. More contacts can be added with the ""Add another item"" button. You will be able to edit these Contacts after saving the Study.';  
+  $overrides["field_instance.node-study-field_contacts_ref.description"] = 'Enter the contact details of the person(s) that could provide additional information about the study. More contacts can be added with the "Add another item" button. You will be able to edit these Contacts after saving the Study.';  
   $overrides["field_instance.node-study-field_pubmedid.description"] = 'If available, enter the paper’s Pubmed ID';
   $overrides["field_instance.node-study-field_website.description"] = 'If available, enter the study website URL';
+  $overrides["field_instance.node-population-title_field.label"] = 'Enter the name of the sampling frame';
   
     // Exported overrides for: field_group
   $overrides["field_group.group_study_design|node|study|form.label"] = 'Overall main study design informing recruitment';
