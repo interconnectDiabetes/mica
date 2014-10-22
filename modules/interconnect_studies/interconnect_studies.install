@@ -4,7 +4,7 @@
  * @file
  * Install interconnect_studies module.
  */
-
+ 
 /**
  * Implements hook_install().
  */
@@ -22,5 +22,15 @@ function interconnect_studies_install() {
     ->condition('name', 'interconnect_studies', '=')
     ->execute();
 
-dpm("install file ran");
+  
+  $mica_theme = 'mica_subtheme';
+  $new_theme = 'mica_subtheme_tom';
+  theme_enable(array($new_theme));
+  variable_set('theme_default', $new_theme);
+  theme_disable(array($mica_theme)); 
+
+  cache_clear_all();
+ 
+
+	
 }
