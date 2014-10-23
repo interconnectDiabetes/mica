@@ -17,20 +17,20 @@ function interconnect_studies_ctools_plugin_api($module = NULL, $api = NULL) {
 /**
  * Implements hook_field_default_field_bases_alter().
  */
-function interconnect_studies_field_default_field_bases_alter(&$data) {
-  if (isset($data['title_field'])) {
-    $data['title_field']['settings'] = array(
-      'field_description_infos' => array(
-        'field_description' => 1,
-        'field_description_body' => 'Enter the official study',
-        'field_description_label' => 'Study name',
-        'field_description_value_type' => 'text',
-      ),
-      'max_length' => 255,
-      'profile2_private' => FALSE,
-    ); /* WAS: '' */
-  }
-}
+// function interconnect_studies_field_default_field_bases_alter(&$data) {
+  // if (isset($data['title_field'])) {
+    // $data['title_field']['settings'] = array(
+      // 'field_description_infos' => array(
+        // 'field_description' => 1,
+        // 'field_description_body' => 'Enter the official study',
+        // 'field_description_label' => 'Study name',
+        // 'field_description_value_type' => 'text',
+      // ),
+      // 'max_length' => 255,
+      // 'profile2_private' => FALSE,
+    // ); /* WAS: '' */
+  // }
+// }
  
 /**
  * Implements hook_field_default_field_instances_alter().
@@ -68,6 +68,7 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   }
     if (isset($data['node-study-title_field'])) {
     $data['node-study-title_field']['description'] = 'Enter the official study name'; /* WAS: 'Official study name' */
+	$data['node-study-title_field']['label'] = 'Name of the study'; /* WAS: 'Name' */
   }
 
  

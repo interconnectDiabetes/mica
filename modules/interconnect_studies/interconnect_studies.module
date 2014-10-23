@@ -163,8 +163,8 @@ $form['mica_opal']['#type'] = 'hidden';
   $form['#group_children']['field_design_ic'] = 'group_study_design';
   $form['field_design_ic']['#weight'] = '1';
 
-  $form['#group_children']['field_trial_number'] = 'group_study_design';
-  $form['field_trial_number']['#weight'] = '1';  
+  $form['#group_children']['field_trial_number_ic'] = 'group_study_design';
+  $form['field_trial_number_ic']['#weight'] = '1';  
 
   $form['#group_children']['field_b_line_rec_start_ic'] = 'group_study_design';
   $form['field_b_line_rec_start_ic']['#weight'] = '2';
@@ -239,7 +239,7 @@ $visible_options = array(
    
    _mica_add_dependent_field_checked($form, 'field_design_ic', 'field_interv_type_ic', 'clinical_trial');
    _mica_add_dependent_field_checked($form, 'field_interv_type_ic', 'field_interv_other_ic', 'other');
-   _mica_add_dependent_field_checked($form, 'field_design_ic', 'field_trial_number', 'clinical_trial');   
+   _mica_add_dependent_field_checked($form, 'field_design_ic', 'field_trial_number_ic', 'clinical_trial');   
 	
 // cross sectional trial only   
 

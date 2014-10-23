@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+
+function states_menu() {
+  
+  $items['states-example'] = array(
+    'title' => 'Demonstrating the Form API states system',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('states_example_form'),
+    'type' => MENU_NORMAL_ITEM,
+    'access arguments' => array('access content'),
+  );
+
+  return $items;
+}
+
+function states_example_form($form, &$form_state) {
+  
+  $form = array();
+  
+
+  
+  $form['preferences'] = array(
+    '#title' => t('Your preference'),
+    '#type' => 'checkboxes',
+    '#options' => array('moto' => 'Motorcycles', 'cars' => 'Cars', 'bikes' => 'Bikes', 'buses' => 'Buses', 'tractors' => 'Tractors'),
+     // Show this field only if the name field is filled.
+    '#states' => array(
+
+    ),
+  );
+  
+    $form['dependee'] = array(
+    '#title' => t('Your things'),
+    '#type' => 'select',
+    '#options' => array('ham' => 'ham', 'cheese' => 'cheese', 'beer' => 'beer'),
+     // Show this field only if the name field is filled.
+    '#states' => array(
+			'visible' => array(
+
+				  'input[name="preferences[bikes]"]' => array('checked' => TRUE),
+				  'input[name="preferences[buses]"]' => array('checked' => TRUE),
+
+			  ),
+		)
+
+    );
+  
+
+
+  
+  dpm($form);
+  return $form;
+}

@@ -1706,8 +1706,8 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
   
-  // Exported field_instance: 'node-study-field_trial_number'
-  $field_instances['node-study-field_trial_number'] = array(
+  // Exported field_instance: 'node-study-field_trial_number_ic'
+  $field_instances['node-study-field_trial_number_ic'] = array(
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1734,7 +1734,7 @@ function interconnect_studies_field_default_field_instances() {
     ),
     'display_label' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_trial_number',
+    'field_name' => 'field_trial_number_ic',
     'label' => 'Trial registration number',
     'required' => 0,
     'settings' => array(
@@ -1753,6 +1753,318 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
   
+   // Exported field_instance: 'node-population-field_pop_rec_proc_gender_ic'
+  $field_instances['node-population-field_pop_rec_proc_gender_ic'] = array(
+    'bundle' => 'population',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 69,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_pop_rec_proc_gender_ic',
+    'label' => 'Gender',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 156,
+    ),
+  );
+
+  // Exported field_instance: 'node-population-field_pop_rec_proc_locality_ic'
+  $field_instances['node-population-field_pop_rec_proc_locality_ic'] = array(
+    'bundle' => 'population',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 72,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_pop_rec_proc_locality_ic',
+    'label' => 'Please specify the urban / rural status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 159,
+    ),
+  );
+
+  // Exported field_instance: 'node-population-field_pop_rec_proc_occup_ic'
+  $field_instances['node-population-field_pop_rec_proc_occup_ic'] = array(
+    'bundle' => 'population',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 82,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_pop_rec_proc_occup_ic',
+    'label' => 'Please specify the occupations',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 169,
+    ),
+  );
+
+  // Exported field_instance: 'node-population-field_pop_rec_proc_other_ic'
+  $field_instances['node-population-field_pop_rec_proc_other_ic'] = array(
+    'bundle' => 'population',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 71,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_pop_rec_proc_other_ic',
+    'label' => 'Please specify other selection population / criteria',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 158,
+    ),
+  );
+
+  // Exported field_instance: 'node-population-field_pop_rec_proc_select_ic'
+  $field_instances['node-population-field_pop_rec_proc_select_ic'] = array(
+    'bundle' => 'population',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 68,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_pop_rec_proc_select_ic',
+    'label' => 'If selected, selected from : (tick all that apply)',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 155,
+    ),
+  );
+
+  // Exported field_instance: 'node-population-field_pop_rec_target_ic'
+  $field_instances['node-population-field_pop_rec_target_ic'] = array(
+    'bundle' => 'population',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Select the type of participant ‘units’ that are specifically targeted by the study design:',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 73,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_pop_rec_target_ic',
+    'label' => 'Recruitment target intrinsic to the design of the study',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 160,
+    ),
+  );
+
+  // Exported field_instance: 'node-population-field_pop_rec_target_other_ic'
+  $field_instances['node-population-field_pop_rec_target_other_ic'] = array(
+    'bundle' => 'population',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 74,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_pop_rec_target_other_ic',
+    'label' => 'Please specify the other participant \'units\'',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 161,
+    ),
+  );
+
+  // Exported field_instance: 'node-population-field_pop_recruitment_proc_ic'
+  $field_instances['node-population-field_pop_recruitment_proc_ic'] = array(
+    'bundle' => 'population',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 67,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_pop_recruitment_proc_ic',
+    'label' => 'Is the study',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 154,
+    ),
+  );
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -1797,6 +2109,15 @@ function interconnect_studies_field_default_field_instances() {
   t('What date did baseline recruitment start?');
   t('What is the total number of participants that have been recruited to the study?');
   t('What type of intervention is being trialled? Tick all that apply');
+  t('Gender');
+  t('If selected, selected from : (tick all that apply)');
+  t('Is the study');
+  t('Please specify other selection population / criteria');
+  t('Please specify the occupations');
+  t('Please specify the other participant \'units\'');
+  t('Please specify the urban / rural status');
+  t('Recruitment target intrinsic to the design of the study');
+  t('Select the type of participant ‘units’ that are specifically targeted by the study design:');
 
   
     return $field_instances;

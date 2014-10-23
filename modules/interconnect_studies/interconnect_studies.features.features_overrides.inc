@@ -12,16 +12,16 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides = array();
 
     // Exported overrides for: field_base
-  $overrides["field_base.title_field.settings"] = array(
-    'field_description_infos' => array(
-      'field_description' => 1,
-      'field_description_body' => 'Enter the official study',
-      'field_description_label' => 'Study name',
-      'field_description_value_type' => 'text',
-    ),
-    'max_length' => 255,
-    'profile2_private' => FALSE,
-  );
+  // $overrides["field_base.title_field.settings"] = array(
+    // 'field_description_infos' => array(
+      // 'field_description' => 1,
+      // 'field_description_body' => 'Enter the official study',
+      // 'field_description_label' => 'Study name',
+      // 'field_description_value_type' => 'text',
+    // ),
+    // 'max_length' => 255,
+    // 'profile2_private' => FALSE,
+  // );
   
     // Exported overrides for: field_instance
   $overrides["field_instance.node-study-body.required"] = 0;
@@ -37,6 +37,8 @@ function interconnect_studies_features_override_default_overrides() {
   
     // Exported overrides for: field_group
   $overrides["field_group.group_study_design|node|study|form.label"] = 'Overall main study design informing recruitment';
+  $overrides["field_group.group_marker_paper|node|study|form.label"] = 'Study Reference Paper';
+  
   
  return $overrides;
 }

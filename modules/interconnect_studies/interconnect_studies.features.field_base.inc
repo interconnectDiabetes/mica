@@ -1335,13 +1335,13 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_trial_number'
-  $field_bases['field_trial_number'] = array(
+  // Exported field_base: 'field_trial_number_ic'
+  $field_bases['field_trial_number_ic'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_trial_number',
+    'field_name' => 'field_trial_number_ic',
     'field_permissions' => array(
       'type' => 0,
     ),
@@ -1360,6 +1360,311 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'number_integer',
+  );
+  
+   // Exported field_base: 'field_pop_rec_proc_gender_ic'
+  $field_bases['field_pop_rec_proc_gender_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_pop_rec_proc_gender_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'male' => 'Male',
+        'female' => 'Female',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_pop_rec_proc_locality_ic'
+  $field_bases['field_pop_rec_proc_locality_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_pop_rec_proc_locality_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'rural' => 'Rural status',
+        'urban' => 'Urban status',
+        'both' => 'Both rural and urban status',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_pop_rec_proc_occup_ic'
+  $field_bases['field_pop_rec_proc_occup_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_pop_rec_proc_occup_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_pop_rec_proc_other_ic'
+  $field_bases['field_pop_rec_proc_other_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_pop_rec_proc_other_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_pop_rec_proc_select_ic'
+  $field_bases['field_pop_rec_proc_select_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_pop_rec_proc_select_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'cli' => 'Clinic patients',
+        'mig' => 'On the basis of migration',
+        'pre' => 'Pregnant women',
+        'loc' => 'On the basis of rural / urban status',
+        'occ' => 'Members of specific occupations (specify below)',
+        'gen' => 'On the basis of gender (specify below)',
+        'other' => 'Other selected population / criteria (specify below)',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_pop_rec_target_ic'
+  $field_bases['field_pop_rec_target_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_pop_rec_target_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'individuals' => 'Individuals',
+        'in_gen' => 'Twin studies, sibships or family based birth cohorts (i.e. within a generation)',
+        'between_gen' => 'Parent and off-spring (i.e. between generation)',
+        'other' => 'Other, please specify',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_pop_rec_target_other_ic'
+  $field_bases['field_pop_rec_target_other_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_pop_rec_target_other_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_pop_recruitment_proc_ic'
+  $field_bases['field_pop_recruitment_proc_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_pop_recruitment_proc_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        'pop' => 'Population based',
+        'sel' => 'Selected',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
   
   return $field_bases;
