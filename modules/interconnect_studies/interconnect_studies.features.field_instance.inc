@@ -2065,6 +2065,976 @@ function interconnect_studies_field_default_field_instances() {
       'weight' => 154,
     ),
   );
+  
+  
+  // Exported field_instance: 'field_collection_item-field_1000ge_ref_panel_ic-field_proportion_of_individs_ic'
+  $field_instances['field_collection_item-field_1000ge_ref_panel_ic-field_proportion_of_individs_ic'] = array(
+    'bundle' => 'field_1000ge_ref_panel_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_proportion_of_individs_ic',
+    'label' => 'Proportion of individuals',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_1000ge_ref_panel_ic-field_ref_panel_pop_ic'
+  $field_instances['field_collection_item-field_1000ge_ref_panel_ic-field_ref_panel_pop_ic'] = array(
+    'bundle' => 'field_1000ge_ref_panel_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ref_panel_pop_ic',
+    'label' => 'Specify, population (e.g. CEU, YRI, CHB, JPT, …)',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_1000ge_ref_panel_ic-field_ref_panel_release_ic'
+  $field_instances['field_collection_item-field_1000ge_ref_panel_ic-field_ref_panel_release_ic'] = array(
+    'bundle' => 'field_1000ge_ref_panel_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ref_panel_release_ic',
+    'label' => 'Specify release (e.g. #26)',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_custom_ref_panel_ic-field_proportion_of_individs_ic'
+  $field_instances['field_collection_item-field_custom_ref_panel_ic-field_proportion_of_individs_ic'] = array(
+    'bundle' => 'field_custom_ref_panel_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_proportion_of_individs_ic',
+    'label' => 'Proportion of individuals',
+    'required' => FALSE,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_custom_ref_panel_ic-field_ref_panel_custom_ic'
+  $field_instances['field_collection_item-field_custom_ref_panel_ic-field_ref_panel_custom_ic'] = array(
+    'bundle' => 'field_custom_ref_panel_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ref_panel_custom_ic',
+    'label' => 'Specify (define sequence coverage and depth and population sequenced)',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_hapmap_ref_panel_ic-field_proportion_of_individs_ic'
+  $field_instances['field_collection_item-field_hapmap_ref_panel_ic-field_proportion_of_individs_ic'] = array(
+    'bundle' => 'field_hapmap_ref_panel_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_proportion_of_individs_ic',
+    'label' => 'Proportion of individuals',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_hapmap_ref_panel_ic-field_ref_panel_pop_ic'
+  $field_instances['field_collection_item-field_hapmap_ref_panel_ic-field_ref_panel_pop_ic'] = array(
+    'bundle' => 'field_hapmap_ref_panel_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ref_panel_pop_ic',
+    'label' => 'Specify, population (e.g. CEU, YRI, CHB, JPT, …)',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_hapmap_ref_panel_ic-field_ref_panel_release_ic'
+  $field_instances['field_collection_item-field_hapmap_ref_panel_ic-field_ref_panel_release_ic'] = array(
+    'bundle' => 'field_hapmap_ref_panel_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_ref_panel_release_ic',
+    'label' => 'Specify release (e.g. #26)',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_non_target_gwide_array_ic-field_array_name_version_ic'
+  $field_instances['field_collection_item-field_non_target_gwide_array_ic-field_array_name_version_ic'] = array(
+    'bundle' => 'field_non_target_gwide_array_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_array_name_version_ic',
+    'label' => 'Array name (and version)',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_non_target_gwide_array_ic-field_manufacturer_ic'
+  $field_instances['field_collection_item-field_non_target_gwide_array_ic-field_manufacturer_ic'] = array(
+    'bundle' => 'field_non_target_gwide_array_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_manufacturer_ic',
+    'label' => 'manufacturer',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_non_target_gwide_array_ic-field_proportion_of_individs_ic'
+  $field_instances['field_collection_item-field_non_target_gwide_array_ic-field_proportion_of_individs_ic'] = array(
+    'bundle' => 'field_non_target_gwide_array_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_proportion_of_individs_ic',
+    'label' => 'Proportion of individuals',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '%',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_target_gwide_array_ic-field_array_name_version_ic'
+  $field_instances['field_collection_item-field_target_gwide_array_ic-field_array_name_version_ic'] = array(
+    'bundle' => 'field_target_gwide_array_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_array_name_version_ic',
+    'label' => 'Array name (and version)',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_target_gwide_array_ic-field_manufacturer_ic'
+  $field_instances['field_collection_item-field_target_gwide_array_ic-field_manufacturer_ic'] = array(
+    'bundle' => 'field_target_gwide_array_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_manufacturer_ic',
+    'label' => 'manufacturer',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_target_gwide_array_ic-field_proportion_of_individs_ic'
+  $field_instances['field_collection_item-field_target_gwide_array_ic-field_proportion_of_individs_ic'] = array(
+    'bundle' => 'field_target_gwide_array_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_proportion_of_individs_ic',
+    'label' => 'Proportion of individuals',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_target_array_ic-field_array_name_version_ic'
+  $field_instances['field_collection_item-field_target_array_ic-field_array_name_version_ic'] = array(
+    'bundle' => 'field_target_array_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_array_name_version_ic',
+    'label' => 'Array name (and version)',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_target_array_ic-field_manufacturer_ic'
+  $field_instances['field_collection_item-field_target_array_ic-field_manufacturer_ic'] = array(
+    'bundle' => 'field_target_array_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_manufacturer_ic',
+    'label' => 'manufacturer',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_target_array_ic-field_proportion_of_individs_ic'
+  $field_instances['field_collection_item-field_target_array_ic-field_proportion_of_individs_ic'] = array(
+    'bundle' => 'field_target_array_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_proportion_of_individs_ic',
+    'label' => 'Proportion of individuals',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_1000ge_ref_panel_ic'
+  $field_instances['node-study-field_1000ge_ref_panel_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 88,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_1000ge_ref_panel_ic',
+    'label' => 'Specify, population (e.g. ALL, CEU, YRI, TSI, MXL, …) and release date (e.g. March2012)',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_hidden',
+      'weight' => 179,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_custom_ref_panel_ic'
+  $field_instances['node-study-field_custom_ref_panel_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 89,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_custom_ref_panel_ic',
+    'label' => 'Specify (define sequence coverage and depth and population sequenced)',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 180,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_genotyping_arrays_ic'
+  $field_instances['node-study-field_genotyping_arrays_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 82,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_genotyping_arrays_ic',
+    'label' => 'Genotyping arrays',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_hapmap_ref_panel_ic'
+  $field_instances['node-study-field_hapmap_ref_panel_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 87,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_hapmap_ref_panel_ic',
+    'label' => 'Specify, population (e.g. CEU, YRI, CHB, JPT, …) and release (e.g. #26)',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 178,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_non_target_gwide_array_ic'
+  $field_instances['node-study-field_non_target_gwide_array_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 83,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_non_target_gwide_array_ic',
+    'label' => 'Specify, manufacturer (e.g. Illumina, Affymetrix, …), array-name (e.g. HumanOmni2.5-8, Affymetrix 6.0, …) ',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_reference_panels_ic'
+  $field_instances['node-study-field_reference_panels_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 86,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_reference_panels_ic',
+    'label' => 'Reference Panels',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 177,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_target_gwide_array_ic'
+  $field_instances['node-study-field_target_gwide_array_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 85,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_target_gwide_array_ic',
+    'label' => 'Specify, manufacturer (e.g. Illumina, Affymetrix, …), array-name and version (e.g. HumanOmniExpressExome BeadChip, Infinium Psyc',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_target_array_ic'
+  $field_instances['node-study-field_target_array_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 84,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_target_array_ic',
+    'label' => 'Specify, manufacturer (e.g. Illumina, Affymetrix, …), array-name and version (e.g. HumanImmuno BeadChip, HumanExome BeadChip, Hu',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 5,
+    ),
+  );
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -2118,7 +3088,19 @@ function interconnect_studies_field_default_field_instances() {
   t('Please specify the urban / rural status');
   t('Recruitment target intrinsic to the design of the study');
   t('Select the type of participant ‘units’ that are specifically targeted by the study design:');
-
+  t('Array name (and version)');
+  t('Genotyping arrays');
+  t('Proportion of individuals');
+  t('Reference Panels');
+  t('Specify (define sequence coverage and depth and population sequenced)');
+  t('Specify release (e.g. #26)');
+  t('Specify, manufacturer (e.g. Illumina, Affymetrix, …), array-name (e.g. HumanOmni2.5-8, Affymetrix 6.0, …) ');
+  t('Specify, manufacturer (e.g. Illumina, Affymetrix, …), array-name and version (e.g. HumanImmuno BeadChip, HumanExome BeadChip, Hu');
+  t('Specify, manufacturer (e.g. Illumina, Affymetrix, …), array-name and version (e.g. HumanOmniExpressExome BeadChip, Infinium Psyc');
+  t('Specify, population (e.g. ALL, CEU, YRI, TSI, MXL, …) and release date (e.g. March2012)');
+  t('Specify, population (e.g. CEU, YRI, CHB, JPT, …)');
+  t('Specify, population (e.g. CEU, YRI, CHB, JPT, …) and release (e.g. #26)');
+  t('manufacturer');
   
     return $field_instances;
 }  

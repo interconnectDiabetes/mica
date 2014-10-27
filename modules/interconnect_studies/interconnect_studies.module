@@ -283,7 +283,7 @@ $visible_options = array(
     _double_simple($form, 'field_design_ic', 'field_follow_up_date_ic', $options, $visible_options);
 	_mica_add_dependent_field_checked($form, 'field_follow_up_ic', 'field_follow_up_date_ic', '0');
   
-//dpm($form, $name = NULL);
+dpm($form, $name = NULL);
 
 }
 
