@@ -2126,7 +2126,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_ref_panel_pop_ic',
-    'label' => 'Specify, population (e.g. CEU, YRI, CHB, JPT, …)',
+    'label' => 'Population (e.g. CEU, YRI, CHB, JPT, …)',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -2161,7 +2161,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_ref_panel_release_ic',
-    'label' => 'Specify release (e.g. #26)',
+    'label' => 'Release date (e.g. March2012)',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -2235,7 +2235,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_ref_panel_custom_ic',
-    'label' => 'Specify (define sequence coverage and depth and population sequenced)',
+    'label' => 'Define sequence coverage, depth and population sequenced',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -2311,7 +2311,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_ref_panel_pop_ic',
-    'label' => 'Specify, population (e.g. CEU, YRI, CHB, JPT, …)',
+    'label' => 'Population (e.g. CEU, YRI, CHB, JPT, …)',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -2346,7 +2346,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_ref_panel_release_ic',
-    'label' => 'Specify release (e.g. #26)',
+    'label' => 'Release (e.g. #26)',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -2381,7 +2381,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_array_name_version_ic',
-    'label' => 'Array name (and version)',
+    'label' => 'Array name (e.g. HumanOmni2.5-8, Affymetrix 6.0, …) ',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -2416,7 +2416,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_manufacturer_ic',
-    'label' => 'manufacturer',
+    'label' => 'Manufacturer (e.g. Illumina, Affymetrix, …)',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -2492,7 +2492,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_array_name_version_ic',
-    'label' => 'Array name (and version)',
+    'label' => 'Array name and version (e.g. HumanOmniExpressExome BeadChip, Infinium PsychArray BeadChip, Infinium OncoArray-500K BeadChip, …)',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -2527,7 +2527,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_manufacturer_ic',
-    'label' => 'manufacturer',
+    'label' => 'Manufacturer (e.g. Illumina, Affymetrix, …)',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -2603,7 +2603,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_array_name_version_ic',
-    'label' => 'Array name (and version)',
+    'label' => 'Array name and version (e.g. HumanImmuno BeadChip, HumanExome BeadChip, HumanCardio-metabo BeadChip, …)',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -2638,7 +2638,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_manufacturer_ic',
-    'label' => 'manufacturer',
+    'label' => 'Manufacturer (e.g. Illumina, Affymetrix, …)',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -2726,7 +2726,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_1000ge_ref_panel_ic',
-    'label' => 'Specify, population (e.g. ALL, CEU, YRI, TSI, MXL, …) and release date (e.g. March2012)',
+    'label' => '1000Genomes',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -2735,7 +2735,7 @@ function interconnect_studies_field_default_field_instances() {
       'active' => 0,
       'module' => 'field_collection',
       'settings' => array(),
-      'type' => 'field_collection_hidden',
+      'type' => 'field_collection_embed',
       'weight' => 179,
     ),
   );
@@ -2770,7 +2770,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_custom_ref_panel_ic',
-    'label' => 'Specify (define sequence coverage and depth and population sequenced)',
+    'label' => 'Custom reference panel',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -2808,7 +2808,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_genotyping_arrays_ic',
-    'label' => 'Genotyping arrays',
+    'label' => 'Report the proportion of individuals of your population that have genotyped for the array indicated.',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -2852,7 +2852,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_hapmap_ref_panel_ic',
-    'label' => 'Specify, population (e.g. CEU, YRI, CHB, JPT, …) and release (e.g. #26)',
+    'label' => 'HapMap',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -2896,7 +2896,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_non_target_gwide_array_ic',
-    'label' => 'Specify, manufacturer (e.g. Illumina, Affymetrix, …), array-name (e.g. HumanOmni2.5-8, Affymetrix 6.0, …) ',
+    'label' => 'Genome-wide SNP or CNV array (i.e. typical GWAS array that does not target any specific loci or type of variants in particular).',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -2978,7 +2978,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_target_gwide_array_ic',
-    'label' => 'Specify, manufacturer (e.g. Illumina, Affymetrix, …), array-name and version (e.g. HumanOmniExpressExome BeadChip, Infinium Psyc',
+    'label' => 'Genome-wide SNP or CNV array that is enriched for SNPs that target a select number of loci, type of variants, or part of the genome.',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -3022,7 +3022,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_target_array_ic',
-    'label' => 'Specify, manufacturer (e.g. Illumina, Affymetrix, …), array-name and version (e.g. HumanImmuno BeadChip, HumanExome BeadChip, Hu',
+    'label' => 'Array that targets a select number of loci, type of variants, or part of the genome.',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,

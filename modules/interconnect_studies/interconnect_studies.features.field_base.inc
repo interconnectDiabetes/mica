@@ -1783,7 +1783,7 @@ function interconnect_studies_field_default_field_bases() {
       'field_description_infos' => array(
         'field_description' => 0,
         'field_description_body' => '',
-        'field_description_label' => '',
+        'field_description_label' => 'Report the proportion of individuals of your population that have genotyped for the array indicated.',
         'field_description_value_type' => 'text',
       ),
       'profile2_private' => FALSE,
