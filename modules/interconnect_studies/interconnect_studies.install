@@ -33,9 +33,9 @@ function interconnect_studies_install() {
   
  // _drupal_default_blocks($new_theme);
    // Enable some standard blocks.
-  _default_block($new_theme);
+ // _default_block($new_theme);
 
-	dpm("install ran");
+	//dpm("install ran");
 }
 
 function _drupal_default_blocks($default_theme) {
