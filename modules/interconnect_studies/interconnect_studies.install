@@ -30,7 +30,222 @@ function interconnect_studies_install() {
   theme_disable(array($mica_theme)); 
 
   cache_clear_all();
- 
+  
+ // _drupal_default_blocks($new_theme);
+   // Enable some standard blocks.
+  _default_block($new_theme);
 
-	
+	dpm("install ran");
+}
+
+function _drupal_default_blocks($default_theme) {
+  // Enable some standard blocks.
+  $blocks = array(
+    array(
+      'module' => 'system',
+      'delta' => 'powered-by',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => BLOCK_REGION_NONE,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'help',
+      'theme' => $default_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'help',
+      'pages' => '',
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array(
+    'module',
+    'delta',
+    'theme',
+    'status',
+    'weight',
+    'region',
+    'pages',
+    'cache'
+  ));
+  foreach ($blocks as $block) {
+    $query->values($block);
+  }
+  $query->execute();
+
+}
+
+function _default_block($mica_theme) {
+  $values = array(
+    array(
+      'module' => 'user',
+      'delta' => 'login',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'mica',
+      'delta' => 'powered-by-mica',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 30,
+      'region' => 'footer',
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'pages' => '*',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'views',
+      'delta' => 'news-recent_news',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'pages' => '<front>',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'navigation',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 15,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'pages' => '<front>',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'views',
+      'delta' => 'events_calendar-block_2',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'sidebar_first',
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'pages' => '<front>',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'logintoboggan',
+      'delta' => 'logintoboggan_logged_in',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => -46,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'main-menu',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => 'navigation',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'search',
+      'delta' => 'form',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 3,
+      'region' => 'navigation',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'system',
+      'delta' => 'user-menu',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 5,
+      'region' => 'navigation',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'mica_bootstrap_config',
+      'delta' => 'bootstrap-login',
+      'theme' => $mica_theme,
+      'status' => 1,
+      'weight' => 10,
+      'region' => 'navigation',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+  );
+  $query = db_insert('block')->fields(array(
+    'module',
+    'delta',
+    'theme',
+    'status',
+    'weight',
+    'region',
+    'visibility',
+    'pages',
+    'cache'
+  ));
+  foreach ($values as $record) {
+    $query->values($record);
+  }
+  $query->execute();
+
+  // not title for menus
+  _set_block_title('<none>', 'system', 'main-menu');
+  _set_block_title('<none>', 'system', 'user-menu');
+  _set_block_title('<none>', 'user', 'login');
+  _set_block_title('<none>', 'search', 'form');
+
+  // only authenticated user can see navigation block
+  $query = db_insert('block_role')->fields(array('module', 'delta', 'rid'));
+  $query->values(array(
+    'module' => 'system',
+    'delta' => 'navigation',
+    'rid' => 2,
+  ));
+  $query->execute();
+
+  // set a title to upcoming events block
+  db_update('block')
+    ->fields(array('title' => 'Upcoming Events'))
+    ->condition('delta', 'events_calendar-block_2')
+    ->execute();
+}
+
+function _set_block_title($title, $module, $delta, $mica_theme = 'mica_subtheme_tom') {
+  db_update('block')
+    ->fields(array('title' => $title))
+    ->condition('module', $module)
+    ->condition('delta', $delta)
+    ->condition('theme', $mica_theme)
+    ->execute();
 }
