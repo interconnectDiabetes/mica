@@ -43,7 +43,12 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   }
 
  if (isset($data['node-study-field_contacts_ref'])) {
-     $data['node-study-field_contacts_ref']['description'] = 'Enter the contact details of the person(s) that could provide additional information about the study. More contacts can be added with the "Add another item" button. You will be able to edit these Contacts after saving the Study.'; /* WAS: 'Enter the Contact full name. You will be able to edit these Contacts once the Study will be saved.' */
+     $data['node-study-field_contacts_ref']['widget']['settings'] = array(
+      'autocomplete_match' => 'contains',
+      'autocomplete_path' => 'node_reference/autocomplete',
+      'label_help_description' => 'Enter the contact details of the person(s) that could provide additional information about the study. More contacts can be added with the "Add another item" button. You will be able to edit these Contacts after saving the Study.',
+      'size' => 60,
+		);
 	 $data['node-study-field_contacts_ref']['label'] = 'Contact person(s)'; /* WAS: 'Contacts' */ 
     // $data['node-study-field_contacts_ref']['widget']['module'] = 'node_reference'; /* WAS: 'noderefcreate' */
     // $data['node-study-field_contacts_ref']['widget']['settings'] = array(
@@ -59,25 +64,38 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
    }
  
   if (isset($data['node-study-field_marker_paper'])) {
-    $data['node-study-field_marker_paper']['description'] = 'If available, enter a bibliographic citation (i.e. published sources such as journal article, web site, or report) which describes the study design'; /* WAS: 'If applicable, enter a bibliographic citation (i.e. published sources such as journal article, web site, or report) which should be used to refer to your study.' */
+    $data['node-study-field_marker_paper']['widget']['settings']['label_help_description'] = 'If available, enter a bibliographic citation (i.e. published sources such as journal article, web site, or report) which describes the study design'; /* WAS: '' */
     $data['node-study-field_marker_paper']['label'] = 'Study reference paper'; /* WAS: 'Marker paper' */ 
   }
   
     if (isset($data['node-study-field_pubmedid'])) {
-    $data['node-study-field_pubmedid']['description'] = 'If available, enter the paper’s Pubmed ID'; /* WAS: 'If applicable, enter marker paper’s Pubmed ID.' */
+    $data['node-study-field_pubmedid']['widget']['settings']['label_help_description'] = 'If available, enter the paper’s Pubmed ID'; /* WAS: '' */
   }
     if (isset($data['node-study-title_field'])) {
-    $data['node-study-title_field']['description'] = 'Enter the official study name'; /* WAS: 'Official study name' */
 	$data['node-study-title_field']['label'] = 'Name of the study'; /* WAS: 'Name' */
+	 $data['node-study-title_field']['widget'] = array(
+	  'active' => 1,
+	  'module' => 'text',
+	  'settings' => array(
+		'label_help_description' => 'Enter the official study name',
+		'size' => 60,
+	  ),
+	  'type' => 'text_textfield',
+	  'weight' => -5,
+	);
   }
 
  
     if (isset($data['node-study-field_website'])) {
-    $data['node-study-field_website']['description'] = 'If available, enter the study website URL'; /* WAS: '' */
+    $data['node-study-field_website']['widget']['settings']['label_help_description'] = 'If available, enter the study website URL'; /* WAS: '' */
   }
   
     if (isset($data['node-study-field_acroym'])) {
-    $data['node-study-field_acroym']['description'] = 'If available, enter the study acronym'; /* WAS: 'Acronym of the study if applicable.' */
+    $data['node-study-field_acroym']['widget']['settings'] = array(
+      'label_help_description' => 'If available, enter the study acronym',
+      'size' => 60,
+    );
+  
   }
 
     if (isset($data['node-population-title_field'])) {
@@ -86,6 +104,16 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
 
     if (isset($data['node-population-title_field'])) {
     $data['node-population-title_field']['description'] = 'Enter the name of the sampling frame'; /* WAS: '' */
+    $data['node-population-title_field']['widget'] = array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'label_help_description' => 'Enter the name of the sampling frame',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -5,
+    );
   }  
   
     // if (isset($data['node-study-field_design'])) {

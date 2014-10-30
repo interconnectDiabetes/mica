@@ -58,7 +58,7 @@ function interconnect_studies_field_group_info() {
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
-        'description' => 'Please indicate the approximate percentage of participants that are of Hispanic or Latino origin',
+        'description' => 'Please indicate the approximate percentage of participants that are of:',
         'classes' => 'group-pop-his-lat-ic field-group-fieldset',
         'required_fields' => 1,
       ),
@@ -94,7 +94,7 @@ function interconnect_studies_field_group_info() {
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
-        'description' => 'Please indicate the main groups represented in the study. You may select more than one; if more than one is selected, please indicate the approximate percentage.',
+        'description' => 'Please indicate the main groups represented in the study, giving the approximate percentage of participants in each group.',
         'classes' => 'group-pop-race-ic field-group-fieldset',
         'required_fields' => 1,
       ),
@@ -141,18 +141,17 @@ function interconnect_studies_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Participant characteristics',
+    'label' => 'Participants\' characteristics',
     'weight' => '15',
     'children' => array(
-      0 => 'field_pop_age_min',
-      1 => 'field_pop_age_max',
-	  2 => 'field_pop_country',
+      0 => 'group_pop_rec_age_ic',
+	  1 => 'field_pop_country',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
       'formatter' => 'collapsible',
       'instance_settings' => array(
-        'description' => '',
+        'description' => 'Please specify the characteristics of the study participants',
         'classes' => 'group-pop-particip-char-ic field-group-fieldset',
         'required_fields' => 1,
       ),
@@ -191,6 +190,33 @@ function interconnect_studies_field_group_info() {
     ),
   );
   $export['group_pop_sampling_frame_ic|node|population|form'] = $field_group;
+  
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_pop_rec_age_ic|node|population|form';
+  $field_group->group_name = 'group_pop_rec_age_ic';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'population';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Age at recruitment',
+    'weight' => '10',
+    'children' => array(
+	  0 => 'field_pop_age_min',
+	  1 => 'field_pop_age_max',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_pop_rec_age_ic|node|population|form'] = $field_group;
   
   return $export;
 }

@@ -179,6 +179,7 @@ function interconnect_studies_field_default_field_bases() {
         'case_control' => 'Case-control study',
         'case_only' => 'Case only study',
         'other' => 'Other (please specify)',
+		'none' => 'N/A',
       ),
       'allowed_values_function' => '',
       'field_description_infos' => array(
@@ -395,7 +396,7 @@ function interconnect_studies_field_default_field_bases() {
   // Exported field_base: 'field_interv_type_ic'
   $field_bases['field_interv_type_ic'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_interv_type_ic',
@@ -651,10 +652,10 @@ function interconnect_studies_field_default_field_bases() {
         'AT_i' => 'Anthropometric traits (e.g. BMI, waist circumference) during follow up <br>',
         'GT_p' => 'Glycaemic traits (e.g. glucose, insulin) at baseline',
         'GT_i' => 'Glycaemic traits (e.g. glucose, insulin) during follow up <br>',
-        'T1D_p' => 'Type 1 diabetes prevalent at baseline',
-        'T1D_i' => 'Type 1 diabetes incident during follow up <br>',
-        'T2D_p' => 'Type 2 diabetes prevalent at baseline',
-        'T2D_i' => 'Type 2 diabetes incident during follow up <br>',
+        'T1D_p' => 'Prevalent type 1 diabetes at baseline',
+        'T1D_i' => 'Incident type 1 diabetes during follow up <br>',
+        'T2D_p' => 'Prevalent type 2 diabetes at baseline',
+        'T2D_i' => 'Incident type 2 diabetes during follow up <br>',
         'GD_p' => 'History of gestational diabetes',
         'GD_i' => 'Incident gestational diabetes during follow up <br>',
         'OD_p' => 'Other types of diabetes prevalent at baseline',
