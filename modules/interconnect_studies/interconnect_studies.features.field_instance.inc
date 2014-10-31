@@ -55,7 +55,6 @@ function interconnect_studies_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
-        'label_help_description' => '',
         'label_position' => 'above',
         'text_parts' => array(),
         'year_range' => '-50:+0',
@@ -110,7 +109,6 @@ function interconnect_studies_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
-        'label_help_description' => '',
         'label_position' => 'above',
         'text_parts' => array(),
         'year_range' => '-50:+0',
@@ -199,9 +197,15 @@ function interconnect_studies_field_default_field_instances() {
   // Exported field_instance: 'node-study-field_design_ic'
   $field_instances['node-study-field_design_ic'] = array(
     'bundle' => 'study',
-    'default_value' => 'none',
+    'default_value' => array(
+      0 => array(
+        'value' => 'none',
+      ),
+    ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Please select a study design and complete the associated questions to help us
+		understand the of your R study and its design including information on the recruitment strategy of the study
+		participants.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -224,14 +228,12 @@ function interconnect_studies_field_default_field_instances() {
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
+	  	  'description_display' => 'before',
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-		'label_help_description' => 'Please select a study design and complete the associated questions to help us
-		understand the of your R study and its design including information on the recruitment strategy of the study
-		participants.',
 		),
       'type' => 'options_buttons',
       'weight' => 129,
@@ -243,7 +245,7 @@ function interconnect_studies_field_default_field_instances() {
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Does the study have DNA extracted or a potential source of DNA?',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -266,12 +268,12 @@ function interconnect_studies_field_default_field_instances() {
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
+	  'description_display' => 'before',
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-		'label_help_description' => 'Does the study have DNA extracted or a potential source of DNA?',
 		),
       'type' => 'options_buttons',
       'weight' => 128,
@@ -417,7 +419,6 @@ function interconnect_studies_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
-        'label_help_description' => '',
         'label_position' => 'above',
         'text_parts' => array(),
         'year_range' => '-50:+0',
@@ -891,7 +892,6 @@ function interconnect_studies_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
-        'label_help_description' => '',
         'label_position' => 'above',
         'text_parts' => array(),
         'year_range' => '-50:+0',
@@ -1345,6 +1345,7 @@ function interconnect_studies_field_default_field_instances() {
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
+	  'description_display' => 'before',
     ),
     'widget' => array(
       'active' => 1,
@@ -1409,7 +1410,7 @@ function interconnect_studies_field_default_field_instances() {
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'If available, please enter the trial registration number',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1441,12 +1442,12 @@ function interconnect_studies_field_default_field_instances() {
       'prefix' => '',
       'suffix' => '',
       'user_register_form' => FALSE,
+	  'description_display' => 'before',
     ),
     'widget' => array(
       'active' => 0,
       'module' => 'number',
       'settings' => array(
-			'label_help_description' => 'If available, please enter the trial registration number',
 		),
       'type' => 'number',
       'weight' => 146,
@@ -1655,7 +1656,7 @@ function interconnect_studies_field_default_field_instances() {
     'bundle' => 'population',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Select the type of people that are specifically targeted by the study design:',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1678,12 +1679,12 @@ function interconnect_studies_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
+	  'description_display' => 'before',
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-		'label_help_description' => 'Select the type of people that are specifically targeted by the study design:',
 	  ),
       'type' => 'options_buttons',
       'weight' => 160,
