@@ -77,6 +77,11 @@ function interconnect_studies_features_override_default_overrides() {
     );
 	$overrides["field_instance.node-population-title_field.description"] = 'Enter the name of the sampling frame'; /* WAS: '' */ 
   $overrides["field_instance.node-population-title_field.settings|description_display"] = 'before';
+  
+  	$overrides["field_instance.node-population-field_pop_country.label"] = 'Country of residence at time of recruitment'; /* WAS: 'Country' */
+	$overrides["field_instance.node-population-field_pop_country.description"] = 'Select the countries of residence of the study
+		participants from the list, selecting all that apply.'; /* WAS: '' */
+	$overrides["field_instance.node-population-field_pop_country.settings|description_display"] = 'before';
 
   
   

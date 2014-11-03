@@ -193,6 +193,45 @@ function interconnect_studies_field_default_field_bases() {
     'translatable' => 0,
     'type' => 'list_text',
   );
+  
+  // Exported field_base: 'field_design_other_ic'
+  $field_bases['field_design_other_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_design_other_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
 
   // Exported field_base: 'field_dna_ic'
   $field_bases['field_dna_ic'] = array(
@@ -351,7 +390,7 @@ function interconnect_studies_field_default_field_bases() {
       'profile2_private' => FALSE,
     ),
     'translatable' => 0,
-    'type' => 'list_integer',
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_interv_other_ic'
@@ -430,59 +469,59 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_num_cases_ic'
-  $field_bases['field_num_cases_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_num_cases_ic',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'field_description_infos' => array(
-        'field_description' => 0,
-        'field_description_body' => '',
-        'field_description_label' => '',
-        'field_description_value_type' => 'integer',
-      ),
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'number_integer',
-  );
+  // // Exported field_base: 'field_num_cases_ic'
+  // $field_bases['field_num_cases_ic'] = array(
+    // 'active' => 1,
+    // 'cardinality' => 1,
+    // 'deleted' => 0,
+    // 'entity_types' => array(),
+    // 'field_name' => 'field_num_cases_ic',
+    // 'field_permissions' => array(
+      // 'type' => 0,
+    // ),
+    // 'foreign keys' => array(),
+    // 'indexes' => array(),
+    // 'locked' => 0,
+    // 'module' => 'number',
+    // 'settings' => array(
+      // 'field_description_infos' => array(
+        // 'field_description' => 0,
+        // 'field_description_body' => '',
+        // 'field_description_label' => '',
+        // 'field_description_value_type' => 'integer',
+      // ),
+      // 'profile2_private' => FALSE,
+    // ),
+    // 'translatable' => 0,
+    // 'type' => 'number_integer',
+  // );
 
-  // Exported field_base: 'field_num_controls_ic'
-  $field_bases['field_num_controls_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_num_controls_ic',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'field_description_infos' => array(
-        'field_description' => 0,
-        'field_description_body' => '',
-        'field_description_label' => '',
-        'field_description_value_type' => 'integer',
-      ),
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'number_integer',
-  );
+  // // Exported field_base: 'field_num_controls_ic'
+  // $field_bases['field_num_controls_ic'] = array(
+    // 'active' => 1,
+    // 'cardinality' => 1,
+    // 'deleted' => 0,
+    // 'entity_types' => array(),
+    // 'field_name' => 'field_num_controls_ic',
+    // 'field_permissions' => array(
+      // 'type' => 0,
+    // ),
+    // 'foreign keys' => array(),
+    // 'indexes' => array(),
+    // 'locked' => 0,
+    // 'module' => 'number',
+    // 'settings' => array(
+      // 'field_description_infos' => array(
+        // 'field_description' => 0,
+        // 'field_description_body' => '',
+        // 'field_description_label' => '',
+        // 'field_description_value_type' => 'integer',
+      // ),
+      // 'profile2_private' => FALSE,
+    // ),
+    // 'translatable' => 0,
+    // 'type' => 'number_integer',
+  // );
 
   // Exported field_base: 'field_number_of_participants_ic'
   $field_bases['field_number_of_participants_ic'] = array(
@@ -706,6 +745,79 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'date',
+  );
+  
+  
+    // Exported field_base: 'field_measure_diet_ic'
+  $field_bases['field_measure_diet_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_measure_diet_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => 'Yes',
+        0 => 'No',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+  
+      // Exported field_base: 'field_measure_pa_ic'
+  $field_bases['field_measure_pa_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_measure_pa_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => 'Yes',
+        0 => 'No',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
   );
 
   // Exported field_base: 'field_pop_rec_proc_gender_ic'
@@ -1054,6 +1166,46 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+   // Exported field_base: 'field_prev_disease_other_ic'
+  $field_bases['field_prev_disease_other_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_prev_disease_other_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+  
+  
   // Exported field_base: 'field_race_african_ic'
   $field_bases['field_race_african_ic'] = array(
     'active' => 1,

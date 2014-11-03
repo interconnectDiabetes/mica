@@ -239,6 +239,48 @@ function interconnect_studies_field_default_field_instances() {
       'weight' => 129,
     ),
   );
+  
+  
+    // Exported field_instance: 'node-study-field_design_other_ic'
+  $field_instances['node-study-field_design_other_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_design_other_ic',
+    'label' => 'Please specify the study design',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 137,
+    ),
+  );
 
   // Exported field_instance: 'node-study-field_dna_ic'
   $field_instances['node-study-field_dna_ic'] = array(
@@ -545,99 +587,99 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-study-field_num_cases_ic'
-  $field_instances['node-study-field_num_cases_ic'] = array(
-    'bundle' => 'study',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 53,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'display_label' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_num_cases_ic',
-    'label' => 'Number of cases',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 140,
-    ),
-  );
+  // // Exported field_instance: 'node-study-field_num_cases_ic'
+  // $field_instances['node-study-field_num_cases_ic'] = array(
+    // 'bundle' => 'study',
+    // 'default_value' => NULL,
+    // 'deleted' => 0,
+    // 'description' => '',
+    // 'display' => array(
+      // 'default' => array(
+        // 'label' => 'above',
+        // 'module' => 'number',
+        // 'settings' => array(
+          // 'decimal_separator' => '.',
+          // 'prefix_suffix' => TRUE,
+          // 'scale' => 0,
+          // 'thousand_separator' => ' ',
+        // ),
+        // 'type' => 'number_integer',
+        // 'weight' => 53,
+      // ),
+      // 'teaser' => array(
+        // 'label' => 'above',
+        // 'settings' => array(),
+        // 'type' => 'hidden',
+        // 'weight' => 0,
+      // ),
+    // ),
+    // 'display_label' => '',
+    // 'entity_type' => 'node',
+    // 'field_name' => 'field_num_cases_ic',
+    // 'label' => 'Number of cases',
+    // 'required' => 0,
+    // 'settings' => array(
+      // 'max' => '',
+      // 'min' => '',
+      // 'prefix' => '',
+      // 'suffix' => '',
+      // 'user_register_form' => FALSE,
+    // ),
+    // 'widget' => array(
+      // 'active' => 0,
+      // 'module' => 'number',
+      // 'settings' => array(),
+      // 'type' => 'number',
+      // 'weight' => 140,
+    // ),
+  // );
 
-  // Exported field_instance: 'node-study-field_num_controls_ic'
-  $field_instances['node-study-field_num_controls_ic'] = array(
-    'bundle' => 'study',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 54,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'display_label' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_num_controls_ic',
-    'label' => 'Number of controls',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 141,
-    ),
-  );
+  // // Exported field_instance: 'node-study-field_num_controls_ic'
+  // $field_instances['node-study-field_num_controls_ic'] = array(
+    // 'bundle' => 'study',
+    // 'default_value' => NULL,
+    // 'deleted' => 0,
+    // 'description' => '',
+    // 'display' => array(
+      // 'default' => array(
+        // 'label' => 'above',
+        // 'module' => 'number',
+        // 'settings' => array(
+          // 'decimal_separator' => '.',
+          // 'prefix_suffix' => TRUE,
+          // 'scale' => 0,
+          // 'thousand_separator' => ' ',
+        // ),
+        // 'type' => 'number_integer',
+        // 'weight' => 54,
+      // ),
+      // 'teaser' => array(
+        // 'label' => 'above',
+        // 'settings' => array(),
+        // 'type' => 'hidden',
+        // 'weight' => 0,
+      // ),
+    // ),
+    // 'display_label' => '',
+    // 'entity_type' => 'node',
+    // 'field_name' => 'field_num_controls_ic',
+    // 'label' => 'Number of controls',
+    // 'required' => 0,
+    // 'settings' => array(
+      // 'max' => '',
+      // 'min' => '',
+      // 'prefix' => '',
+      // 'suffix' => '',
+      // 'user_register_form' => FALSE,
+    // ),
+    // 'widget' => array(
+      // 'active' => 0,
+      // 'module' => 'number',
+      // 'settings' => array(),
+      // 'type' => 'number',
+      // 'weight' => 141,
+    // ),
+  // );
 
   // Exported field_instance: 'node-study-field_number_of_participants_ic'
   $field_instances['node-study-field_number_of_participants_ic'] = array(
@@ -939,6 +981,48 @@ function interconnect_studies_field_default_field_instances() {
       'weight' => 138,
     ),
   );
+  
+   // Exported field_instance: 'node-study-field_prev_disease_other_ic'
+  $field_instances['node-study-field_prev_disease_other_ic'] = array( 
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 66,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_prev_disease_other_ic',
+    'label' => 'Please specify the other type of diabetes',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 153,
+    ),
+  );
+  
 
   // Exported field_instance: 'node-study-field_race_african_ic'
   $field_instances['node-study-field_race_african_ic'] = array(
@@ -1454,6 +1538,84 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
   
+    // Exported field_instance: 'node-study-field_measure_diet_ic'
+  $field_instances['node-study-field_measure_diet_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 41,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_measure_diet_ic',
+    'label' => 'Does the study have any measures of diet?',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+		),
+      'type' => 'options_buttons',
+      'weight' => 128,
+    ),
+  );
+  
+    // Exported field_instance: 'node-study-field_measure_pa_ic'
+  $field_instances['node-study-field_measure_pa_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 41,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_measure_pa_ic',
+    'label' => 'Does the study have any measures of physical activity?',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+		),
+      'type' => 'options_buttons',
+      'weight' => 128,
+    ),
+  );
+
   
   // Exported field_instance: 'node-population-field_pop_rec_proc_gender_ic'
   $field_instances['node-population-field_pop_rec_proc_gender_ic'] = array(
@@ -1716,7 +1878,7 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_pop_rec_target_other_ic',
     'label' => 'Please specify the other people targeted by the study design',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,

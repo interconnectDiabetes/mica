@@ -50,7 +50,7 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
 		);
 	 $data['node-study-field_contacts_ref']['label'] = 'Contact person(s)'; /* WAS: 'Contacts' */ 
 	 $data['node-study-field_contacts_ref']['description'] = 'Enter the contact details of the person(s) that could provide additional information about the study. More contacts can be added with the "Add another item" button. You will be able to edit these Contacts after saving the Study.'; /* WAS: 'Enter the Contact full name. You will be able to edit these Contacts once the Study will be saved' */ 
-	 $data['node-study-field_contacts_ref']['settings']['description_display'] = 'before';
+	 $data['node-study-field_contacts_ref']['settings']['description_display'] = 'after';
 	 // $data['node-study-field_contacts_ref']['widget']['module'] = 'node_reference'; /* WAS: 'noderefcreate' */
     // $data['node-study-field_contacts_ref']['widget']['settings'] = array(
       // 'autocomplete_match' => 'contains',
@@ -116,7 +116,15 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
     );
 	$data['node-population-title_field']['description'] = 'Enter the name of the sampling frame'; /* WAS: '' */
 	$data['node-population-title_field']['settings']['description_display'] = 'before';
-  }  
+  }
+
+    if (isset($data['node-population-field_pop_country'])) {
+	$data['node-population-field_pop_country']['label'] = 'Country of residence at time of recruitment'; /* WAS: 'Country' */
+	$data['node-population-field_pop_country']['description'] = 'Select the countries of residence of the study
+		participants from the list, selecting all that apply.'; /* WAS: '' */
+	$data['node-population-field_pop_country']['settings']['description_display'] = 'before';
+  }
+  
 
 }  
 
