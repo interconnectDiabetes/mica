@@ -164,7 +164,7 @@ $form['mica_opal']['#type'] = 'hidden';
   $form['field_design_ic']['#weight'] = '1';
 
   $form['#group_children']['field_design_other_ic'] = 'group_study_design';
-  $form['field_design_other_ic']['#weight'] = '2';
+  $form['field_design_other_ic']['#weight'] = '1';
   
   $form['#group_children']['field_trial_number_ic'] = 'group_study_design';
   $form['field_trial_number_ic']['#weight'] = '1';  
@@ -302,7 +302,7 @@ $visible_options = array(
         ':input[name="field_race_other_ic[und][0][value]"]' => array('filled' => TRUE),
 	);	
   
-dpm($form, $name = NULL);
+//dpm($form, $name = NULL);
 
 }
 
