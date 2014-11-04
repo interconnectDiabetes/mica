@@ -194,7 +194,7 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'list_text',
   );
   
-  // Exported field_base: 'field_design_other_ic'
+    // Exported field_base: 'field_design_other_ic'
   $field_bases['field_design_other_ic'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -232,6 +232,7 @@ function interconnect_studies_field_default_field_bases() {
     'translatable' => 0,
     'type' => 'text',
   );
+
 
   // Exported field_base: 'field_dna_ic'
   $field_bases['field_dna_ic'] = array(

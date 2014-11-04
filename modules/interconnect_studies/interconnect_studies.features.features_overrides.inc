@@ -33,29 +33,13 @@ function interconnect_studies_features_override_default_overrides() {
   
   $overrides["field_instance.node-study-title_field.label"] = 'Name of the study'; /* WAS: 'Name' */
   $overrides["field_instance.node-study-title_field.description"] = 'Enter the official study name'; /* WAS: 'Official study name' */
-  $overrides["field_instance.node-study-title_field.widget"] = array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => -5,
-    );
   $overrides["field_instance.node-study-title_field.settings|description_display"] = 'before';
 
-	$overrides["field_instance.node-study-field_acroym.widget|settings"] = array(
-      'size' => 60,
-    );
 	$overrides["field_instance.node-study-field_acroym.description"] = 'If available, enter the study acronym'; /* WAS: 'Acronym of the study if applicable.' */
    $overrides["field_instance.node-study-field_acroym.settings|description_display"] = 'before';
 	
   $overrides["field_instance.node-study-field_contacts_ref.label"] = 'Contact person(s)';
-  $overrides["field_instance.node-study-field_contacts_ref.widget|settings"] = array(
-    'autocomplete_match' => 'contains',
-    'autocomplete_path' => 'node_reference/autocomplete',
-    'size' => 60,
-  );
+
   	$overrides["field_instance.node-study-field_contacts_ref.description"] = 'Enter the contact details of the person(s) that could provide additional information about the study. More contacts can be added with the "Add another item" button. You will be able to edit these Contacts after saving the Study.'; /* WAS: 'Enter the Contact full name. You will be able to edit these Contacts once the Study will be saved' */ 
 	$overrides["field_instance.node-study-field_contacts_ref.settings|description_display"] = 'before';
 	
@@ -66,15 +50,7 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-study-field_website.settings|description_display"] = 'before'; 
   
   $overrides["field_instance.node-population-title_field.label"] = 'Enter the name of the sampling frame';
-  $overrides["field_instance.node-population-title_field.widget"] = array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => -5,
-    );
+
 	$overrides["field_instance.node-population-title_field.description"] = 'Enter the name of the sampling frame'; /* WAS: '' */ 
   $overrides["field_instance.node-population-title_field.settings|description_display"] = 'before';
   

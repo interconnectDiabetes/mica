@@ -239,7 +239,49 @@ function interconnect_studies_field_default_field_instances() {
       'weight' => 129,
     ),
   );
-  
+ 
+ // Exported field_instance: 'node-study-field_design_other_ic'
+  $field_instances['node-study-field_design_other_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 82,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_design_other_ic',
+    'label' => 'Please specify the study design',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 171,
+    ),
+  );
+ 
   
     // Exported field_instance: 'node-study-field_design_other_ic'
   $field_instances['node-study-field_design_other_ic'] = array(
