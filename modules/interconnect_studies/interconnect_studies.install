@@ -23,13 +23,13 @@ function interconnect_studies_install() {
     ->execute();
 
   
-  $mica_theme = 'mica_subtheme';
-  $new_theme = 'mica_subtheme_tom';
-  theme_enable(array($new_theme));
-  variable_set('theme_default', $new_theme);
-  theme_disable(array($mica_theme)); 
+//  $mica_theme = 'mica_subtheme';
+//  $new_theme = 'mica_subtheme_tom';
+  // theme_enable(array($new_theme));
+  // variable_set('theme_default', $new_theme);
+  // theme_disable(array($mica_theme)); 
 
-  cache_clear_all();
+  // cache_clear_all();
   
  // _drupal_default_blocks($new_theme);
    // Enable some standard blocks.

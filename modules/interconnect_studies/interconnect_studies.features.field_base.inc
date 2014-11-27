@@ -17,6 +17,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_case_definition_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -34,6 +37,13 @@ function interconnect_studies_field_default_field_bases() {
         'other' => 'Other, please specify',
       ),
       'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -65,7 +75,6 @@ function interconnect_studies_field_default_field_bases() {
         'case_control' => 'Case-control study',
         'case_only' => 'Case only study',
         'other' => 'Other (please specify)',
-        'none' => 'N/A',
       ),
       'allowed_values_function' => '',
       'field_description_infos' => array(
@@ -87,6 +96,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_design_other_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -103,7 +115,14 @@ function interconnect_studies_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
       'max_length' => 255,
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'text',
@@ -116,6 +135,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_dna_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -126,10 +148,17 @@ function interconnect_studies_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-					0 => 'Yes',
-					1 => 'No',
-	  ),
+        0 => 'Yes',
+        1 => 'No',
+      ),
       'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'boolean',
+      ),
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
@@ -142,11 +171,22 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_eth_his_lat_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'integer',
+      ),
+      'profile2_private' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -158,6 +198,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_family_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -174,6 +217,13 @@ function interconnect_studies_field_default_field_bases() {
         'other' => 'Other, please specify',
       ),
       'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -186,6 +236,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_family_other_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -202,7 +255,14 @@ function interconnect_studies_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
       'max_length' => 255,
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'text',
@@ -251,6 +311,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_hi_other_diabetes_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -267,7 +330,14 @@ function interconnect_studies_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
       'max_length' => 255,
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'text',
@@ -280,6 +350,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_interv_other_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -296,7 +369,14 @@ function interconnect_studies_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
       'max_length' => 255,
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'text',
@@ -309,6 +389,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_interv_type_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -324,6 +407,13 @@ function interconnect_studies_field_default_field_bases() {
         'other' => 'Other, please specify',
       ),
       'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -336,6 +426,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_measure_diet_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -345,11 +438,18 @@ function interconnect_studies_field_default_field_bases() {
     'locked' => 0,
     'module' => 'list',
     'settings' => array(
-            'allowed_values' => array(
-					0 => 'Yes',
-					1 => 'No',
-	  ),
+      'allowed_values' => array(
+        0 => 'Yes',
+        1 => 'No',
+      ),
       'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'boolean',
+      ),
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
@@ -362,6 +462,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_measure_pa_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -371,11 +474,18 @@ function interconnect_studies_field_default_field_bases() {
     'locked' => 0,
     'module' => 'list',
     'settings' => array(
-            'allowed_values' => array(
-					0 => 'Yes',
-					1 => 'No',
-	  ),
+      'allowed_values' => array(
+        0 => 'Yes',
+        1 => 'No',
+      ),
       'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'boolean',
+      ),
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
@@ -388,11 +498,22 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_number_of_participants_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'integer',
+      ),
+      'profile2_private' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
@@ -404,6 +525,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_other_case_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -420,7 +544,14 @@ function interconnect_studies_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
       'max_length' => 255,
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'text',
@@ -448,7 +579,10 @@ function interconnect_studies_field_default_field_bases() {
         'second' => 0,
         'year' => 'year',
       ),
-	),
+      'timezone_db' => 'UTC',
+      'todate' => '',
+      'tz_handling' => 'site',
+    ),
     'translatable' => 0,
     'type' => 'date',
   );
@@ -456,10 +590,13 @@ function interconnect_studies_field_default_field_bases() {
   // Exported field_base: 'field_pop_gender_ic'
   $field_bases['field_pop_gender_ic'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_pop_gender_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -470,10 +607,18 @@ function interconnect_studies_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'women' => 'Women',
-        'men' => 'Men',
+        'both' => 'Women and Men',
+        'women' => 'Women only',
+        'men' => 'Men only',
       ),
       'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
@@ -482,10 +627,13 @@ function interconnect_studies_field_default_field_bases() {
   // Exported field_base: 'field_pop_locality_ic'
   $field_bases['field_pop_locality_ic'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_pop_locality_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -496,13 +644,57 @@ function interconnect_studies_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'rural' => 'Rural status',
-        'urban' => 'Urban status',
+        'both' => 'Both urban and rural',
+        'urban' => 'Urban',
+        'rural' => 'Rural',
       ),
       'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_pop_migration_ic'
+  $field_bases['field_pop_migration_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_pop_migration_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'boolean',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
   );
 
   // Exported field_base: 'field_pop_newborn_ic'
@@ -512,6 +704,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_pop_newborn_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -521,8 +716,18 @@ function interconnect_studies_field_default_field_bases() {
     'locked' => 0,
     'module' => 'list',
     'settings' => array(
-      'allowed_values' => array(),
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
       'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'boolean',
+      ),
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
@@ -535,6 +740,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_pop_pregnancy_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(
       'value' => array(
@@ -544,8 +752,18 @@ function interconnect_studies_field_default_field_bases() {
     'locked' => 0,
     'module' => 'list',
     'settings' => array(
-      'allowed_values' => array(),
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
       'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'boolean',
+      ),
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
@@ -686,6 +904,9 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_race_other_text_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -702,7 +923,14 @@ function interconnect_studies_field_default_field_bases() {
     'locked' => 0,
     'module' => 'text',
     'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
       'max_length' => 255,
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'text',
@@ -746,7 +974,10 @@ function interconnect_studies_field_default_field_bases() {
         'second' => 0,
         'year' => 'year',
       ),
-	),
+      'timezone_db' => 'UTC',
+      'todate' => '',
+      'tz_handling' => 'site',
+    ),
     'translatable' => 0,
     'type' => 'date',
   );
@@ -773,7 +1004,10 @@ function interconnect_studies_field_default_field_bases() {
         'second' => 0,
         'year' => 'year',
       ),
-	),
+      'timezone_db' => 'UTC',
+      'todate' => '',
+      'tz_handling' => 'site',
+    ),
     'translatable' => 0,
     'type' => 'date',
   );
@@ -785,11 +1019,22 @@ function interconnect_studies_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_trial_number_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
-    'settings' => array(),
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'integer',
+      ),
+      'profile2_private' => FALSE,
+    ),
     'translatable' => 0,
     'type' => 'number_integer',
   );
