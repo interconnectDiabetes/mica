@@ -5,10 +5,14 @@
  * Install interconnect_studies module.
  */
  
+ include_once(drupal_get_path('module', 'mica_core') . '/mica_core.block.utils.inc');
+ 
 /**
  * Implements hook_install().
  */
 function interconnect_studies_install() {
+
+  _interconnect_studies_config_blocks();
 
   // Get the weight of the module we want to compare against
   $weight = db_select('system', 's')
@@ -248,4 +252,12 @@ function _set_block_title($title, $module, $delta, $mica_theme = 'mica_subtheme_
     ->condition('delta', $delta)
     ->condition('theme', $mica_theme)
     ->execute();
+}
+
+function _interconnect_studies_config_blocks() {
+  mica_core_set_block_node_type('study', 'interconnect_studies', 'study-general-info-ic');
+  mica_core_set_block_node_type('study', 'interconnect_studies', 'study-methods-ic');
+  mica_core_set_block_node_type('study', 'interconnect_studies', 'study-ethnicity-ic');
+  mica_core_set_block_node_type('study', 'interconnect_studies', 'study-available-info-ic');
+  mica_core_set_block_node_type('study', 'interconnect_studies', 'study-populations-ic');
 }

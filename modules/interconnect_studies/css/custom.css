@@ -1,0 +1,53 @@
+#block-interconnect-studies-study-general-info-ic .field-name-field-design .field-item {
+  .other-sub-title {
+    font-weight: bold;
+  }
+  p:first-of-type {
+    display: inline;
+  }
+}
+
+.block-interconnect-studies {
+  background-color: #eed5d2;
+}
+.pop-dce .node-unpublished > td,
+.block-interconnect-studies .node-unpublished {
+  background-color: #eed5d2 !important;
+}
+.block-interconnect-studies .node-unpublished header:before,
+.block-interconnect-studies span.node-unpublished > a:before {
+  content: "Draft version ";
+  background-color: #eed5d2;
+  font-weight: bold;
+  font-style: italic;
+}
+.node-type-study section.block-interconnect-studies {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.node-type-study section.block-interconnect-studies h2.block-title {
+  font-size: 16.25px;
+  font-weight: normal;
+  background-color: #f9f9f9;
+  color: #495961;
+  margin: 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.node-type-study section.block-interconnect-studies .block-content {
+  padding-left: 10px;
+}
+.node-type-study section.block-interconnect-studies article.node-population {
+  border-bottom: 1px solid #e5e5e5;
+}
+.node-type-study section.block-interconnect-studies article.node-population:last-child {
+  border-bottom: none;
+}
+.node-type-study section.block-interconnect-studies article.node-population h2 {
+  font-size: 16.25px;
+  line-height: 20px;
+}
+.node-type-study section.block-interconnect-studies article.node-population h2 a {
+  color: #495961;
+}

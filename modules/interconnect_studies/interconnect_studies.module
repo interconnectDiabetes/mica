@@ -269,6 +269,137 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 //dpm($form, $name = NULL);
 }
 
+
+/**
+ * Implements hook_block_info().
+ */
+function interconnect_studies_block_info() {
+  $pages = "<?php if(arg(0) == 'node' && is_numeric(arg(1)) && ((arg(2) == ''|| arg(2) == 'view' || arg(2) == 'draft'))) return TRUE; ?>";
+  return array(
+    'study-general-info-ic' => array(
+      'info' => t('Study General Information'),
+      'weight' => '10',
+      'status' => TRUE,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_PHP,
+      'pages' => $pages,
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
+	'study-methods-ic' => array(
+      'info' => t('Study Methods'),
+      'weight' => '20',
+      'status' => TRUE,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_PHP,
+      'pages' => $pages,
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
+	'study-ethnicity-ic' => array(
+      'info' => t('Study Race and Ethnicity Information'),
+      'weight' => '30',
+      'status' => TRUE,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_PHP,
+      'pages' => $pages,
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
+	'study-available-info-ic' => array(
+      'info' => t('Available information'),
+      'weight' => '40',
+      'status' => TRUE,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_PHP,
+      'pages' => $pages,
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
+	'study-populations-ic' => array(
+      'info' => t('Study Populations'),
+      'weight' => '50',
+      'status' => TRUE,
+      'region' => 'content',
+      'visibility' => BLOCK_VISIBILITY_PHP,
+      'pages' => $pages,
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),	
+  );
+}
+
+/**
+ * Implements hook_block_list_alter().
+ */
+
+function interconnect_studies_block_list_alter(&$blocks) {
+
+//debug($blocks);
+
+foreach ($blocks as $key => $block) {
+	    // Use the user's block visibility setting, if necessary.
+		if ($block->module == 'mica_studies') {
+			unset($blocks[$key]);
+		}
+	}
+	
+}
+
+
+
+/**
+ * Implements hook_block_view().
+ */
+ function interconnect_studies_block_view($delta = '') {
+   module_load_include('inc', 'interconnect_studies', 'interconnect_studies.blocks');
+   $study = menu_get_object();
+
+   drupal_add_css(drupal_get_path('module', 'interconnect_studies') . '/css/custom.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
+  
+   $show_draft = (strpos(current_path(), '/draft') > 0 || $study->status == NODE_NOT_PUBLISHED);
+   if ($show_draft) {
+     $study = workbench_moderation_node_current_load($study);
+   }
+   if (empty($study)) {
+     return NULL;
+   }
+   switch ($delta) {
+    case 'study-general-info-ic':
+      return _interconnect_studies_block_study_general_info($study);
+	case 'study-methods-ic':
+      return _interconnect_studies_block_study_methods($study);
+    case 'study-ethnicity-ic':
+      return _interconnect_studies_block_study_ethnicity($study);
+    case 'study-available-info-ic':
+      return _interconnect_studies_block_available_info($study);
+    case 'study-populations-ic':
+      return _interconnect_studies_block_study_populations($study, $show_draft);
+    // case 'study-marker-paper':
+      // return _mica_studies_block_study_marker_paper($study);
+    // case 'study-documents':
+      // return _mica_studies_block_study_documents($study);
+    // case 'study-supp-infos':
+      // return _mica_studies_block_study_supp_infos($study);
+    // case 'study-populations':
+      // return _mica_studies_block_study_populations($study, $show_draft);
+    // case 'study-timeline':
+      // module_load_include('inc', 'mica_studies', 'mica_studies.blocks.timeline');
+      // return _mica_studies_block_study_timeline($study, $show_draft);
+    // case 'study-datasets':
+      // return _mica_studies_block_study_datasets($study);
+    // case 'study-authorization':
+      // module_load_include('inc', 'mica_studies', 'mica_studies.blocks.authorization');
+     // return _mica_studies_block_study_authorization($study);
+   // // case 'study-menu':
+     // // module_load_include('inc', 'mica_studies', 'mica_studies.blocks.menu');
+     // // return _mica_studies_block_study_menu($study);
+     default:
+       return NULL;
+   }
+ }
+
+// function interconnect_studies_node_view_alter(&$build) {
+// debug($build);
+// }
+
+
+ 
  function _interconnect_studies_validate($node, $form) {
 
   //dpm($node, $name = NULL);
