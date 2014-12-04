@@ -123,16 +123,13 @@ function _interconnect_studies_block_study_populations($study, $show_draft) {
   field_view_field('node', $study, 'field_study_populations', array('label' => 'inline', 'weight' => ++$weight)),
   );
   
-  // // Load the populations that are attached to PUBLISHED version of study
+  // Load the populations that are attached to PUBLISHED version of study
   // if ($show_draft) {
     // $study = node_load($study->nid);
   // }
 
   // foreach (_mica_studies_sort_populations($study) as $index_pop => $population_nid) {
-// //	debug($index_pop);
     // $pop = node_load($population_nid);
-// //	debug($pop);
-// $count++;
     // if (node_access('view', $pop)) {
 
       // if ($show_draft) {
@@ -153,7 +150,6 @@ function _interconnect_studies_block_study_populations($study, $show_draft) {
       // }
     // }
   // }
-// debug($count);
   // debug(array(
     // 'subject' => t('Populations from which the sample(s) is drawn') . '<a name="populations"> </a>',
     // 'content' => array_filter($content),

@@ -405,6 +405,7 @@ function interconnect_studies_field_default_field_bases() {
         'pharm' => 'Pharmacological',
         'life' => 'Lifestyle',
         'other' => 'Other, please specify',
+        'none' => 'N/A',
       ),
       'allowed_values_function' => '',
       'field_description_infos' => array(
@@ -952,6 +953,42 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_recruit_cont_ic'
+  $field_bases['field_recruit_cont_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_recruit_cont_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'No',
+        1 => 'Yes',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'boolean',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_recruit_end_ic'
   $field_bases['field_recruit_end_ic'] = array(
     'active' => 1,
@@ -1022,21 +1059,33 @@ function interconnect_studies_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 0,
     ),
-    'foreign keys' => array(),
-    'indexes' => array(),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
     'locked' => 0,
-    'module' => 'number',
+    'module' => 'text',
     'settings' => array(
       'field_description_infos' => array(
         'field_description' => 0,
         'field_description_body' => '',
         'field_description_label' => '',
-        'field_description_value_type' => 'integer',
+        'field_description_value_type' => 'text',
       ),
+      'max_length' => 255,
       'profile2_private' => FALSE,
     ),
     'translatable' => 0,
-    'type' => 'number_integer',
+    'type' => 'text',
   );
 
   return $field_bases;

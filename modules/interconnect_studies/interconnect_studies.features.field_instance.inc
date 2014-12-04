@@ -364,7 +364,7 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_dna_ic',
     'label' => 'DNA sources',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'description_display' => 'before',
       'user_register_form' => FALSE,
@@ -451,7 +451,7 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_family_ic',
     'label' => 'Individual/family based study',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'description_display' => 'before',
       'user_register_form' => FALSE,
@@ -652,7 +652,7 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_interv_type_ic',
     'label' => 'Intervention type',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'description_display' => 'before',
       'user_register_form' => FALSE,
@@ -691,7 +691,7 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_measure_diet_ic',
     'label' => 'Dietary measures',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'description_display' => 'before',
       'user_register_form' => FALSE,
@@ -730,7 +730,7 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_measure_pa_ic',
     'label' => 'Physical activity measures',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'description_display' => 'before',
       'user_register_form' => FALSE,
@@ -1334,6 +1334,51 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-study-field_recruit_cont_ic'
+  $field_instances['node-study-field_recruit_cont_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 69,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_recruit_cont_ic',
+    'label' => 'Is recruitment continuing?',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 126,
+    ),
+  );
+
   // Exported field_instance: 'node-study-field_recruit_end_ic'
   $field_instances['node-study-field_recruit_end_ic'] = array(
     'bundle' => 'study',
@@ -1383,7 +1428,7 @@ function interconnect_studies_field_default_field_instances() {
         'year_range' => '-50:+0',
       ),
       'type' => 'date_select',
-      'weight' => 170,
+      'weight' => 127,
     ),
   );
 
@@ -1436,7 +1481,7 @@ function interconnect_studies_field_default_field_instances() {
         'year_range' => '-50:+0',
       ),
       'type' => 'date_select',
-      'weight' => 170,
+      'weight' => 125,
     ),
   );
 
@@ -1445,17 +1490,12 @@ function interconnect_studies_field_default_field_instances() {
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'If available, please provide the trial registration number',
+    'description' => 'What type of intervention is being investigated?',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'module' => 'text',
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 42,
       ),
@@ -1469,21 +1509,20 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_trial_number_ic',
-    'label' => 'Trial registration number',
+    'label' => 'Intervention type',
     'required' => 0,
     'settings' => array(
       'description_display' => 'before',
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
       'weight' => 129,
     ),
   );
@@ -1506,12 +1545,12 @@ function interconnect_studies_field_default_field_instances() {
   t('Gender');
   t('Health Information');
   t('Hispanic / Latino');
-  t('If available, please provide the trial registration number');
   t('If recruitment has finished, when did it end?');
   t('Indigenous American / American Indian / Native American / Alaskan Native');
   t('Indigenous Australian / Aboriginal Australian');
   t('Individual/family based study');
   t('Intervention type');
+  t('Is recruitment continuing?');
   t('Middle Eastern');
   t('Migration status');
   t('Native Hawaiian or Other Pacific Islander');
@@ -1539,7 +1578,6 @@ function interconnect_studies_field_default_field_instances() {
   t('Select the type of people targeted by the study design.');
   t('South Asian / Indian Subcontinent');
   t('Study Design');
-  t('Trial registration number');
   t('What type of intervention is being investigated?');
   t('When did recruitment start?');
 

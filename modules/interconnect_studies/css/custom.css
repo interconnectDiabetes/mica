@@ -51,3 +51,7 @@
 .node-type-study section.block-interconnect-studies article.node-population h2 a {
   color: #495961;
 }
+#block-interconnect-studies-study-populations .field-name-field-pop-select-criteria .field-item .inner-value p:first-of-type,
+#block-interconnect-studies-study-populations .field-name-field-pop-src-recruit .field-item .inner-value p:first-of-type {
+  display: inline;
+}

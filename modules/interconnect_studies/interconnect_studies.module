@@ -2,7 +2,8 @@
 
 
 require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.module');
-
+require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.population.inc');
+require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.blocks.inc');
 require_once('/etc/mica/sites/all/modules/interconnect_studies/interconnect_studies.features.inc');
 
 
@@ -29,7 +30,7 @@ function interconnect_studies_form_alter(&$form, &$form_state, $form_id) {
 
 function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
   
-    //$form['#validate'][] = '_interconnect_studies_validate';
+    $form['#validate'][] = '_interconnect_studies_validate';
    
      $form['actions']['_mica_studies_save_add_population_submit'] = array(
     '#access' => TRUE,
@@ -39,31 +40,46 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
     '#submit' => array('node_form_submit', '_mica_studies_save_add_population_submit'),
   );
   
+    // Override save button
+  $form['actions']['_interconnect_studies_save_study_submit'] = array(
+    '#access' => TRUE,
+    '#value' => t('Save'),
+    '#weight' => -10,
+    '#type' => 'submit',
+    '#submit' => array('node_form_submit', '_interconnect_studies_save_study_submit'),
+  );
+  unset($form['actions']['submit']);
+
+  
   	// add some custom text
 	
 	$form['acustomtext'] = array(
         '#type' => 'item',
-        '#markup' => '<div >   InterConnect (www.interconnect-diabetes.eu) is a European Union FP-7 funded project that
-		aims to change the way that data is used in population research into the causes of diabetes and obesity. 
-		It seeks to create the foundation to enable research to move from explaining the differences in risk of diabetes 
-		and obesity within populations to being able to explain differences in risk between populations.
+        '#markup' => '<div ><B>About InterConnect:</B><br>
+		<ul><li>   InterConnect (<a href="www.interconnect-diabetes.eu">www.interconnect-diabetes.eu</a>) is a European Union FP-7 funded project that
+		aims to change the way that data is used in population research into the causes of diabetes and obesity.</li> 
+		<li>It seeks to create the foundation to enable research to move from explaining the differences in risk of diabetes 
+		and obesity <u>within</u> populations to being able to explain differences in risk <u>between</u> populations.</li></ul>
 		<br>
+		<B>About the registry:</B><br>
+		<ul><li>A registry is being set up with the initial purpose of enabling researchers to discover studies relevant
+		to studying gene-environment interaction on the risk of type 1 diabetes, type 2 diabetes or obesity.</li>
+		<li>This first phase of development of the registry is therefore focused on describing the key characteristics
+		of studies in a searchable format.</li></ul>
 		<br>
-		A registry is being set up with the initial purpose of enabling researchers to discover studies relevant
-		to studying gene-environment interaction on the risk of type 1 diabetes, type 2 diabetes or obesity. 
-		This first phase of development of the registry is therefore focused on describing the key characteristics
-		of studies in a searchable format. The registry data collection form has been designed with a view to minimising
-		the request made of Investigators. We have populated it as fully as we can from publicly available information and
-		therefore ask that you simply check that it is correct and add further information as appropriate. The entry will
-		then be displayed on the InterConnect website as part of the study registry.
+		<B>What we ask of you now:</B><br>
+		<ul><li>The registry data collection form has been designed with a view to minimising the input needed from study
+		Principal Investigators and we have populated it as fully as we can from publicly available information.</li>
+		<li>We ask that you simply check that it is correct and add further information as appropriate.
+		The entry will then be displayed on the InterConnect website as part of the study registry.</li></ul>
 		<br>
-		<br>
-		No single study will have all the information required to understand the basis of difference in risk of diabetes 
-		and obesity between populations and systems to facilitate cross-study analysis are required; the development of 
-		the study registry is the first step in creating an integrated platform to this end. We hope that you will be 
-		interested in engaging with InterConnect in the future, as we further develop the study registry with more 
-		detailed information to support processes for data harmonisation and provide tools to facilitate international 
-		collaboration and cross-study analyses.
+		<B>What we plan for the future:</B><br>
+		<ul><li>No single study will have all the information required to understand the basis of difference in risk of diabetes 
+		and obesity between populations.</li>
+		<li>The development of the registry is the first step in creating an integrated platform to facilitate collaboration
+		and cross-study analyses.</li>
+		<li>We hope that you will engage with InterConnect in the future, as we develop the study registry with more 
+		detailed information to support data harmonisation and provide tools for federated data meta-analysis.</li></ul>
 		</div>',
         '#weight' => -10, // Adjust so that you can place it whereever 
         );
@@ -154,6 +170,14 @@ $form['mica_opal']['#type'] = 'hidden';
 
    _mica_add_dependent_field_checked($form, 'field_design_ic', 'field_design_other_ic', 'other'); 
 
+// recruitment date
+	
+   _mica_add_dependent_field_checked($form, 'field_recruit_cont_ic', 'field_recruit_end_ic', 'Yes');
+
+   $form['field_recruit_end_ic']['#states']['visible'] = array(
+		':input[name="field_recruit_cont_ic[und]"]' => array("checked" => TRUE) ,
+   );   
+   
 // family field
 
 	_mica_add_dependent_field_checked($form, 'field_family_ic', 'field_family_other_ic', 'other');
@@ -172,6 +196,17 @@ _mica_add_double_or_field_checked($form, 'field_health_info_ic', 'field_health_i
 //dpm($form, $name = NULL);
 
 }
+
+// function mica_subtheme_preprocess_page(&$variables) {
+  // //if ($a_condition) {
+    // // $variables['title'] = 'A new title';
+	 // debug($variables);
+	
+  // if (!empty($variables['node']) && in_array($variables['node']->type, array('population'))) {
+    // $variables['title'] = 'A new title2';
+  // }
+ // // }
+// }
 
 function interconnect_studies_population_form_alter(&$form, &$form_state, $form_id) {
 	
@@ -219,12 +254,18 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	//$form['#groups']['group_pop_selection_criteria']->format_type = 'hidden';
 	$form['#groups']['group_pop_supp_info']->format_type = 'hidden';	
 	
-	// set the title
+	//set the title
 	
-	//if ($form_id == 'population_node_form') {
-    //    drupal_set_title(t("Create Sampling Frame"));
-    //  }
+	if ($form_id == 'population_node_form') {
 	
+	   if ($form['nid']['#value'] != '') {
+        drupal_set_title(t("Edit Population from which the sample(s) is drawn"));
+      }
+      else {
+        drupal_set_title(t("Create Population from which the sample(s) is drawn"));
+      }
+     }
+
 	
 	// move title field to sampling frame group
 	
@@ -258,17 +299,24 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	// _mica_add_dependent_field_checked($form, 'field_pop_rec_proc_select_ic', 'field_pop_rec_proc_other_ic', 'other');
 
 
-     $form['actions']['_mica_studies_save_add_dce_submit'] = array(
+     $form['actions']['_mica_studies_save_add_population_submit'] = array(
     '#access' => TRUE,
     '#value' => t('Save & Add Sampling Frame'),
     '#weight' => 6,
     '#type' => 'hidden',
     '#submit' => array('node_form_submit', '_mica_studies_save_add_population_submit'),
   );	
-   
-//dpm($form, $name = NULL);
+  
+
 }
 
+function _interconnect_studies_save_study_submit($form, &$form_state) {
+  if (isset($form['actions']['_interconnect_studies_save_study_submit'])) {
+	$form_state['redirect'] = NULL;
+    //$form_state['nid'] = NULL;
+	//dpm($form_state);
+  }
+}
 
 /**
  * Implements hook_block_info().
@@ -320,7 +368,7 @@ function interconnect_studies_block_info() {
       'visibility' => BLOCK_VISIBILITY_PHP,
       'pages' => $pages,
       'cache' => DRUPAL_CACHE_PER_PAGE,
-    ),	
+    ),
   );
 }
 
@@ -370,25 +418,6 @@ foreach ($blocks as $key => $block) {
       return _interconnect_studies_block_available_info($study);
     case 'study-populations-ic':
       return _interconnect_studies_block_study_populations($study, $show_draft);
-    // case 'study-marker-paper':
-      // return _mica_studies_block_study_marker_paper($study);
-    // case 'study-documents':
-      // return _mica_studies_block_study_documents($study);
-    // case 'study-supp-infos':
-      // return _mica_studies_block_study_supp_infos($study);
-    // case 'study-populations':
-      // return _mica_studies_block_study_populations($study, $show_draft);
-    // case 'study-timeline':
-      // module_load_include('inc', 'mica_studies', 'mica_studies.blocks.timeline');
-      // return _mica_studies_block_study_timeline($study, $show_draft);
-    // case 'study-datasets':
-      // return _mica_studies_block_study_datasets($study);
-    // case 'study-authorization':
-      // module_load_include('inc', 'mica_studies', 'mica_studies.blocks.authorization');
-     // return _mica_studies_block_study_authorization($study);
-   // // case 'study-menu':
-     // // module_load_include('inc', 'mica_studies', 'mica_studies.blocks.menu');
-     // // return _mica_studies_block_study_menu($study);
      default:
        return NULL;
    }
@@ -404,11 +433,14 @@ foreach ($blocks as $key => $block) {
 
   //dpm($node, $name = NULL);
 
- debug($node['field_african_african_american_b']['und']['0']['value']['#value']); 
+ //debug($node['field_african_african_american_b']['und']['0']['value']['#value']); 
 
- $total = $node['field_african_african_american_b']['und']['0']['value']['#value'] + $node['field_caucasian_european_white']['und']['0']['value']['#value']
-			+ $node['field_asian_native_american']['und']['0']['value']['#value'] + $node['field_other_ancestry']['und']['0']['value']['#value'];
- debug($total);
+ $total = $node['field_race_african_ic']['und']['0']['value']['#value'] + $node['field_race_e_asian_ic']['und']['0']['value']['#value']
+		+ $node['field_race_s_asian_ic']['und']['0']['value']['#value'] + $node['field_race_euro_ic']['und']['0']['value']['#value']
+		+ $node['field_race_indig_am_ic']['und']['0']['value']['#value'] + $node['field_race_indig_aus_ic']['und']['0']['value']['#value']		
+		+ $node['field_race_indig_pac_ic']['und']['0']['value']['#value'] + $node['field_race_mid_e_ic']['und']['0']['value']['#value']		
+		+ $node['field_race_other_ic']['und']['0']['value']['#value'];
+// debug($total);
 
 if($total != 100){
     form_set_error('title', 'The ancestries must sum to 100% ');
