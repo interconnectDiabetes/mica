@@ -40,6 +40,7 @@ function _interconnect_studies_block_study_methods($study) {
  $content[] = _interconnect_studies_block_study_methods_intervention($wrapper, ++$weight);
  $content[] = _interconnect_studies_block_study_methods_case($wrapper, ++$weight);
  $content[] = field_view_field('node', $study, 'field_recruit_start_ic', array('label' => 'inline', 'weight' => ++$weight));
+ $content[] = field_view_field('node', $study, 'field_recruit_cont_ic', array('label' => 'inline', 'weight' => ++$weight));
  $content[] = field_view_field('node', $study, 'field_recruit_end_ic', array('label' => 'inline', 'weight' => ++$weight));
  $content[] = _interconnect_studies_block_study_methods_family($wrapper, ++$weight);
  $content[] = _interconnect_studies_block_study_general_design_field_nb_participants($wrapper, ++$weight); 
@@ -109,7 +110,7 @@ function _interconnect_studies_block_available_info($study) {
 
   ));
   return array(
-    'subject' => t('General Design') . '<a name="general-design"> </a>',
+    'subject' => t('Available Information') . '<a name="available-information"> </a>',
     'content' => array_filter($content),
   );
 }

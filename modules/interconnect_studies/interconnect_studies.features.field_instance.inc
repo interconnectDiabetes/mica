@@ -37,7 +37,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Gender',
     'required' => 1,
     'settings' => array(
-      'description_display' => 'after',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -76,7 +75,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Area of residence',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'after',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -115,7 +113,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Migration status',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'after',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -160,7 +157,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Newborn',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'after',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -205,7 +201,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Pregnant women',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'after',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -246,7 +241,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Case definition',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -285,7 +279,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Study Design',
     'required' => 1,
     'settings' => array(
-      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -324,7 +317,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other study design',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -366,7 +358,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'DNA sources',
     'required' => 1,
     'settings' => array(
-      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -410,7 +401,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Hispanic / Latino',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -453,7 +443,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Individual/family based study',
     'required' => 1,
     'settings' => array(
-      'description_display' => 'before',
+
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -492,7 +482,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other type of people',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
+
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -570,7 +560,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other types of diabetes',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
+
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -612,7 +602,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other intervention type',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
+
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -630,7 +620,7 @@ function interconnect_studies_field_default_field_instances() {
   // Exported field_instance: 'node-study-field_interv_type_ic'
   $field_instances['node-study-field_interv_type_ic'] = array(
     'bundle' => 'study',
-    'default_value' => NULL,
+    'default_value' => 'none',
     'deleted' => 0,
     'description' => 'What type of intervention is being investigated?',
     'display' => array(
@@ -654,7 +644,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Intervention type',
     'required' => 1,
     'settings' => array(
-      'description_display' => 'before',
+
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -693,7 +683,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Dietary measures',
     'required' => 1,
     'settings' => array(
-      'description_display' => 'before',
+
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -732,7 +722,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Physical activity measures',
     'required' => 1,
     'settings' => array(
-      'description_display' => 'before',
+
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -776,7 +766,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Number of participants recruited to the study',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
+
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -819,7 +809,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other case definition',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
+
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -1274,7 +1264,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other group',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
+
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -1349,7 +1339,7 @@ function interconnect_studies_field_default_field_instances() {
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'hidden',
         'weight' => 69,
       ),
       'teaser' => array(
@@ -1365,7 +1355,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Is recruitment continuing?',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'after',
+
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1490,7 +1480,7 @@ function interconnect_studies_field_default_field_instances() {
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'What type of intervention is being investigated?',
+    'description' => '-	If available, please provide the trial registration number',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1509,10 +1499,10 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_trial_number_ic',
-    'label' => 'Intervention type',
+    'label' => 'Trial registration number',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
+
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),

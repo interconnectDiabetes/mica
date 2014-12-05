@@ -32,7 +32,7 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
   
     $form['#validate'][] = '_interconnect_studies_validate';
    
-     $form['actions']['_mica_studies_save_add_population_submit'] = array(
+  $form['actions']['_mica_studies_save_add_population_submit'] = array(
     '#access' => TRUE,
     '#value' => t('Save & Add Sampling Frame'),
     '#weight' => 6,
@@ -48,7 +48,7 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
     '#type' => 'submit',
     '#submit' => array('node_form_submit', '_interconnect_studies_save_study_submit'),
   );
-  unset($form['actions']['submit']);
+  $form['actions']['submit']['#type']='hidden';
 
   
   	// add some custom text
@@ -299,24 +299,47 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	// _mica_add_dependent_field_checked($form, 'field_pop_rec_proc_select_ic', 'field_pop_rec_proc_other_ic', 'other');
 
 
-     $form['actions']['_mica_studies_save_add_population_submit'] = array(
+     $form['actions']['_interconnect_studies_save_add_pop_submit'] = array(
     '#access' => TRUE,
-    '#value' => t('Save & Add Sampling Frame'),
+    '#value' => t('Save & Add Another Sampling Frame'),
     '#weight' => 6,
-    '#type' => 'hidden',
-    '#submit' => array('node_form_submit', '_mica_studies_save_add_population_submit'),
+    '#type' => 'submit',
+    '#submit' => array('node_form_submit', '_interconnect_studies_save_add_pop_submit'),
   );	
   
-
+  $form['actions']['_mica_studies_save_add_dce_submit']['#type']='hidden';
+  //dpm($form);
 }
 
 function _interconnect_studies_save_study_submit($form, &$form_state) {
   if (isset($form['actions']['_interconnect_studies_save_study_submit'])) {
-	$form_state['redirect'] = NULL;
-    //$form_state['nid'] = NULL;
+	//$form_state['redirect'] = NULL;
+    $form_state['redirect'] = 'node/'.$form_state['nid'].'/edit';
+	$form_state['nid'] = NULL;
 	//dpm($form_state);
   }
 }
+
+
+function _interconnect_studies_save_add_pop_submit($form, &$form_state) {
+
+	$wrapper = entity_metadata_wrapper('node', $form_state['nid']);
+	$study_nid = $wrapper->field_pop_study->getIdentifier();
+	
+  if (isset($form['actions']['_mica_studies_save_add_dce_submit'])) {
+    $form_state['redirect'] = array(
+      'node/add/population',
+      array(
+        'query' => array(
+          'study' => $study_nid,
+		  'destination' => 'node/'.$study_nid,
+        ),
+      ),
+    );
+    $form_state['nid'] = NULL;
+  }
+}
+
 
 /**
  * Implements hook_block_info().
