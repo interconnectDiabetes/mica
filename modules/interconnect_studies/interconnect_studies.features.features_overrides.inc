@@ -70,9 +70,9 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_group.group_study_design|node|study|form.data|format_settings|formatter"] = 'open';
   $overrides["field_group.group_study_design|node|study|form.data|weight"] = 67;
   $overrides["field_group.group_study_design|node|study|form.parent_name"] = 'group_general_design';
-  $overrides["field_group.group_study_timeline|node|study|form.data|children|2"] = 'field_recruit_end_ic';
-  $overrides["field_group.group_study_timeline|node|study|form.data|children|3"] = 'field_recruit_start_ic';
-  $overrides["field_group.group_study_timeline|node|study|form.data|children|4"] = 'field_recruit_cont_ic';
+  $overrides["field_group.group_study_timeline|node|study|form.data|children|2"] = 'field_recruit_cont_ic';
+  $overrides["field_group.group_study_timeline|node|study|form.data|children|3"] = 'field_recruit_end_ic';
+  $overrides["field_group.group_study_timeline|node|study|form.data|children|4"] = 'field_recruit_start_ic';
   $overrides["field_group.group_study_timeline|node|study|form.data|format_settings"] = array(
     'label' => 'Study Timeline',
     'formatter' => 'open',
@@ -103,6 +103,7 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-population-field_pop_health_status.widget|weight"] = 12;
   $overrides["field_instance.node-population-field_pop_partcipant_sel_supp_in.widget|weight"] = 16;
   $overrides["field_instance.node-population-field_pop_recruit_supp_info.widget|weight"] = 52;
+  $overrides["field_instance.node-population-field_pop_recruitment_other.widget|weight"] = 56;
   $overrides["field_instance.node-population-field_pop_select_criteria.widget|weight"] = 13;
   $overrides["field_instance.node-population-field_pop_specific_pop.widget|weight"] = 54;
   $overrides["field_instance.node-population-field_pop_specific_pop_other_sp.widget|weight"] = 55;
@@ -129,8 +130,6 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-study-field_website.widget|weight"] = 6;
 
   // Exported overrides for: node
-  $overrides["node.population.name"] = 'Population from which the sample(s) is drawn';
-  $overrides["node.population.title_label"] = 'Population from which the sample(s) is drawn';
 
  return $overrides;
 }

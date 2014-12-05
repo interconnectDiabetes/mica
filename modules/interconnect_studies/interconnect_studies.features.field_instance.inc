@@ -10,6 +10,222 @@
 function interconnect_studies_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'field_collection_item-field_genotyping_arrays_ic-field_list_of_arrays'
+  $field_instances['field_collection_item-field_genotyping_arrays_ic-field_list_of_arrays'] = array(
+    'bundle' => 'field_genotyping_arrays_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Report the proportion of individuals of your population that have genotyped for the array indicated. ',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_list_of_arrays',
+    'label' => 'List of arrays',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotyping_arrays_ic-field_other_arrays_ic'
+  $field_instances['field_collection_item-field_genotyping_arrays_ic-field_other_arrays_ic'] = array(
+    'bundle' => 'field_genotyping_arrays_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_arrays_ic',
+    'label' => 'Other arrays',
+    'required' => FALSE,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotyping_arrays_ic-field_proportion_of_individ_ic'
+  $field_instances['field_collection_item-field_genotyping_arrays_ic-field_proportion_of_individ_ic'] = array(
+    'bundle' => 'field_genotyping_arrays_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_proportion_of_individ_ic',
+    'label' => 'Proportion of individuals',
+    'required' => 0,
+    'settings' => array(
+      'max' => 100,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '%',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_prop_inds_ic'
+  $field_instances['field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_prop_inds_ic'] = array(
+    'bundle' => 'field_hapmap_ref_panel_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_hapmap_prop_inds_ic',
+    'label' => 'Proportion of individuals',
+    'required' => 0,
+    'settings' => array(
+      'max' => 100,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '%',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_ref_panels_ic'
+  $field_instances['field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_ref_panels_ic'] = array(
+    'bundle' => 'field_hapmap_ref_panel_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_hapmap_ref_panels_ic',
+    'label' => 'Reference Panels',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_hapmap_ref_panel_ic-field_other_hapmap_ref_pan_ic'
+  $field_instances['field_collection_item-field_hapmap_ref_panel_ic-field_other_hapmap_ref_pan_ic'] = array(
+    'bundle' => 'field_hapmap_ref_panel_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_hapmap_ref_pan_ic',
+    'label' => 'Other HapMap reference panel',
+    'required' => FALSE,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'node-population-field_pop_gender_ic'
   $field_instances['node-population-field_pop_gender_ic'] = array(
     'bundle' => 'population',
@@ -443,7 +659,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Individual/family based study',
     'required' => 1,
     'settings' => array(
-
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -482,7 +697,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other type of people',
     'required' => 0,
     'settings' => array(
-
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -494,6 +708,94 @@ function interconnect_studies_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 70,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_genotyping_arrays_ic'
+  $field_instances['node-study-field_genotyping_arrays_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 70,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_genotyping_arrays_ic',
+    'label' => 'Genotyping Arrays',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 171,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_hapmap_ref_panel_ic'
+  $field_instances['node-study-field_hapmap_ref_panel_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 71,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_hapmap_ref_panel_ic',
+    'label' => 'HapMap reference panel',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 172,
     ),
   );
 
@@ -560,7 +862,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other types of diabetes',
     'required' => 0,
     'settings' => array(
-
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -602,7 +903,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other intervention type',
     'required' => 0,
     'settings' => array(
-
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -644,7 +944,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Intervention type',
     'required' => 1,
     'settings' => array(
-
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -683,7 +982,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Dietary measures',
     'required' => 1,
     'settings' => array(
-
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -722,7 +1020,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Physical activity measures',
     'required' => 1,
     'settings' => array(
-
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -766,7 +1063,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Number of participants recruited to the study',
     'required' => 0,
     'settings' => array(
-
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -809,7 +1105,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other case definition',
     'required' => 0,
     'settings' => array(
-
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -1264,7 +1559,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other group',
     'required' => 0,
     'settings' => array(
-
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -1355,7 +1649,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Is recruitment continuing?',
     'required' => 0,
     'settings' => array(
-
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1502,7 +1795,6 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Trial registration number',
     'required' => 0,
     'settings' => array(
-
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -1519,6 +1811,7 @@ function interconnect_studies_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('-	If available, please provide the trial registration number');
   t('African / African-American / Black');
   t('Area of residence');
   t('At what date was this number recorded?');
@@ -1533,6 +1826,8 @@ function interconnect_studies_field_default_field_instances() {
   t('Enter the number of participants planned to be recruited. If the study is completed, enter the final number of participants.');
   t('European / White');
   t('Gender');
+  t('Genotyping Arrays');
+  t('HapMap reference panel');
   t('Health Information');
   t('Hispanic / Latino');
   t('If recruitment has finished, when did it end?');
@@ -1541,11 +1836,14 @@ function interconnect_studies_field_default_field_instances() {
   t('Individual/family based study');
   t('Intervention type');
   t('Is recruitment continuing?');
+  t('List of arrays');
   t('Middle Eastern');
   t('Migration status');
   t('Native Hawaiian or Other Pacific Islander');
   t('Newborn');
   t('Number of participants recruited to the study');
+  t('Other HapMap reference panel');
+  t('Other arrays');
   t('Other case definition');
   t('Other group');
   t('Other intervention type');
@@ -1562,12 +1860,16 @@ function interconnect_studies_field_default_field_instances() {
   t('Please specify the other type of people targeted by the study design');
   t('Please specify the other types of diabetes');
   t('Pregnant women');
+  t('Proportion of individuals');
   t('Recruitment end date');
   t('Recruitment start date');
+  t('Reference Panels');
+  t('Report the proportion of individuals of your population that have genotyped for the array indicated. ');
   t('Select general study design. You may select only one design, which should be the design that defined recruitment.');
   t('Select the type of people targeted by the study design.');
   t('South Asian / Indian Subcontinent');
   t('Study Design');
+  t('Trial registration number');
   t('What type of intervention is being investigated?');
   t('When did recruitment start?');
 

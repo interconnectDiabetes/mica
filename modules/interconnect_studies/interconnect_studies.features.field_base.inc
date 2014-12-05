@@ -268,6 +268,117 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_genotyping_arrays_ic'
+  $field_bases['field_genotyping_arrays_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotyping_arrays_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_hapmap_prop_inds_ic'
+  $field_bases['field_hapmap_prop_inds_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_hapmap_prop_inds_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_hapmap_ref_panel_ic'
+  $field_bases['field_hapmap_ref_panel_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_hapmap_ref_panel_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_hapmap_ref_panels_ic'
+  $field_bases['field_hapmap_ref_panels_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_hapmap_ref_panels_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => 'Illumina HumanOmni5-Quad',
+        2 => 'Illumina HumanOmni5Exome',
+        3 => 'Illumina HumanOmni2.5-8',
+        4 => 'Illumina HumanOmni2.5Exome-8',
+        5 => 'Illumina HumanOmniExpress-24',
+        6 => 'Illumina HumanOmniExpressExome',
+        7 => 'Illumina HumanOmni2.5S',
+        8 => 'Illumina HumanOmniZhongHua-8',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_integer',
+  );
+
   // Exported field_base: 'field_health_info_ic'
   $field_bases['field_health_info_ic'] = array(
     'active' => 1,
@@ -420,6 +531,42 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'list_text',
   );
 
+  // Exported field_base: 'field_list_of_arrays'
+  $field_bases['field_list_of_arrays'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_list_of_arrays',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => 'Illumina HumanOmni5-Quad',
+        2 => 'Illumina HumanOmni5Exome',
+        3 => 'Illumina HumanOmni2.5-8',
+        4 => 'Illumina HumanOmni2.5Exome-8',
+        5 => 'Illumina HumanOmniExpress-24',
+        6 => 'Illumina HumanOmniExpressExome',
+        7 => 'Illumina HumanOmni2.5S',
+        8 => 'Illumina HumanOmniZhongHua-8',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_integer',
+  );
+
   // Exported field_base: 'field_measure_diet_ic'
   $field_bases['field_measure_diet_ic'] = array(
     'active' => 1,
@@ -519,6 +666,35 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_other_arrays_ic'
+  $field_bases['field_other_arrays_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_other_arrays_ic',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_other_case_ic'
   $field_bases['field_other_case_ic'] = array(
     'active' => 1,
@@ -553,6 +729,35 @@ function interconnect_studies_field_default_field_bases() {
       ),
       'max_length' => 255,
       'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_other_hapmap_ref_pan_ic'
+  $field_bases['field_other_hapmap_ref_pan_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_other_hapmap_ref_pan_ic',
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
     ),
     'translatable' => 0,
     'type' => 'text',
@@ -768,6 +973,27 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
+  );
+
+  // Exported field_base: 'field_proportion_of_individ_ic'
+  $field_bases['field_proportion_of_individ_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_proportion_of_individ_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_race_african_ic'

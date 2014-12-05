@@ -81,8 +81,9 @@ function interconnect_studies_field_group_info() {
     'label' => 'Broad categories of ethnic and racial groups recruited',
     'weight' => '13',
     'children' => array(
-      0 => 'group_his_lat_ic',
-      1 => 'group_race_ic',
+      0 => 'group_genotype_imputation_ic',
+      1 => 'group_his_lat_ic',
+      2 => 'group_race_ic',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -96,6 +97,61 @@ function interconnect_studies_field_group_info() {
     ),
   );
   $export['group_ethnic_race_ic|node|study|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_genotype_imputation_ic|node|study|form';
+  $field_group->group_name = 'group_genotype_imputation_ic';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'study';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_ethnic_race_ic';
+  $field_group->data = array(
+    'label' => 'Genotypes and imputation',
+    'weight' => '17',
+    'children' => array(
+      0 => 'group_genotyping_arrays_ic',
+      1 => 'group_reference_panels_ic',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-genotype-imputation-ic field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_genotype_imputation_ic|node|study|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_genotyping_arrays_ic|node|study|form';
+  $field_group->group_name = 'group_genotyping_arrays_ic';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'study';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_genotype_imputation_ic';
+  $field_group->data = array(
+    'label' => 'Genotyping Arrays',
+    'weight' => '173',
+    'children' => array(
+      0 => 'field_genotyping_arrays_ic',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-genotyping-arrays-ic field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_genotyping_arrays_ic|node|study|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -220,6 +276,33 @@ function interconnect_studies_field_group_info() {
     ),
   );
   $export['group_race_ic|node|study|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_reference_panels_ic|node|study|form';
+  $field_group->group_name = 'group_reference_panels_ic';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'study';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_genotype_imputation_ic';
+  $field_group->data = array(
+    'label' => 'Reference Panels',
+    'weight' => '174',
+    'children' => array(
+      0 => 'field_hapmap_ref_panel_ic',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-reference-panels-ic field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_reference_panels_ic|node|study|form'] = $field_group;
 
   return $export;
 }

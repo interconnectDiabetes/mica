@@ -96,9 +96,9 @@ function interconnect_studies_field_group_info_alter(&$data) {
     $data['group_study_design|node|study|form']->parent_name = 'group_general_design'; /* WAS: 'group_methods' */
   }
   if (isset($data['group_study_timeline|node|study|form'])) {
-    $data['group_study_timeline|node|study|form']->data['children']['2'] = 'field_recruit_end_ic'; /* WAS: '' */
-    $data['group_study_timeline|node|study|form']->data['children']['3'] = 'field_recruit_start_ic'; /* WAS: '' */
-    $data['group_study_timeline|node|study|form']->data['children']['4'] = 'field_recruit_cont_ic'; /* WAS: '' */
+    $data['group_study_timeline|node|study|form']->data['children']['2'] = 'field_recruit_cont_ic'; /* WAS: '' */
+    $data['group_study_timeline|node|study|form']->data['children']['3'] = 'field_recruit_end_ic'; /* WAS: '' */
+    $data['group_study_timeline|node|study|form']->data['children']['4'] = 'field_recruit_start_ic'; /* WAS: '' */
     $data['group_study_timeline|node|study|form']->data['format_settings'] = array(
       'label' => 'Study Timeline',
       'formatter' => 'open',
@@ -154,6 +154,9 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   if (isset($data['node-population-field_pop_recruit_supp_info'])) {
     $data['node-population-field_pop_recruit_supp_info']['widget']['weight'] = 52; /* WAS: 45 */
   }
+  if (isset($data['node-population-field_pop_recruitment_other'])) {
+    $data['node-population-field_pop_recruitment_other']['widget']['weight'] = 56; /* WAS: 44 */
+  }
   if (isset($data['node-population-field_pop_select_criteria'])) {
     $data['node-population-field_pop_select_criteria']['widget']['weight'] = 13; /* WAS: 8 */
   }
@@ -199,15 +202,5 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   if (isset($data['node-study-field_website'])) {
     $data['node-study-field_website']['description'] = 'Enter study website URL'; /* WAS: '' */
     $data['node-study-field_website']['widget']['weight'] = 6; /* WAS: 5 */
-  }
-}
-
-/**
- * Implements hook_node_info_alter().
- */
-function interconnect_studies_node_info_alter(&$data) {
-  if (isset($data['population'])) {
-    $data['population']['name'] = 'Population from which the sample(s) is drawn'; /* WAS: 'Population' */
-    $data['population']['title_label'] = 'Population from which the sample(s) is drawn'; /* WAS: 'Population' */
   }
 }
