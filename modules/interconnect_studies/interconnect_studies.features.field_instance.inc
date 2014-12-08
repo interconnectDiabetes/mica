@@ -10,8 +10,166 @@
 function interconnect_studies_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_genotyping_arrays_ic-field_list_of_arrays'
-  $field_instances['field_collection_item-field_genotyping_arrays_ic-field_list_of_arrays'] = array(
+  // Exported field_instance: 'field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_prop_inds_ic'
+  $field_instances['field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_prop_inds_ic'] = array(
+    'bundle' => 'field_1000_genomes_ref_pan_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_1000genomes_prop_inds_ic',
+    'label' => 'Proportion of individuals',
+    'required' => 0,
+    'settings' => array(
+      'max' => 100,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '%',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_ref_panels_ic'
+  $field_instances['field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_ref_panels_ic'] = array(
+    'bundle' => 'field_1000_genomes_ref_pan_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Please select each 1000 genomes reference panel that has been used for genotyping your population. To add more reference panels, click the Add Another Item button below',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_1000genomes_ref_panels_ic',
+    'label' => '1000 genomes Reference Panel',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_1000_genomes_ref_pan_ic-field_100genomes_release_date_ic'
+  $field_instances['field_collection_item-field_1000_genomes_ref_pan_ic-field_100genomes_release_date_ic'] = array(
+    'bundle' => 'field_1000_genomes_ref_pan_ic',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 3,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_100genomes_release_date_ic',
+    'label' => 'Release date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-10:+1',
+      ),
+      'type' => 'date_select',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_1000_genomes_ref_pan_ic-field_other_1000genomes_pan_ic'
+  $field_instances['field_collection_item-field_1000_genomes_ref_pan_ic-field_other_1000genomes_pan_ic'] = array(
+    'bundle' => 'field_1000_genomes_ref_pan_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Please specify the other 1000 Genomes reference panel',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_1000genomes_pan_ic',
+    'label' => 'Other 1000 genomes reference panel',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotyping_arrays_ic-field_list_of_arrays_ic'
+  $field_instances['field_collection_item-field_genotyping_arrays_ic-field_list_of_arrays_ic'] = array(
     'bundle' => 'field_genotyping_arrays_ic',
     'default_value' => NULL,
     'deleted' => 0,
@@ -27,7 +185,7 @@ function interconnect_studies_field_default_field_instances() {
     ),
     'display_label' => '',
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_list_of_arrays',
+    'field_name' => 'field_list_of_arrays_ic',
     'label' => 'List of arrays',
     'required' => 0,
     'settings' => array(
@@ -430,6 +588,50 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-study-field_1000_genomes_ref_pan_ic'
+  $field_instances['node-study-field_1000_genomes_ref_pan_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 72,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_1000_genomes_ref_pan_ic',
+    'label' => '1000 genomes reference panel',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 173,
+    ),
+  );
+
   // Exported field_instance: 'node-study-field_case_definition_ic'
   $field_instances['node-study-field_case_definition_ic'] = array(
     'bundle' => 'study',
@@ -582,6 +784,47 @@ function interconnect_studies_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 155,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_dummy_ic'
+  $field_instances['node-study-field_dummy_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 73,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_dummy_ic',
+    'label' => 'dummy_ic',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 174,
     ),
   );
 
@@ -1812,6 +2055,8 @@ function interconnect_studies_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('-	If available, please provide the trial registration number');
+  t('1000 genomes Reference Panel');
+  t('1000 genomes reference panel');
   t('African / African-American / Black');
   t('Area of residence');
   t('At what date was this number recorded?');
@@ -1842,6 +2087,7 @@ function interconnect_studies_field_default_field_instances() {
   t('Native Hawaiian or Other Pacific Islander');
   t('Newborn');
   t('Number of participants recruited to the study');
+  t('Other 1000 genomes reference panel');
   t('Other HapMap reference panel');
   t('Other arrays');
   t('Other case definition');
@@ -1852,7 +2098,9 @@ function interconnect_studies_field_default_field_instances() {
   t('Other types of diabetes');
   t('Physical activity measures');
   t('Please indicate the approximate percentage of participants that are of Hispanic or Latino origin');
+  t('Please select each 1000 genomes reference panel that has been used for genotyping your population. To add more reference panels, click the Add Another Item button below');
   t('Please specify the case definition of the study');
+  t('Please specify the other 1000 Genomes reference panel');
   t('Please specify the other case definition');
   t('Please specify the other groups here');
   t('Please specify the other intervention types');
@@ -1864,6 +2112,7 @@ function interconnect_studies_field_default_field_instances() {
   t('Recruitment end date');
   t('Recruitment start date');
   t('Reference Panels');
+  t('Release date');
   t('Report the proportion of individuals of your population that have genotyped for the array indicated. ');
   t('Select general study design. You may select only one design, which should be the design that defined recruitment.');
   t('Select the type of people targeted by the study design.');
@@ -1872,6 +2121,7 @@ function interconnect_studies_field_default_field_instances() {
   t('Trial registration number');
   t('What type of intervention is being investigated?');
   t('When did recruitment start?');
+  t('dummy_ic');
 
   return $field_instances;
 }

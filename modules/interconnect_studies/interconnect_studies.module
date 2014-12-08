@@ -1,10 +1,17 @@
 <?php
 
+$path_m_studies = drupal_get_path('module','mica_studies');
+require_once($path_m_studies . '/mica_studies.module');
+require_once($path_m_studies . '/mica_studies.population.inc');
+require_once($path_m_studies . '/mica_studies.blocks.inc');
 
-require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.module');
-require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.population.inc');
-require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.blocks.inc');
-require_once('/etc/mica/sites/all/modules/interconnect_studies/interconnect_studies.features.inc');
+$path_i_studies = drupal_get_path('module','interconnect_studies');
+require_once($path_i_studies . '/interconnect_studies.features.inc');
+
+// require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.module');
+// require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.population.inc');
+// require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.blocks.inc');
+// require_once('/etc/mica/sites/all/modules/interconnect_studies/interconnect_studies.features.inc');
 
 
 /**
@@ -136,7 +143,7 @@ $form['field_target_number_biosamples']['#type'] = 'hidden';
 $form['field_telephone']['#type'] = 'hidden';
 $form['mica_dataset']['#type'] = 'hidden';
 $form['mica_opal']['#type'] = 'hidden';
-
+$form['field_dummy_ic']['#type'] = 'hidden';
   
   //set up dependent fields for study design
    
@@ -184,19 +191,71 @@ $form['mica_opal']['#type'] = 'hidden';
 
 // Health outcomes
 
-_mica_add_double_or_field_checked($form, 'field_health_info_ic', 'field_health_info_ic', 'field_hi_other_diabetes_ic', 'OD_p', 'OD_i');
+	_mica_add_double_or_field_checked($form, 'field_health_info_ic', 'field_health_info_ic', 'field_hi_other_diabetes_ic', 'OD_p', 'OD_i');
 
 	
 // bespoke filled state for race group other text
 
-  $form['field_race_other_text_ic']['#states']['visible'] = array(
+	$form['field_race_other_text_ic']['#states']['visible'] = array(
         ':input[name="field_race_other_ic[und][0][value]"]' => array('filled' => TRUE),
 	);	
+//genotyping dependencies
+  
+	$form['field_genotyping_arrays_ic']['und']['#after_build'] = array('field_genotyping_arrays_ic_after_build','field_form_element_after_build');
+	$form['field_hapmap_ref_panel_ic']['und']['#after_build'] = array('field_hapmap_ref_panel_ic_after_build','field_form_element_after_build');
+	$form['field_1000_genomes_ref_pan_ic']['und']['#after_build'] = array('field_1000_genomes_ref_pan_ic_after_build','field_form_element_after_build');
+
+	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
+	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
   
 //dpm($form, $name = NULL);
 
 }
 
+ function field_genotyping_arrays_ic_after_build($form, &$form_state) {
+
+    foreach($form as $k => $v) {
+        if(isset($v['#entity_type']) && $v['#entity_type']=='field_collection_item') {
+			$my_name = $form[$k]['#field_name'];
+			$form[$k]['field_other_arrays_ic']['#states'] = array(
+                'visible' => array(
+                    ':input[name="'.$my_name.'[und]['.$k.'][field_list_of_arrays_ic][und]"]' => array('value' => '999'),
+                ),
+            );
+        }
+    }
+     return $form;
+ }
+
+  function field_hapmap_ref_panel_ic_after_build($form, &$form_state) {
+
+    foreach($form as $k => $v) {
+        if(isset($v['#entity_type']) && $v['#entity_type']=='field_collection_item') {
+			$my_name = $form[$k]['#field_name'];
+			$form[$k]['field_other_hapmap_ref_pan_ic']['#states'] = array(
+                'visible' => array(
+                    ':input[name="'.$my_name.'[und]['.$k.'][field_hapmap_ref_panels_ic][und]"]' => array('value' => '999'),
+                ),
+            );
+        }
+    }
+     return $form;
+ }
+  function field_1000_genomes_ref_pan_ic_after_build($form, &$form_state) {
+
+    foreach($form as $k => $v) {
+        if(isset($v['#entity_type']) && $v['#entity_type']=='field_collection_item') {
+			$my_name = $form[$k]['#field_name'];
+			$form[$k]['field_other_1000genomes_pan_ic']['#states'] = array(
+                'visible' => array(
+                    ':input[name="'.$my_name.'[und]['.$k.'][field_1000genomes_ref_panels_ic][und]"]' => array('value' => '999'),
+                ),
+            );
+        }
+    }
+     return $form;
+ }
+ 
 // function mica_subtheme_preprocess_page(&$variables) {
   // //if ($a_condition) {
     // // $variables['title'] = 'A new title';
@@ -254,6 +313,15 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	//$form['#groups']['group_pop_selection_criteria']->format_type = 'hidden';
 	$form['#groups']['group_pop_supp_info']->format_type = 'hidden';	
 	
+	//override large text boxes
+	
+	$form['field_pop_selection_others_sp']['und'][0]["#format"]= 'plain_text';
+	$form['field_pop_selection_others_sp']['und'][0]['value']['#rows'] = 1;
+	$form['field_pop_specific_pop_other_sp']['und'][0]["#format"]= 'plain_text';
+	$form['field_pop_specific_pop_other_sp']['und'][0]['value']['#rows'] = 1;
+	$form['field_pop_recruitment_other']['und'][0]["#format"]= 'plain_text';
+	$form['field_pop_recruitment_other']['und'][0]['value']['#rows'] = 1;
+	//dpm($form);
 	//set the title
 	
 	if ($form_id == 'population_node_form') {

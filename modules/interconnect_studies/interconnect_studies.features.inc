@@ -111,6 +111,7 @@ function interconnect_studies_field_group_info_alter(&$data) {
     $data['group_tabs|node|study|form']->data['children']['6'] = 'group_supp_info'; /* WAS: 'group_methods' */
     $data['group_tabs|node|study|form']->data['children']['7'] = 'group_available_info_ic'; /* WAS: 'group_supp_info' */
     $data['group_tabs|node|study|form']->data['children']['8'] = 'group_ethnic_race_ic'; /* WAS: '' */
+    $data['group_tabs|node|study|form']->data['children']['9'] = 'group_sample_pop_ic'; /* WAS: '' */
   }
 }
 

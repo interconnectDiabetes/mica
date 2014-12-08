@@ -10,6 +10,125 @@
 function interconnect_studies_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'field_1000_genomes_ref_pan_ic'
+  $field_bases['field_1000_genomes_ref_pan_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_1000_genomes_ref_pan_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_1000genomes_prop_inds_ic'
+  $field_bases['field_1000genomes_prop_inds_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_1000genomes_prop_inds_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_1000genomes_ref_panels_ic'
+  $field_bases['field_1000genomes_ref_panels_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_1000genomes_ref_panels_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => 'Illumina HumanOmni5-Quad',
+        2 => 'Illumina HumanOmni5Exome',
+        3 => 'Illumina HumanOmni2.5-8',
+        4 => 'Illumina HumanOmni2.5Exome-8',
+        5 => 'Illumina HumanOmniExpress-24',
+        6 => 'Illumina HumanOmniExpressExome',
+        7 => 'Illumina HumanOmni2.5S',
+        8 => 'Illumina HumanOmniZhongHua-8',
+        999 => 'Other',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_integer',
+  );
+
+  // Exported field_base: 'field_100genomes_release_date_ic'
+  $field_bases['field_100genomes_release_date_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_100genomes_release_date_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'date',
+    'settings' => array(
+      'cache_count' => 4,
+      'cache_enabled' => 0,
+      'granularity' => array(
+        'day' => 0,
+        'hour' => 0,
+        'minute' => 0,
+        'month' => 'month',
+        'second' => 0,
+        'year' => 'year',
+      ),
+      'profile2_private' => FALSE,
+      'timezone_db' => '',
+      'todate' => '',
+      'tz_handling' => 'none',
+    ),
+    'translatable' => 0,
+    'type' => 'date',
+  );
+
   // Exported field_base: 'field_case_definition_ic'
   $field_bases['field_case_definition_ic'] = array(
     'active' => 1,
@@ -162,6 +281,45 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
+  );
+
+  // Exported field_base: 'field_dummy_ic'
+  $field_bases['field_dummy_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_dummy_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_eth_his_lat_ic'
@@ -371,6 +529,7 @@ function interconnect_studies_field_default_field_bases() {
         6 => 'Illumina HumanOmniExpressExome',
         7 => 'Illumina HumanOmni2.5S',
         8 => 'Illumina HumanOmniZhongHua-8',
+        999 => 'Other',
       ),
       'allowed_values_function' => '',
       'profile2_private' => FALSE,
@@ -531,13 +690,13 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_list_of_arrays'
-  $field_bases['field_list_of_arrays'] = array(
+  // Exported field_base: 'field_list_of_arrays_ic'
+  $field_bases['field_list_of_arrays_ic'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_list_of_arrays',
+    'field_name' => 'field_list_of_arrays_ic',
     'field_permissions' => array(
       'type' => 0,
     ),
@@ -559,6 +718,7 @@ function interconnect_studies_field_default_field_bases() {
         6 => 'Illumina HumanOmniExpressExome',
         7 => 'Illumina HumanOmni2.5S',
         8 => 'Illumina HumanOmniZhongHua-8',
+        999 => 'Other',
       ),
       'allowed_values_function' => '',
       'profile2_private' => FALSE,
@@ -664,6 +824,39 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_other_1000genomes_pan_ic'
+  $field_bases['field_other_1000genomes_pan_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_other_1000genomes_pan_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_other_arrays_ic'

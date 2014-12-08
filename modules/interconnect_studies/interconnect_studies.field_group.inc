@@ -50,7 +50,7 @@ function interconnect_studies_field_group_info() {
   $field_group->parent_name = 'group_tabs';
   $field_group->data = array(
     'label' => 'Available Information',
-    'weight' => '14',
+    'weight' => '13',
     'children' => array(
       0 => 'group_health_info_ic',
       1 => 'group_key_exposures_ic',
@@ -79,7 +79,7 @@ function interconnect_studies_field_group_info() {
   $field_group->parent_name = 'group_tabs';
   $field_group->data = array(
     'label' => 'Broad categories of ethnic and racial groups recruited',
-    'weight' => '13',
+    'weight' => '10',
     'children' => array(
       0 => 'group_genotype_imputation_ic',
       1 => 'group_his_lat_ic',
@@ -290,7 +290,8 @@ function interconnect_studies_field_group_info() {
     'label' => 'Reference Panels',
     'weight' => '174',
     'children' => array(
-      0 => 'field_hapmap_ref_panel_ic',
+      0 => 'field_1000_genomes_ref_pan_ic',
+      1 => 'field_hapmap_ref_panel_ic',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -303,6 +304,35 @@ function interconnect_studies_field_group_info() {
     ),
   );
   $export['group_reference_panels_ic|node|study|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_sample_pop_ic|node|study|form';
+  $field_group->group_name = 'group_sample_pop_ic';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'study';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_tabs';
+  $field_group->data = array(
+    'label' => 'Populations from which the sample(s) is drawn',
+    'weight' => '15',
+    'children' => array(
+      0 => 'field_dummy_ic',
+    ),
+    'format_type' => 'htab',
+    'format_settings' => array(
+      'label' => 'Populations from which the sample(s) is drawn',
+      'instance_settings' => array(
+        'required_fields' => 1,
+        'id' => '',
+        'classes' => 'group-sample-pop-ic field-group-htab',
+        'description' => 'All studies represent a sample from a larger population. Some studies will have multiple samples. To add a sample, please click the Save & Add Sampling Frame button below.',
+      ),
+      'formatter' => 'closed',
+    ),
+  );
+  $export['group_sample_pop_ic|node|study|form'] = $field_group;
 
   return $export;
 }

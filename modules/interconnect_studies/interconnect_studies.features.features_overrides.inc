@@ -83,6 +83,7 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_group.group_tabs|node|study|form.data|children|6"] = 'group_supp_info';
   $overrides["field_group.group_tabs|node|study|form.data|children|7"] = 'group_available_info_ic';
   $overrides["field_group.group_tabs|node|study|form.data|children|8"] = 'group_ethnic_race_ic';
+  $overrides["field_group.group_tabs|node|study|form.data|children|9"] = 'group_sample_pop_ic';
 
   // Exported overrides for: field_instance
   $overrides["field_instance.node-population-field_pop_age_max.label"] = 'Maximum age at recruitment';
