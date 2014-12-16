@@ -27,19 +27,20 @@ function interconnect_studies_install() {
     ->execute();
 
   
-//  $mica_theme = 'mica_subtheme';
-//  $new_theme = 'mica_subtheme_tom';
-  // theme_enable(array($new_theme));
-  // variable_set('theme_default', $new_theme);
-  // theme_disable(array($mica_theme)); 
+ $mica_theme = 'mica_subtheme';
+ $new_theme = 'mica_subtheme_tom';
+  theme_disable(array($mica_theme)); 
+  theme_enable(array($new_theme));
+  variable_set('theme_default', $new_theme);
 
-  // cache_clear_all();
+
+
   
- // _drupal_default_blocks($new_theme);
-   // Enable some standard blocks.
- // _default_block($new_theme);
-
-	//dpm("install ran");
+//_drupal_default_blocks($new_theme);
+  // Enable some standard blocks.
+// _default_block();
+  // cache_clear_all();
+	// debug("install ran");
 }
 
 function _drupal_default_blocks($default_theme) {
@@ -83,7 +84,7 @@ function _drupal_default_blocks($default_theme) {
 
 }
 
-function _default_block($mica_theme) {
+function _default_block($mica_theme = 'mica_subtheme_tom', $admin_theme = 'seven') {
   $values = array(
     array(
       'module' => 'user',
@@ -149,6 +150,61 @@ function _default_block($mica_theme) {
       'region' => 'sidebar_first',
       'visibility' => BLOCK_VISIBILITY_LISTED,
       'pages' => '<front>',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'blog',
+      'delta' => 'recent',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'comment',
+      'delta' => 'recent',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'user',
+      'delta' => 'online',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'forum',
+      'delta' => 'active',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
+      'cache' => -1,
+    ),
+    array(
+      'module' => 'forum',
+      'delta' => 'new',
+      'theme' => $admin_theme,
+      'status' => 1,
+      'weight' => 0,
+      'region' => BLOCK_REGION_NONE,
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '',
       'cache' => -1,
     ),
     array(
@@ -224,10 +280,10 @@ function _default_block($mica_theme) {
   $query->execute();
 
   // not title for menus
-  _set_block_title('<none>', 'system', 'main-menu');
-  _set_block_title('<none>', 'system', 'user-menu');
-  _set_block_title('<none>', 'user', 'login');
-  _set_block_title('<none>', 'search', 'form');
+  _mica_distribution_set_block_title('<none>', 'system', 'main-menu');
+  _mica_distribution_set_block_title('<none>', 'system', 'user-menu');
+  _mica_distribution_set_block_title('<none>', 'user', 'login');
+  _mica_distribution_set_block_title('<none>', 'search', 'form');
 
   // only authenticated user can see navigation block
   $query = db_insert('block_role')->fields(array('module', 'delta', 'rid'));

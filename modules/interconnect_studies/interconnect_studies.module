@@ -18,6 +18,7 @@ require_once($path_i_studies . '/interconnect_studies.features.inc');
  * Implements hook_form_alter
  * To add dependent fields when filling out the form
  */
+ 
 function interconnect_studies_form_alter(&$form, &$form_state, $form_id) {
 
   	 
@@ -144,8 +145,37 @@ $form['field_telephone']['#type'] = 'hidden';
 $form['mica_dataset']['#type'] = 'hidden';
 $form['mica_opal']['#type'] = 'hidden';
 $form['field_dummy_ic']['#type'] = 'hidden';
-  
-  //set up dependent fields for study design
+
+// move help text for existing Maelstrom fields
+	$form['title_field']['und']['0']['#description_display'] = 'before';
+	$form['title_field']['und']['0']['value']['#description_display'] = 'before';
+	$form['title_field']['und']['#description_display'] = 'before';
+
+	$form['field_acroym']['und']['0']['#description_display'] = 'before';
+	$form['field_acroym']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_acroym']['und']['#description_display'] = 'before';
+	
+	$form['field_contacts_ref']['und']['0']['#description_display'] = 'before';
+	$form['field_contacts_ref']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_contacts_ref']['und']['#description_display'] = 'before';
+
+	$form['field_marker_paper']['und']['0']['#description_display'] = 'before';
+	$form['field_marker_paper']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_marker_paper']['und']['#description_display'] = 'before';
+	
+	$form['field_pubmedid']['und']['0']['#description_display'] = 'before';
+	$form['field_pubmedid']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_pubmedid']['und']['#description_display'] = 'before';
+	
+	$form['field_website']['und']['0']['#description_display'] = 'before';
+	$form['field_website']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_website']['und']['#description_display'] = 'before';
+	
+	$form['field_target_number_participants']['und']['0']['#description_display'] = 'before';
+	$form['field_target_number_participants']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_target_number_participants']['und']['#description_display'] = 'before';
+	
+//set up dependent fields for study design
    
 // clinical trial only   
    
@@ -317,11 +347,14 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	
 	$form['field_pop_selection_others_sp']['und'][0]["#format"]= 'plain_text';
 	$form['field_pop_selection_others_sp']['und'][0]['value']['#rows'] = 1;
+	$form['field_pop_selection_others_sp']['und'][0]['#type'] = 'textfield';
 	$form['field_pop_specific_pop_other_sp']['und'][0]["#format"]= 'plain_text';
 	$form['field_pop_specific_pop_other_sp']['und'][0]['value']['#rows'] = 1;
+	$form['field_pop_specific_pop_other_sp']['und'][0]['#type'] = 'textfield';
 	$form['field_pop_recruitment_other']['und'][0]["#format"]= 'plain_text';
 	$form['field_pop_recruitment_other']['und'][0]['value']['#rows'] = 1;
-	//dpm($form);
+	$form['field_pop_recruitment_other']['und'][0]['#type'] = 'textfield';
+	
 	//set the title
 	
 	if ($form_id == 'population_node_form') {
@@ -334,6 +367,30 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
       }
      }
 
+	// move help text for existing Maelstrom fields
+	$form['field_pop_country']['und']['0']['#description_display'] = 'before';
+	$form['field_pop_country']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_pop_country']['und']['#description_display'] = 'before';
+	
+	$form['field_pop_health_status']['und']['0']['#description_display'] = 'before';
+	$form['field_pop_health_status']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_pop_health_status']['und']['#description_display'] = 'before';
+	
+	$form['field_pop_src_recruit']['und']['0']['#description_display'] = 'before';
+	$form['field_pop_src_recruit']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_pop_src_recruit']['und']['#description_display'] = 'before';
+	
+	$form['field_pop_selection_others_sp']['und']['0']['#description_display'] = 'before';
+	$form['field_pop_selection_others_sp']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_pop_selection_others_sp']['und']['#description_display'] = 'before';
+	
+	$form['field_pop_specific_pop_other_sp']['und']['0']['#description_display'] = 'before';
+	$form['field_pop_specific_pop_other_sp']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_pop_specific_pop_other_sp']['und']['#description_display'] = 'before';
+
+	$form['field_pop_recruitment_other']['und']['0']['#description_display'] = 'before';
+	$form['field_pop_recruitment_other']['und']['0']['value']['#description_display'] = 'before';
+	$form['field_pop_recruitment_other']['und']['#description_display'] = 'before';	
 	
 	// move title field to sampling frame group
 	

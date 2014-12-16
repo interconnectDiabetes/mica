@@ -59,6 +59,7 @@ function _interconnect_studies_block_study_ethnicity($study) {
   if (is_numeric($study)) {
     $study = node_load($study);
   }
+
   $weight = 0;
   $wrapper = entity_metadata_wrapper('node', $study);
   $content = array(
@@ -73,6 +74,10 @@ function _interconnect_studies_block_study_ethnicity($study) {
 	field_view_field('node', $study, 'field_race_mid_e_ic', array('label' => 'inline', 'weight' => ++$weight)),
 	//field_view_field('node', $study, 'field_race_other_ic', array('label' => 'inline', 'weight' => ++$weight)),
 	//field_view_field('node', $study, 'field_race_other_text_ic', array('label' => 'inline', 'weight' => ++$weight)),
+	field_view_field('node', $study, 'field_genotyping_arrays_ic', array('label' => 'inline', 'weight' => ++$weight)),
+	field_view_field('node', $study, 'field_hapmap_ref_panel_ic', array('label' => 'inline', 'weight' => ++$weight)),
+	field_view_field('node', $study, 'field_1000_genomes_ref_pan_ic', array('label' => 'inline', 'weight' => ++$weight)),
+	field_view_field('node', $study, 'field_custom_ref_panels_ic', array('label' => 'inline', 'weight' => ++$weight)),	
   );
   $content[] = _interconnect_studies_block_ethnicity_field_other($wrapper, ++$weight);  
   return array(

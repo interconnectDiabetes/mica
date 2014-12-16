@@ -47,7 +47,7 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -85,8 +85,8 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_1000_genomes_ref_pan_ic-field_100genomes_release_date_ic'
-  $field_instances['field_collection_item-field_1000_genomes_ref_pan_ic-field_100genomes_release_date_ic'] = array(
+  // Exported field_instance: 'field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_release_date_i'
+  $field_instances['field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_release_date_i'] = array(
     'bundle' => 'field_1000_genomes_ref_pan_ic',
     'deleted' => 0,
     'description' => '',
@@ -95,7 +95,7 @@ function interconnect_studies_field_default_field_instances() {
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'long',
+          'format_type' => 'short',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
@@ -107,7 +107,7 @@ function interconnect_studies_field_default_field_instances() {
     ),
     'display_label' => '',
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_100genomes_release_date_ic',
+    'field_name' => 'field_1000genomes_release_date_i',
     'label' => 'Release date',
     'required' => 0,
     'settings' => array(
@@ -126,10 +126,10 @@ function interconnect_studies_field_default_field_instances() {
         'input_format_custom' => '',
         'label_position' => 'above',
         'text_parts' => array(),
-        'year_range' => '-10:+1',
+        'year_range' => '-10:+2',
       ),
       'type' => 'date_select',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -164,7 +164,85 @@ function interconnect_studies_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_custom_ref_panels_ic-field_custom_ref_panel_ic'
+  $field_instances['field_collection_item-field_custom_ref_panels_ic-field_custom_ref_panel_ic'] = array(
+    'bundle' => 'field_custom_ref_panels_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_custom_ref_panel_ic',
+    'label' => 'Custom reference panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_custom_ref_panels_ic-field_custom_ref_prop_ic'
+  $field_instances['field_collection_item-field_custom_ref_panels_ic-field_custom_ref_prop_ic'] = array(
+    'bundle' => 'field_custom_ref_panels_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_custom_ref_prop_ic',
+    'label' => 'Proportion of individuals',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'max' => 100,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => '%',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 1,
     ),
   );
 
@@ -173,7 +251,7 @@ function interconnect_studies_field_default_field_instances() {
     'bundle' => 'field_genotyping_arrays_ic',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Report the proportion of individuals of your population that have genotyped for the array indicated. ',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -189,6 +267,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'List of arrays',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -313,7 +392,7 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -347,7 +426,49 @@ function interconnect_studies_field_default_field_instances() {
         'content_taxonomy_opt_groups' => FALSE,
       ),
       'type' => 'options_select',
-      'weight' => 1,
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_release_date_ic'
+  $field_instances['field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_release_date_ic'] = array(
+    'bundle' => 'field_hapmap_ref_panel_ic',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(),
+        'type' => 'date_plain',
+        'weight' => 3,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_hapmap_release_date_ic',
+    'label' => 'Release Date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-10:+2',
+      ),
+      'type' => 'date_select',
+      'weight' => 2,
     ),
   );
 
@@ -380,7 +501,7 @@ function interconnect_studies_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 1,
     ),
   );
 
@@ -605,7 +726,7 @@ function interconnect_studies_field_default_field_instances() {
           'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
+        'type' => 'hidden',
         'weight' => 72,
       ),
       'teaser' => array(
@@ -659,6 +780,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Case definition',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -667,6 +789,51 @@ function interconnect_studies_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 132,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_custom_ref_panels_ic'
+  $field_instances['node-study-field_custom_ref_panels_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'hidden',
+        'weight' => 74,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_custom_ref_panels_ic',
+    'label' => 'Custom reference panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 174,
     ),
   );
 
@@ -697,6 +864,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Study Design',
     'required' => 1,
     'settings' => array(
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -735,6 +903,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other study design',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'before',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -776,6 +945,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'DNA sources',
     'required' => 1,
     'settings' => array(
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -860,6 +1030,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Hispanic / Latino',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'before',
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -902,6 +1073,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Individual/family based study',
     'required' => 1,
     'settings' => array(
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -940,6 +1112,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other type of people',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'before',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -971,7 +1144,7 @@ function interconnect_studies_field_default_field_instances() {
           'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
+        'type' => 'hidden',
         'weight' => 70,
       ),
       'teaser' => array(
@@ -1015,7 +1188,7 @@ function interconnect_studies_field_default_field_instances() {
           'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
+        'type' => 'hidden',
         'weight' => 71,
       ),
       'teaser' => array(
@@ -1105,6 +1278,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other types of diabetes',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'before',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -1146,6 +1320,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other intervention type',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'before',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -1163,7 +1338,7 @@ function interconnect_studies_field_default_field_instances() {
   // Exported field_instance: 'node-study-field_interv_type_ic'
   $field_instances['node-study-field_interv_type_ic'] = array(
     'bundle' => 'study',
-    'default_value' => 'none',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => 'What type of intervention is being investigated?',
     'display' => array(
@@ -1185,8 +1360,9 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_interv_type_ic',
     'label' => 'Intervention type',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1225,6 +1401,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Dietary measures',
     'required' => 1,
     'settings' => array(
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1263,6 +1440,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Physical activity measures',
     'required' => 1,
     'settings' => array(
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1279,7 +1457,7 @@ function interconnect_studies_field_default_field_instances() {
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Enter the number of participants planned to be recruited. If the study is completed, enter the final number of participants.',
+    'description' => 'If the study is not completed, what is the total number of participants who have been recruited to the study?',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1309,7 +1487,7 @@ function interconnect_studies_field_default_field_instances() {
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => 'participants',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1348,6 +1526,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other case definition',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'before',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -2016,7 +2195,7 @@ function interconnect_studies_field_default_field_instances() {
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '-	If available, please provide the trial registration number',
+    'description' => 'If available, please provide the trial registration number',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -2038,6 +2217,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Trial registration number',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'before',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -2054,13 +2234,13 @@ function interconnect_studies_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('-	If available, please provide the trial registration number');
   t('1000 genomes Reference Panel');
   t('1000 genomes reference panel');
   t('African / African-American / Black');
   t('Area of residence');
   t('At what date was this number recorded?');
   t('Case definition');
+  t('Custom reference panel');
   t('DNA sources');
   t('Data number of participants was recorded');
   t('Dietary measures');
@@ -2068,14 +2248,15 @@ function interconnect_studies_field_default_field_instances() {
   t('Does the study have any measures of diet?');
   t('Does the study have any measures of physical activity?');
   t('East or South East Asian');
-  t('Enter the number of participants planned to be recruited. If the study is completed, enter the final number of participants.');
   t('European / White');
   t('Gender');
   t('Genotyping Arrays');
   t('HapMap reference panel');
   t('Health Information');
   t('Hispanic / Latino');
+  t('If available, please provide the trial registration number');
   t('If recruitment has finished, when did it end?');
+  t('If the study is not completed, what is the total number of participants who have been recruited to the study?');
   t('Indigenous American / American Indian / Native American / Alaskan Native');
   t('Indigenous Australian / Aboriginal Australian');
   t('Individual/family based study');
@@ -2112,8 +2293,8 @@ function interconnect_studies_field_default_field_instances() {
   t('Recruitment end date');
   t('Recruitment start date');
   t('Reference Panels');
+  t('Release Date');
   t('Release date');
-  t('Report the proportion of individuals of your population that have genotyped for the array indicated. ');
   t('Select general study design. You may select only one design, which should be the design that defined recruitment.');
   t('Select the type of people targeted by the study design.');
   t('South Asian / Indian Subcontinent');

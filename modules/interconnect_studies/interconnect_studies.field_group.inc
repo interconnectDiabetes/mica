@@ -143,12 +143,13 @@ function interconnect_studies_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Genotyping Arrays',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-genotyping-arrays-ic field-group-fieldset',
         'required_fields' => 1,
+        'classes' => 'group-genotyping-arrays-ic field-group-fieldset',
+        'description' => 'Report the proportion of individuals of your population that have been genotyped for the array indicated.',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $export['group_genotyping_arrays_ic|node|study|form'] = $field_group;
@@ -292,15 +293,17 @@ function interconnect_studies_field_group_info() {
     'children' => array(
       0 => 'field_1000_genomes_ref_pan_ic',
       1 => 'field_hapmap_ref_panel_ic',
+      2 => 'field_custom_ref_panels_ic',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Reference Panels',
       'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-reference-panels-ic field-group-fieldset',
         'required_fields' => 1,
+        'classes' => 'group-reference-panels-ic field-group-fieldset',
+        'description' => 'Report the proportion of individuals of your population that have imputed genotype for the reference panel indicated. ',
       ),
+      'formatter' => 'collapsible',
     ),
   );
   $export['group_reference_panels_ic|node|study|form'] = $field_group;

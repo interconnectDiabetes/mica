@@ -87,7 +87,16 @@ function interconnect_studies_features_override_default_overrides() {
 
   // Exported overrides for: field_instance
   $overrides["field_instance.node-population-field_pop_age_max.label"] = 'Maximum age at recruitment';
+  $overrides["field_instance.node-population-field_pop_age_max.settings|description_display"] = 'after';
+  $overrides["field_instance.node-population-field_pop_age_max.settings|suffix"] = 'years';
   $overrides["field_instance.node-population-field_pop_age_min.label"] = 'Minimum age at recruitment';
+  $overrides["field_instance.node-population-field_pop_age_min.settings"] = array(
+    'max' => 110,
+    'min' => 0,
+    'prefix' => '',
+    'suffix' => 'years',
+    'user_register_form' => FALSE,
+  );
   $overrides["field_instance.node-population-field_pop_country.description"] = 'Select the countries of residence of the study participants from the list, selecting all that apply   ';
   $overrides["field_instance.node-population-field_pop_country.label"] = 'Country of residence at time of recruitment';
   $overrides["field_instance.node-population-field_pop_country.widget|active"] = 1;
@@ -104,10 +113,11 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-population-field_pop_health_status.widget|weight"] = 12;
   $overrides["field_instance.node-population-field_pop_partcipant_sel_supp_in.widget|weight"] = 16;
   $overrides["field_instance.node-population-field_pop_recruit_supp_info.widget|weight"] = 52;
-  $overrides["field_instance.node-population-field_pop_recruitment_other.widget|weight"] = 56;
+  $overrides["field_instance.node-population-field_pop_recruitment_other.widget|weight"] = 54;
   $overrides["field_instance.node-population-field_pop_select_criteria.widget|weight"] = 13;
-  $overrides["field_instance.node-population-field_pop_specific_pop.widget|weight"] = 54;
-  $overrides["field_instance.node-population-field_pop_specific_pop_other_sp.widget|weight"] = 55;
+  $overrides["field_instance.node-population-field_pop_specific_pop.widget|weight"] = 55;
+  $overrides["field_instance.node-population-field_pop_specific_pop_other_sp.label"] = 'Other Specific Population';
+  $overrides["field_instance.node-population-field_pop_specific_pop_other_sp.widget|weight"] = 56;
   $overrides["field_instance.node-population-field_pop_src_recruit.description"] = 'Specify the sources of recruitment';
   $overrides["field_instance.node-population-field_pop_src_recruit.widget|weight"] = 53;
   $overrides["field_instance.node-population-title_field.default_value|0"] = array(
@@ -124,6 +134,11 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-study-body.required"] = 0;
   $overrides["field_instance.node-study-body.widget|weight"] = 5;
   $overrides["field_instance.node-study-field_acroym.description"] = 'If applicable, enter study acronym';
+  $overrides["field_instance.node-study-field_acroym.settings"] = array(
+    'description_display' => 'after',
+    'text_processing' => 0,
+    'user_register_form' => FALSE,
+  );
   $overrides["field_instance.node-study-field_contacts_ref.description"] = 'Enter the name of the person(s) who could provide additional information about the study. You will be able to edit the contact details after saving the study.';
   $overrides["field_instance.node-study-field_marker_paper.label"] = 'Study Reference Paper';
   $overrides["field_instance.node-study-field_pubmedid.description"] = 'If available, enter marker paper’s Pubmed ID.  ';

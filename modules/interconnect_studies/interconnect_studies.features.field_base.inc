@@ -95,13 +95,13 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_100genomes_release_date_ic'
-  $field_bases['field_100genomes_release_date_ic'] = array(
+  // Exported field_base: 'field_1000genomes_release_date_i'
+  $field_bases['field_1000genomes_release_date_i'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_100genomes_release_date_ic',
+    'field_name' => 'field_1000genomes_release_date_i',
     'field_permissions' => array(
       'type' => 0,
     ),
@@ -126,7 +126,7 @@ function interconnect_studies_field_default_field_bases() {
       'tz_handling' => 'none',
     ),
     'translatable' => 0,
-    'type' => 'date',
+    'type' => 'datetime',
   );
 
   // Exported field_base: 'field_case_definition_ic'
@@ -166,6 +166,87 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_custom_ref_panel_ic'
+  $field_bases['field_custom_ref_panel_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_custom_ref_panel_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_custom_ref_panels_ic'
+  $field_bases['field_custom_ref_panels_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_custom_ref_panels_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_custom_ref_prop_ic'
+  $field_bases['field_custom_ref_prop_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_custom_ref_prop_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_design_ic'
@@ -538,6 +619,40 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
+  // Exported field_base: 'field_hapmap_release_date_ic'
+  $field_bases['field_hapmap_release_date_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_hapmap_release_date_ic',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'date',
+    'settings' => array(
+      'cache_count' => 4,
+      'cache_enabled' => 0,
+      'granularity' => array(
+        'day' => 0,
+        'hour' => 0,
+        'minute' => 0,
+        'month' => 'month',
+        'second' => 0,
+        'year' => 'year',
+      ),
+      'profile2_private' => FALSE,
+      'timezone_db' => '',
+      'todate' => '',
+      'tz_handling' => 'none',
+    ),
+    'translatable' => 0,
+    'type' => 'datetime',
+  );
+
   // Exported field_base: 'field_health_info_ic'
   $field_bases['field_health_info_ic'] = array(
     'active' => 1,
@@ -675,7 +790,6 @@ function interconnect_studies_field_default_field_bases() {
         'pharm' => 'Pharmacological',
         'life' => 'Lifestyle',
         'other' => 'Other, please specify',
-        'none' => 'N/A',
       ),
       'allowed_values_function' => '',
       'field_description_infos' => array(

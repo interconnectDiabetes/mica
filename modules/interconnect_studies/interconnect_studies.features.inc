@@ -121,9 +121,18 @@ function interconnect_studies_field_group_info_alter(&$data) {
 function interconnect_studies_field_default_field_instances_alter(&$data) {
   if (isset($data['node-population-field_pop_age_max'])) {
     $data['node-population-field_pop_age_max']['label'] = 'Maximum age at recruitment'; /* WAS: 'Maximum age' */
+    $data['node-population-field_pop_age_max']['settings']['description_display'] = 'after'; /* WAS: '' */
+    $data['node-population-field_pop_age_max']['settings']['suffix'] = 'years'; /* WAS: '' */
   }
   if (isset($data['node-population-field_pop_age_min'])) {
     $data['node-population-field_pop_age_min']['label'] = 'Minimum age at recruitment'; /* WAS: 'Minimum age' */
+    $data['node-population-field_pop_age_min']['settings'] = array(
+      'max' => 110,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => 'years',
+      'user_register_form' => FALSE,
+    ); /* WAS: '' */
   }
   if (isset($data['node-population-field_pop_country'])) {
     $data['node-population-field_pop_country']['description'] = 'Select the countries of residence of the study participants from the list, selecting all that apply   '; /* WAS: '' */
@@ -156,16 +165,17 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
     $data['node-population-field_pop_recruit_supp_info']['widget']['weight'] = 52; /* WAS: 45 */
   }
   if (isset($data['node-population-field_pop_recruitment_other'])) {
-    $data['node-population-field_pop_recruitment_other']['widget']['weight'] = 56; /* WAS: 44 */
+    $data['node-population-field_pop_recruitment_other']['widget']['weight'] = 54; /* WAS: 44 */
   }
   if (isset($data['node-population-field_pop_select_criteria'])) {
     $data['node-population-field_pop_select_criteria']['widget']['weight'] = 13; /* WAS: 8 */
   }
   if (isset($data['node-population-field_pop_specific_pop'])) {
-    $data['node-population-field_pop_specific_pop']['widget']['weight'] = 54; /* WAS: 42 */
+    $data['node-population-field_pop_specific_pop']['widget']['weight'] = 55; /* WAS: 42 */
   }
   if (isset($data['node-population-field_pop_specific_pop_other_sp'])) {
-    $data['node-population-field_pop_specific_pop_other_sp']['widget']['weight'] = 55; /* WAS: 43 */
+    $data['node-population-field_pop_specific_pop_other_sp']['label'] = 'Other Specific Population'; /* WAS: 'Specific population' */
+    $data['node-population-field_pop_specific_pop_other_sp']['widget']['weight'] = 56; /* WAS: 43 */
   }
   if (isset($data['node-population-field_pop_src_recruit'])) {
     $data['node-population-field_pop_src_recruit']['description'] = 'Specify the sources of recruitment'; /* WAS: '' */
@@ -190,6 +200,11 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   }
   if (isset($data['node-study-field_acroym'])) {
     $data['node-study-field_acroym']['description'] = 'If applicable, enter study acronym'; /* WAS: 'Acronym of the study if applicable.' */
+    $data['node-study-field_acroym']['settings'] = array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ); /* WAS: '' */
   }
   if (isset($data['node-study-field_contacts_ref'])) {
     $data['node-study-field_contacts_ref']['description'] = 'Enter the name of the person(s) who could provide additional information about the study. You will be able to edit the contact details after saving the study.'; /* WAS: 'Enter the Contact full name. You will be able to edit these Contacts once the Study will be saved.' */
