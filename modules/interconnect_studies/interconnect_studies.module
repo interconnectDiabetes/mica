@@ -433,7 +433,15 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
   );	
   
   $form['actions']['_mica_studies_save_add_dce_submit']['#type']='hidden';
-  //dpm($form);
+  
+  unset($form['field_pop_locality_ic']['und']['#options']['_none']);
+  $form['field_pop_locality_ic']['und']['#options']['_none'] = 'N/A';
+	//dpm($form);
+}
+
+function _move_NA($field){
+
+
 }
 
 function _interconnect_studies_save_study_submit($form, &$form_state) {
@@ -517,6 +525,15 @@ function interconnect_studies_block_info() {
       'pages' => $pages,
       'cache' => DRUPAL_CACHE_PER_PAGE,
     ),
+	'europe-ic' => array(
+      'info' => t('Europe'),
+      'weight' => '1',
+      'status' => TRUE,
+      'region' => 'footer',
+      'visibility' => BLOCK_VISIBILITY_LISTED,
+      'pages' => '<front>',
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
   );
 }
 
@@ -566,6 +583,8 @@ foreach ($blocks as $key => $block) {
       return _interconnect_studies_block_available_info($study);
     case 'study-populations-ic':
       return _interconnect_studies_block_study_populations($study, $show_draft);
+	case 'europe-ic':
+      return _interconnect_studies_block_europe();
      default:
        return NULL;
    }

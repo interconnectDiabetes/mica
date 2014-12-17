@@ -20,7 +20,7 @@ function _interconnect_studies_block_study_general_info($study) {
       )
     ),
     field_view_field('node', $study, 'field_website', array('label' => 'inline', 'weight' => ++$weight)),
-  );  
+  );
   return array(
     'subject' => t('General Information for my study') . '<a name="general-info"> </a>',
     'content' => array_filter($content),
@@ -313,4 +313,20 @@ function _interconnect_studies_block_ethnicity_field_other($study_wrapper, $weig
   // }
 
   return empty($field['#items']) ? NULL : $field;
+}
+
+function _interconnect_studies_block_europe(){
+  $block = array();
+      $block['subject'] = NULL;
+      $block['content'] = 
+	'<div class="span10">
+	<p style="float: left;">
+		<img style="margin-top: -15px;margin-left: -20px;margin-right: 10px" alt="EU" src="http://www.interconnect-diabetes.eu/files/2014/04/EU.jpg" height="65" width="95">
+	</p>
+	<p> This project is funded by the European Union’s Seventh Framework Programme for research, technological development and demonstration under grant agreement no 602068.</p></div>
+				'
+	   ;
+      return $block;
+
+
 }
