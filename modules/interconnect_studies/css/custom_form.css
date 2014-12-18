@@ -1,0 +1,38 @@
+
+
+
+label.control-label {
+	font-weight: bold;
+}
+
+.field-label label {
+	font-weight: bold;
+}
+
+span.fieldset-legend{
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.table td{
+	border-style: none none none none;
+
+}
+
+
+.group-main-ic  > legend:nth-child(1) > span:nth-child(1){
+	text-transform: uppercase;
+
+}
+.group-main-ic  > legend:nth-child(1){
+
+	border-style: none none solid;
+}
+
+label.option.checkbox.control-label {
+	font-weight: normal;
+}
+
+.fieldset-description{
+	padding-bottom: 10px;
+}

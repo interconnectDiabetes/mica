@@ -18,6 +18,12 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_group.group_general_design|node|study|form.data|children|1"] = 'field_family_other_ic';
   $overrides["field_group.group_general_design|node|study|form.data|children|2"] = 'group_study_design';
   $overrides["field_group.group_general_design|node|study|form.data|children|3"] = 'group_study_timeline';
+  $overrides["field_group.group_general_design|node|study|form.data|format_settings|instance_settings"] = array(
+    'required_fields' => 1,
+    'classes' => 'group-main-ic',
+    'description' => '',
+  );
+  $overrides["field_group.group_general_design|node|study|form.data|format_settings|label"] = 'General Design';
   $overrides["field_group.group_general_info|node|study|form.data|children|4"] = 'group_marker_paper';
   $overrides["field_group.group_marker_paper|node|study|form.data|format_settings|formatter"] = 'open';
   $overrides["field_group.group_marker_paper|node|study|form.data|format_settings|label"] = 'Study Reference Paper';
@@ -46,6 +52,7 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|4"]["DELETED"] = TRUE;
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|5"]["DELETED"] = TRUE;
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|6"]["DELETED"] = TRUE;
+  $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|format_settings|formatter"] = 'open';
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|weight"] = 3;
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|children|10"] = 'group_pop_age';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|children|11"] = 'group_pop_countries';
@@ -53,10 +60,13 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|children|7"] = 'field_pop_migration_ic';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|children|8"] = 'field_pop_newborn_ic';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|children|9"] = 'field_pop_pregnancy_ic';
+  $overrides["field_group.group_pop_selection_criteria|node|population|form.data|format_settings|formatter"] = 'open';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|format_settings|instance_settings"] = array(
     'required_fields' => 1,
-    'classes' => '',
-    'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)',
+    'classes' => 'group-main-ic',
+    'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
+    <br>
+    <br>',
   );
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|format_settings|label"] = 'Participant selection criteria';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|label"] = 'Participant selection criteria';

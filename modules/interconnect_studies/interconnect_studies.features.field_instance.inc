@@ -943,7 +943,7 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_dna_ic',
     'label' => 'DNA sources',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'description_display' => 'before',
       'user_register_form' => FALSE,
@@ -1071,7 +1071,7 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_family_ic',
     'label' => 'Individual/family based study',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'description_display' => 'before',
       'user_register_form' => FALSE,
@@ -1399,7 +1399,7 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_measure_diet_ic',
     'label' => 'Dietary measures',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'description_display' => 'before',
       'user_register_form' => FALSE,
@@ -1438,7 +1438,7 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_measure_pa_ic',
     'label' => 'Physical activity measures',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'description_display' => 'before',
       'user_register_form' => FALSE,

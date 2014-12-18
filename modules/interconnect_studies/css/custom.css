@@ -55,3 +55,8 @@
 #block-interconnect-studies-study-populations .field-name-field-pop-src-recruit .field-item .inner-value p:first-of-type {
   display: inline;
 }
+
+span.fieldset-legend {
+	text-transform: uppercase;
+	font-size: 100px;
+}

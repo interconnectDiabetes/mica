@@ -175,7 +175,7 @@ function interconnect_studies_field_group_info() {
       'label' => 'Health Information',
       'instance_settings' => array(
         'required_fields' => 1,
-        'classes' => 'group-health-info-ic field-group-fieldset',
+        'classes' => 'group-health-info-ic field-group-fieldset group-main-ic',
         'description' => '',
       ),
       'formatter' => 'open',
@@ -233,7 +233,7 @@ function interconnect_studies_field_group_info() {
       'label' => 'Key exposures',
       'instance_settings' => array(
         'required_fields' => 1,
-        'classes' => 'group-key-exposures-ic field-group-fieldset',
+        'classes' => 'group-key-exposures-ic field-group-fieldset group-main-ic',
         'description' => '',
       ),
       'formatter' => 'open',
@@ -292,8 +292,8 @@ function interconnect_studies_field_group_info() {
     'weight' => '174',
     'children' => array(
       0 => 'field_1000_genomes_ref_pan_ic',
-      1 => 'field_hapmap_ref_panel_ic',
-      2 => 'field_custom_ref_panels_ic',
+      1 => 'field_custom_ref_panels_ic',
+      2 => 'field_hapmap_ref_panel_ic',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

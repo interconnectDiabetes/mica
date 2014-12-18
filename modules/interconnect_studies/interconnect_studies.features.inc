@@ -22,6 +22,12 @@ function interconnect_studies_field_group_info_alter(&$data) {
     $data['group_general_design|node|study|form']->data['children']['1'] = 'field_family_other_ic'; /* WAS: 'group_study_design' */
     $data['group_general_design|node|study|form']->data['children']['2'] = 'group_study_design'; /* WAS: 'group_study_timeline' */
     $data['group_general_design|node|study|form']->data['children']['3'] = 'group_study_timeline'; /* WAS: '' */
+    $data['group_general_design|node|study|form']->data['format_settings']['instance_settings'] = array(
+      'required_fields' => 1,
+      'classes' => 'group-main-ic',
+      'description' => '',
+    ); /* WAS: '' */
+    $data['group_general_design|node|study|form']->data['format_settings']['label'] = 'General Design'; /* WAS: '' */
   }
   if (isset($data['group_general_info|node|study|form'])) {
     $data['group_general_info|node|study|form']->data['children']['4'] = 'group_marker_paper'; /* WAS: 'field_networks' */
@@ -63,6 +69,7 @@ function interconnect_studies_field_group_info_alter(&$data) {
     $data['group_pop_recruitment_procedures|node|population|form']->data['children']['1'] = 'field_pop_specific_pop'; /* WAS: 'field_pop_general_pop_recruit' */
     $data['group_pop_recruitment_procedures|node|population|form']->data['children']['2'] = 'field_pop_specific_pop_other_sp'; /* WAS: 'field_pop_recruit_supp_info' */
     $data['group_pop_recruitment_procedures|node|population|form']->data['children']['3'] = 'field_pop_src_recruit'; /* WAS: 'field_pop_recruitment_other' */
+    $data['group_pop_recruitment_procedures|node|population|form']->data['format_settings']['formatter'] = 'open'; /* WAS: 'collapsible' */
     $data['group_pop_recruitment_procedures|node|population|form']->data['weight'] = 3; /* WAS: 1 */
     unset($data['group_pop_recruitment_procedures|node|population|form']->data['children']['4']);
     unset($data['group_pop_recruitment_procedures|node|population|form']->data['children']['5']);
@@ -75,10 +82,13 @@ function interconnect_studies_field_group_info_alter(&$data) {
     $data['group_pop_selection_criteria|node|population|form']->data['children']['7'] = 'field_pop_migration_ic'; /* WAS: 'group_pop_countries' */
     $data['group_pop_selection_criteria|node|population|form']->data['children']['8'] = 'field_pop_newborn_ic'; /* WAS: '' */
     $data['group_pop_selection_criteria|node|population|form']->data['children']['9'] = 'field_pop_pregnancy_ic'; /* WAS: '' */
+    $data['group_pop_selection_criteria|node|population|form']->data['format_settings']['formatter'] = 'open'; /* WAS: 'collapsible' */
     $data['group_pop_selection_criteria|node|population|form']->data['format_settings']['instance_settings'] = array(
       'required_fields' => 1,
-      'classes' => '',
-      'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)',
+      'classes' => 'group-main-ic',
+      'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
+      <br>
+      <br>',
     ); /* WAS: '' */
     $data['group_pop_selection_criteria|node|population|form']->data['format_settings']['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
     $data['group_pop_selection_criteria|node|population|form']->data['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */

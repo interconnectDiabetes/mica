@@ -21,6 +21,8 @@ require_once($path_i_studies . '/interconnect_studies.features.inc');
  
 function interconnect_studies_form_alter(&$form, &$form_state, $form_id) {
 
+   drupal_add_css(drupal_get_path('module', 'interconnect_studies') . '/css/custom_form.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'weight' => 1000));
+
   	 
   switch ($form_id) {
     case 'study_node_form':
@@ -98,7 +100,7 @@ $form['#groups']['group_authorization_specific']->format_type = 'hidden';
 $form['#groups']['group_authorization']->format_type = 'hidden';
 $form['#groups']['group_datasets']->format_type = 'hidden';
 $form['#groups']['group_documents']->format_type = 'hidden';
-$form['#groups']['group_study_name']->format_type = 'hidden';
+//$form['#groups']['group_study_name']->format_type = 'hidden';
 $form['#groups']['group_supp_info']->format_type = 'hidden';
 $form['#groups']['group_target_nb_samples']->format_type = 'hidden';
 
@@ -146,6 +148,22 @@ $form['mica_dataset']['#type'] = 'hidden';
 $form['mica_opal']['#type'] = 'hidden';
 $form['field_dummy_ic']['#type'] = 'hidden';
 
+// hide some field labels
+
+$form['field_marker_paper']['und']['0']['value']['#title_display'] = 'invisible';
+$form['field_pubmedid']['und']['0']['value']['#title_display'] = 'invisible';
+$form['field_design_ic']['und']['0']['value']['#title_display'] = 'invisible';
+$form['field_design_ic']['und']['0']['#title_display'] = 'invisible';
+$form['field_design_ic']['und']['#title_display'] = 'invisible';
+$form['field_target_number_participants']['und']['0']['value']['#title_display'] = 'invisible';
+$form['field_number_of_participants_ic']['und']['0']['value']['#title_display'] = 'invisible';
+$form['field_eth_his_lat_ic']['und']['0']['value']['#title_display'] = 'invisible';
+$form['field_health_info_ic']['und']['0']['value']['#title_display'] = 'invisible';
+$form['field_health_info_ic']['und']['0']['#title_display'] = 'invisible';
+$form['field_health_info_ic']['und']['#title_display'] = 'invisible';
+
+
+
 // move help text for existing Maelstrom fields
 	$form['title_field']['und']['0']['#description_display'] = 'before';
 	$form['title_field']['und']['0']['value']['#description_display'] = 'before';
@@ -174,6 +192,19 @@ $form['field_dummy_ic']['#type'] = 'hidden';
 	$form['field_target_number_participants']['und']['0']['#description_display'] = 'before';
 	$form['field_target_number_participants']['und']['0']['value']['#description_display'] = 'before';
 	$form['field_target_number_participants']['und']['#description_display'] = 'before';
+
+// fixing N/A ordering
+
+  unset($form['field_family_ic']['und']['#options']['_none']);
+  $form['field_family_ic']['und']['#options']['_none'] = 'N/A';
+  unset($form['field_measure_diet_ic']['und']['#options']['_none']);
+  $form['field_measure_diet_ic']['und']['#options']['_none'] = 'N/A'; 
+  unset($form['field_measure_pa_ic']['und']['#options']['_none']);
+  $form['field_measure_pa_ic']['und']['#options']['_none'] = 'N/A';   
+  unset($form['field_dna_ic']['und']['#options']['_none']);
+  $form['field_dna_ic']['und']['#options']['_none'] = 'N/A';   
+  
+  
 	
 //set up dependent fields for study design
    
@@ -677,3 +708,18 @@ function _double_simple_check(&$form, $dependee, $dependent, $options, $visible_
 		debug($form);
 }
 
+// function interconnect_studies_menu_block_tree_alter(&$tree, &$config) {
+// dpm('ttttttttttttt');
+// }
+
+// /**
+ // * Implementation of hook_menu_alter().
+ // */
+// function interconnect_studies_menu_alter(&$items) {
+  // // Change the name of user profile tabs. 
+// dpm($items);
+// }
+
+// function interconnect_studies_menu_link_alter(&$link) {
+// dpm($link);  
+// }
