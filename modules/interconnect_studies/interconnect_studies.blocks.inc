@@ -43,9 +43,10 @@ function _interconnect_studies_block_study_methods($study) {
  $content[] = field_view_field('node', $study, 'field_recruit_cont_ic', array('label' => 'inline', 'weight' => ++$weight));
  $content[] = field_view_field('node', $study, 'field_recruit_end_ic', array('label' => 'inline', 'weight' => ++$weight));
  $content[] = _interconnect_studies_block_study_methods_family($wrapper, ++$weight);
- $content[] = _interconnect_studies_block_study_general_design_field_nb_participants($wrapper, ++$weight); 
- $content[] = field_view_field('node', $study, 'field_number_of_participants_ic', array('label' => 'inline', 'weight' => ++$weight));
- $content[] = field_view_field('node', $study, 'field_participants_date_ic', array('label' => 'inline', 'weight' => ++$weight));
+ $content[] = _interconnect_studies_block_study_general_design_field_nb_participants($wrapper, ++$weight);
+ $content[] = _interconnect_studies_block_study_general_design_field_act_participants($wrapper, ++$weight);
+ //$content[] = field_view_field('node', $study, 'field_number_of_participants_ic', array('label' => 'inline', 'weight' => ++$weight));
+// $content[] = field_view_field('node', $study, 'field_participants_date_ic', array('label' => 'inline', 'weight' => ++$weight));
   
 
   return array(
@@ -280,6 +281,36 @@ function _interconnect_studies_block_study_general_design_field_nb_participants(
   if ($no_limits) {
     $field['#items'][] = t('No limit');
     $field[]['#markup'] = t('No limit');
+  }
+
+  return empty($field['#items']) ? NULL : $field;
+}
+
+function _interconnect_studies_block_study_general_design_field_act_participants($study_wrapper, $weight) {
+  $field = array(
+    '#theme' => 'field',
+    '#weight' => $weight,
+    '#title' => t('Actual number of participants'),
+    '#label_display' => 'inline',
+    '#field_type' => 'text',
+    '#formatter' => 'text_default',
+    '#field_name' => 'field_number_of_participants_ic',
+    '#bundle' => 'study',
+    '#entity_type' => 'node',
+    '#items' => array(),
+  );
+
+  $actual_number = $study_wrapper->field_number_of_participants_ic->value();
+  if (!empty($actual_number)) {
+    $field['#items'][] = number_format($actual_number, 0, '.', ' ');
+    $field[]['#markup'] = number_format($actual_number, 0, '.', ' ');
+  }
+
+  $date = format_date($study_wrapper->field_participants_date_ic->value(),'custom','M Y');
+  
+  if ($date) {
+    $field['#items'][] = t(' recorded on ') . $date;
+    $field[]['#markup'] = t(' recorded on ') . $date;
   }
 
   return empty($field['#items']) ? NULL : $field;

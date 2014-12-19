@@ -1570,14 +1570,13 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_participants_date_ic',
-    'label' => 'Data number of participants was recorded',
+    'label' => 'Date number of participants was recorded',
     'required' => 0,
     'settings' => array(
       'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
-      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2047,7 +2046,7 @@ function interconnect_studies_field_default_field_instances() {
     'bundle' => 'study',
     'default_value' => array(
       0 => array(
-        'value' => 0,
+        'value' => 1,
       ),
     ),
     'deleted' => 0,
@@ -2078,10 +2077,8 @@ function interconnect_studies_field_default_field_instances() {
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
+      'settings' => array(),
+      'type' => 'options_buttons',
       'weight' => 126,
     ),
   );
@@ -2248,7 +2245,7 @@ function interconnect_studies_field_default_field_instances() {
   t('Case definition');
   t('Custom reference panel');
   t('DNA sources');
-  t('Data number of participants was recorded');
+  t('Date number of participants was recorded');
   t('Dietary measures');
   t('Does the study have DNA extracted or have a potential source of DNA?');
   t('Does the study have any measures of diet?');
