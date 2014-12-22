@@ -20,7 +20,7 @@ function interconnect_studies_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_nb_participants';
   $field_group->data = array(
-    'label' => 'Actual number of participants',
+    'label' => 'Actual Number of Participants',
     'weight' => '9',
     'children' => array(
       0 => 'field_number_of_participants_ic',
@@ -28,7 +28,7 @@ function interconnect_studies_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Actual number of participants',
+      'label' => 'Actual Number of Participants',
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-actual-particip-ic field-group-fieldset',

@@ -149,63 +149,86 @@ $form['mica_opal']['#type'] = 'hidden';
 $form['field_dummy_ic']['#type'] = 'hidden';
 
 // hide some field labels
-
-$form['field_marker_paper']['und']['0']['value']['#title_display'] = 'invisible';
-$form['field_pubmedid']['und']['0']['value']['#title_display'] = 'invisible';
-$form['field_design_ic']['und']['0']['value']['#title_display'] = 'invisible';
-$form['field_design_ic']['und']['0']['#title_display'] = 'invisible';
-$form['field_design_ic']['und']['#title_display'] = 'invisible';
+$language=$form['field_marker_paper']['#language'];
+$form['field_marker_paper'][$language]['0']['value']['#title_display'] = 'invisible';
+$language=$form['field_pubmedid']['#language'];
+$form['field_pubmedid'][$language]['0']['value']['#title_display'] = 'invisible';
+$language=$form['field_design_ic']['#language'];
+$form['field_design_ic'][$language]['0']['value']['#title_display'] = 'invisible';
+$form['field_design_ic'][$language]['0']['#title_display'] = 'invisible';
+$form['field_design_ic'][$language]['#title_display'] = 'invisible';
 //need to reinstate * for study design
 $form['#groups']['group_study_design']->label = 'Study Design *';
-$form['field_target_number_participants']['und']['0']['value']['#title_display'] = 'invisible';
-$form['field_number_of_participants_ic']['und']['0']['value']['#title_display'] = 'invisible';
-$form['field_eth_his_lat_ic']['und']['0']['value']['#title_display'] = 'invisible';
-$form['field_health_info_ic']['und']['0']['value']['#title_display'] = 'invisible';
-$form['field_health_info_ic']['und']['0']['#title_display'] = 'invisible';
-$form['field_health_info_ic']['und']['#title_display'] = 'invisible';
+$language=$form['field_target_number_participants']['#language'];
+$form['field_target_number_participants'][$language]['0']['value']['#title_display'] = 'invisible';
+$language=$form['field_number_of_participants_ic']['#language'];
+$form['field_number_of_participants_ic'][$language]['0']['value']['#title_display'] = 'invisible';
+$language=$form['field_eth_his_lat_ic']['#language'];
+$form['field_eth_his_lat_ic'][$language]['0']['value']['#title_display'] = 'invisible';
+$language=$form['field_health_info_ic']['#language'];
+$form['field_health_info_ic'][$language]['0']['value']['#title_display'] = 'invisible';
+$form['field_health_info_ic'][$language]['0']['#title_display'] = 'invisible';
+$form['field_health_info_ic'][$language]['#title_display'] = 'invisible';
 
 
 
 // move help text for existing Maelstrom fields
-	$form['title_field']['und']['0']['#description_display'] = 'before';
-	$form['title_field']['und']['0']['value']['#description_display'] = 'before';
-	$form['title_field']['und']['#description_display'] = 'before';
+	$language=$form['title_field']['#language'];
+	$form['title_field'][$language]['0']['#description_display'] = 'before';
+	$form['title_field'][$language]['0']['value']['#description_display'] = 'before';
+	$form['title_field'][$language]['#description_display'] = 'before';
 
-	$form['field_acroym']['und']['0']['#description_display'] = 'before';
-	$form['field_acroym']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_acroym']['und']['#description_display'] = 'before';
-	
-	$form['field_contacts_ref']['und']['0']['#description_display'] = 'before';
-	$form['field_contacts_ref']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_contacts_ref']['und']['#description_display'] = 'before';
+	$language=$form['field_acroym']['#language'];
+	$form['field_acroym'][$language]['0']['#description_display'] = 'before';
+	$form['field_acroym'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_acroym'][$language]['#description_display'] = 'before';
 
-	$form['field_marker_paper']['und']['0']['#description_display'] = 'before';
-	$form['field_marker_paper']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_marker_paper']['und']['#description_display'] = 'before';
+	$language=$form['field_contacts_ref']['#language'];	
+	$form['field_contacts_ref'][$language]['0']['#description_display'] = 'before';
+	$form['field_contacts_ref'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_contacts_ref'][$language]['#description_display'] = 'before';
+
+	$language=$form['field_marker_paper']['#language'];	
+	$form['field_marker_paper'][$language]['0']['#description_display'] = 'before';
+	$form['field_marker_paper'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_marker_paper'][$language]['#description_display'] = 'before';
+
+	$language=$form['field_pubmedid']['#language'];		
+	$form['field_pubmedid'][$language]['0']['#description_display'] = 'before';
+	$form['field_pubmedid'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_pubmedid'][$language]['#description_display'] = 'before';
+
+	$language=$form['field_website']['#language'];		
+	$form['field_website'][$language]['0']['#description_display'] = 'before';
+	$form['field_website'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_website'][$language]['#description_display'] = 'before';
+
+	$language=$form['field_target_number_participants']['#language'];			
+	$form['field_target_number_participants'][$language]['0']['#description_display'] = 'before';
+	$form['field_target_number_participants'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_target_number_participants'][$language]['#description_display'] = 'before';
 	
-	$form['field_pubmedid']['und']['0']['#description_display'] = 'before';
-	$form['field_pubmedid']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_pubmedid']['und']['#description_display'] = 'before';
-	
-	$form['field_website']['und']['0']['#description_display'] = 'before';
-	$form['field_website']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_website']['und']['#description_display'] = 'before';
-	
-	$form['field_target_number_participants']['und']['0']['#description_display'] = 'before';
-	$form['field_target_number_participants']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_target_number_participants']['und']['#description_display'] = 'before';
+	$language=$form['field_number_of_participants_ic']['#language'];			
+	$form['field_number_of_participants_ic'][$language]['0']['#description_display'] = 'before';
+	$form['field_number_of_participants_ic'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_number_of_participants_ic'][$language]['#description_display'] = 'before';
 
 // fixing N/A ordering
 
-  unset($form['field_family_ic']['und']['#options']['_none']);
-  $form['field_family_ic']['und']['#options']['_none'] = 'N/A';
-  unset($form['field_measure_diet_ic']['und']['#options']['_none']);
-  $form['field_measure_diet_ic']['und']['#options']['_none'] = 'N/A'; 
-  unset($form['field_measure_pa_ic']['und']['#options']['_none']);
-  $form['field_measure_pa_ic']['und']['#options']['_none'] = 'N/A';   
-  unset($form['field_dna_ic']['und']['#options']['_none']);
-  $form['field_dna_ic']['und']['#options']['_none'] = 'N/A';  
-  krsort($form['field_recruit_cont_ic']['und']['#options']);
+  $language=$form['field_family_ic']['#language'];
+  unset($form['field_family_ic'][$language]['#options']['_none']);
+  $form['field_family_ic'][$language]['#options']['_none'] = 'N/A';
+  $language=$form['field_measure_diet_ic']['#language'];
+  unset($form['field_measure_diet_ic'][$language]['#options']['_none']);
+  $form['field_measure_diet_ic'][$language]['#options']['_none'] = 'N/A';
+  $language=$form['field_measure_pa_ic']['#language'];  
+  unset($form['field_measure_pa_ic'][$language]['#options']['_none']);
+  $form['field_measure_pa_ic'][$language]['#options']['_none'] = 'N/A'; 
+  $language=$form['field_dna_ic']['#language'];  
+  unset($form['field_dna_ic'][$language]['#options']['_none']);
+  $form['field_dna_ic'][$language]['#options']['_none'] = 'N/A';
+  $language=$form['field_recruit_cont_ic']['#language'];  
+  krsort($form['field_recruit_cont_ic'][$language]['#options']);
   
 	
 //set up dependent fields for study design
@@ -227,12 +250,12 @@ $form['field_health_info_ic']['und']['#title_display'] = 'invisible';
     $form['field_other_case_ic']['#states'] = array(
 		'visible' => array(
 			array(
-				':input[name="field_design_ic[und]"]' => array(
+				':input[name="field_design_ic['.$lang.']"]' => array(
 									array('value' => 'case_control'),
 									array('value' => 'case_only'),
 								)
 			),
-			':input[name="field_case_definition_ic[und]"]' => array('value' => 'other')
+			':input[name="field_case_definition_ic['.$lang.']"]' => array('value' => 'other')
 		)
 	);
   
@@ -258,15 +281,18 @@ $form['field_health_info_ic']['und']['#title_display'] = 'invisible';
 
 	
 // bespoke filled state for race group other text
-
+	$lang = $form['field_race_other_text_ic']['#language'];
 	$form['field_race_other_text_ic']['#states']['visible'] = array(
-        ':input[name="field_race_other_ic[und][0][value]"]' => array('filled' => TRUE),
+        ':input[name="field_race_other_ic['.$lang.'][0][value]"]' => array('filled' => TRUE),
 	);	
 //genotyping dependencies
-  
-	$form['field_genotyping_arrays_ic']['und']['#after_build'] = array('field_genotyping_arrays_ic_after_build','field_form_element_after_build');
-	$form['field_hapmap_ref_panel_ic']['und']['#after_build'] = array('field_hapmap_ref_panel_ic_after_build','field_form_element_after_build');
-	$form['field_1000_genomes_ref_pan_ic']['und']['#after_build'] = array('field_1000_genomes_ref_pan_ic_after_build','field_form_element_after_build');
+	
+	$lang = $form['field_genotyping_arrays_ic']['#language'];
+	$form['field_genotyping_arrays_ic'][$lang]['#after_build'] = array('field_genotyping_arrays_ic_after_build','field_form_element_after_build');
+	$lang = $form['field_hapmap_ref_panel_ic']['#language'];
+	$form['field_hapmap_ref_panel_ic'][$lang]['#after_build'] = array('field_hapmap_ref_panel_ic_after_build','field_form_element_after_build');
+	$lang = $form['field_1000_genomes_ref_pan_ic']['#language'];
+	$form['field_1000_genomes_ref_pan_ic'][$lang]['#after_build'] = array('field_1000_genomes_ref_pan_ic_after_build','field_form_element_after_build');
 
 	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
 	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
@@ -280,9 +306,10 @@ $form['field_health_info_ic']['und']['#title_display'] = 'invisible';
     foreach($form as $k => $v) {
         if(isset($v['#entity_type']) && $v['#entity_type']=='field_collection_item') {
 			$my_name = $form[$k]['#field_name'];
+			$lang = $form[$k]['field_other_arrays_ic']['#language'];
 			$form[$k]['field_other_arrays_ic']['#states'] = array(
                 'visible' => array(
-                    ':input[name="'.$my_name.'[und]['.$k.'][field_list_of_arrays_ic][und]"]' => array('value' => '999'),
+                    ':input[name="'.$my_name.'['.$lang.']['.$k.'][field_list_of_arrays_ic]['.$lang.']"]' => array('value' => '999'),
                 ),
             );
         }
@@ -295,9 +322,10 @@ $form['field_health_info_ic']['und']['#title_display'] = 'invisible';
     foreach($form as $k => $v) {
         if(isset($v['#entity_type']) && $v['#entity_type']=='field_collection_item') {
 			$my_name = $form[$k]['#field_name'];
+			$lang = $form[$k]['field_other_hapmap_ref_pan_ic']['#language'];
 			$form[$k]['field_other_hapmap_ref_pan_ic']['#states'] = array(
                 'visible' => array(
-                    ':input[name="'.$my_name.'[und]['.$k.'][field_hapmap_ref_panels_ic][und]"]' => array('value' => '999'),
+                    ':input[name="'.$my_name.'['.$lang.']['.$k.'][field_hapmap_ref_panels_ic]['.$lang.']"]' => array('value' => '999'),
                 ),
             );
         }
@@ -309,9 +337,10 @@ $form['field_health_info_ic']['und']['#title_display'] = 'invisible';
     foreach($form as $k => $v) {
         if(isset($v['#entity_type']) && $v['#entity_type']=='field_collection_item') {
 			$my_name = $form[$k]['#field_name'];
+			$lang = $form[$k]['field_other_1000genomes_pan_ic']['#language'];
 			$form[$k]['field_other_1000genomes_pan_ic']['#states'] = array(
                 'visible' => array(
-                    ':input[name="'.$my_name.'[und]['.$k.'][field_1000genomes_ref_panels_ic][und]"]' => array('value' => '999'),
+                    ':input[name="'.$my_name.'['.$lang.']['.$k.'][field_1000genomes_ref_panels_ic]['.$lang.']"]' => array('value' => '999'),
                 ),
             );
         }
@@ -377,16 +406,18 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	$form['#groups']['group_pop_supp_info']->format_type = 'hidden';	
 	
 	//override large text boxes
-	
-	$form['field_pop_selection_others_sp']['und'][0]["#format"]= 'plain_text';
-	$form['field_pop_selection_others_sp']['und'][0]['value']['#rows'] = 1;
-	$form['field_pop_selection_others_sp']['und'][0]['#type'] = 'textfield';
-	$form['field_pop_specific_pop_other_sp']['und'][0]["#format"]= 'plain_text';
-	$form['field_pop_specific_pop_other_sp']['und'][0]['value']['#rows'] = 1;
-	$form['field_pop_specific_pop_other_sp']['und'][0]['#type'] = 'textfield';
-	$form['field_pop_recruitment_other']['und'][0]["#format"]= 'plain_text';
-	$form['field_pop_recruitment_other']['und'][0]['value']['#rows'] = 1;
-	$form['field_pop_recruitment_other']['und'][0]['#type'] = 'textfield';
+	$lang = $form['field_pop_selection_others_sp']['#language'];
+	$form['field_pop_selection_others_sp'][$lang][0]["#format"]= 'plain_text';
+	$form['field_pop_selection_others_sp'][$lang][0]['value']['#rows'] = 1;
+	$form['field_pop_selection_others_sp'][$lang][0]['#type'] = 'textfield';
+	$lang = $form['field_pop_specific_pop_other_sp']['#language'];	
+	$form['field_pop_specific_pop_other_sp'][$lang][0]["#format"]= 'plain_text';
+	$form['field_pop_specific_pop_other_sp'][$lang][0]['value']['#rows'] = 1;
+	$form['field_pop_specific_pop_other_sp'][$lang][0]['#type'] = 'textfield';
+	$lang = $form['field_pop_selection_others_sp']['#language'];	
+	$form['field_pop_selection_others_sp'][$lang][0]["#format"]= 'plain_text';
+	$form['field_pop_selection_others_sp'][$lang][0]['value']['#rows'] = 1;
+	$form['field_pop_selection_others_sp'][$lang][0]['#type'] = 'textfield';
 	
 	//set the title
 	
@@ -401,29 +432,35 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
      }
 
 	// move help text for existing Maelstrom fields
-	$form['field_pop_country']['und']['0']['#description_display'] = 'before';
-	$form['field_pop_country']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_pop_country']['und']['#description_display'] = 'before';
-	
-	$form['field_pop_health_status']['und']['0']['#description_display'] = 'before';
-	$form['field_pop_health_status']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_pop_health_status']['und']['#description_display'] = 'before';
-	
-	$form['field_pop_src_recruit']['und']['0']['#description_display'] = 'before';
-	$form['field_pop_src_recruit']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_pop_src_recruit']['und']['#description_display'] = 'before';
-	
-	$form['field_pop_selection_others_sp']['und']['0']['#description_display'] = 'before';
-	$form['field_pop_selection_others_sp']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_pop_selection_others_sp']['und']['#description_display'] = 'before';
-	
-	$form['field_pop_specific_pop_other_sp']['und']['0']['#description_display'] = 'before';
-	$form['field_pop_specific_pop_other_sp']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_pop_specific_pop_other_sp']['und']['#description_display'] = 'before';
+	$language = $form['field_pop_country']['#language'];
+	$form['field_pop_country'][$language]['0']['#description_display'] = 'before';
+	$form['field_pop_country'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_pop_country'][$language]['#description_display'] = 'before';
 
-	$form['field_pop_recruitment_other']['und']['0']['#description_display'] = 'before';
-	$form['field_pop_recruitment_other']['und']['0']['value']['#description_display'] = 'before';
-	$form['field_pop_recruitment_other']['und']['#description_display'] = 'before';	
+	$language = $form['field_pop_health_status']['#language'];	
+	$form['field_pop_health_status'][$language]['0']['#description_display'] = 'before';
+	$form['field_pop_health_status'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_pop_health_status'][$language]['#description_display'] = 'before';
+
+	$language = $form['field_pop_src_recruit']['#language'];	
+	$form['field_pop_src_recruit'][$language]['0']['#description_display'] = 'before';
+	$form['field_pop_src_recruit'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_pop_src_recruit'][$language]['#description_display'] = 'before';
+
+	$language = $form['field_pop_selection_others_sp']['#language'];	
+	$form['field_pop_selection_others_sp'][$language]['0']['#description_display'] = 'before';
+	$form['field_pop_selection_others_sp'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_pop_selection_others_sp'][$language]['#description_display'] = 'before';
+
+	$language = $form['field_pop_specific_pop_other_sp']['#language'];	
+	$form['field_pop_specific_pop_other_sp'][$language]['0']['#description_display'] = 'before';
+	$form['field_pop_specific_pop_other_sp'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_pop_specific_pop_other_sp'][$language]['#description_display'] = 'before';
+
+	$language = $form['field_pop_recruitment_other']['#language'];
+	$form['field_pop_recruitment_other'][$language]['0']['#description_display'] = 'before';
+	$form['field_pop_recruitment_other'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_pop_recruitment_other'][$language]['#description_display'] = 'before';	
 	
 	// move title field to sampling frame group
 	
@@ -466,9 +503,9 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
   );	
   
   $form['actions']['_mica_studies_save_add_dce_submit']['#type']='hidden';
-  
-  unset($form['field_pop_locality_ic']['und']['#options']['_none']);
-  $form['field_pop_locality_ic']['und']['#options']['_none'] = 'N/A';
+  $language = $form['field_pop_locality_ic']['#language'];  
+  unset($form['field_pop_locality_ic'][$language]['#options']['_none']);
+  $form['field_pop_locality_ic'][$language]['#options']['_none'] = 'N/A';
 	//dpm($form);
 }
 
@@ -634,12 +671,25 @@ foreach ($blocks as $key => $block) {
   //dpm($node, $name = NULL);
 
  //debug($node['field_african_african_american_b']['und']['0']['value']['#value']); 
-
- $total = $node['field_race_african_ic']['und']['0']['value']['#value'] + $node['field_race_e_asian_ic']['und']['0']['value']['#value']
-		+ $node['field_race_s_asian_ic']['und']['0']['value']['#value'] + $node['field_race_euro_ic']['und']['0']['value']['#value']
-		+ $node['field_race_indig_am_ic']['und']['0']['value']['#value'] + $node['field_race_indig_aus_ic']['und']['0']['value']['#value']		
-		+ $node['field_race_indig_pac_ic']['und']['0']['value']['#value'] + $node['field_race_mid_e_ic']['und']['0']['value']['#value']		
-		+ $node['field_race_other_ic']['und']['0']['value']['#value'];
+$language = $node['field_race_african_ic']['#language'];
+ $total = $node['field_race_african_ic'][$language]['0']['value']['#value'];
+ $language = $node['field_race_e_asian_ic']['#language'];
+ $total = $total + $node['field_race_e_asian_ic'][$language]['0']['value']['#value'];
+ $language = $node['field_race_s_asian_ic']['#language'];
+ $total = $total + $node['field_race_s_asian_ic'][$language]['0']['value']['#value'];
+ $language = $node['field_race_euro_ic']['#language'];
+ $total = $total + $node['field_race_euro_ic'][$language]['0']['value']['#value'];
+ $language = $node['field_race_indig_am_ic']['#language'];
+ $total = $total + $node['field_race_indig_am_ic'][$language]['0']['value']['#value'];
+ $language = $node['field_race_indig_aus_ic']['#language'];
+ $total = $total + $node['field_race_indig_aus_ic'][$language]['0']['value']['#value'];
+ $language = $node['field_race_indig_pac_ic']['#language'];
+ $total = $total + $node['field_race_indig_pac_ic'][$language]['0']['value']['#value'];
+ $language = $node['field_race_mid_e_ic']['#language'];
+ $total = $total + $node['field_race_mid_e_ic'][$language]['0']['value']['#value'];
+ $language = $node['field_race_other_ic']['#language'];
+ $total = $total + $node['field_race_other_ic'][$language]['0']['value']['#value'];		
+	
 // debug($total);
 
 if($total != 100){

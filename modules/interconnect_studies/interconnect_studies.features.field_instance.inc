@@ -1030,11 +1030,10 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Hispanic / Latino',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => '%',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1481,7 +1480,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_number_of_participants_ic',
-    'label' => 'Number of participants recruited to the study',
+    'label' => 'Actual number of participants recruited to the study',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -1621,18 +1620,20 @@ function interconnect_studies_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_race_african_ic',
     'label' => 'African / African-American / Black',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => '%',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 0,
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
@@ -1666,18 +1667,20 @@ function interconnect_studies_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_race_e_asian_ic',
     'label' => 'East or South East Asian',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => '%',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 0,
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
@@ -2022,18 +2025,20 @@ function interconnect_studies_field_default_field_instances() {
         'weight' => 0,
       ),
     ),
+    'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_race_s_asian_ic',
     'label' => 'South Asian / Indian Subcontinent',
-    'required' => FALSE,
+    'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => '%',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 0,
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
@@ -2239,6 +2244,7 @@ function interconnect_studies_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('1000 genomes Reference Panel');
   t('1000 genomes reference panel');
+  t('Actual number of participants recruited to the study');
   t('African / African-American / Black');
   t('Area of residence');
   t('At what date was this number recorded?');
@@ -2270,7 +2276,6 @@ function interconnect_studies_field_default_field_instances() {
   t('Migration status');
   t('Native Hawaiian or Other Pacific Islander');
   t('Newborn');
-  t('Number of participants recruited to the study');
   t('Other 1000 genomes reference panel');
   t('Other HapMap reference panel');
   t('Other arrays');
