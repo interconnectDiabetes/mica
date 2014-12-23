@@ -22,7 +22,7 @@ function _interconnect_studies_block_study_general_info($study) {
     field_view_field('node', $study, 'field_website', array('label' => 'inline', 'weight' => ++$weight)),
   );
   return array(
-    'subject' => t('General Information for my study') . '<a name="general-info"> </a>',
+    'subject' => t('General Information') . '<a name="general-info"> </a>',
     'content' => array_filter($content),
   );
 }
@@ -314,11 +314,11 @@ function _interconnect_studies_block_study_general_design_field_act_participants
     $field[]['#markup'] = number_format($actual_number, 0, '.', ' ');
   }
 
-  $date = format_date($study_wrapper->field_participants_date_ic->value(),'custom','M Y');
+  $date = $study_wrapper->field_participants_date_ic->value();
   
   if ($date) {
-    $field['#items'][] = t(' recorded on ') . $date;
-    $field[]['#markup'] = t(' recorded on ') . $date;
+    $field['#items'][] = t(' recorded on ') . format_date($date,'custom','M Y');
+    $field[]['#markup'] = t(' recorded on ') . format_date($date,'custom','M Y');
   }
 
   return empty($field['#items']) ? NULL : $field;
@@ -389,5 +389,5 @@ function _interconnect_studies_block_genotype($study, $weight){
 	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
 	$field = field_view_field('node', $study, 'field_custom_ref_panels_ic', array('label' => 'inline', 'weight' => ++$weight));
 	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
-	return empty($content) ? NULL : $content;
+	return sizeof($content) < 6 ? array() : $content;
 }

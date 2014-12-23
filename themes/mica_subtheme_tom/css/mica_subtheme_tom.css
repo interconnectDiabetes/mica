@@ -43,5 +43,8 @@ legend {
 	font-size: 12px;
 }
 
+.option {
+	padding-left: 20px;
+}
 
 /* header#navbar{text-transform:uppercase;margin:0;font-family:"Oswald",sans-serif;font-size:14px;line-height:1.5;color:#495961;background-color:#fff;font-weight:400} */
