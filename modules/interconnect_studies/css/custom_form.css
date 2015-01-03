@@ -5,6 +5,10 @@ label.control-label {
 	font-weight: bold;
 }
 
+label.fel-field-label {
+	font-weight: bold;
+}
+
 .field-label label {
 	font-weight: bold;
 }

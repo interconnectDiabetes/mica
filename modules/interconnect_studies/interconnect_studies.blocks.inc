@@ -1,58 +1,53 @@
 <?php
 
-
-
 function _interconnect_studies_block_study_general_info($study) {
   // $study can be the study nid
-  if (is_numeric($study)) {
-    $study = node_load($study);
-  }
-  $weight = 0;
-  $content = array(
-    field_view_field('node', $study, 'title_field', array('label' => 'inline', 'weight' => ++$weight)),
-    field_view_field('node', $study, 'field_acroym', array('label' => 'inline', 'weight' => ++$weight)),
-	field_view_field('node', $study, 'field_contacts_ref', array('label' => 'inline', 'weight' => ++$weight)),
-	field_view_field('node', $study, 'field_marker_paper', array('label' => 'inline', 'weight' => ++$weight)),
-    field_view_field('node', $study, 'field_pubmedid', array(
-        'label' => 'inline',
-        'type' => 'mica_pubmed_url',
-        'weight' => ++$weight
-      )
+	if (is_numeric($study)) {
+		$study = node_load($study);
+	}
+	$weight = 0;
+	$content = array(
+		field_view_field('node', $study, 'title_field', array('label' => 'inline', 'weight' => ++$weight)),
+		field_view_field('node', $study, 'field_acroym', array('label' => 'inline', 'weight' => ++$weight)),
+		field_view_field('node', $study, 'field_contacts_ref', array('label' => 'inline', 'weight' => ++$weight)),
+		field_view_field('node', $study, 'field_marker_paper', array('label' => 'inline', 'weight' => ++$weight)),
+		field_view_field('node', $study, 'field_pubmedid', array(
+			'label' => 'inline',
+			'type' => 'mica_pubmed_url',
+			'weight' => ++$weight
+		)
     ),
     field_view_field('node', $study, 'field_website', array('label' => 'inline', 'weight' => ++$weight)),
-  );
-  return array(
-    'subject' => t('General Information') . '<a name="general-info"> </a>',
-    'content' => array_filter($content),
-  );
+	);
+	return array(
+		'subject' => t('General Information') . '<a name="general-info"> </a>',
+		'content' => array_filter($content),
+	);
 }
 
 function _interconnect_studies_block_study_methods($study) {
   // $study can be the study nid
-  if (is_numeric($study)) {
-    $study = node_load($study);
-  }
-  $weight = 0;
- $wrapper = entity_metadata_wrapper('node', $study);
- $content = array();
- $content[] = _interconnect_studies_block_study_methods_field_design($wrapper, ++$weight);
- $content[] = field_view_field('node', $study, 'field_trial_number_ic', array('label' => 'inline', 'weight' => ++$weight));
- $content[] = _interconnect_studies_block_study_methods_intervention($wrapper, ++$weight);
- $content[] = _interconnect_studies_block_study_methods_case($wrapper, ++$weight);
- $content[] = field_view_field('node', $study, 'field_recruit_start_ic', array('label' => 'inline', 'weight' => ++$weight));
- $content[] = field_view_field('node', $study, 'field_recruit_cont_ic', array('label' => 'inline', 'weight' => ++$weight));
- $content[] = field_view_field('node', $study, 'field_recruit_end_ic', array('label' => 'inline', 'weight' => ++$weight));
- $content[] = _interconnect_studies_block_study_methods_family($wrapper, ++$weight);
- $content[] = _interconnect_studies_block_study_general_design_field_nb_participants($wrapper, ++$weight);
- $content[] = _interconnect_studies_block_study_general_design_field_act_participants($wrapper, ++$weight);
- //$content[] = field_view_field('node', $study, 'field_number_of_participants_ic', array('label' => 'inline', 'weight' => ++$weight));
-// $content[] = field_view_field('node', $study, 'field_participants_date_ic', array('label' => 'inline', 'weight' => ++$weight));
-  
+	if (is_numeric($study)) {
+		$study = node_load($study);
+	}
+	$weight = 0;
+	$wrapper = entity_metadata_wrapper('node', $study);
+	$content = array();
+	$content[] = _interconnect_studies_block_study_methods_field_design($wrapper, ++$weight);
+	$content[] = field_view_field('node', $study, 'field_trial_number_ic', array('label' => 'inline', 'weight' => ++$weight));
+	$content[] = _interconnect_studies_block_study_methods_intervention($wrapper, ++$weight);
+	$content[] = _interconnect_studies_block_study_methods_case($wrapper, ++$weight);
+	$content[] = field_view_field('node', $study, 'field_recruit_start_ic', array('label' => 'inline', 'weight' => ++$weight));
+	$content[] = field_view_field('node', $study, 'field_recruit_cont_ic', array('label' => 'inline', 'weight' => ++$weight));
+	$content[] = field_view_field('node', $study, 'field_recruit_end_ic', array('label' => 'inline', 'weight' => ++$weight));
+	$content[] = _interconnect_studies_block_study_methods_family($wrapper, ++$weight);
+	$content[] = _interconnect_studies_block_study_general_design_field_nb_participants($wrapper, ++$weight);
+	$content[] = _interconnect_studies_block_study_general_design_field_act_participants($wrapper, ++$weight);
 
-  return array(
-    'subject' => t('Methods') . '<a name="methods"> </a>',
-    'content' => array_filter($content),
-  );
+	return array(
+		'subject' => t('Methods') . '<a name="methods"> </a>',
+		'content' => array_filter($content),
+	);
 }
 
 function _interconnect_studies_block_study_ethnicity($study) {
@@ -64,7 +59,6 @@ function _interconnect_studies_block_study_ethnicity($study) {
   $weight = 0;
   $wrapper = entity_metadata_wrapper('node', $study);
   $content = array(
-	//field_view_field('node', $study, 'field_eth_his_lat_ic', array('label' => 'inline', 'weight' => ++$weight)),
 	_interconnect_studies_block_eth_his_lat($study, $weight),
 	array('#markup' => 'Approximate percentage of participants in each main group represented in the study:',
 	'#prefix' => '<br><b><u>',
@@ -77,14 +71,7 @@ function _interconnect_studies_block_study_ethnicity($study) {
 	field_view_field('node', $study, 'field_race_indig_am_ic', array('label' => 'inline', 'weight' => ++$weight)),
 	field_view_field('node', $study, 'field_race_indig_aus_ic', array('label' => 'inline', 'weight' => ++$weight)),
 	field_view_field('node', $study, 'field_race_indig_pac_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	field_view_field('node', $study, 'field_race_mid_e_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	//field_view_field('node', $study, 'field_race_other_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	//field_view_field('node', $study, 'field_race_other_text_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	
-	// field_view_field('node', $study, 'field_genotyping_arrays_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	// field_view_field('node', $study, 'field_hapmap_ref_panel_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	// field_view_field('node', $study, 'field_1000_genomes_ref_pan_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	// field_view_field('node', $study, 'field_custom_ref_panels_ic', array('label' => 'inline', 'weight' => ++$weight)),	
+	field_view_field('node', $study, 'field_race_mid_e_ic', array('label' => 'inline', 'weight' => ++$weight)),	
   );
   $content[] = _interconnect_studies_block_ethnicity_field_other($wrapper, ++$weight);
   $content = array_merge($content, _interconnect_studies_block_genotype($study, ++$weight));
@@ -345,22 +332,17 @@ function _interconnect_studies_block_ethnicity_field_other($study_wrapper, $weig
     $field[]['#markup'] = (!empty($other_group)?'('.$other_group.') ':'').number_format($other_number, 0, '.', ' ');
   }
 
-  // $other_group = $study_wrapper->field_race_other_text_ic->value();
-  // if ($other_group) {
-    // $field['#items'][] = '('.$other_group.') ';
-    // $field[]['#markup'] = '('.$other_group.')';
-  // }
-
   return empty($field['#items']) ? NULL : $field;
 }
 
 function _interconnect_studies_block_europe(){
+dpm($path_i_studies);
   $block = array();
       $block['subject'] = NULL;
       $block['content'] = 
 	'<div class="span10">
 	<p style="float: left;">
-		<img style="margin-top: -15px;margin-left: -20px;margin-right: 10px" alt="EU" src="http://www.interconnect-diabetes.eu/files/2014/04/EU.jpg" height="65" width="95">
+		<img style="margin-top: -15px;margin-left: -20px;margin-right: 10px" alt="EU" src="/sites/all/themes/mica_subtheme_tom/img/EU.jpg" height="65" width="95">
 	</p>
 	<p> This project is funded by the European Union’s Seventh Framework Programme for research, technological development and demonstration under grant agreement no 602068.</p></div>
 				'

@@ -8,13 +8,11 @@ require_once($path_m_studies . '/mica_studies.blocks.inc');
 $path_i_studies = drupal_get_path('module','interconnect_studies');
 require_once($path_i_studies . '/interconnect_studies.features.inc');
 
-// require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.module');
-// require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.population.inc');
-// require_once('/etc/mica/profiles/mica_distribution/modules/mica/extensions/mica_studies/mica_studies.blocks.inc');
-// require_once('/etc/mica/sites/all/modules/interconnect_studies/interconnect_studies.features.inc');
-
 
 function interconnect_studies_views_default_views_alter(&$views) {
+
+// Override the standard Mica fields for the study list page
+
 $views['studies_search']->display['page_1']->display_options['header']['area']['content'] = 'The following studies are available';
 $fields_temp = array();
 $fields_temp['field_acroym'] = $views['studies_search']->display['default']->display_options['fields']['field_acroym'];
@@ -31,15 +29,6 @@ $fields_temp['field_target_number_participants'] = $views['studies_search']->dis
 $fields_temp['field_study_populations_field_pop_country'] = $views['studies_search']->display['default']->display_options['fields']['field_study_populations_field_pop_country'];
 unset($views['studies_search']->display['default']->display_options['fields']);
 $views['studies_search']->display['default']->display_options['fields'] = $fields_temp;
-
-// $views['studies_search']->display['default']->display_options['fields']['field_design_other_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design_other_sp'];
-// $views['studies_search']->display['default']->display_options['fields']['field_design_other_ic']['id'] = 'field_design_other_ic';
-// $views['studies_search']->display['default']->display_options['fields']['field_design_other_ic']['field'] = 'field_design_other_ic';
-// $views['studies_search']->display['default']->display_options['fields']['field_design_other_ic']['alter']['text'] = ' ([field_design_other_ic])';
-// $views['studies_search']->display['default']->display_options['fields']['field_design_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design'];
-// $views['studies_search']->display['default']->display_options['fields']['field_design_ic']['id'] = 'field_design_ic';
-// $views['studies_search']->display['default']->display_options['fields']['field_design_ic']['field'] = 'field_design_ic';
-// $views['studies_search']->display['default']->display_options['fields']['field_design_ic']['alter']['text'] = '[field_design_ic][field_design_other_ic]';
 
 }
 
@@ -69,25 +58,26 @@ function interconnect_studies_form_alter(&$form, &$form_state, $form_id) {
 
 function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
   
-    $form['#validate'][] = '_interconnect_studies_validate';
+	$form['#validate'][] = '_interconnect_studies_validate';
    
-  $form['actions']['_mica_studies_save_add_population_submit'] = array(
-    '#access' => TRUE,
-    '#value' => t('Save & Add Sampling Frame'),
-    '#weight' => 6,
-    '#type' => 'submit',
-    '#submit' => array('node_form_submit', '_mica_studies_save_add_population_submit'),
-  );
+	$form['actions']['_mica_studies_save_add_population_submit'] = array(
+		'#access' => TRUE,
+		'#value' => t('Save & Add Sampling Frame'),
+		'#weight' => 6,
+		'#type' => 'submit',
+		'#submit' => array('node_form_submit', '_mica_studies_save_add_population_submit'),
+	);
   
-    // Override save button
-  $form['actions']['_interconnect_studies_save_study_submit'] = array(
-    '#access' => TRUE,
-    '#value' => t('Save'),
-    '#weight' => -10,
-    '#type' => 'submit',
-    '#submit' => array('node_form_submit', '_interconnect_studies_save_study_submit'),
-  );
-  $form['actions']['submit']['#type']='hidden';
+	// Override save button
+	$form['actions']['_interconnect_studies_save_study_submit'] = array(
+		'#access' => TRUE,
+		'#value' => t('Save'),
+		'#weight' => -10,
+		'#type' => 'submit',
+		'#submit' => array('node_form_submit', '_interconnect_studies_save_study_submit'),
+	);
+	
+	$form['actions']['submit']['#type']='hidden';
 
   
   	// add some custom text
@@ -123,85 +113,84 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
         '#weight' => -10, // Adjust so that you can place it whereever 
         );
 	
-$form['#groups']['group_access']->format_type = 'hidden';
-$form['#groups']['group_authorization_maelstrom']->format_type = 'hidden';
-$form['#groups']['group_authorization_specific']->format_type = 'hidden';
-$form['#groups']['group_authorization']->format_type = 'hidden';
-$form['#groups']['group_datasets']->format_type = 'hidden';
-$form['#groups']['group_documents']->format_type = 'hidden';
-//$form['#groups']['group_study_name']->format_type = 'hidden';
-$form['#groups']['group_supp_info']->format_type = 'hidden';
-$form['#groups']['group_target_nb_samples']->format_type = 'hidden';
+	//Hide unused groups
+	
+	$form['#groups']['group_access']->format_type = 'hidden';
+	$form['#groups']['group_authorization_maelstrom']->format_type = 'hidden';
+	$form['#groups']['group_authorization_specific']->format_type = 'hidden';
+	$form['#groups']['group_authorization']->format_type = 'hidden';
+	$form['#groups']['group_datasets']->format_type = 'hidden';
+	$form['#groups']['group_documents']->format_type = 'hidden';
+	$form['#groups']['group_supp_info']->format_type = 'hidden';
+	$form['#groups']['group_target_nb_samples']->format_type = 'hidden';
 
-
+	//Hide unused fields
 	 
-$form['body']['#type'] = 'hidden';
-$form['field_access_biosamples']['#type'] = 'hidden';
-$form['field_access_data']['#type'] = 'hidden';
-$form['field_access_other']['#type'] = 'hidden';
-$form['field_access_other_sp']['#type'] = 'hidden';
-$form['field_address']['#type'] = 'hidden';
-$form['field_authorising_date']['#type'] = 'hidden';
-$form['field_authorising_date_m']['#type'] = 'hidden';
-$form['field_authorising_person_name']['#type'] = 'hidden';
-$form['field_authorising_person_name_m']['#type'] = 'hidden';
-$form['field_authorization_maelstrom']['#type'] = 'hidden';
-$form['field_authorization_specific']['#type'] = 'hidden';
-$form['field_city']['#type'] = 'hidden';
-$form['field_contact_country']['#type'] = 'hidden';
-$form['field_contact_email']['#type'] = 'hidden';
-$form['field_contact_name']['#type'] = 'hidden';
-$form['field_department_unit']['#type'] = 'hidden';
-$form['field_design']['#type'] = 'hidden';
-$form['field_design_other_sp']['#type'] = 'hidden';
-$form['field_documents']['#type'] = 'hidden';
-$form['field_files']['#type'] = 'hidden';
-$form['field_info_design_follow_up']['#type'] = 'hidden';
-$form['field_institution_name']['#type'] = 'hidden';
-$form['field_investigators']['#type'] = 'hidden';
-$form['field_logo']['#type'] = 'hidden';
-$form['field_no_limits_samples']['#type'] = 'hidden';
-$form['field_postal_code']['#type'] = 'hidden';
-$form['field_recruitment']['#type'] = 'hidden';
-$form['field_recruitment_other_sp']['#type'] = 'hidden';
-$form['field_recruitment_supp_info']['#type'] = 'hidden';
-$form['field_state']['#type'] = 'hidden';
-$form['field_study_end_year']['#type'] = 'hidden';
-$form['field_study_start_year']['#type'] = 'hidden';
-$form['field_study_study_variable_att']['#type'] = 'hidden';
-$form['field_supp_infos']['#type'] = 'hidden';
-$form['field_target_nb_supp_info']['#type'] = 'hidden';
-$form['field_target_number_biosamples']['#type'] = 'hidden';
-$form['field_telephone']['#type'] = 'hidden';
-$form['mica_dataset']['#type'] = 'hidden';
-$form['mica_opal']['#type'] = 'hidden';
-$form['field_dummy_ic']['#type'] = 'hidden';
+	$form['body']['#type'] = 'hidden';
+	$form['field_access_biosamples']['#type'] = 'hidden';
+	$form['field_access_data']['#type'] = 'hidden';
+	$form['field_access_other']['#type'] = 'hidden';
+	$form['field_access_other_sp']['#type'] = 'hidden';
+	$form['field_address']['#type'] = 'hidden';
+	$form['field_authorising_date']['#type'] = 'hidden';
+	$form['field_authorising_date_m']['#type'] = 'hidden';
+	$form['field_authorising_person_name']['#type'] = 'hidden';
+	$form['field_authorising_person_name_m']['#type'] = 'hidden';
+	$form['field_authorization_maelstrom']['#type'] = 'hidden';
+	$form['field_authorization_specific']['#type'] = 'hidden';
+	$form['field_city']['#type'] = 'hidden';
+	$form['field_contact_country']['#type'] = 'hidden';
+	$form['field_contact_email']['#type'] = 'hidden';
+	$form['field_contact_name']['#type'] = 'hidden';
+	$form['field_department_unit']['#type'] = 'hidden';
+	$form['field_design']['#type'] = 'hidden';
+	$form['field_design_other_sp']['#type'] = 'hidden';
+	$form['field_documents']['#type'] = 'hidden';
+	$form['field_files']['#type'] = 'hidden';
+	$form['field_info_design_follow_up']['#type'] = 'hidden';
+	$form['field_institution_name']['#type'] = 'hidden';
+	$form['field_investigators']['#type'] = 'hidden';
+	$form['field_logo']['#type'] = 'hidden';
+	$form['field_no_limits_samples']['#type'] = 'hidden';
+	$form['field_postal_code']['#type'] = 'hidden';
+	$form['field_recruitment']['#type'] = 'hidden';
+	$form['field_recruitment_other_sp']['#type'] = 'hidden';
+	$form['field_recruitment_supp_info']['#type'] = 'hidden';
+	$form['field_state']['#type'] = 'hidden';
+	$form['field_study_end_year']['#type'] = 'hidden';
+	$form['field_study_start_year']['#type'] = 'hidden';
+	$form['field_study_study_variable_att']['#type'] = 'hidden';
+	$form['field_supp_infos']['#type'] = 'hidden';
+	$form['field_target_nb_supp_info']['#type'] = 'hidden';
+	$form['field_target_number_biosamples']['#type'] = 'hidden';
+	$form['field_telephone']['#type'] = 'hidden';
+	$form['mica_dataset']['#type'] = 'hidden';
+	$form['mica_opal']['#type'] = 'hidden';
+	$form['field_dummy_ic']['#type'] = 'hidden';
 
-// hide some field labels
-$language=$form['field_marker_paper']['#language'];
-$form['field_marker_paper'][$language]['0']['value']['#title_display'] = 'invisible';
-$language=$form['field_pubmedid']['#language'];
-$form['field_pubmedid'][$language]['0']['value']['#title_display'] = 'invisible';
-$language=$form['field_design_ic']['#language'];
-$form['field_design_ic'][$language]['0']['value']['#title_display'] = 'invisible';
-$form['field_design_ic'][$language]['0']['#title_display'] = 'invisible';
-$form['field_design_ic'][$language]['#title_display'] = 'invisible';
-//need to reinstate * for study design
-$form['#groups']['group_study_design']->label = 'Study Design *';
-$language=$form['field_target_number_participants']['#language'];
-$form['field_target_number_participants'][$language]['0']['value']['#title_display'] = 'invisible';
-$language=$form['field_number_of_participants_ic']['#language'];
-$form['field_number_of_participants_ic'][$language]['0']['value']['#title_display'] = 'invisible';
-$language=$form['field_eth_his_lat_ic']['#language'];
-$form['field_eth_his_lat_ic'][$language]['0']['value']['#title_display'] = 'invisible';
-$language=$form['field_health_info_ic']['#language'];
-$form['field_health_info_ic'][$language]['0']['value']['#title_display'] = 'invisible';
-$form['field_health_info_ic'][$language]['0']['#title_display'] = 'invisible';
-$form['field_health_info_ic'][$language]['#title_display'] = 'invisible';
+	// hide some field labels to improve formatting
+	$language=$form['field_marker_paper']['#language'];
+	$form['field_marker_paper'][$language]['0']['value']['#title_display'] = 'invisible';
+	$language=$form['field_pubmedid']['#language'];
+	$form['field_pubmedid'][$language]['0']['value']['#title_display'] = 'invisible';
+	$language=$form['field_design_ic']['#language'];
+	$form['field_design_ic'][$language]['0']['value']['#title_display'] = 'invisible';
+	$form['field_design_ic'][$language]['0']['#title_display'] = 'invisible';
+	$form['field_design_ic'][$language]['#title_display'] = 'invisible';
+	//need to reinstate * for study design
+	$form['#groups']['group_study_design']->label = 'Study Design *';
+	$language=$form['field_target_number_participants']['#language'];
+	$form['field_target_number_participants'][$language]['0']['value']['#title_display'] = 'invisible';
+	$language=$form['field_number_of_participants_ic']['#language'];
+	$form['field_number_of_participants_ic'][$language]['0']['value']['#title_display'] = 'invisible';
+	$language=$form['field_eth_his_lat_ic']['#language'];
+	$form['field_eth_his_lat_ic'][$language]['0']['value']['#title_display'] = 'invisible';
+	$language=$form['field_health_info_ic']['#language'];
+	$form['field_health_info_ic'][$language]['0']['value']['#title_display'] = 'invisible';
+	$form['field_health_info_ic'][$language]['0']['#title_display'] = 'invisible';
+	$form['field_health_info_ic'][$language]['#title_display'] = 'invisible';
 
-
-
-// move help text for existing Maelstrom fields
+	// move help text for existing Maelstrom fields using form element layout module
 	$language=$form['title_field']['#language'];
 	$form['title_field'][$language]['0']['#description_display'] = 'before';
 	$form['title_field'][$language]['0']['value']['#description_display'] = 'before';
@@ -242,37 +231,36 @@ $form['field_health_info_ic'][$language]['#title_display'] = 'invisible';
 	$form['field_number_of_participants_ic'][$language]['0']['value']['#description_display'] = 'before';
 	$form['field_number_of_participants_ic'][$language]['#description_display'] = 'before';
 
-// fixing N/A ordering
+	// fixing N/A ordering
 
-  $language=$form['field_family_ic']['#language'];
-  unset($form['field_family_ic'][$language]['#options']['_none']);
-  $form['field_family_ic'][$language]['#options']['_none'] = 'N/A';
-  $language=$form['field_measure_diet_ic']['#language'];
-  unset($form['field_measure_diet_ic'][$language]['#options']['_none']);
-  $form['field_measure_diet_ic'][$language]['#options']['_none'] = 'N/A';
-  $language=$form['field_measure_pa_ic']['#language'];  
-  unset($form['field_measure_pa_ic'][$language]['#options']['_none']);
-  $form['field_measure_pa_ic'][$language]['#options']['_none'] = 'N/A'; 
-  $language=$form['field_dna_ic']['#language'];  
-  unset($form['field_dna_ic'][$language]['#options']['_none']);
-  $form['field_dna_ic'][$language]['#options']['_none'] = 'N/A';
-  $language=$form['field_recruit_cont_ic']['#language'];  
-  krsort($form['field_recruit_cont_ic'][$language]['#options']);
+	$language=$form['field_family_ic']['#language'];
+	unset($form['field_family_ic'][$language]['#options']['_none']);
+	$form['field_family_ic'][$language]['#options']['_none'] = 'N/A';
+	$language=$form['field_measure_diet_ic']['#language'];
+	unset($form['field_measure_diet_ic'][$language]['#options']['_none']);
+	$form['field_measure_diet_ic'][$language]['#options']['_none'] = 'N/A';
+	$language=$form['field_measure_pa_ic']['#language'];  
+	unset($form['field_measure_pa_ic'][$language]['#options']['_none']);
+	$form['field_measure_pa_ic'][$language]['#options']['_none'] = 'N/A'; 
+	$language=$form['field_dna_ic']['#language'];  
+	unset($form['field_dna_ic'][$language]['#options']['_none']);
+	$form['field_dna_ic'][$language]['#options']['_none'] = 'N/A';
+	$language=$form['field_recruit_cont_ic']['#language'];  
+	krsort($form['field_recruit_cont_ic'][$language]['#options']); //rearrange array
   
-	
-//set up dependent fields for study design
+	//set up dependent fields for study design
+	   
+	// clinical trial only   
    
-// clinical trial only   
-   
-   _mica_add_dependent_field_checked($form, 'field_design_ic', 'field_interv_type_ic', 'clinical_trial');
-   _mica_add_double_dependent_field_checked($form, 'field_design_ic', 'field_interv_type_ic', 'field_interv_other_ic', 'clinical_trial', 'other');
-   _mica_add_dependent_field_checked($form, 'field_design_ic', 'field_trial_number_ic', 'clinical_trial');   
+	_mica_add_dependent_field_checked($form, 'field_design_ic', 'field_interv_type_ic', 'clinical_trial');
+	_mica_add_double_dependent_field_checked($form, 'field_design_ic', 'field_interv_type_ic', 'field_interv_other_ic', 'clinical_trial', 'other');
+	_mica_add_dependent_field_checked($form, 'field_design_ic', 'field_trial_number_ic', 'clinical_trial');   
 
-// case control only
+	// case control only
 
-  _mica_add_double_or_field_checked($form, 'field_design_ic', 'field_design_ic', 'field_case_definition_ic', 'case_control', 'case_only');
+	_mica_add_double_or_field_checked($form, 'field_design_ic', 'field_design_ic', 'field_case_definition_ic', 'case_control', 'case_only');
 
-  //to do nested logic 
+	//to do nested logic 
     $lang = $form['field_other_case_ic']['#language'];
 	$thing1 = '\':input[name="field_design_ic[' . $lang . ']"]\'';
 	$thing2 = '\':input[name="field_case_definition_ic[' . $lang . ']"]\'';
@@ -280,41 +268,38 @@ $form['field_health_info_ic'][$language]['#title_display'] = 'invisible';
 		'visible' => array(
 			array(
 				':input[name="field_design_ic['.$lang.']"]' => array(
-									array('value' => 'case_control'),
-									array('value' => 'case_only'),
-								)
+					array('value' => 'case_control'),
+					array('value' => 'case_only'),
+				),
 			),
 			':input[name="field_case_definition_ic['.$lang.']"]' => array('value' => 'other')
 		)
 	);
   
-// other study design
+	// other study design
 
    _mica_add_dependent_field_checked($form, 'field_design_ic', 'field_design_other_ic', 'other'); 
 
-// recruitment date
+	// recruitment date
 	
-	// _mica_add_dependent_field_checked($form, 'field_recruit_cont_ic', 'field_recruit_end_ic', 'Yes');
 	_mica_add_dependent_field_checked($form, 'field_recruit_cont_ic', 'field_recruit_end_ic', '0');
-   // $form['field_recruit_end_ic']['#states']['visible'] = array(
-		// ':input[name="field_recruit_cont_ic[und]"]' => array("checked" => TRUE) ,
-   // );   
-   
-// family field
+    
+	// family field
 
 	_mica_add_dependent_field_checked($form, 'field_family_ic', 'field_family_other_ic', 'other');
 
-// Health outcomes
+	// Health outcomes
 
 	_mica_add_double_or_field_checked($form, 'field_health_info_ic', 'field_health_info_ic', 'field_hi_other_diabetes_ic', 'OD_p', 'OD_i');
 
 	
-// bespoke filled state for race group other text
+	// bespoke filled state for race group other text
 	$lang = $form['field_race_other_text_ic']['#language'];
 	$form['field_race_other_text_ic']['#states']['visible'] = array(
         ':input[name="field_race_other_ic['.$lang.'][0][value]"]' => array('filled' => TRUE),
-	);	
-//genotyping dependencies
+	);
+	
+	//genotyping dependencies
 	
 	$lang = $form['field_genotyping_arrays_ic']['#language'];
 	$form['field_genotyping_arrays_ic'][$lang]['#after_build'] = array('field_genotyping_arrays_ic_after_build','field_form_element_after_build');
@@ -325,10 +310,10 @@ $form['field_health_info_ic'][$language]['#title_display'] = 'invisible';
 
 	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
 	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
-  
-//dpm($form);
 
 }
+
+// functions to run after page built to add the states to new field collections by iterating over them
 
  function field_genotyping_arrays_ic_after_build($form, &$form_state) {
 
@@ -377,26 +362,17 @@ $form['field_health_info_ic'][$language]['#title_display'] = 'invisible';
      return $form;
  }
  
-// function mica_subtheme_preprocess_page(&$variables) {
-  // //if ($a_condition) {
-    // // $variables['title'] = 'A new title';
-	 // debug($variables);
-	
-  // if (!empty($variables['node']) && in_array($variables['node']->type, array('population'))) {
-    // $variables['title'] = 'A new title2';
-  // }
- // // }
-// }
+
 
 function interconnect_studies_population_form_alter(&$form, &$form_state, $form_id) {
 	
-		$form['acustomtext'] = array(
-        '#type' => 'item',
-        '#markup' => '<div >  All studies represent a sample from a larger population.
+	$form['acustomtext'] = array(
+		'#type' => 'item',
+		'#markup' => '<div >  All studies represent a sample from a larger population.
 		Some studies will have multiple samples. Please complete the following questions for each separate sample.
 		</div>',
-        '#weight' => -10, // Adjust so that you can place it whereever 
-        );
+		'#weight' => -10,
+	);
 	
 	// hide old fields
 	$form['title_field']['#type'] = 'hidden';
@@ -406,7 +382,6 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	$form['field_pop_exist_study_part']['#type'] = 'hidden';
 	$form['field_pop_gender']['#type'] = 'hidden';
 	$form['field_pop_general_pop_recruit']['#type'] = 'hidden';
-	//$form['field_pop_health_status']['#type'] = 'hidden';
 	$form['field_pop_no_lim_participants_s']['#type'] = 'hidden';
 	$form['field_pop_no_limits_participants']['#type'] = 'hidden';
 	$form['field_pop_partcipant_sel_supp_in']['#type'] = 'hidden';
@@ -414,24 +389,14 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	$form['field_pop_participants_nb_s']['#type'] = 'hidden';
 	$form['field_pop_participants_nb_supp_i']['#type'] = 'hidden';
 	$form['field_pop_recruit_supp_info']['#type'] = 'hidden';
-	//$form['field_pop_recruitment_other']['#type'] = 'hidden';
 	$form['field_pop_select_criteria']['#type'] = 'hidden';
-	//$form['field_pop_selection_others_sp']['#type'] = 'hidden';
-	//$form['field_pop_specific_pop']['#type'] = 'hidden';
-	//$form['field_pop_specific_pop_other_sp']['#type'] = 'hidden';
-	//$form['field_pop_src_recruit']['#type'] = 'hidden';
 	$form['field_pop_study']['#type'] = 'hidden';
 	$form['field_pop_supp_infos']['#type'] = 'hidden';
 	$form['field_pop_territory']['#type'] = 'hidden';
 
 	//hide groups
-	
 	$form['#groups']['group_general_info']->format_type = 'hidden';
-	//$form['#groups']['group_pop_age']->format_type = 'hidden';
-	//$form['#groups']['group_pop_countries']->format_type = 'hidden';
 	$form['#groups']['group_pop_participants_number']->format_type = 'hidden';
-	//$form['#groups']['group_pop_recruitment_procedures']->format_type = 'hidden';
-	//$form['#groups']['group_pop_selection_criteria']->format_type = 'hidden';
 	$form['#groups']['group_pop_supp_info']->format_type = 'hidden';	
 	
 	//override large text boxes
@@ -490,86 +455,48 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	$form['field_pop_recruitment_other'][$language]['0']['#description_display'] = 'before';
 	$form['field_pop_recruitment_other'][$language]['0']['value']['#description_display'] = 'before';
 	$form['field_pop_recruitment_other'][$language]['#description_display'] = 'before';	
-	
-	// move title field to sampling frame group
-	
-	// $form['#group_children']['title_field'] = 'group_pop_sampling_frame_ic';
-	// $form['title_field']['#weight'] = '1';
-	
-	//move new fields to recruitment procedure group
-	
-	// $form['#group_children']['field_pop_recruitment_proc_ic'] = 'group_pop_recruitment_procedures';
-	// $form['field_pop_recruitment_proc_ic']['#weight'] = '10';
 
-	// $form['#group_children']['field_pop_rec_proc_select_ic'] = 'group_pop_recruitment_procedures';
-	// $form['field_pop_rec_proc_select_ic']['#weight'] = '11';
-	
-	// $form['#group_children']['field_pop_rec_proc_locality_ic'] = 'group_pop_recruitment_procedures';
-	// $form['field_pop_rec_proc_locality_ic']['#weight'] = '12';
-	
-	// $form['#group_children']['field_pop_rec_proc_occup_ic'] = 'group_pop_recruitment_procedures';
-	// $form['field_pop_rec_proc_occup_ic']['#weight'] = '13';
-
-	// $form['#group_children']['field_pop_rec_proc_gender_ic'] = 'group_pop_recruitment_procedures';
-	// $form['field_pop_rec_proc_gender_ic']['#weight'] = '14';
-
-	// $form['#group_children']['field_pop_rec_proc_other_ic'] = 'group_pop_recruitment_procedures';
-	// $form['field_pop_rec_proc_other_ic']['#weight'] = '15';
-
-	// _mica_add_dependent_field_checked($form, 'field_pop_recruitment_proc_ic', 'field_pop_rec_proc_select_ic',  'sel');
-	// _mica_add_dependent_field_checked($form, 'field_pop_rec_proc_select_ic', 'field_pop_rec_proc_locality_ic', 'loc');
-	// _mica_add_dependent_field_checked($form, 'field_pop_rec_proc_select_ic', 'field_pop_rec_proc_occup_ic', 'occ');
-	// _mica_add_dependent_field_checked($form, 'field_pop_rec_proc_select_ic', 'field_pop_rec_proc_gender_ic', 'gen');	
-	// _mica_add_dependent_field_checked($form, 'field_pop_rec_proc_select_ic', 'field_pop_rec_proc_other_ic', 'other');
-
-
-     $form['actions']['_interconnect_studies_save_add_pop_submit'] = array(
-    '#access' => TRUE,
-    '#value' => t('Save & Add Another Sampling Frame'),
-    '#weight' => 6,
-    '#type' => 'submit',
-    '#submit' => array('node_form_submit', '_interconnect_studies_save_add_pop_submit'),
-  );	
+    $form['actions']['_interconnect_studies_save_add_pop_submit'] = array(
+		'#access' => TRUE,
+		'#value' => t('Save & Add Another Sampling Frame'),
+		'#weight' => 6,
+		'#type' => 'submit',
+		'#submit' => array('node_form_submit', '_interconnect_studies_save_add_pop_submit'),
+	);	
   
-  $form['actions']['_mica_studies_save_add_dce_submit']['#type']='hidden';
-  $language = $form['field_pop_locality_ic']['#language'];  
-  unset($form['field_pop_locality_ic'][$language]['#options']['_none']);
-  $form['field_pop_locality_ic'][$language]['#options']['_none'] = 'N/A';
+	$form['actions']['_mica_studies_save_add_dce_submit']['#type']='hidden';
+	$language = $form['field_pop_locality_ic']['#language'];  
+	unset($form['field_pop_locality_ic'][$language]['#options']['_none']);
+	$form['field_pop_locality_ic'][$language]['#options']['_none'] = 'N/A';
 	//dpm($form);
 }
 
-function _move_NA($field){
-
-
-}
-
+//function to run when pressing save button for study - stay on the same page after save
 function _interconnect_studies_save_study_submit($form, &$form_state) {
-  if (isset($form['actions']['_interconnect_studies_save_study_submit'])) {
-	//$form_state['redirect'] = NULL;
-    $form_state['redirect'] = 'node/'.$form_state['nid'].'/edit';
-	$form_state['nid'] = NULL;
-	//dpm($form_state);
-  }
+	if (isset($form['actions']['_interconnect_studies_save_study_submit'])) {
+		$form_state['redirect'] = 'node/'.$form_state['nid'].'/edit';
+		$form_state['nid'] = NULL;
+	}
 }
 
-
+//function to run when pressing save and add population button
 function _interconnect_studies_save_add_pop_submit($form, &$form_state) {
 
 	$wrapper = entity_metadata_wrapper('node', $form_state['nid']);
 	$study_nid = $wrapper->field_pop_study->getIdentifier();
 	
-  if (isset($form['actions']['_mica_studies_save_add_dce_submit'])) {
-    $form_state['redirect'] = array(
-      'node/add/population',
-      array(
-        'query' => array(
-          'study' => $study_nid,
-		  'destination' => 'node/'.$study_nid,
-        ),
-      ),
-    );
-    $form_state['nid'] = NULL;
-  }
+	if (isset($form['actions']['_mica_studies_save_add_dce_submit'])) {
+		$form_state['redirect'] = array(
+			'node/add/population',
+			array(
+				'query' => array(
+					'study' => $study_nid,
+					'destination' => 'node/'.$study_nid,
+				),
+			),
+		);
+		$form_state['nid'] = NULL;
+	}
 }
 
 
@@ -640,94 +567,78 @@ function interconnect_studies_block_info() {
  * Implements hook_block_list_alter().
  */
 
+ //function to remove Mica blocks from study page
 function interconnect_studies_block_list_alter(&$blocks) {
+	foreach ($blocks as $key => $block) {
 
-//debug($blocks);
-
-foreach ($blocks as $key => $block) {
-	    // Use the user's block visibility setting, if necessary.
 		if ($block->module == 'mica_studies') {
 			unset($blocks[$key]);
 		}
 	}
-	
 }
-
-
 
 /**
  * Implements hook_block_view().
  */
  function interconnect_studies_block_view($delta = '') {
-   module_load_include('inc', 'interconnect_studies', 'interconnect_studies.blocks');
-   $study = menu_get_object();
+	module_load_include('inc', 'interconnect_studies', 'interconnect_studies.blocks');
+	$study = menu_get_object();
 
-   drupal_add_css(drupal_get_path('module', 'interconnect_studies') . '/css/custom.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
+	drupal_add_css(drupal_get_path('module', 'interconnect_studies') . '/css/custom.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
   
-   $show_draft = (strpos(current_path(), '/draft') > 0 || $study->status == NODE_NOT_PUBLISHED);
-   if ($show_draft) {
-     $study = workbench_moderation_node_current_load($study);
-   }
-   if (empty($study)) {
-     return NULL;
-   }
-   switch ($delta) {
-    case 'study-general-info-ic':
-      return _interconnect_studies_block_study_general_info($study);
-	case 'study-methods-ic':
-      return _interconnect_studies_block_study_methods($study);
-    case 'study-ethnicity-ic':
-      return _interconnect_studies_block_study_ethnicity($study);
-    case 'study-available-info-ic':
-      return _interconnect_studies_block_available_info($study);
-    case 'study-populations-ic':
-      return _interconnect_studies_block_study_populations($study, $show_draft);
-	case 'europe-ic':
-      return _interconnect_studies_block_europe();
-     default:
-       return NULL;
-   }
- }
+	$show_draft = (strpos(current_path(), '/draft') > 0 || $study->status == NODE_NOT_PUBLISHED);
+	if ($show_draft) {
+		$study = workbench_moderation_node_current_load($study);
+	}
+	if (empty($study)) {
+		return NULL;
+	}
+	switch ($delta) {
+		case 'study-general-info-ic':
+		  return _interconnect_studies_block_study_general_info($study);
+		case 'study-methods-ic':
+		  return _interconnect_studies_block_study_methods($study);
+		case 'study-ethnicity-ic':
+		  return _interconnect_studies_block_study_ethnicity($study);
+		case 'study-available-info-ic':
+		  return _interconnect_studies_block_available_info($study);
+		case 'study-populations-ic':
+		  return _interconnect_studies_block_study_populations($study, $show_draft);
+		case 'europe-ic':
+		  return _interconnect_studies_block_europe();
+		default:
+		   return NULL;
+	}
+}
 
-// function interconnect_studies_node_view_alter(&$build) {
-// debug($build);
-// }
-
-
- 
+//function to validate that groups add to 100%
  function _interconnect_studies_validate($node, $form) {
+ 
+	$language = $node['field_race_african_ic']['#language'];
+	$total = $node['field_race_african_ic'][$language]['0']['value']['#value'];
+	$language = $node['field_race_e_asian_ic']['#language'];
+	$total = $total + $node['field_race_e_asian_ic'][$language]['0']['value']['#value'];
+	$language = $node['field_race_s_asian_ic']['#language'];
+	$total = $total + $node['field_race_s_asian_ic'][$language]['0']['value']['#value'];
+	$language = $node['field_race_euro_ic']['#language'];
+	$total = $total + $node['field_race_euro_ic'][$language]['0']['value']['#value'];
+	$language = $node['field_race_indig_am_ic']['#language'];
+	$total = $total + $node['field_race_indig_am_ic'][$language]['0']['value']['#value'];
+	$language = $node['field_race_indig_aus_ic']['#language'];
+	$total = $total + $node['field_race_indig_aus_ic'][$language]['0']['value']['#value'];
+	$language = $node['field_race_indig_pac_ic']['#language'];
+	$total = $total + $node['field_race_indig_pac_ic'][$language]['0']['value']['#value'];
+	$language = $node['field_race_mid_e_ic']['#language'];
+	$total = $total + $node['field_race_mid_e_ic'][$language]['0']['value']['#value'];
+	$language = $node['field_race_other_ic']['#language'];
+	$total = $total + $node['field_race_other_ic'][$language]['0']['value']['#value'];		
 
-  //dpm($node, $name = NULL);
-
- //debug($node['field_african_african_american_b']['und']['0']['value']['#value']); 
-$language = $node['field_race_african_ic']['#language'];
- $total = $node['field_race_african_ic'][$language]['0']['value']['#value'];
- $language = $node['field_race_e_asian_ic']['#language'];
- $total = $total + $node['field_race_e_asian_ic'][$language]['0']['value']['#value'];
- $language = $node['field_race_s_asian_ic']['#language'];
- $total = $total + $node['field_race_s_asian_ic'][$language]['0']['value']['#value'];
- $language = $node['field_race_euro_ic']['#language'];
- $total = $total + $node['field_race_euro_ic'][$language]['0']['value']['#value'];
- $language = $node['field_race_indig_am_ic']['#language'];
- $total = $total + $node['field_race_indig_am_ic'][$language]['0']['value']['#value'];
- $language = $node['field_race_indig_aus_ic']['#language'];
- $total = $total + $node['field_race_indig_aus_ic'][$language]['0']['value']['#value'];
- $language = $node['field_race_indig_pac_ic']['#language'];
- $total = $total + $node['field_race_indig_pac_ic'][$language]['0']['value']['#value'];
- $language = $node['field_race_mid_e_ic']['#language'];
- $total = $total + $node['field_race_mid_e_ic'][$language]['0']['value']['#value'];
- $language = $node['field_race_other_ic']['#language'];
- $total = $total + $node['field_race_other_ic'][$language]['0']['value']['#value'];		
-	
-// debug($total);
-
-if($total != 100){
-    form_set_error('title', 'The participant characteristics must sum to 100% ');
-    
+	if($total != 100){
+		form_set_error('title', 'The participant characteristics must sum to 100% ');  
+	}
 }
 
-}
-
+//function to add a dependency on two fields with an OR condition
 function _mica_add_double_or_field_checked(&$form, $dependee1, $dependee2, $dependent, $key_selected1, $key_selected2) {
   if (array_key_exists($dependee1, $form) && array_key_exists($dependent, $form) && array_key_exists($dependee2, $form)) {
     $lang = $form[$dependee1]['#language'];
@@ -735,11 +646,11 @@ function _mica_add_double_or_field_checked(&$form, $dependee1, $dependee2, $depe
     $input1 = ':input[name="' . $dependee1 . '[' . $lang . ']';
     $rule1 = array();
     if ($type != 'radios') {
-      $input1 = $input1 . '[' . $key_selected1 . ']';
-      $rule1['checked'] = TRUE;
+		$input1 = $input1 . '[' . $key_selected1 . ']';
+		$rule1['checked'] = TRUE;
     }
     else {
-      $rule1['value'] = $key_selected1;
+		$rule1['value'] = $key_selected1;
     }
 
     $lang = $form[$dependee2]['#language'];
@@ -747,27 +658,25 @@ function _mica_add_double_or_field_checked(&$form, $dependee1, $dependee2, $depe
     $input2 = ':input[name="' . $dependee2 . '[' . $lang . ']';
     $rule2 = array();
     if ($type != 'radios') {
-      $input2 = $input2 . '[' . $key_selected2 . ']';
-      $rule2['checked'] = TRUE;
+		$input2 = $input2 . '[' . $key_selected2 . ']';
+		$rule2['checked'] = TRUE;
     }
     else {
-      $rule2['value'] = $key_selected2;
+		$rule2['value'] = $key_selected2;
     }
 
     $input1 = $input1 . '"]';
     $input2 = $input2 . '"]';
     $form[$dependent]['#states'] = array(
-      'visible' => array(
+		'visible' => array(
         array($input1 => $rule1),
         array($input2 => $rule2),
-      ),
+		),
     );
   }
-//  else {
-//    debug('dependee "' . $dependee1 . '" or dependent "' . $dependent . '"not found');
-//  }
 }
 
+//old function for OR conditions if you can only use AND with NOT
 function _double_simple(&$form, $dependee, $dependent, $options, $visible_options) {
 	$lang = $form[$dependee]['#language'];
 	$input = ':input[name="' . $dependee . '[' . $lang . ']"]';
@@ -776,15 +685,4 @@ function _double_simple(&$form, $dependee, $dependent, $options, $visible_option
 		array('!value' => $vocab);
 
 		}
-}
-
-function _double_simple_check(&$form, $dependee, $dependent, $options, $visible_options) {
-	$lang = $form[$dependee]['#language'];
-	$input = ':input[name="' . $dependee . '[' . $lang . '][';
-	foreach (array_diff($options, $visible_options) as $i => $vocab) {
-	$form[$dependent]['#states']['visible'][$input . $vocab .']"]'] =
-		array('!checked' => TRUE);
-
-		}
-		debug($form);
 }
