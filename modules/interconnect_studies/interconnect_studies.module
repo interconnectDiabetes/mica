@@ -9,27 +9,28 @@ $path_i_studies = drupal_get_path('module','interconnect_studies');
 require_once($path_i_studies . '/interconnect_studies.features.inc');
 
 
+
 function interconnect_studies_views_default_views_alter(&$views) {
 
 // Override the standard Mica fields for the study list page
-
-$views['studies_search']->display['page_1']->display_options['header']['area']['content'] = 'The following studies are available';
-$fields_temp = array();
-$fields_temp['field_acroym'] = $views['studies_search']->display['default']->display_options['fields']['field_acroym'];
-$fields_temp['title_field'] = $views['studies_search']->display['default']->display_options['fields']['title_field'];
-$fields_temp['field_design_other_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design_other_sp'];
-$fields_temp['field_design_other_ic']['id'] = 'field_design_other_ic';
-$fields_temp['field_design_other_ic']['field'] = 'field_design_other_ic';
-$fields_temp['field_design_other_ic']['alter']['text'] = ' ([field_design_other_ic])';
-$fields_temp['field_design_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design'];
-$fields_temp['field_design_ic']['id'] = 'field_design_ic';
-$fields_temp['field_design_ic']['field'] = 'field_design_ic';
-$fields_temp['field_design_ic']['alter']['text'] = '[field_design_ic][field_design_other_ic]';
-$fields_temp['field_target_number_participants'] = $views['studies_search']->display['default']->display_options['fields']['field_target_number_participants'];
-$fields_temp['field_study_populations_field_pop_country'] = $views['studies_search']->display['default']->display_options['fields']['field_study_populations_field_pop_country'];
-unset($views['studies_search']->display['default']->display_options['fields']);
-$views['studies_search']->display['default']->display_options['fields'] = $fields_temp;
-
+	if (isset($views['studies_search'])) {
+		$views['studies_search']->display['page_1']->display_options['header']['area']['content'] = 'The following studies are available';
+		$fields_temp = array();
+		$fields_temp['field_acroym'] = $views['studies_search']->display['default']->display_options['fields']['field_acroym'];
+		$fields_temp['title_field'] = $views['studies_search']->display['default']->display_options['fields']['title_field'];
+		$fields_temp['field_design_other_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design_other_sp'];
+		$fields_temp['field_design_other_ic']['id'] = 'field_design_other_ic';
+		$fields_temp['field_design_other_ic']['field'] = 'field_design_other_ic';
+		$fields_temp['field_design_other_ic']['alter']['text'] = ' ([field_design_other_ic])';
+		$fields_temp['field_design_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design'];
+		$fields_temp['field_design_ic']['id'] = 'field_design_ic';
+		$fields_temp['field_design_ic']['field'] = 'field_design_ic';
+		$fields_temp['field_design_ic']['alter']['text'] = '[field_design_ic][field_design_other_ic]';
+		$fields_temp['field_target_number_participants'] = $views['studies_search']->display['default']->display_options['fields']['field_target_number_participants'];
+		$fields_temp['field_study_populations_field_pop_country'] = $views['studies_search']->display['default']->display_options['fields']['field_study_populations_field_pop_country'];
+		unset($views['studies_search']->display['default']->display_options['fields']);
+		$views['studies_search']->display['default']->display_options['fields'] = $fields_temp;
+	}
 }
 
 /**
@@ -57,7 +58,7 @@ function interconnect_studies_form_alter(&$form, &$form_state, $form_id) {
 }
 
 function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
-  
+	
 	$form['#validate'][] = '_interconnect_studies_validate';
    
 	$form['actions']['_mica_studies_save_add_population_submit'] = array(
@@ -230,6 +231,11 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	$form['field_number_of_participants_ic'][$language]['0']['#description_display'] = 'before';
 	$form['field_number_of_participants_ic'][$language]['0']['value']['#description_display'] = 'before';
 	$form['field_number_of_participants_ic'][$language]['#description_display'] = 'before';
+	
+	$language=$form['field_eth_his_lat_ic']['#language'];			
+	$form['field_eth_his_lat_ic'][$language]['0']['#description_display'] = 'before';
+	$form['field_eth_his_lat_ic'][$language]['0']['value']['#description_display'] = 'before';
+	$form['field_eth_his_lat_ic'][$language]['#description_display'] = 'before';
 
 	// fixing N/A ordering
 
@@ -365,7 +371,24 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 
 
 function interconnect_studies_population_form_alter(&$form, &$form_state, $form_id) {
+
+	// Count the number of populations that exist for a study and add one for this new population
+	// to generate a name Population X automatically
+
+	$nid = $_REQUEST['study'];
+	$count_pops = 0;
+	$result = db_query('SELECT field_study_populations_nid from field_data_field_study_populations WHERE entity_id = :nid', array(':nid' => $nid));
 	
+	foreach ($result as $record) {
+		$count_pops++;
+	}
+	
+	$number_pops = $count_pops + 1;
+
+	$lang = $form['field_pop_selection_others_sp']['#language'];
+	$form['title_field'][$lang][0]['value']['#default_value'] = "Population " . $number_pops;
+	
+		
 	$form['acustomtext'] = array(
 		'#type' => 'item',
 		'#markup' => '<div >  All studies represent a sample from a larger population.

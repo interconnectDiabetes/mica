@@ -2061,11 +2061,7 @@ function interconnect_studies_field_default_field_instances() {
   // Exported field_instance: 'node-study-field_recruit_cont_ic'
   $field_instances['node-study-field_recruit_cont_ic'] = array(
     'bundle' => 'study',
-    'default_value' => array(
-      0 => array(
-        'value' => 1,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(

@@ -19,8 +19,6 @@
 
 
 
-header#navbar a.logo img{width:auto;height:50px}
-
 .front .page-header{
    display:none
 }
@@ -47,4 +45,72 @@ legend {
 	padding-left: 20px;
 }
 
-/* header#navbar{text-transform:uppercase;margin:0;font-family:"Oswald",sans-serif;font-size:14px;line-height:1.5;color:#495961;background-color:#fff;font-weight:400} */
+.navbar .nav > li > a:hover {
+    color: #FC0;
+    text-decoration: none;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+color: #FC0;
+text-decoration: none;
+background-color: transparent;
+box-shadow: none;
+
+}
+
+.navbar .nav > li > a {
+    text-shadow: none;
+	color: #FFF;
+	padding: 15px 10px;
+		font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:14px;
+	font-weight: bold;
+}
+
+.navbar-inner {
+    background-color: #999;
+	background-image: none;
+	text-shadow: none;
+	border: none;
+	padding: 5px 10px;
+		text-transform:uppercase;
+
+	margin:0;
+
+	line-height:1.5;
+	color:#495961;
+	font-weight:4000;
+	text-shadow: none;
+	background-color: #999; 
+	text-shadow: none;
+	
+}
+
+header#navbar a.logo img{width:auto;height:50px}
+
+#user-menu {
+	padding: 5px 0px 0px;
+	vertical-align: text-bottom;
+}
+
+.input-append {
+	padding: 5px;
+}
+.form-search .input-append .search-query {
+    padding-top: 6px;
+    padding-bottom: calc(9px);
+    border-color: #CCC #CCC #B3B3B3;
+}
+td {	
+	border-top: 1px solid #DDD;
+	padding: 0.6rem 0px;
+}
+
+.horizontal-tabs ul.horizontal-tabs-list li {
+    background: none repeat scroll 0% 0% #EEE;
+    border-bottom: 1px solid #CCC;
+}
+
+.horizontal-tabs ul.horizontal-tabs-list li.selected {
+    border-bottom: 1px solid #FFF;
+}

@@ -336,7 +336,6 @@ function _interconnect_studies_block_ethnicity_field_other($study_wrapper, $weig
 }
 
 function _interconnect_studies_block_europe(){
-dpm($path_i_studies);
   $block = array();
       $block['subject'] = NULL;
       $block['content'] = 
