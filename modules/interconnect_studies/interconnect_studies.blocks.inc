@@ -119,43 +119,37 @@ function _interconnect_studies_block_available_info($study) {
 function _interconnect_studies_block_study_populations($study, $show_draft) {
   $content = array();
   global $language;
-
     $weight = 0;
-  $content = array(
-  field_view_field('node', $study, 'field_study_populations', array('label' => 'inline', 'weight' => ++$weight)),
-  );
-  
+  // $content = array(
+  // field_view_field('node', $study, 'field_study_populations', array('label' => 'inline', 'weight' => ++$weight)),
+  // );
   // Load the populations that are attached to PUBLISHED version of study
-  // if ($show_draft) {
-    // $study = node_load($study->nid);
-  // }
+  if ($show_draft) {
+    $study = node_load($study->nid);
+  }
 
-  // foreach (_mica_studies_sort_populations($study) as $index_pop => $population_nid) {
-    // $pop = node_load($population_nid);
-    // if (node_access('view', $pop)) {
+  foreach (_mica_studies_sort_populations($study) as $index_pop => $population_nid) {
+    $pop = node_load($population_nid);
+    if (node_access('view', $pop)) {
 
-      // if ($show_draft) {
-        // $latest = key(node_revision_list($pop));
-        // $pop = node_load($population_nid, $latest);
-
-        // if (!isset($pop->workbench_moderation['published']) || $pop->vid !== $pop->workbench_moderation['published']->vid) {
-          // $content[$index_pop]['body']['#markup'] = "<div class='node-unpublished'>";
-          // $content[$index_pop] = node_view($pop, 'full', $language->language);
-          // $content[$index_pop]['body']['#markup'] = "</div>";
-        // }
-        // else {
-          // $content[$index_pop] = node_view($pop, 'full');
-        // }
-      // }
-      // else if ($show_draft || (isset($pop->workbench_moderation['published']) && $pop->vid == $pop->workbench_moderation['published']->vid)) {
-        // $content[$index_pop] = node_view($pop, 'full');
-      // }
-    // }
-  // }
-  // debug(array(
-    // 'subject' => t('Populations from which the sample(s) is drawn') . '<a name="populations"> </a>',
-    // 'content' => array_filter($content),
-  // ));
+      if ($show_draft) {
+        $latest = key(node_revision_list($pop));
+        $pop = node_load($population_nid, $latest);
+        if (!isset($pop->workbench_moderation['published']) || $pop->vid !== $pop->workbench_moderation['published']->vid) {
+          $content[$index_pop]['body']['#markup'] = "<div class='node-unpublished'>";
+          $content[$index_pop] = node_view($pop, 'full',$language->language);
+		  // By commenting out this line the population gets displayed on the study page
+          //$content[$index_pop]['body']['#markup'] = "</div>";
+        }
+        else {
+          $content[$index_pop] = node_view($pop, 'full');
+        }
+      }
+      else if ($show_draft || (isset($pop->workbench_moderation['published']) && $pop->vid == $pop->workbench_moderation['published']->vid)) {
+        $content[$index_pop] = node_view($pop, 'full');
+      }
+    }
+  }
   return array(
     'subject' => t('Populations from which the sample(s) is drawn') . '<a name="populations"> </a>',
     'content' => array_filter($content),
