@@ -138,7 +138,7 @@ function _interconnect_studies_block_study_populations($study, $show_draft) {
         if (!isset($pop->workbench_moderation['published']) || $pop->vid !== $pop->workbench_moderation['published']->vid) {
           $content[$index_pop]['body']['#markup'] = "<div class='node-unpublished'>";
           $content[$index_pop] = node_view($pop, 'full',$language->language);
-		  // By commenting out this line the population gets displayed on the study page
+		  // By commenting out this line the population gets displayed on the study page, not sure why
           //$content[$index_pop]['body']['#markup'] = "</div>";
         }
         else {
@@ -148,7 +148,34 @@ function _interconnect_studies_block_study_populations($study, $show_draft) {
       else if ($show_draft || (isset($pop->workbench_moderation['published']) && $pop->vid == $pop->workbench_moderation['published']->vid)) {
         $content[$index_pop] = node_view($pop, 'full');
       }
-    }
+
+		// hack because single value checkboxes don't format correctly in render array (new born, migration status etc.)
+	  // if (isset($content[$index_pop]['field_pop_migration_ic'])) {
+		  // if ($content[$index_pop]['field_pop_migration_ic']['#items'][0]['value'] = '1') {
+			// $content[$index_pop]['field_pop_migration_ic'][0]['#markup'] = 'Yes';
+		  // }
+		  // else {
+			// $content[$index_pop]['field_pop_migration_ic'][0]['#markup'] = 'No';			
+		  // }
+		// }
+	  // if (isset($content[$index_pop]['field_pop_newborn_ic'])) {
+		  // if ($content[$index_pop]['field_pop_newborn_ic']['#items'][0]['value'] = '1') {
+			// $content[$index_pop]['field_pop_newborn_ic'][0]['#markup'] = 'Yes';
+		  // }
+		  // else {
+			// $content[$index_pop]['field_pop_newborn_ic'][0]['#markup'] = 'No';			
+		  // }
+		// }		
+	  // if (isset($content[$index_pop]['field_pop_pregnancy_ic'])) {
+		  // if ($content[$index_pop]['field_pop_pregnancy_ic']['#items'][0]['value'] = '1') { 
+		  // dpm($content[$index_pop]['field_pop_pregnancy_ic'][0]['#markup']);
+			// $content[$index_pop]['field_pop_pregnancy_ic'][0]['#markup'] = 'Yes';
+		  // }
+		  // else {
+			// $content[$index_pop]['field_pop_pregnancy_ic'][0]['#markup'] = 'No';			
+		  // }
+		// }
+	}
   }
   return array(
     'subject' => t('Populations from which the sample(s) is drawn') . '<a name="populations"> </a>',

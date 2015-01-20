@@ -47,7 +47,9 @@ function interconnect_studies_field_group_info_alter(&$data) {
     ); /* WAS: '' */
   }
   if (isset($data['group_nb_participants|node|study|form'])) {
-    $data['group_nb_participants|node|study|form']->data['children']['3'] = 'group_actual_particip_ic'; /* WAS: '' */
+    $data['group_nb_participants|node|study|form']->data['children']['1'] = 'group_actual_particip_ic'; /* WAS: 'group_target_nb_participants' */
+    $data['group_nb_participants|node|study|form']->data['children']['2'] = 'group_target_nb_participants'; /* WAS: 'group_target_nb_samples' */
+    $data['group_nb_participants|node|study|form']->data['children']['3'] = 'group_target_nb_samples'; /* WAS: '' */
     $data['group_nb_participants|node|study|form']->data['format_settings'] = array(
       'label' => 'Number of participants',
       'formatter' => 'open',
@@ -87,8 +89,8 @@ function interconnect_studies_field_group_info_alter(&$data) {
       'required_fields' => 1,
       'classes' => 'group-main-ic',
       'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                              <br>
-                              <br>',
+                                                      <br>
+                                                      <br>',
     ); /* WAS: '' */
     $data['group_pop_selection_criteria|node|population|form']->data['format_settings']['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
     $data['group_pop_selection_criteria|node|population|form']->data['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
@@ -117,11 +119,15 @@ function interconnect_studies_field_group_info_alter(&$data) {
     $data['group_study_timeline|node|study|form']->parent_name = 'group_general_design'; /* WAS: 'group_methods' */
   }
   if (isset($data['group_tabs|node|study|form'])) {
-    $data['group_tabs|node|study|form']->data['children']['5'] = 'group_methods'; /* WAS: 'group_marker_paper' */
-    $data['group_tabs|node|study|form']->data['children']['6'] = 'group_supp_info'; /* WAS: 'group_methods' */
-    $data['group_tabs|node|study|form']->data['children']['7'] = 'group_available_info_ic'; /* WAS: 'group_supp_info' */
-    $data['group_tabs|node|study|form']->data['children']['8'] = 'group_ethnic_race_ic'; /* WAS: '' */
-    $data['group_tabs|node|study|form']->data['children']['9'] = 'group_sample_pop_ic'; /* WAS: '' */
+    $data['group_tabs|node|study|form']->data['children']['1'] = 'group_available_info_ic'; /* WAS: 'group_access' */
+    $data['group_tabs|node|study|form']->data['children']['2'] = 'group_ethnic_race_ic'; /* WAS: 'group_authorization' */
+    $data['group_tabs|node|study|form']->data['children']['3'] = 'group_sample_pop_ic'; /* WAS: 'group_documents' */
+    $data['group_tabs|node|study|form']->data['children']['4'] = 'group_access'; /* WAS: 'group_general_info' */
+    $data['group_tabs|node|study|form']->data['children']['5'] = 'group_authorization'; /* WAS: 'group_marker_paper' */
+    $data['group_tabs|node|study|form']->data['children']['6'] = 'group_documents'; /* WAS: 'group_methods' */
+    $data['group_tabs|node|study|form']->data['children']['7'] = 'group_general_info'; /* WAS: 'group_supp_info' */
+    $data['group_tabs|node|study|form']->data['children']['8'] = 'group_methods'; /* WAS: '' */
+    $data['group_tabs|node|study|form']->data['children']['9'] = 'group_supp_info'; /* WAS: '' */
   }
 }
 
@@ -130,29 +136,41 @@ function interconnect_studies_field_group_info_alter(&$data) {
  */
 function interconnect_studies_field_default_field_instances_alter(&$data) {
   if (isset($data['node-population-field_pop_age_max'])) {
+    $data['node-population-field_pop_age_max']['display']['default']['weight'] = 5; /* WAS: 4 */
     $data['node-population-field_pop_age_max']['label'] = 'Maximum age at recruitment'; /* WAS: 'Maximum age' */
-    $data['node-population-field_pop_age_max']['settings']['description_display'] = 'after'; /* WAS: '' */
-    $data['node-population-field_pop_age_max']['settings']['suffix'] = 'years'; /* WAS: '' */
+    $data['node-population-field_pop_age_max']['settings']['suffix'] = ' years'; /* WAS: '' */
   }
   if (isset($data['node-population-field_pop_age_min'])) {
-    $data['node-population-field_pop_age_min']['label'] = 'Minimum age at recruitment'; /* WAS: 'Minimum age' */
-    $data['node-population-field_pop_age_min']['settings'] = array(
-      'max' => 110,
-      'min' => 0,
-      'prefix' => '',
-      'suffix' => 'years',
-      'user_register_form' => FALSE,
+    $data['node-population-field_pop_age_min']['display'] = array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'type' => 'number_integer',
+        'weight' => 4,
+      ),
     ); /* WAS: '' */
+    $data['node-population-field_pop_age_min']['label'] = 'Minimum age at recruitment'; /* WAS: 'Minimum age' */
   }
   if (isset($data['node-population-field_pop_country'])) {
     $data['node-population-field_pop_country']['description'] = 'Select the countries of residence of the study participants from the list, selecting all that apply   '; /* WAS: '' */
+    $data['node-population-field_pop_country']['display'] = array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+    ); /* WAS: '' */
     $data['node-population-field_pop_country']['label'] = 'Country of residence at time of recruitment'; /* WAS: 'Country of residence' */
     $data['node-population-field_pop_country']['widget']['active'] = 1; /* WAS: 0 */
   }
   if (isset($data['node-population-field_pop_ethnic_origin'])) {
+    $data['node-population-field_pop_ethnic_origin']['display']['default']['weight'] = 12; /* WAS: 7 */
     $data['node-population-field_pop_ethnic_origin']['widget']['weight'] = 15; /* WAS: 9 */
   }
   if (isset($data['node-population-field_pop_exist_study_part'])) {
+    $data['node-population-field_pop_exist_study_part']['display']['default']['weight'] = 18; /* WAS: 13 */
     $data['node-population-field_pop_exist_study_part']['widget'] = array(
       'active' => 1,
       'module' => 'text',
@@ -161,34 +179,54 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
     ); /* WAS: '' */
   }
   if (isset($data['node-population-field_pop_general_pop_recruit'])) {
+    $data['node-population-field_pop_general_pop_recruit']['display']['default']['weight'] = 17; /* WAS: 12 */
     $data['node-population-field_pop_general_pop_recruit']['widget']['weight'] = 50; /* WAS: 40 */
   }
   if (isset($data['node-population-field_pop_health_status'])) {
     $data['node-population-field_pop_health_status']['description'] = 'Please specify'; /* WAS: '' */
+    $data['node-population-field_pop_health_status']['display'] = array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 13,
+      ),
+    ); /* WAS: '' */
     $data['node-population-field_pop_health_status']['label'] = 'Selection on the basis of a specific pre-existing health condition '; /* WAS: 'Health Status' */
     $data['node-population-field_pop_health_status']['widget']['weight'] = 12; /* WAS: 10 */
   }
   if (isset($data['node-population-field_pop_partcipant_sel_supp_in'])) {
+    $data['node-population-field_pop_partcipant_sel_supp_in']['display']['default']['label'] = 'inline'; /* WAS: 'hidden' */
+    $data['node-population-field_pop_partcipant_sel_supp_in']['display']['default']['weight'] = 15; /* WAS: 10 */
     $data['node-population-field_pop_partcipant_sel_supp_in']['widget']['weight'] = 16; /* WAS: 12 */
   }
   if (isset($data['node-population-field_pop_recruit_supp_info'])) {
+    $data['node-population-field_pop_recruit_supp_info']['display']['default']['label'] = 'inline'; /* WAS: 'hidden' */
+    $data['node-population-field_pop_recruit_supp_info']['display']['default']['weight'] = 22; /* WAS: 17 */
     $data['node-population-field_pop_recruit_supp_info']['widget']['weight'] = 52; /* WAS: 45 */
   }
   if (isset($data['node-population-field_pop_recruitment_other'])) {
+    $data['node-population-field_pop_recruitment_other']['display']['default']['weight'] = 21; /* WAS: 16 */
     $data['node-population-field_pop_recruitment_other']['widget']['weight'] = 54; /* WAS: 44 */
   }
   if (isset($data['node-population-field_pop_select_criteria'])) {
+    $data['node-population-field_pop_select_criteria']['display']['default']['label'] = 'inline'; /* WAS: 'above' */
     $data['node-population-field_pop_select_criteria']['widget']['weight'] = 13; /* WAS: 8 */
   }
   if (isset($data['node-population-field_pop_specific_pop'])) {
+    $data['node-population-field_pop_specific_pop']['display']['default']['weight'] = 19; /* WAS: 14 */
     $data['node-population-field_pop_specific_pop']['widget']['weight'] = 55; /* WAS: 42 */
   }
   if (isset($data['node-population-field_pop_specific_pop_other_sp'])) {
+    $data['node-population-field_pop_specific_pop_other_sp']['display']['default']['weight'] = 20; /* WAS: 15 */
     $data['node-population-field_pop_specific_pop_other_sp']['label'] = 'Other Specific Population'; /* WAS: 'Specific population' */
     $data['node-population-field_pop_specific_pop_other_sp']['widget']['weight'] = 56; /* WAS: 43 */
   }
   if (isset($data['node-population-field_pop_src_recruit'])) {
     $data['node-population-field_pop_src_recruit']['description'] = 'Specify the sources of recruitment'; /* WAS: '' */
+    $data['node-population-field_pop_src_recruit']['display']['default']['label'] = 'inline'; /* WAS: 'above' */
+    $data['node-population-field_pop_src_recruit']['display']['default']['weight'] = 16; /* WAS: 11 */
     $data['node-population-field_pop_src_recruit']['widget']['weight'] = 53; /* WAS: 39 */
   }
   if (isset($data['node-population-title_field'])) {
@@ -196,6 +234,7 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
       'value' => 'Population',
     ); /* WAS: '' */
     $data['node-population-title_field']['display_label'] = ''; /* WAS: '' */
+    $data['node-population-title_field']['display']['default']['weight'] = 31; /* WAS: 26 */
     $data['node-population-title_field']['required'] = 1; /* WAS: TRUE */
     $data['node-population-title_field']['widget'] = array(
       'active' => 1,

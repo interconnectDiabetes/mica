@@ -513,11 +513,11 @@ function interconnect_studies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 28,
+        'type' => 'list_default',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -551,11 +551,11 @@ function interconnect_studies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 27,
+        'type' => 'list_default',
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -584,16 +584,20 @@ function interconnect_studies_field_default_field_instances() {
   // Exported field_instance: 'node-population-field_pop_migration_ic'
   $field_instances['node-population-field_pop_migration_ic'] = array(
     'bundle' => 'population',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 31,
+        'type' => 'list_default',
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -633,11 +637,11 @@ function interconnect_studies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 30,
+        'type' => 'list_default',
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -677,11 +681,11 @@ function interconnect_studies_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 29,
+        'type' => 'list_default',
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1585,7 +1589,7 @@ function interconnect_studies_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
-        'label_position' => 'above',
+        'label_position' => 'within',
         'text_parts' => array(),
         'year_range' => '-50:+0',
       ),
@@ -2132,7 +2136,6 @@ function interconnect_studies_field_default_field_instances() {
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
-      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2142,7 +2145,7 @@ function interconnect_studies_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
-        'label_position' => 'above',
+        'label_position' => 'within',
         'text_parts' => array(),
         'year_range' => '-50:+0',
       ),
@@ -2187,7 +2190,6 @@ function interconnect_studies_field_default_field_instances() {
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
-      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2197,7 +2199,7 @@ function interconnect_studies_field_default_field_instances() {
         'increment' => 15,
         'input_format' => 'm/d/Y - H:i:s',
         'input_format_custom' => '',
-        'label_position' => 'above',
+        'label_position' => 'within',
         'text_parts' => array(),
         'year_range' => '-50:+0',
       ),

@@ -10,7 +10,7 @@ require_once($path_i_studies . '/interconnect_studies.features.inc');
 
 
 function interconnect_studies_views_default_views_alter(&$views) {
-
+dpm($views);
 // Override the standard Mica fields for the study list page
 	if (isset($views['studies_search'])) {
 		$views['studies_search']->display['page_1']->display_options['header']['area']['content'] = 'The following studies are available';
@@ -30,6 +30,7 @@ function interconnect_studies_views_default_views_alter(&$views) {
 		unset($views['studies_search']->display['default']->display_options['fields']);
 		$views['studies_search']->display['default']->display_options['fields'] = $fields_temp;
 	}
+	dpm($views);
 }
 
 /**
@@ -426,7 +427,6 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 
 	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
 	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
-
 }
 
 // functions to run after page built to add the states to new field collections by iterating over them
@@ -534,17 +534,20 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	
 	//override large text boxes
 	$lang = $form['field_pop_selection_others_sp']['#language'];
-	$form['field_pop_selection_others_sp'][$lang][0]["#format"]= 'plain_text';
-	$form['field_pop_selection_others_sp'][$lang][0]['value']['#rows'] = 1;
-	$form['field_pop_selection_others_sp'][$lang][0]['#type'] = 'textfield';
+	$form['field_pop_selection_others_sp'][$lang][0]["#format"] = 'plain_text';
+	$form['field_pop_selection_others_sp']['#after_build'][] = 'remove_text_format';
+	//$form['field_pop_selection_others_sp'][$lang][0]['value']['#rows'] = 1;
+	// $form['field_pop_selection_others_sp'][$lang][0]['#type'] = 'textfield';
 	$lang = $form['field_pop_specific_pop_other_sp']['#language'];	
 	$form['field_pop_specific_pop_other_sp'][$lang][0]["#format"]= 'plain_text';
-	$form['field_pop_specific_pop_other_sp'][$lang][0]['value']['#rows'] = 1;
-	$form['field_pop_specific_pop_other_sp'][$lang][0]['#type'] = 'textfield';
-	$lang = $form['field_pop_selection_others_sp']['#language'];	
-	$form['field_pop_selection_others_sp'][$lang][0]["#format"]= 'plain_text';
-	$form['field_pop_selection_others_sp'][$lang][0]['value']['#rows'] = 1;
-	$form['field_pop_selection_others_sp'][$lang][0]['#type'] = 'textfield';
+	$form['field_pop_specific_pop_other_sp']['#after_build'][] = 'remove_text_format';
+	//$form['field_pop_specific_pop_other_sp'][$lang][0]['value']['#rows'] = 1;
+	// $form['field_pop_specific_pop_other_sp'][$lang][0]['#type'] = 'textfield';
+	$lang = $form['field_pop_recruitment_other']['#language'];	
+	$form['field_pop_recruitment_other'][$lang][0]["#format"]= 'plain_text';
+	$form['field_pop_recruitment_other']['#after_build'][] = 'remove_text_format';
+	//$form['field_pop_recruitment_other'][$lang][0]['value']['#rows'] = 1;
+	// $form['field_pop_recruitment_other'][$lang][0]['#type'] = 'textfield';
 	
 	//set the title
 	
@@ -601,6 +604,27 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	$language = $form['field_pop_locality_ic']['#language'];  
 	unset($form['field_pop_locality_ic'][$language]['#options']['_none']);
 	$form['field_pop_locality_ic'][$language]['#options']['_none'] = 'N/A';
+
+}
+
+//function to remove the additional clutter for the long text fields
+function remove_text_format(&$form) {
+  $language = $form['#language'];
+  unset($form[$language][0]['format']);
+  $form[$language][0]['#rows'] = 1;
+  $form[$language][0]['value']['#rows'] = 1;
+  return $form;
+}
+
+function interconnect_studies_node_view_alter(&$build){
+		// hack because conditional fields don't format correctly in render array (other recruitment sources)
+	// this is a Mica issue see line 304 in mica_studies.population.inc
+	  if (isset($build['field_pop_recruitment_other'])) {
+		$correct_val = $build['field_pop_recruitment_other'][0]['#markup'];
+		$end = end($build['field_pop_src_recruit']);
+		$key = key($build['field_pop_src_recruit']);
+		$build['field_pop_src_recruit'][$key]['#markup'] = '<div class="inner-label">Other Source:</div><div class="inner-value">' . $correct_val .'</div>';
+	  }
 }
 
 //function to run when pressing save button for study - stay on the same page after save
@@ -768,7 +792,15 @@ function interconnect_studies_block_list_alter(&$blocks) {
 	$total = $total + $node['field_race_other_ic'][$language]['0']['value']['#value'];		
 
 	if($total != 100){
-		form_set_error('title', 'The participant characteristics must sum to 100% ');  
+		$error_elements = array( 'field_race_african_ic', 'field_race_e_asian_ic', 'field_race_s_asian_ic',
+		'field_race_euro_ic', 'field_race_indig_am_ic', 'field_race_indig_aus_ic', 'field_race_indig_pac_ic', 'field_race_mid_e_ic',
+		'field_race_other_ic');
+		foreach ($error_elements as $element) {
+			form_set_error($element,'');
+		}
+		drupal_set_message(t('The fields in the participant characteristics section (i.e. excluding the field Hispanic or Latino
+participants) must sum to 100% '), 'error');
+
 	}
 }
 

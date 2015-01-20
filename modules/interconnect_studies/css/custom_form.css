@@ -40,3 +40,7 @@ label.option.checkbox.control-label {
 .fieldset-description{
 	padding-bottom: 10px;
 }
+
+.form-textarea-wrapper{
+	width: 300px;
+}

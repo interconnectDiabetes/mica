@@ -114,3 +114,7 @@ td {
 .horizontal-tabs ul.horizontal-tabs-list li.selected {
     border-bottom: 1px solid #FFF;
 }
+
+input.error {
+    color: #B94A48;
+    border-color: #B94A48;
