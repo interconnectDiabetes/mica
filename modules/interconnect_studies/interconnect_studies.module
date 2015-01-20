@@ -10,7 +10,7 @@ require_once($path_i_studies . '/interconnect_studies.features.inc');
 
 
 function interconnect_studies_views_default_views_alter(&$views) {
-dpm($views);
+
 // Override the standard Mica fields for the study list page
 	if (isset($views['studies_search'])) {
 		$views['studies_search']->display['page_1']->display_options['header']['area']['content'] = 'The following studies are available';
@@ -30,7 +30,6 @@ dpm($views);
 		unset($views['studies_search']->display['default']->display_options['fields']);
 		$views['studies_search']->display['default']->display_options['fields'] = $fields_temp;
 	}
-	dpm($views);
 }
 
 /**
