@@ -160,7 +160,12 @@ function interconnect_studies_menu_local_tasks_alter(&$data, $router_item, $root
       break;
   }
 	//switch off Edit Datasets
-	unset($data['actions']['output']['0']);
+		if (isset($data['actions']['output']['0'])){
+		if ($data['actions']['output']['0']['#link']['title'] == 'Edit Datasets') {
+			unset($data['actions']['output']['0']);
+		}
+	}
+	
   $data['actions']['output'] = array_merge($data['actions']['output'], $links);
 
 }
