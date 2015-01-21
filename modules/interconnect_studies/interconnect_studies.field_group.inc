@@ -321,7 +321,8 @@ function interconnect_studies_field_group_info() {
     'label' => 'Populations from which the sample(s) is drawn',
     'weight' => '15',
     'children' => array(
-      0 => 'field_dummy_ic',
+      0 => 'field_study_populations',
+      1 => 'field_dummy_ic',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

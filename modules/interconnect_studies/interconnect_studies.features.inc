@@ -257,12 +257,37 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   }
   if (isset($data['node-study-field_contacts_ref'])) {
     $data['node-study-field_contacts_ref']['description'] = 'Enter the name of the person(s) who could provide additional information about the study. You will be able to edit the contact details after saving the study.'; /* WAS: 'Enter the Contact full name. You will be able to edit these Contacts once the Study will be saved.' */
+    $data['node-study-field_contacts_ref']['widget']['module'] = 'node_reference'; /* WAS: 'noderefcreate' */
+    $data['node-study-field_contacts_ref']['widget']['settings'] = array(
+      'autocomplete_match' => 'contains',
+      'autocomplete_path' => 'node_reference/autocomplete',
+      'content_taxonomy_opt_groups' => FALSE,
+      'references_dialog_add' => 1,
+      'references_dialog_edit' => 0,
+      'references_dialog_search' => 0,
+      'references_dialog_search_view' => '',
+      'size' => 60,
+    ); /* WAS: '' */
+    $data['node-study-field_contacts_ref']['widget']['type'] = 'node_reference_autocomplete'; /* WAS: 'noderefcreate_autocomplete' */
   }
   if (isset($data['node-study-field_marker_paper'])) {
     $data['node-study-field_marker_paper']['label'] = 'Study Reference Paper'; /* WAS: 'Marker paper' */
   }
   if (isset($data['node-study-field_pubmedid'])) {
     $data['node-study-field_pubmedid']['description'] = 'If available, enter marker paper’s Pubmed ID.  '; /* WAS: 'If applicable, enter marker paper’s Pubmed ID.  ' */
+  }
+  if (isset($data['node-study-field_study_populations'])) {
+    $data['node-study-field_study_populations']['label'] = 'Sampling Frames'; /* WAS: 'Populations' */
+    $data['node-study-field_study_populations']['widget']['settings'] = array(
+      'autocomplete_match' => 'contains',
+      'autocomplete_path' => 'node_reference/autocomplete',
+      'references_dialog_add' => 1,
+      'references_dialog_edit' => 1,
+      'references_dialog_search' => 0,
+      'references_dialog_search_view' => '',
+      'size' => 60,
+    ); /* WAS: '' */
+    $data['node-study-field_study_populations']['widget']['weight'] = 3; /* WAS: 1 */
   }
   if (isset($data['node-study-field_website'])) {
     $data['node-study-field_website']['description'] = 'Enter study website URL'; /* WAS: '' */

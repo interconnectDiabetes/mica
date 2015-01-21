@@ -10,7 +10,6 @@ require_once($path_i_studies . '/interconnect_studies.features.inc');
 
 
 function interconnect_studies_views_default_views_alter(&$views) {
-
 // Override the standard Mica fields for the study list page
 	if (isset($views['studies_search'])) {
 		$views['studies_search']->display['page_1']->display_options['header']['area']['content'] = 'The following studies are available';
@@ -159,8 +158,14 @@ function interconnect_studies_menu_local_tasks_alter(&$data, $router_item, $root
       }
       break;
   }
+
 	//switch off Edit Datasets
-	unset($data['actions']['output']['0']);
+	if (isset($data['actions']['output']['0'])){
+		if ($data['actions']['output']['0']['#link']['title'] == 'Edit Datasets') {
+			unset($data['actions']['output']['0']);
+		}
+	}
+	
   $data['actions']['output'] = array_merge($data['actions']['output'], $links);
 
 }
@@ -278,6 +283,8 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	$form['mica_dataset']['#type'] = 'hidden';
 	$form['mica_opal']['#type'] = 'hidden';
 	$form['field_dummy_ic']['#type'] = 'hidden';
+	$form['field_study_populations']['#type'] = 'container';
+	
 
 	// hide some field labels to improve formatting
 	$language=$form['field_marker_paper']['#language'];
@@ -426,6 +433,7 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 
 	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
 	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
+	dpm($form);
 }
 
 // functions to run after page built to add the states to new field collections by iterating over them

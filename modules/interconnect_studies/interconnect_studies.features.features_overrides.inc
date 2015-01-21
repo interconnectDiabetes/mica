@@ -189,8 +189,31 @@ function interconnect_studies_features_override_default_overrides() {
     'user_register_form' => FALSE,
   );
   $overrides["field_instance.node-study-field_contacts_ref.description"] = 'Enter the name of the person(s) who could provide additional information about the study. You will be able to edit the contact details after saving the study.';
+  $overrides["field_instance.node-study-field_contacts_ref.widget|module"] = 'node_reference';
+  $overrides["field_instance.node-study-field_contacts_ref.widget|settings"] = array(
+    'autocomplete_match' => 'contains',
+    'autocomplete_path' => 'node_reference/autocomplete',
+    'content_taxonomy_opt_groups' => FALSE,
+    'references_dialog_add' => 1,
+    'references_dialog_edit' => 0,
+    'references_dialog_search' => 0,
+    'references_dialog_search_view' => '',
+    'size' => 60,
+  );
+  $overrides["field_instance.node-study-field_contacts_ref.widget|type"] = 'node_reference_autocomplete';
   $overrides["field_instance.node-study-field_marker_paper.label"] = 'Study Reference Paper';
   $overrides["field_instance.node-study-field_pubmedid.description"] = 'If available, enter marker paper’s Pubmed ID.  ';
+  $overrides["field_instance.node-study-field_study_populations.label"] = 'Sampling Frames';
+  $overrides["field_instance.node-study-field_study_populations.widget|settings"] = array(
+    'autocomplete_match' => 'contains',
+    'autocomplete_path' => 'node_reference/autocomplete',
+    'references_dialog_add' => 1,
+    'references_dialog_edit' => 1,
+    'references_dialog_search' => 0,
+    'references_dialog_search_view' => '',
+    'size' => 60,
+  );
+  $overrides["field_instance.node-study-field_study_populations.widget|weight"] = 3;
   $overrides["field_instance.node-study-field_website.description"] = 'Enter study website URL';
   $overrides["field_instance.node-study-field_website.widget|weight"] = 6;
 
