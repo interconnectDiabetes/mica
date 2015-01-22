@@ -490,7 +490,7 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 function interconnect_studies_population_form_alter(&$form, &$form_state, $form_id) {
 
 	// Count the number of populations that exist for a study and add one for this new population
-	// to generate a name Population X automatically
+	// to generate a name Sampling Frame X automatically
 	if(isset($_REQUEST['study'])){
 		$nid = $_REQUEST['study'];
 		$count_pops = 0;
@@ -503,7 +503,7 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 		$number_pops = $count_pops + 1;
 
 		$lang = $form['field_pop_selection_others_sp']['#language'];
-		$form['title_field'][$lang][0]['value']['#default_value'] = "Population " . $number_pops;
+		$form['title_field'][$lang][0]['value']['#default_value'] = "Sampling Frame " . $number_pops;
 	}
 		
 	$form['acustomtext'] = array(
