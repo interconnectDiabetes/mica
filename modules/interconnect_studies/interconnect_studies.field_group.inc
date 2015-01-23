@@ -331,7 +331,7 @@ function interconnect_studies_field_group_info() {
         'required_fields' => 1,
         'id' => '',
         'classes' => 'group-sample-pop-ic field-group-htab',
-        'description' => 'All studies represent a sample from a larger population. Some studies will have multiple samples. To add a sample, please click the Save & Add Sampling Frame button below.',
+        'description' => 'All studies represent a sample from a larger population. Some studies will have multiple samples. Please add sampling frames below by clicking the Create Population button. You can add more sampling frames if needed.',
       ),
       'formatter' => 'closed',
     ),

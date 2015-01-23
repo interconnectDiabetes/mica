@@ -51,9 +51,6 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|1"] = 'field_pop_specific_pop';
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|2"] = 'field_pop_specific_pop_other_sp';
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|3"] = 'field_pop_src_recruit';
-  $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|4"]["DELETED"] = TRUE;
-  $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|5"]["DELETED"] = TRUE;
-  $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|6"]["DELETED"] = TRUE;
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|format_settings|formatter"] = 'open';
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|weight"] = 3;
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|children|10"] = 'group_pop_age';
@@ -67,8 +64,8 @@ function interconnect_studies_features_override_default_overrides() {
     'required_fields' => 1,
     'classes' => 'group-main-ic',
     'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                    <br>
-                                                    <br>',
+                                                          <br>
+                                                          <br>',
   );
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|format_settings|label"] = 'Participant selection criteria';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|label"] = 'Participant selection criteria';
@@ -152,14 +149,13 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-population-field_pop_partcipant_sel_supp_in.display|default|label"] = 'inline';
   $overrides["field_instance.node-population-field_pop_partcipant_sel_supp_in.display|default|weight"] = 15;
   $overrides["field_instance.node-population-field_pop_partcipant_sel_supp_in.widget|weight"] = 16;
-  $overrides["field_instance.node-population-field_pop_recruit_supp_info.display|default|label"] = 'inline';
-  $overrides["field_instance.node-population-field_pop_recruit_supp_info.display|default|weight"] = 22;
+  $overrides["field_instance.node-population-field_pop_recruit_supp_info.display"]["DELETED"] = TRUE;
   $overrides["field_instance.node-population-field_pop_recruit_supp_info.widget|weight"] = 52;
   $overrides["field_instance.node-population-field_pop_recruitment_other.display|default|weight"] = 21;
   $overrides["field_instance.node-population-field_pop_recruitment_other.widget|weight"] = 54;
   $overrides["field_instance.node-population-field_pop_select_criteria.display|default|label"] = 'inline';
   $overrides["field_instance.node-population-field_pop_select_criteria.widget|weight"] = 13;
-  $overrides["field_instance.node-population-field_pop_specific_pop.display|default|weight"] = 19;
+  $overrides["field_instance.node-population-field_pop_specific_pop.display"]["DELETED"] = TRUE;
   $overrides["field_instance.node-population-field_pop_specific_pop.widget|weight"] = 55;
   $overrides["field_instance.node-population-field_pop_specific_pop_other_sp.display|default|weight"] = 20;
   $overrides["field_instance.node-population-field_pop_specific_pop_other_sp.label"] = 'Other Specific Population';
@@ -193,9 +189,8 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-study-field_contacts_ref.widget|settings"] = array(
     'autocomplete_match' => 'contains',
     'autocomplete_path' => 'node_reference/autocomplete',
-    'content_taxonomy_opt_groups' => FALSE,
     'references_dialog_add' => 1,
-    'references_dialog_edit' => 0,
+    'references_dialog_edit' => 1,
     'references_dialog_search' => 0,
     'references_dialog_search_view' => '',
     'size' => 60,
@@ -204,6 +199,7 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-study-field_marker_paper.label"] = 'Study Reference Paper';
   $overrides["field_instance.node-study-field_pubmedid.description"] = 'If available, enter marker paper’s Pubmed ID.  ';
   $overrides["field_instance.node-study-field_study_populations.label"] = 'Sampling Frames';
+  $overrides["field_instance.node-study-field_study_populations.widget|module"] = 'node_reference';
   $overrides["field_instance.node-study-field_study_populations.widget|settings"] = array(
     'autocomplete_match' => 'contains',
     'autocomplete_path' => 'node_reference/autocomplete',
@@ -213,7 +209,7 @@ function interconnect_studies_features_override_default_overrides() {
     'references_dialog_search_view' => '',
     'size' => 60,
   );
-  $overrides["field_instance.node-study-field_study_populations.widget|weight"] = 3;
+  $overrides["field_instance.node-study-field_study_populations.widget|type"] = 'node_reference_autocomplete';
   $overrides["field_instance.node-study-field_website.description"] = 'Enter study website URL';
   $overrides["field_instance.node-study-field_website.widget|weight"] = 6;
 

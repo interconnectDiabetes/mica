@@ -73,9 +73,6 @@ function interconnect_studies_field_group_info_alter(&$data) {
     $data['group_pop_recruitment_procedures|node|population|form']->data['children']['3'] = 'field_pop_src_recruit'; /* WAS: 'field_pop_recruitment_other' */
     $data['group_pop_recruitment_procedures|node|population|form']->data['format_settings']['formatter'] = 'open'; /* WAS: 'collapsible' */
     $data['group_pop_recruitment_procedures|node|population|form']->data['weight'] = 3; /* WAS: 1 */
-    unset($data['group_pop_recruitment_procedures|node|population|form']->data['children']['4']);
-    unset($data['group_pop_recruitment_procedures|node|population|form']->data['children']['5']);
-    unset($data['group_pop_recruitment_procedures|node|population|form']->data['children']['6']);
   }
   if (isset($data['group_pop_selection_criteria|node|population|form'])) {
     $data['group_pop_selection_criteria|node|population|form']->data['children']['10'] = 'group_pop_age'; /* WAS: '' */
@@ -89,8 +86,8 @@ function interconnect_studies_field_group_info_alter(&$data) {
       'required_fields' => 1,
       'classes' => 'group-main-ic',
       'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                      <br>
-                                                      <br>',
+                                                            <br>
+                                                            <br>',
     ); /* WAS: '' */
     $data['group_pop_selection_criteria|node|population|form']->data['format_settings']['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
     $data['group_pop_selection_criteria|node|population|form']->data['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
@@ -202,9 +199,8 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
     $data['node-population-field_pop_partcipant_sel_supp_in']['widget']['weight'] = 16; /* WAS: 12 */
   }
   if (isset($data['node-population-field_pop_recruit_supp_info'])) {
-    $data['node-population-field_pop_recruit_supp_info']['display']['default']['label'] = 'inline'; /* WAS: 'hidden' */
-    $data['node-population-field_pop_recruit_supp_info']['display']['default']['weight'] = 22; /* WAS: 17 */
     $data['node-population-field_pop_recruit_supp_info']['widget']['weight'] = 52; /* WAS: 45 */
+    unset($data['node-population-field_pop_recruit_supp_info']['display']);
   }
   if (isset($data['node-population-field_pop_recruitment_other'])) {
     $data['node-population-field_pop_recruitment_other']['display']['default']['weight'] = 21; /* WAS: 16 */
@@ -215,8 +211,8 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
     $data['node-population-field_pop_select_criteria']['widget']['weight'] = 13; /* WAS: 8 */
   }
   if (isset($data['node-population-field_pop_specific_pop'])) {
-    $data['node-population-field_pop_specific_pop']['display']['default']['weight'] = 19; /* WAS: 14 */
     $data['node-population-field_pop_specific_pop']['widget']['weight'] = 55; /* WAS: 42 */
+    unset($data['node-population-field_pop_specific_pop']['display']);
   }
   if (isset($data['node-population-field_pop_specific_pop_other_sp'])) {
     $data['node-population-field_pop_specific_pop_other_sp']['display']['default']['weight'] = 20; /* WAS: 15 */
@@ -261,9 +257,8 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
     $data['node-study-field_contacts_ref']['widget']['settings'] = array(
       'autocomplete_match' => 'contains',
       'autocomplete_path' => 'node_reference/autocomplete',
-      'content_taxonomy_opt_groups' => FALSE,
       'references_dialog_add' => 1,
-      'references_dialog_edit' => 0,
+      'references_dialog_edit' => 1,
       'references_dialog_search' => 0,
       'references_dialog_search_view' => '',
       'size' => 60,
@@ -278,7 +273,8 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   }
   if (isset($data['node-study-field_study_populations'])) {
     $data['node-study-field_study_populations']['label'] = 'Sampling Frames'; /* WAS: 'Populations' */
-    $data['node-study-field_study_populations']['widget']['settings'] = array(
+    $data['node-study-field_study_populations']['widget']['module'] = 'node_reference'; /* WAS: 'noderefcreate' */
+	$data['node-study-field_study_populations']['widget']['settings'] = array(
       'autocomplete_match' => 'contains',
       'autocomplete_path' => 'node_reference/autocomplete',
       'references_dialog_add' => 1,
@@ -287,7 +283,7 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
       'references_dialog_search_view' => '',
       'size' => 60,
     ); /* WAS: '' */
-    $data['node-study-field_study_populations']['widget']['weight'] = 3; /* WAS: 1 */
+	$data['node-study-field_study_populations']['widget']['type'] = 'node_reference_autocomplete'; /* WAS: 'noderefcreate_autocomplete' */
   }
   if (isset($data['node-study-field_website'])) {
     $data['node-study-field_website']['description'] = 'Enter study website URL'; /* WAS: '' */
