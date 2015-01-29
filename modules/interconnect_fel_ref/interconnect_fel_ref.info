@@ -1,0 +1,24 @@
+name = interconnect_fel_ref
+core = 7.x
+package = Features
+dependencies[] = references_dialog
+dependencies[] = fel
+dependencies[] = fel_fields
+features[features_api][] = api:2
+
+features[features_overrides][] = field_instance.node-population-field_pop_country.settings
+features[features_overrides][] = field_instance.node-population-field_pop_health_status.settings
+features[features_overrides][] = field_instance.node-population-field_pop_selection_others_sp.settings
+features[features_overrides][] = field_instance.node-population-field_pop_src_recruit.settings
+features[features_overrides][] = field_instance.node-study-field_acroym.settings
+features[features_overrides][] = field_instance.node-study-field_contacts_ref.settings
+features[features_overrides][] = field_instance.node-study-field_contacts_ref.widget|module
+features[features_overrides][] = field_instance.node-study-field_contacts_ref.widget|settings
+features[features_overrides][] = field_instance.node-study-field_contacts_ref.widget|type
+features[features_overrides][] = field_instance.node-study-field_marker_paper.settings
+features[features_overrides][] = field_instance.node-study-field_pubmedid.settings
+features[features_overrides][] = field_instance.node-study-field_study_populations.widget|module
+features[features_overrides][] = field_instance.node-study-field_study_populations.widget|settings
+features[features_overrides][] = field_instance.node-study-field_study_populations.widget|type
+features[features_overrides][] = field_instance.node-study-field_website.settings
+

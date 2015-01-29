@@ -51,6 +51,9 @@ function interconnect_studies_form_alter(&$form, &$form_state, $form_id) {
     case 'data_collection_event_node_form':
       interconnect_studies_data_collection_event_form_alter($form, $form_state, $form_id);
     break;
+	case 'contact_node_form':
+      	$form['actions']['preview']['#type']='hidden';
+    break;
   }
 
 }
@@ -175,7 +178,6 @@ function interconnect_studies_menu_local_tasks_alter(&$data, $router_item, $root
 function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	
 	$form['#validate'][] = '_interconnect_studies_validate';
-   
 	$form['actions']['_mica_studies_save_add_population_submit'] = array(
 		'#access' => TRUE,
 		'#value' => t('Save & Add Sampling Frame'),
@@ -195,7 +197,7 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	);
 	
 	$form['actions']['submit']['#type']='hidden';
-
+	$form['actions']['preview']['#type']='hidden';
   
   	// add some custom text
 	
@@ -435,10 +437,27 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
 	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
 	
+	// $lang = $form['field_study_populations']['#language'];
+	// $form['field_study_populations']['#states']['invisible'] = array(
+        // ':input[name="field_dummy_ic['.$lang.'][0][value][#default_value]"]' => array('filled' => TRUE),
+	// );
+	
+	// add a callback to a function that disables the text input for populations
 	$lang = $form['field_study_populations']['#language'];
-	$form['field_study_populations']['#states']['invisible'] = array(
-        ':input[name="field_dummy_ic['.$lang.'][0][value][#default_value]"]' => array('filled' => TRUE),
-	);
+	$form['field_study_populations'][$lang]['#after_build'] = array('field_study_populations_after_build','field_form_element_after_build');
+
+}
+
+//function to assist with stopping users entering something in the populations field
+
+function field_study_populations_after_build($form, &$form_state) {
+	foreach($form as $k => $v) {
+		if (is_numeric($k)){
+			$form[$k]['nid']['#attributes']['disabled'] = TRUE;
+			}	
+
+		}
+    return $form;	
 }
 
 // functions to run after page built to add the states to new field collections by iterating over them
@@ -611,7 +630,7 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 		// '#type' => 'submit',
 		// '#submit' => array('node_form_submit', '_interconnect_studies_save_add_pop_submit'),
 	// );
-  
+  	$form['actions']['preview']['#type']='hidden';
 	$form['actions']['_mica_studies_save_add_dce_submit']['#type']='hidden';
 	$language = $form['field_pop_locality_ic']['#language'];  
 	unset($form['field_pop_locality_ic'][$language]['#options']['_none']);
@@ -754,7 +773,7 @@ function interconnect_studies_block_list_alter(&$blocks) {
 	$study = menu_get_object();
 
 	drupal_add_css(drupal_get_path('module', 'interconnect_studies') . '/css/custom.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
-  
+
 	$show_draft = (strpos(current_path(), '/draft') > 0 || $study->status == NODE_NOT_PUBLISHED);
 	if ($show_draft) {
 		$study = workbench_moderation_node_current_load($study);

@@ -50,7 +50,7 @@ function interconnect_studies_field_group_info() {
   $field_group->parent_name = 'group_tabs';
   $field_group->data = array(
     'label' => 'Available Information',
-    'weight' => '13',
+    'weight' => '12',
     'children' => array(
       0 => 'group_health_info_ic',
       1 => 'group_key_exposures_ic',
@@ -78,22 +78,22 @@ function interconnect_studies_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_tabs';
   $field_group->data = array(
-    'label' => 'Broad categories of ethnic and racial groups recruited',
+    'label' => 'Ethnic and racial groups recruited',
     'weight' => '10',
     'children' => array(
-      0 => 'group_genotype_imputation_ic',
-      1 => 'group_his_lat_ic',
-      2 => 'group_race_ic',
+      0 => 'group_his_lat_ic',
+      1 => 'group_race_ic',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'Ethnic and racial groups recruited',
       'instance_settings' => array(
-        'description' => 'Please answer the questions below to give an indication of the broad categories of ethnic and racial groups that have been recruited to the study. The information requested is simply an approximation about the study as a whole using the broad categories below, not a detailed analysis based on specific responses to questionnaires from participants within the study.',
-        'classes' => '',
         'required_fields' => 1,
         'id' => '',
+        'classes' => '',
+        'description' => 'Please answer the questions below to give an indication of the broad categories of ethnic and racial groups that have been recruited to the study. The information requested is simply an approximation about the study as a whole using the broad categories below, not a detailed analysis based on specific responses to questionnaires from participants within the study.',
       ),
+      'formatter' => 'closed',
     ),
   );
   $export['group_ethnic_race_ic|node|study|form'] = $field_group;
@@ -106,10 +106,10 @@ function interconnect_studies_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'study';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_ethnic_race_ic';
+  $field_group->parent_name = 'group_tabs';
   $field_group->data = array(
     'label' => 'Genotypes and imputation',
-    'weight' => '17',
+    'weight' => '11',
     'children' => array(
       0 => 'group_genotyping_arrays_ic',
       1 => 'group_reference_panels_ic',
@@ -147,7 +147,7 @@ function interconnect_studies_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-genotyping-arrays-ic field-group-fieldset',
-        'description' => 'Report the proportion of individuals of your population that have been genotyped for the array indicated.',
+        'description' => 'Report the proportion of individuals of your total population that have been genotyped for the array indicated.',
       ),
       'formatter' => 'collapsible',
     ),
@@ -301,7 +301,7 @@ function interconnect_studies_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-reference-panels-ic field-group-fieldset',
-        'description' => 'Report the proportion of individuals of your population that have imputed genotype for the reference panel indicated. ',
+        'description' => 'Report the proportion of individuals of your total population that have imputed genotype for the reference panel indicated. ',
       ),
       'formatter' => 'collapsible',
     ),
@@ -319,7 +319,7 @@ function interconnect_studies_field_group_info() {
   $field_group->parent_name = 'group_tabs';
   $field_group->data = array(
     'label' => 'Populations from which the sample(s) is drawn',
-    'weight' => '15',
+    'weight' => '16',
     'children' => array(
       0 => 'field_study_populations',
       1 => 'field_dummy_ic',
@@ -331,7 +331,7 @@ function interconnect_studies_field_group_info() {
         'required_fields' => 1,
         'id' => '',
         'classes' => 'group-sample-pop-ic field-group-htab',
-        'description' => 'All studies represent a sample from a larger population. Some studies will have multiple samples. Please add sampling frames below by clicking the Create Population button. You can add more sampling frames if needed.',
+        'description' => 'All studies represent a sample from a larger population. Some studies will have multiple samples. Please add sampling frames below by clicking the Create Population button. You can add more sampling frames if needed. Existing sampling frames can be changed by clicking the Edit button.',
       ),
       'formatter' => 'closed',
     ),
