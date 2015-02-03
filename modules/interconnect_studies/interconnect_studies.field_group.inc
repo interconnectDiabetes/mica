@@ -271,7 +271,7 @@ function interconnect_studies_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-race-ic field-group-fieldset',
-        'description' => 'Please indicate the main groups represented in the study, giving the approximate percentage of participants in each group. The percentages in this section (i.e. excluding the field Hispanic or Latino participants) must sum to 100%.',
+        'description' => 'Please indicate the main groups represented in the study, giving the approximate percentage of participants in each group.',
       ),
       'formatter' => 'open',
     ),

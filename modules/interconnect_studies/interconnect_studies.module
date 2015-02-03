@@ -177,7 +177,9 @@ function interconnect_studies_menu_local_tasks_alter(&$data, $router_item, $root
 
 function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	
-	$form['#validate'][] = '_interconnect_studies_validate';
+	// Removed - RL wants approximate %
+	//$form['#validate'][] = '_interconnect_studies_validate';
+	
 	$form['actions']['_mica_studies_save_add_population_submit'] = array(
 		'#access' => TRUE,
 		'#value' => t('Save & Add Sampling Frame'),
