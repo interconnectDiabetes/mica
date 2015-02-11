@@ -10,9 +10,79 @@
 function interconnect_studies_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_prop_inds_ic'
-  $field_instances['field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_prop_inds_ic'] = array(
-    'bundle' => 'field_1000_genomes_ref_pan_ic',
+  // Exported field_instance: 'field_collection_item-field_genotype_african_ic-field_genotyping_platform'
+  $field_instances['field_collection_item-field_genotype_african_ic-field_genotyping_platform'] = array(
+    'bundle' => 'field_genotype_african_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_genotyping_platform',
+    'label' => 'Genotyping platform',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_african_ic-field_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_african_ic-field_imputation_panel'] = array(
+    'bundle' => 'field_genotype_african_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_imputation_panel',
+    'label' => 'Imputation panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_african_ic-field_number_of_individuals'
+  $field_instances['field_collection_item-field_genotype_african_ic-field_number_of_individuals'] = array(
+    'bundle' => 'field_genotype_african_ic',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -27,19 +97,20 @@ function interconnect_studies_field_default_field_instances() {
           'thousand_separator' => ' ',
         ),
         'type' => 'number_integer',
-        'weight' => 0,
+        'weight' => 2,
       ),
     ),
     'display_label' => '',
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_1000genomes_prop_inds_ic',
-    'label' => 'Proportion of individuals',
+    'field_name' => 'field_number_of_individuals',
+    'label' => 'Number of individuals',
     'required' => 0,
     'settings' => array(
-      'max' => 100,
-      'min' => 0,
+      'description_display' => 'after',
+      'max' => '',
+      'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -47,31 +118,140 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_ref_panels_ic'
-  $field_instances['field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_ref_panels_ic'] = array(
-    'bundle' => 'field_1000_genomes_ref_pan_ic',
+  // Exported field_instance: 'field_collection_item-field_genotype_african_ic-field_other_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_african_ic-field_other_imputation_panel'] = array(
+    'bundle' => 'field_genotype_african_ic',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Please select each 1000 genomes reference panel that has been used for genotyping your population. To add more reference panels, click the Add Another Item button below',
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_imputation_panel',
+    'label' => 'Other Imputation Panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_african_ic-field_other_platforms'
+  $field_instances['field_collection_item-field_genotype_african_ic-field_other_platforms'] = array(
+    'bundle' => 'field_genotype_african_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_platforms',
+    'label' => 'Other platforms',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_african_ic-field_other_reference_population'
+  $field_instances['field_collection_item-field_genotype_african_ic-field_other_reference_population'] = array(
+    'bundle' => 'field_genotype_african_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_reference_population',
+    'label' => 'Other reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_african_ic-field_reference_population'
+  $field_instances['field_collection_item-field_genotype_african_ic-field_reference_population'] = array(
+    'bundle' => 'field_genotype_african_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 1,
+        'weight' => 6,
       ),
     ),
     'display_label' => '',
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_1000genomes_ref_panels_ic',
-    'label' => '1000 genomes Reference Panel',
+    'field_name' => 'field_reference_population',
+    'label' => 'Reference population',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -81,13 +261,13 @@ function interconnect_studies_field_default_field_instances() {
         'content_taxonomy_opt_groups' => FALSE,
       ),
       'type' => 'options_select',
-      'weight' => 0,
+      'weight' => 6,
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_release_date_i'
-  $field_instances['field_collection_item-field_1000_genomes_ref_pan_ic-field_1000genomes_release_date_i'] = array(
-    'bundle' => 'field_1000_genomes_ref_pan_ic',
+  // Exported field_instance: 'field_collection_item-field_genotype_african_ic-field_release_date'
+  $field_instances['field_collection_item-field_genotype_african_ic-field_release_date'] = array(
+    'bundle' => 'field_genotype_african_ic',
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -95,19 +275,19 @@ function interconnect_studies_field_default_field_instances() {
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'short',
+          'format_type' => 'long',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
         ),
         'type' => 'date_default',
-        'weight' => 3,
+        'weight' => 4,
       ),
     ),
     'display_label' => '',
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_1000genomes_release_date_i',
+    'field_name' => 'field_release_date',
     'label' => 'Release date',
     'required' => 0,
     'settings' => array(
@@ -115,6 +295,7 @@ function interconnect_studies_field_default_field_instances() {
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -126,129 +307,16 @@ function interconnect_studies_field_default_field_instances() {
         'input_format_custom' => '',
         'label_position' => 'above',
         'text_parts' => array(),
-        'year_range' => '-10:+2',
+        'year_range' => '-3:+10',
       ),
       'type' => 'date_select',
-      'weight' => 2,
+      'weight' => 5,
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_1000_genomes_ref_pan_ic-field_other_1000genomes_pan_ic'
-  $field_instances['field_collection_item-field_1000_genomes_ref_pan_ic-field_other_1000genomes_pan_ic'] = array(
-    'bundle' => 'field_1000_genomes_ref_pan_ic',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Please specify the other 1000 Genomes reference panel',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
-      ),
-    ),
-    'display_label' => '',
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_other_1000genomes_pan_ic',
-    'label' => 'Other 1000 genomes reference panel',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_custom_ref_panels_ic-field_custom_ref_panel_ic'
-  $field_instances['field_collection_item-field_custom_ref_panels_ic-field_custom_ref_panel_ic'] = array(
-    'bundle' => 'field_custom_ref_panels_ic',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-    ),
-    'display_label' => '',
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_custom_ref_panel_ic',
-    'label' => 'Custom reference panel',
-    'required' => 0,
-    'settings' => array(
-      'description_display' => 'after',
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 0,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_custom_ref_panels_ic-field_custom_ref_prop_ic'
-  $field_instances['field_collection_item-field_custom_ref_panels_ic-field_custom_ref_prop_ic'] = array(
-    'bundle' => 'field_custom_ref_panels_ic',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 0,
-      ),
-    ),
-    'display_label' => '',
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_custom_ref_prop_ic',
-    'label' => 'Proportion of individuals',
-    'required' => 0,
-    'settings' => array(
-      'description_display' => 'after',
-      'max' => 100,
-      'min' => 0,
-      'prefix' => '',
-      'suffix' => '%',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_genotyping_arrays_ic-field_list_of_arrays_ic'
-  $field_instances['field_collection_item-field_genotyping_arrays_ic-field_list_of_arrays_ic'] = array(
-    'bundle' => 'field_genotyping_arrays_ic',
+  // Exported field_instance: 'field_collection_item-field_genotype_east_asian_ic-field_genotyping_platform'
+  $field_instances['field_collection_item-field_genotype_east_asian_ic-field_genotyping_platform'] = array(
+    'bundle' => 'field_genotype_east_asian_ic',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -263,160 +331,11 @@ function interconnect_studies_field_default_field_instances() {
     ),
     'display_label' => '',
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_list_of_arrays_ic',
-    'label' => 'List of arrays',
+    'field_name' => 'field_genotyping_platform',
+    'label' => 'Genotyping platform',
     'required' => 0,
     'settings' => array(
-      'description_display' => 'before',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'content_taxonomy_opt_groups' => FALSE,
-      ),
-      'type' => 'options_select',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_genotyping_arrays_ic-field_other_arrays_ic'
-  $field_instances['field_collection_item-field_genotyping_arrays_ic-field_other_arrays_ic'] = array(
-    'bundle' => 'field_genotyping_arrays_ic',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_other_arrays_ic',
-    'label' => 'Other arrays',
-    'required' => FALSE,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_genotyping_arrays_ic-field_proportion_of_individ_ic'
-  $field_instances['field_collection_item-field_genotyping_arrays_ic-field_proportion_of_individ_ic'] = array(
-    'bundle' => 'field_genotyping_arrays_ic',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 1,
-      ),
-    ),
-    'display_label' => '',
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_proportion_of_individ_ic',
-    'label' => 'Proportion of individuals',
-    'required' => 0,
-    'settings' => array(
-      'max' => 100,
-      'min' => 0,
-      'prefix' => '',
-      'suffix' => '%',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 2,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_prop_inds_ic'
-  $field_instances['field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_prop_inds_ic'] = array(
-    'bundle' => 'field_hapmap_ref_panel_ic',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 1,
-      ),
-    ),
-    'display_label' => '',
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_hapmap_prop_inds_ic',
-    'label' => 'Proportion of individuals',
-    'required' => 0,
-    'settings' => array(
-      'max' => 100,
-      'min' => 0,
-      'prefix' => '',
-      'suffix' => '%',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 3,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_ref_panels_ic'
-  $field_instances['field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_ref_panels_ic'] = array(
-    'bundle' => 'field_hapmap_ref_panel_ic',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 0,
-      ),
-    ),
-    'display_label' => '',
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_hapmap_ref_panels_ic',
-    'label' => 'Reference Panels',
-    'required' => 0,
-    'settings' => array(
+      'description_display' => 'after',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -430,30 +349,257 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_release_date_ic'
-  $field_instances['field_collection_item-field_hapmap_ref_panel_ic-field_hapmap_release_date_ic'] = array(
-    'bundle' => 'field_hapmap_ref_panel_ic',
+  // Exported field_instance: 'field_collection_item-field_genotype_east_asian_ic-field_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_east_asian_ic-field_imputation_panel'] = array(
+    'bundle' => 'field_genotype_east_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_imputation_panel',
+    'label' => 'Imputation panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_east_asian_ic-field_number_of_individuals'
+  $field_instances['field_collection_item-field_genotype_east_asian_ic-field_number_of_individuals'] = array(
+    'bundle' => 'field_genotype_east_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_number_of_individuals',
+    'label' => 'Number of individuals',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_east_asian_ic-field_other_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_east_asian_ic-field_other_imputation_panel'] = array(
+    'bundle' => 'field_genotype_east_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_imputation_panel',
+    'label' => 'Other Imputation Panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_east_asian_ic-field_other_platforms'
+  $field_instances['field_collection_item-field_genotype_east_asian_ic-field_other_platforms'] = array(
+    'bundle' => 'field_genotype_east_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_platforms',
+    'label' => 'Other platforms',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_east_asian_ic-field_other_reference_population'
+  $field_instances['field_collection_item-field_genotype_east_asian_ic-field_other_reference_population'] = array(
+    'bundle' => 'field_genotype_east_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_reference_population',
+    'label' => 'Other reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_east_asian_ic-field_reference_population'
+  $field_instances['field_collection_item-field_genotype_east_asian_ic-field_reference_population'] = array(
+    'bundle' => 'field_genotype_east_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_reference_population',
+    'label' => 'Reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_east_asian_ic-field_release_date'
+  $field_instances['field_collection_item-field_genotype_east_asian_ic-field_release_date'] = array(
+    'bundle' => 'field_genotype_east_asian_ic',
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
         'module' => 'date',
-        'settings' => array(),
-        'type' => 'date_plain',
-        'weight' => 3,
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 4,
       ),
     ),
     'display_label' => '',
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_hapmap_release_date_ic',
-    'label' => 'Release Date',
+    'field_name' => 'field_release_date',
+    'label' => 'Release date',
     'required' => 0,
     'settings' => array(
       'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -465,16 +611,128 @@ function interconnect_studies_field_default_field_instances() {
         'input_format_custom' => '',
         'label_position' => 'above',
         'text_parts' => array(),
-        'year_range' => '-10:+2',
+        'year_range' => '-3:+10',
       ),
       'type' => 'date_select',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_euro_ic-field_genotyping_platform'
+  $field_instances['field_collection_item-field_genotype_euro_ic-field_genotyping_platform'] = array(
+    'bundle' => 'field_genotype_euro_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_genotyping_platform',
+    'label' => 'Genotyping platform',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_euro_ic-field_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_euro_ic-field_imputation_panel'] = array(
+    'bundle' => 'field_genotype_euro_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_imputation_panel',
+    'label' => 'Imputation panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_euro_ic-field_number_of_individuals'
+  $field_instances['field_collection_item-field_genotype_euro_ic-field_number_of_individuals'] = array(
+    'bundle' => 'field_genotype_euro_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_number_of_individuals',
+    'label' => 'Number of individuals',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
       'weight' => 2,
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_hapmap_ref_panel_ic-field_other_hapmap_ref_pan_ic'
-  $field_instances['field_collection_item-field_hapmap_ref_panel_ic-field_other_hapmap_ref_pan_ic'] = array(
-    'bundle' => 'field_hapmap_ref_panel_ic',
+  // Exported field_instance: 'field_collection_item-field_genotype_euro_ic-field_other_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_euro_ic-field_other_imputation_panel'] = array(
+    'bundle' => 'field_genotype_euro_ic',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -484,24 +742,2007 @@ function interconnect_studies_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
     ),
+    'display_label' => '',
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_other_hapmap_ref_pan_ic',
-    'label' => 'Other HapMap reference panel',
-    'required' => FALSE,
+    'field_name' => 'field_other_imputation_panel',
+    'label' => 'Other Imputation Panel',
+    'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_euro_ic-field_other_platforms'
+  $field_instances['field_collection_item-field_genotype_euro_ic-field_other_platforms'] = array(
+    'bundle' => 'field_genotype_euro_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_platforms',
+    'label' => 'Other platforms',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
       'module' => 'text',
       'settings' => array(
         'size' => 60,
       ),
       'type' => 'text_textfield',
       'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_euro_ic-field_other_reference_population'
+  $field_instances['field_collection_item-field_genotype_euro_ic-field_other_reference_population'] = array(
+    'bundle' => 'field_genotype_euro_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_reference_population',
+    'label' => 'Other reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_euro_ic-field_reference_population'
+  $field_instances['field_collection_item-field_genotype_euro_ic-field_reference_population'] = array(
+    'bundle' => 'field_genotype_euro_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_reference_population',
+    'label' => 'Reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_euro_ic-field_release_date'
+  $field_instances['field_collection_item-field_genotype_euro_ic-field_release_date'] = array(
+    'bundle' => 'field_genotype_euro_ic',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 4,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_release_date',
+    'label' => 'Release date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'description_display' => 'before',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+10',
+      ),
+      'type' => 'date_select',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_am_ic-field_genotyping_platform'
+  $field_instances['field_collection_item-field_genotype_indig_am_ic-field_genotyping_platform'] = array(
+    'bundle' => 'field_genotype_indig_am_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_genotyping_platform',
+    'label' => 'Genotyping platform',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_am_ic-field_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_indig_am_ic-field_imputation_panel'] = array(
+    'bundle' => 'field_genotype_indig_am_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_imputation_panel',
+    'label' => 'Imputation panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_am_ic-field_number_of_individuals'
+  $field_instances['field_collection_item-field_genotype_indig_am_ic-field_number_of_individuals'] = array(
+    'bundle' => 'field_genotype_indig_am_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_number_of_individuals',
+    'label' => 'Number of individuals',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_am_ic-field_other_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_indig_am_ic-field_other_imputation_panel'] = array(
+    'bundle' => 'field_genotype_indig_am_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_imputation_panel',
+    'label' => 'Other Imputation Panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_am_ic-field_other_platforms'
+  $field_instances['field_collection_item-field_genotype_indig_am_ic-field_other_platforms'] = array(
+    'bundle' => 'field_genotype_indig_am_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_platforms',
+    'label' => 'Other platforms',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_am_ic-field_other_reference_population'
+  $field_instances['field_collection_item-field_genotype_indig_am_ic-field_other_reference_population'] = array(
+    'bundle' => 'field_genotype_indig_am_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_reference_population',
+    'label' => 'Other reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_am_ic-field_reference_population'
+  $field_instances['field_collection_item-field_genotype_indig_am_ic-field_reference_population'] = array(
+    'bundle' => 'field_genotype_indig_am_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_reference_population',
+    'label' => 'Reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_am_ic-field_release_date'
+  $field_instances['field_collection_item-field_genotype_indig_am_ic-field_release_date'] = array(
+    'bundle' => 'field_genotype_indig_am_ic',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 4,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_release_date',
+    'label' => 'Release date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'description_display' => 'before',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+10',
+      ),
+      'type' => 'date_select',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_aus_ic-field_genotyping_platform'
+  $field_instances['field_collection_item-field_genotype_indig_aus_ic-field_genotyping_platform'] = array(
+    'bundle' => 'field_genotype_indig_aus_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_genotyping_platform',
+    'label' => 'Genotyping platform',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_aus_ic-field_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_indig_aus_ic-field_imputation_panel'] = array(
+    'bundle' => 'field_genotype_indig_aus_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_imputation_panel',
+    'label' => 'Imputation panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_aus_ic-field_number_of_individuals'
+  $field_instances['field_collection_item-field_genotype_indig_aus_ic-field_number_of_individuals'] = array(
+    'bundle' => 'field_genotype_indig_aus_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_number_of_individuals',
+    'label' => 'Number of individuals',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_aus_ic-field_other_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_indig_aus_ic-field_other_imputation_panel'] = array(
+    'bundle' => 'field_genotype_indig_aus_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_imputation_panel',
+    'label' => 'Other Imputation Panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_aus_ic-field_other_platforms'
+  $field_instances['field_collection_item-field_genotype_indig_aus_ic-field_other_platforms'] = array(
+    'bundle' => 'field_genotype_indig_aus_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_platforms',
+    'label' => 'Other platforms',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_aus_ic-field_other_reference_population'
+  $field_instances['field_collection_item-field_genotype_indig_aus_ic-field_other_reference_population'] = array(
+    'bundle' => 'field_genotype_indig_aus_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_reference_population',
+    'label' => 'Other reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_aus_ic-field_reference_population'
+  $field_instances['field_collection_item-field_genotype_indig_aus_ic-field_reference_population'] = array(
+    'bundle' => 'field_genotype_indig_aus_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_reference_population',
+    'label' => 'Reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_aus_ic-field_release_date'
+  $field_instances['field_collection_item-field_genotype_indig_aus_ic-field_release_date'] = array(
+    'bundle' => 'field_genotype_indig_aus_ic',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 4,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_release_date',
+    'label' => 'Release date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'description_display' => 'before',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+10',
+      ),
+      'type' => 'date_select',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_pac_ic-field_genotyping_platform'
+  $field_instances['field_collection_item-field_genotype_indig_pac_ic-field_genotyping_platform'] = array(
+    'bundle' => 'field_genotype_indig_pac_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_genotyping_platform',
+    'label' => 'Genotyping platform',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_pac_ic-field_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_indig_pac_ic-field_imputation_panel'] = array(
+    'bundle' => 'field_genotype_indig_pac_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_imputation_panel',
+    'label' => 'Imputation panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_pac_ic-field_number_of_individuals'
+  $field_instances['field_collection_item-field_genotype_indig_pac_ic-field_number_of_individuals'] = array(
+    'bundle' => 'field_genotype_indig_pac_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_number_of_individuals',
+    'label' => 'Number of individuals',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_pac_ic-field_other_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_indig_pac_ic-field_other_imputation_panel'] = array(
+    'bundle' => 'field_genotype_indig_pac_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_imputation_panel',
+    'label' => 'Other Imputation Panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_pac_ic-field_other_platforms'
+  $field_instances['field_collection_item-field_genotype_indig_pac_ic-field_other_platforms'] = array(
+    'bundle' => 'field_genotype_indig_pac_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_platforms',
+    'label' => 'Other platforms',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_pac_ic-field_other_reference_population'
+  $field_instances['field_collection_item-field_genotype_indig_pac_ic-field_other_reference_population'] = array(
+    'bundle' => 'field_genotype_indig_pac_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_reference_population',
+    'label' => 'Other reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_pac_ic-field_reference_population'
+  $field_instances['field_collection_item-field_genotype_indig_pac_ic-field_reference_population'] = array(
+    'bundle' => 'field_genotype_indig_pac_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_reference_population',
+    'label' => 'Reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_indig_pac_ic-field_release_date'
+  $field_instances['field_collection_item-field_genotype_indig_pac_ic-field_release_date'] = array(
+    'bundle' => 'field_genotype_indig_pac_ic',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 4,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_release_date',
+    'label' => 'Release date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'description_display' => 'before',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+10',
+      ),
+      'type' => 'date_select',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_mid_e_ic-field_genotyping_platform'
+  $field_instances['field_collection_item-field_genotype_mid_e_ic-field_genotyping_platform'] = array(
+    'bundle' => 'field_genotype_mid_e_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_genotyping_platform',
+    'label' => 'Genotyping platform',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_mid_e_ic-field_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_mid_e_ic-field_imputation_panel'] = array(
+    'bundle' => 'field_genotype_mid_e_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_imputation_panel',
+    'label' => 'Imputation panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_mid_e_ic-field_number_of_individuals'
+  $field_instances['field_collection_item-field_genotype_mid_e_ic-field_number_of_individuals'] = array(
+    'bundle' => 'field_genotype_mid_e_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_number_of_individuals',
+    'label' => 'Number of individuals',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_mid_e_ic-field_other_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_mid_e_ic-field_other_imputation_panel'] = array(
+    'bundle' => 'field_genotype_mid_e_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_imputation_panel',
+    'label' => 'Other Imputation Panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_mid_e_ic-field_other_platforms'
+  $field_instances['field_collection_item-field_genotype_mid_e_ic-field_other_platforms'] = array(
+    'bundle' => 'field_genotype_mid_e_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_platforms',
+    'label' => 'Other platforms',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_mid_e_ic-field_other_reference_population'
+  $field_instances['field_collection_item-field_genotype_mid_e_ic-field_other_reference_population'] = array(
+    'bundle' => 'field_genotype_mid_e_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_reference_population',
+    'label' => 'Other reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_mid_e_ic-field_reference_population'
+  $field_instances['field_collection_item-field_genotype_mid_e_ic-field_reference_population'] = array(
+    'bundle' => 'field_genotype_mid_e_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_reference_population',
+    'label' => 'Reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_mid_e_ic-field_release_date'
+  $field_instances['field_collection_item-field_genotype_mid_e_ic-field_release_date'] = array(
+    'bundle' => 'field_genotype_mid_e_ic',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 4,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_release_date',
+    'label' => 'Release date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'description_display' => 'before',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+10',
+      ),
+      'type' => 'date_select',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_other_ic-field_genotyping_platform'
+  $field_instances['field_collection_item-field_genotype_other_ic-field_genotyping_platform'] = array(
+    'bundle' => 'field_genotype_other_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_genotyping_platform',
+    'label' => 'Genotyping platform',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_other_ic-field_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_other_ic-field_imputation_panel'] = array(
+    'bundle' => 'field_genotype_other_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_imputation_panel',
+    'label' => 'Imputation panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_other_ic-field_number_of_individuals'
+  $field_instances['field_collection_item-field_genotype_other_ic-field_number_of_individuals'] = array(
+    'bundle' => 'field_genotype_other_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_number_of_individuals',
+    'label' => 'Number of individuals',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_other_ic-field_other_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_other_ic-field_other_imputation_panel'] = array(
+    'bundle' => 'field_genotype_other_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_imputation_panel',
+    'label' => 'Other Imputation Panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_other_ic-field_other_platforms'
+  $field_instances['field_collection_item-field_genotype_other_ic-field_other_platforms'] = array(
+    'bundle' => 'field_genotype_other_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_platforms',
+    'label' => 'Other platforms',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_other_ic-field_other_reference_population'
+  $field_instances['field_collection_item-field_genotype_other_ic-field_other_reference_population'] = array(
+    'bundle' => 'field_genotype_other_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_reference_population',
+    'label' => 'Other reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_other_ic-field_reference_population'
+  $field_instances['field_collection_item-field_genotype_other_ic-field_reference_population'] = array(
+    'bundle' => 'field_genotype_other_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_reference_population',
+    'label' => 'Reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_other_ic-field_release_date'
+  $field_instances['field_collection_item-field_genotype_other_ic-field_release_date'] = array(
+    'bundle' => 'field_genotype_other_ic',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 4,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_release_date',
+    'label' => 'Release date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'description_display' => 'before',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+10',
+      ),
+      'type' => 'date_select',
+      'weight' => 5,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_south_asian_ic-field_genotyping_platform'
+  $field_instances['field_collection_item-field_genotype_south_asian_ic-field_genotyping_platform'] = array(
+    'bundle' => 'field_genotype_south_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_genotyping_platform',
+    'label' => 'Genotyping platform',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_south_asian_ic-field_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_south_asian_ic-field_imputation_panel'] = array(
+    'bundle' => 'field_genotype_south_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_imputation_panel',
+    'label' => 'Imputation panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_south_asian_ic-field_number_of_individuals'
+  $field_instances['field_collection_item-field_genotype_south_asian_ic-field_number_of_individuals'] = array(
+    'bundle' => 'field_genotype_south_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_number_of_individuals',
+    'label' => 'Number of individuals',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_south_asian_ic-field_other_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_south_asian_ic-field_other_imputation_panel'] = array(
+    'bundle' => 'field_genotype_south_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_imputation_panel',
+    'label' => 'Other Imputation Panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_south_asian_ic-field_other_platforms'
+  $field_instances['field_collection_item-field_genotype_south_asian_ic-field_other_platforms'] = array(
+    'bundle' => 'field_genotype_south_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_platforms',
+    'label' => 'Other platforms',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_south_asian_ic-field_other_reference_population'
+  $field_instances['field_collection_item-field_genotype_south_asian_ic-field_other_reference_population'] = array(
+    'bundle' => 'field_genotype_south_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_reference_population',
+    'label' => 'Other reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_south_asian_ic-field_reference_population'
+  $field_instances['field_collection_item-field_genotype_south_asian_ic-field_reference_population'] = array(
+    'bundle' => 'field_genotype_south_asian_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_reference_population',
+    'label' => 'Reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_south_asian_ic-field_release_date'
+  $field_instances['field_collection_item-field_genotype_south_asian_ic-field_release_date'] = array(
+    'bundle' => 'field_genotype_south_asian_ic',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 4,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_release_date',
+    'label' => 'Release date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'description_display' => 'before',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+10',
+      ),
+      'type' => 'date_select',
+      'weight' => 5,
     ),
   );
 
@@ -713,25 +2954,18 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-study-field_1000_genomes_ref_pan_ic'
-  $field_instances['node-study-field_1000_genomes_ref_pan_ic'] = array(
+  // Exported field_instance: 'node-study-field_african_mds_plots_ic'
+  $field_instances['node-study-field_african_mds_plots_ic'] = array(
     'bundle' => 'study',
-    'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Please run the MDS script (<a href="/sites/default/files/2014-08-08_Files4MDS.zip">here</a>) and upload the output',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'hidden',
-        'weight' => 72,
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 88,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -742,18 +2976,25 @@ function interconnect_studies_field_default_field_instances() {
     ),
     'display_label' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_1000_genomes_ref_pan_ic',
-    'label' => '1000 genomes reference panel',
+    'field_name' => 'field_african_mds_plots_ic',
+    'label' => 'Upload ancestry scatter plot',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'before',
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png',
+      'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(),
-      'type' => 'field_collection_embed',
-      'weight' => 173,
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 143,
     ),
   );
 
@@ -793,51 +3034,6 @@ function interconnect_studies_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_buttons',
       'weight' => 132,
-    ),
-  );
-
-  // Exported field_instance: 'node-study-field_custom_ref_panels_ic'
-  $field_instances['node-study-field_custom_ref_panels_ic'] = array(
-    'bundle' => 'study',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'hidden',
-        'weight' => 74,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'display_label' => '',
-    'entity_type' => 'node',
-    'field_name' => 'field_custom_ref_panels_ic',
-    'label' => 'Custom reference panel',
-    'required' => 0,
-    'settings' => array(
-      'description_display' => 'after',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(),
-      'type' => 'field_collection_embed',
-      'weight' => 174,
     ),
   );
 
@@ -1002,12 +3198,56 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-study-field_e_asian_mds_plots_ic'
+  $field_instances['node-study-field_e_asian_mds_plots_ic'] = array(
+    'bundle' => 'study',
+    'deleted' => 0,
+    'description' => 'Please run the MDS script (<a href="/sites/default/files/2014-08-08_Files4MDS.zip">here</a>) and upload the output',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 88,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_e_asian_mds_plots_ic',
+    'label' => 'Upload ancestry scatter plot',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'before',
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 146,
+    ),
+  );
+
   // Exported field_instance: 'node-study-field_eth_his_lat_ic'
   $field_instances['node-study-field_eth_his_lat_ic'] = array(
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Please indicate the approximate percentage of participants that are of Hispanic or Latino origin',
+    'description' => 'Please indicate the approximate number of participants that are of Hispanic or Latino origin',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -1034,10 +3274,11 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Hispanic / Latino',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1046,6 +3287,50 @@ function interconnect_studies_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 140,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_euro_mds_plots_ic'
+  $field_instances['node-study-field_euro_mds_plots_ic'] = array(
+    'bundle' => 'study',
+    'deleted' => 0,
+    'description' => 'Please run the MDS script (<a href="/sites/default/files/2014-08-08_Files4MDS.zip">here</a>) and upload the output',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 88,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_euro_mds_plots_ic',
+    'label' => 'Upload ancestry scatter plot',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'before',
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 152,
     ),
   );
 
@@ -1130,8 +3415,8 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-study-field_genotyping_arrays_ic'
-  $field_instances['node-study-field_genotyping_arrays_ic'] = array(
+  // Exported field_instance: 'node-study-field_genotype_african_ic'
+  $field_instances['node-study-field_genotype_african_ic'] = array(
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1147,8 +3432,8 @@ function interconnect_studies_field_default_field_instances() {
           'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'hidden',
-        'weight' => 70,
+        'type' => 'field_collection_view',
+        'weight' => 83,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1159,10 +3444,11 @@ function interconnect_studies_field_default_field_instances() {
     ),
     'display_label' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_genotyping_arrays_ic',
+    'field_name' => 'field_genotype_african_ic',
     'label' => 'Genotyping Arrays',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1170,12 +3456,12 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 171,
+      'weight' => 142,
     ),
   );
 
-  // Exported field_instance: 'node-study-field_hapmap_ref_panel_ic'
-  $field_instances['node-study-field_hapmap_ref_panel_ic'] = array(
+  // Exported field_instance: 'node-study-field_genotype_east_asian_ic'
+  $field_instances['node-study-field_genotype_east_asian_ic'] = array(
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1191,8 +3477,8 @@ function interconnect_studies_field_default_field_instances() {
           'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'hidden',
-        'weight' => 71,
+        'type' => 'field_collection_view',
+        'weight' => 87,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1203,10 +3489,11 @@ function interconnect_studies_field_default_field_instances() {
     ),
     'display_label' => '',
     'entity_type' => 'node',
-    'field_name' => 'field_hapmap_ref_panel_ic',
-    'label' => 'HapMap reference panel',
+    'field_name' => 'field_genotype_east_asian_ic',
+    'label' => 'Genotype Arrays',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1214,7 +3501,322 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 172,
+      'weight' => 145,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_genotype_euro_ic'
+  $field_instances['node-study-field_genotype_euro_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 87,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_genotype_euro_ic',
+    'label' => 'Genotype Arrays',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 151,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_genotype_indig_am_ic'
+  $field_instances['node-study-field_genotype_indig_am_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 87,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_genotype_indig_am_ic',
+    'label' => 'Genotype Arrays',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 154,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_genotype_indig_aus_ic'
+  $field_instances['node-study-field_genotype_indig_aus_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 87,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_genotype_indig_aus_ic',
+    'label' => 'Genotype Arrays',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 157,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_genotype_indig_pac_ic'
+  $field_instances['node-study-field_genotype_indig_pac_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 87,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_genotype_indig_pac_ic',
+    'label' => 'Genotype Arrays',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 160,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_genotype_mid_e_ic'
+  $field_instances['node-study-field_genotype_mid_e_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 87,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_genotype_mid_e_ic',
+    'label' => 'Genotype Arrays',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 163,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_genotype_other_ic'
+  $field_instances['node-study-field_genotype_other_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 87,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_genotype_other_ic',
+    'label' => 'Genotype Arrays',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 167,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_genotype_south_asian_ic'
+  $field_instances['node-study-field_genotype_south_asian_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 87,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_genotype_south_asian_ic',
+    'label' => 'Genotype Arrays',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 148,
     ),
   );
 
@@ -1293,6 +3895,138 @@ function interconnect_studies_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 152,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_indig_am_mds_plots_ic'
+  $field_instances['node-study-field_indig_am_mds_plots_ic'] = array(
+    'bundle' => 'study',
+    'deleted' => 0,
+    'description' => 'Please run the MDS script (<a href="/sites/default/files/2014-08-08_Files4MDS.zip">here</a>) and upload the output',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 88,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_indig_am_mds_plots_ic',
+    'label' => 'Upload ancestry scatter plot',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'before',
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 155,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_indig_aus_mds_plots_ic'
+  $field_instances['node-study-field_indig_aus_mds_plots_ic'] = array(
+    'bundle' => 'study',
+    'deleted' => 0,
+    'description' => 'Please run the MDS script (<a href="/sites/default/files/2014-08-08_Files4MDS.zip">here</a>) and upload the output',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 88,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_indig_aus_mds_plots_ic',
+    'label' => 'Upload ancestry scatter plot',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'before',
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 158,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_indig_pac_mds_plots_ic'
+  $field_instances['node-study-field_indig_pac_mds_plots_ic'] = array(
+    'bundle' => 'study',
+    'deleted' => 0,
+    'description' => 'Please run the MDS script (<a href="/sites/default/files/2014-08-08_Files4MDS.zip">here</a>) and upload the output',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 88,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_indig_pac_mds_plots_ic',
+    'label' => 'Upload ancestry scatter plot',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'before',
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 161,
     ),
   );
 
@@ -1544,6 +4278,50 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-study-field_other_mds_plots_ic'
+  $field_instances['node-study-field_other_mds_plots_ic'] = array(
+    'bundle' => 'study',
+    'deleted' => 0,
+    'description' => 'Please run the MDS script (<a href="/sites/default/files/2014-08-08_Files4MDS.zip">here</a>) and upload the output',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 88,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_other_mds_plots_ic',
+    'label' => 'Upload ancestry scatter plot',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'before',
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 168,
+    ),
+  );
+
   // Exported field_instance: 'node-study-field_participants_date_ic'
   $field_instances['node-study-field_participants_date_ic'] = array(
     'bundle' => 'study',
@@ -1630,10 +4408,11 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'African / African-American / Black',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1677,10 +4456,11 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'East or South East Asian',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1688,7 +4468,7 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 142,
+      'weight' => 144,
     ),
   );
 
@@ -1724,10 +4504,11 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'European / White',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1735,7 +4516,7 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 144,
+      'weight' => 150,
     ),
   );
 
@@ -1771,10 +4552,11 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Indigenous American / American Indian / Native American / Alaskan Native',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1782,7 +4564,7 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 145,
+      'weight' => 153,
     ),
   );
 
@@ -1818,10 +4600,11 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Indigenous Australian / Aboriginal Australian',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1829,7 +4612,7 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 146,
+      'weight' => 156,
     ),
   );
 
@@ -1865,10 +4648,11 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Native Hawaiian or Other Pacific Islander',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1876,7 +4660,7 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 147,
+      'weight' => 159,
     ),
   );
 
@@ -1912,10 +4696,11 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Middle Eastern',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1923,7 +4708,7 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 148,
+      'weight' => 162,
     ),
   );
 
@@ -1959,10 +4744,11 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Other group',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1970,7 +4756,7 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 149,
+      'weight' => 165,
     ),
   );
 
@@ -2011,7 +4797,7 @@ function interconnect_studies_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 150,
+      'weight' => 166,
     ),
   );
 
@@ -2047,10 +4833,11 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'South Asian / Indian Subcontinent',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '%',
+      'suffix' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -2058,7 +4845,7 @@ function interconnect_studies_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 143,
+      'weight' => 147,
     ),
   );
 
@@ -2208,6 +4995,50 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-study-field_s_asian_mds_plots_ic'
+  $field_instances['node-study-field_s_asian_mds_plots_ic'] = array(
+    'bundle' => 'study',
+    'deleted' => 0,
+    'description' => 'Please run the MDS script (<a href="/sites/default/files/2014-08-08_Files4MDS.zip">here</a>) and upload the output',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 88,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_s_asian_mds_plots_ic',
+    'label' => 'Upload ancestry scatter plot',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'before',
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 149,
+    ),
+  );
+
   // Exported field_instance: 'node-study-field_trial_number_ic'
   $field_instances['node-study-field_trial_number_ic'] = array(
     'bundle' => 'study',
@@ -2252,14 +5083,11 @@ function interconnect_studies_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('1000 genomes Reference Panel');
-  t('1000 genomes reference panel');
   t('Actual number of participants recruited to the study');
   t('African / African-American / Black');
   t('Area of residence');
   t('At what date was this number recorded?');
   t('Case definition');
-  t('Custom reference panel');
   t('DNA sources');
   t('Date number of participants was recorded');
   t('Dietary measures');
@@ -2269,37 +5097,38 @@ function interconnect_studies_field_default_field_instances() {
   t('East or South East Asian');
   t('European / White');
   t('Gender');
+  t('Genotype Arrays');
   t('Genotyping Arrays');
-  t('HapMap reference panel');
+  t('Genotyping platform');
   t('Health Information');
   t('Hispanic / Latino');
   t('If available, please provide the trial registration number');
   t('If recruitment has finished, when did it end?');
   t('If the study is not completed, what is the total number of participants who have been recruited to the study?');
+  t('Imputation panel');
   t('Indigenous American / American Indian / Native American / Alaskan Native');
   t('Indigenous Australian / Aboriginal Australian');
   t('Individual/family based study');
   t('Intervention type');
   t('Is recruitment continuing?');
-  t('List of arrays');
   t('Middle Eastern');
   t('Migration status');
   t('Native Hawaiian or Other Pacific Islander');
   t('Newborn');
-  t('Other 1000 genomes reference panel');
-  t('Other HapMap reference panel');
-  t('Other arrays');
+  t('Number of individuals');
+  t('Other Imputation Panel');
   t('Other case definition');
   t('Other group');
   t('Other intervention type');
+  t('Other platforms');
+  t('Other reference population');
   t('Other study design');
   t('Other type of people');
   t('Other types of diabetes');
   t('Physical activity measures');
-  t('Please indicate the approximate percentage of participants that are of Hispanic or Latino origin');
-  t('Please select each 1000 genomes reference panel that has been used for genotyping your population. To add more reference panels, click the Add Another Item button below');
+  t('Please indicate the approximate number of participants that are of Hispanic or Latino origin');
+  t('Please run the MDS script (<a href="/sites/default/files/2014-08-08_Files4MDS.zip">here</a>) and upload the output');
   t('Please specify the case definition of the study');
-  t('Please specify the other 1000 Genomes reference panel');
   t('Please specify the other case definition');
   t('Please specify the other groups here');
   t('Please specify the other intervention types');
@@ -2307,17 +5136,16 @@ function interconnect_studies_field_default_field_instances() {
   t('Please specify the other type of people targeted by the study design');
   t('Please specify the other types of diabetes');
   t('Pregnant women');
-  t('Proportion of individuals');
   t('Recruitment end date');
   t('Recruitment start date');
-  t('Reference Panels');
-  t('Release Date');
+  t('Reference population');
   t('Release date');
   t('Select general study design. You may select only one design, which should be the design that defined recruitment.');
   t('Select the type of people targeted by the study design.');
   t('South Asian / Indian Subcontinent');
   t('Study Design');
   t('Trial registration number');
+  t('Upload ancestry scatter plot');
   t('What type of intervention is being investigated?');
   t('When did recruitment start?');
   t('dummy_ic');

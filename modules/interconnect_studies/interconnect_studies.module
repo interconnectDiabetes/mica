@@ -428,26 +428,21 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	);
 	
 	//genotyping dependencies
-	
-	$lang = $form['field_genotyping_arrays_ic']['#language'];
-	$form['field_genotyping_arrays_ic'][$lang]['#after_build'] = array('field_genotyping_arrays_ic_after_build','field_form_element_after_build');
-	$lang = $form['field_hapmap_ref_panel_ic']['#language'];
-	$form['field_hapmap_ref_panel_ic'][$lang]['#after_build'] = array('field_hapmap_ref_panel_ic_after_build','field_form_element_after_build');
-	$lang = $form['field_1000_genomes_ref_pan_ic']['#language'];
-	$form['field_1000_genomes_ref_pan_ic'][$lang]['#after_build'] = array('field_1000_genomes_ref_pan_ic_after_build','field_form_element_after_build');
-
-	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
-	//_mica_add_dependent_field_checked($form, 'field_list_of_arrays_ic', 'field_other_arrays_ic', '999');
-	
-	// $lang = $form['field_study_populations']['#language'];
-	// $form['field_study_populations']['#states']['invisible'] = array(
-        // ':input[name="field_dummy_ic['.$lang.'][0][value][#default_value]"]' => array('filled' => TRUE),
-	// );
+		
+	dependency_setup('field_race_african_ic','field_genotype_african_ic','field_african_mds_plots_ic',$form);
+	dependency_setup('field_race_e_asian_ic','field_genotype_east_asian_ic','field_e_asian_mds_plots_ic',$form);
+	dependency_setup('field_race_s_asian_ic','field_genotype_south_asian_ic','field_s_asian_mds_plots_ic',$form);
+	dependency_setup('field_race_euro_ic','field_genotype_euro_ic','field_euro_mds_plots_ic',$form);
+	dependency_setup('field_race_indig_am_ic','field_genotype_indig_am_ic','field_indig_am_mds_plots_ic',$form);
+	dependency_setup('field_race_indig_aus_ic','field_genotype_indig_aus_ic','field_indig_aus_mds_plots_ic',$form);
+	dependency_setup('field_race_indig_pac_ic','field_genotype_indig_pac_ic','field_indig_pac_mds_plots_ic',$form);
+	dependency_setup('field_race_mid_e_ic','field_genotype_mid_e_ic','field_mid_e_mds_plots_ic',$form);
+	dependency_setup('field_race_other_ic','field_genotype_other_ic','field_other_mds_plots_ic',$form);
 	
 	// add a callback to a function that disables the text input for populations
 	$lang = $form['field_study_populations']['#language'];
 	$form['field_study_populations'][$lang]['#after_build'] = array('field_study_populations_after_build','field_form_element_after_build');
-
+	
 }
 
 //function to assist with stopping users entering something in the populations field
@@ -462,7 +457,55 @@ function field_study_populations_after_build($form, &$form_state) {
     return $form;	
 }
 
+//function to set up genotyping dependencies
+
+function dependency_setup($race_name,$genotype_name,$mds_name,&$form){
+	
+	$lang = $form[$race_name]['#language'];
+	$form[$genotype_name]['#states']['visible'] = array(
+        ':input[name="'.$race_name.'['.$lang.'][0][value]"]' => array('filled' => TRUE),
+	);
+	$form[$mds_name]['#states']['visible'] = array(
+        ':input[name="'.$race_name.'['.$lang.'][0][value]"]' => array('filled' => TRUE),
+	);	
+	$lang = $form[$genotype_name]['#language'];
+	$form[$genotype_name][$lang]['#after_build'] = array('field_genotype_after_build','field_form_element_after_build');
+	
+}
+
 // functions to run after page built to add the states to new field collections by iterating over them
+
+ function field_genotype_after_build($form, &$form_state) {
+    foreach($form as $k => $v) {
+        if(isset($v['#entity_type']) && $v['#entity_type']=='field_collection_item') {
+			$my_name = $form[$k]['#field_name'];
+			$lang = $form[$k]['field_genotyping_platform']['#language'];
+			$form[$k]['field_other_platforms']['#states'] = array(
+                'visible' => array(
+                    ':input[name="'.$my_name.'['.$lang.']['.$k.'][field_genotyping_platform]['.$lang.']"]' => array('value' => '999'),
+                ),
+            );
+			$lang = $form[$k]['field_imputation_panel']['#language'];
+			$form[$k]['field_other_imputation_panel']['#states'] = array(
+                'visible' => array(
+                    ':input[name="'.$my_name.'['.$lang.']['.$k.'][field_imputation_panel]['.$lang.']"]' => array('value' => '999'),
+                ),
+            );
+			$form[$k]['field_release_date']['#states'] = array(
+                'visible' => array(
+                    ':input[name="'.$my_name.'['.$lang.']['.$k.'][field_imputation_panel]['.$lang.']"]' => array('value' => '999'),
+                ),
+            );
+			$lang = $form[$k]['field_reference_population']['#language'];
+			$form[$k]['field_other_reference_population']['#states'] = array(
+                'visible' => array(
+                    ':input[name="'.$my_name.'['.$lang.']['.$k.'][field_reference_population]['.$lang.']"]' => array('value' => '999'),
+                ),
+            );
+        }
+    }
+     return $form;
+ }
 
  function field_genotyping_arrays_ic_after_build($form, &$form_state) {
 

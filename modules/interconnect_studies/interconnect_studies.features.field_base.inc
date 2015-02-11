@@ -10,130 +10,39 @@
 function interconnect_studies_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_1000_genomes_ref_pan_ic'
-  $field_bases['field_1000_genomes_ref_pan_ic'] = array(
+  // Exported field_base: 'field_african_mds_plots_ic'
+  $field_bases['field_african_mds_plots_ic'] = array(
     'active' => 1,
-    'cardinality' => -1,
+    'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_1000_genomes_ref_pan_ic',
+    'field_name' => 'field_african_mds_plots_ic',
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'fid' => array(
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+        'table' => 'file_managed',
+      ),
+    ),
     'indexes' => array(
-      'revision_id' => array(
-        0 => 'revision_id',
+      'fid' => array(
+        0 => 'fid',
       ),
     ),
     'locked' => 0,
-    'module' => 'field_collection',
+    'module' => 'file',
     'settings' => array(
-      'hide_blank_items' => 1,
-      'path' => '',
+      'display_default' => 0,
+      'display_field' => 0,
       'profile2_private' => FALSE,
+      'uri_scheme' => 'public',
     ),
     'translatable' => 0,
-    'type' => 'field_collection',
-  );
-
-  // Exported field_base: 'field_1000genomes_prop_inds_ic'
-  $field_bases['field_1000genomes_prop_inds_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_1000genomes_prop_inds_ic',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'number_integer',
-  );
-
-  // Exported field_base: 'field_1000genomes_ref_panels_ic'
-  $field_bases['field_1000genomes_ref_panels_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_1000genomes_ref_panels_ic',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        1 => 'Cosmopolitan',
-        2 => 'ASW',
-        3 => 'CEU',
-        4 => 'CHB',
-        5 => 'CHS',
-        6 => 'CLM',
-        7 => 'FIN',
-        8 => 'GBR',
-        9 => 'IBS',
-        10 => 'JPT',
-        11 => 'LWK',
-        12 => 'MXL',
-        13 => 'PUR',
-        14 => 'TSI',
-        15 => 'YRI',
-        999 => 'Other',
-      ),
-      'allowed_values_function' => '',
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'list_integer',
-  );
-
-  // Exported field_base: 'field_1000genomes_release_date_i'
-  $field_bases['field_1000genomes_release_date_i'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_1000genomes_release_date_i',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'date',
-    'settings' => array(
-      'cache_count' => 4,
-      'cache_enabled' => 0,
-      'granularity' => array(
-        'day' => 0,
-        'hour' => 0,
-        'minute' => 0,
-        'month' => 'month',
-        'second' => 0,
-        'year' => 'year',
-      ),
-      'profile2_private' => FALSE,
-      'timezone_db' => '',
-      'todate' => '',
-      'tz_handling' => 'none',
-    ),
-    'translatable' => 0,
-    'type' => 'datetime',
+    'type' => 'file',
   );
 
   // Exported field_base: 'field_case_definition_ic'
@@ -173,87 +82,6 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_text',
-  );
-
-  // Exported field_base: 'field_custom_ref_panel_ic'
-  $field_bases['field_custom_ref_panel_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_custom_ref_panel_ic',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
-  // Exported field_base: 'field_custom_ref_panels_ic'
-  $field_bases['field_custom_ref_panels_ic'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_custom_ref_panels_ic',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(
-      'revision_id' => array(
-        0 => 'revision_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'field_collection',
-    'settings' => array(
-      'hide_blank_items' => 1,
-      'path' => '',
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'field_collection',
-  );
-
-  // Exported field_base: 'field_custom_ref_prop_ic'
-  $field_bases['field_custom_ref_prop_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_custom_ref_prop_ic',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_design_ic'
@@ -410,6 +238,41 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_e_asian_mds_plots_ic'
+  $field_bases['field_e_asian_mds_plots_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_e_asian_mds_plots_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'fid' => array(
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+        'table' => 'file_managed',
+      ),
+    ),
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'profile2_private' => FALSE,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
+  );
+
   // Exported field_base: 'field_eth_his_lat_ic'
   $field_bases['field_eth_his_lat_ic'] = array(
     'active' => 1,
@@ -435,6 +298,41 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_euro_mds_plots_ic'
+  $field_bases['field_euro_mds_plots_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_euro_mds_plots_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'fid' => array(
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+        'table' => 'file_managed',
+      ),
+    ),
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'profile2_private' => FALSE,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
   );
 
   // Exported field_base: 'field_family_ic'
@@ -514,90 +412,15 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_genotyping_arrays_ic'
-  $field_bases['field_genotyping_arrays_ic'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_genotyping_arrays_ic',
-    'field_permissions' => array(
-      'type' => 2,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(
-      'revision_id' => array(
-        0 => 'revision_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'field_collection',
-    'settings' => array(
-      'hide_blank_items' => 1,
-      'path' => '',
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'field_collection',
-  );
-
-  // Exported field_base: 'field_hapmap_prop_inds_ic'
-  $field_bases['field_hapmap_prop_inds_ic'] = array(
+  // Exported field_base: 'field_gen_array_ic'
+  $field_bases['field_gen_array_ic'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_hapmap_prop_inds_ic',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'number_integer',
-  );
-
-  // Exported field_base: 'field_hapmap_ref_panel_ic'
-  $field_bases['field_hapmap_ref_panel_ic'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_hapmap_ref_panel_ic',
+    'field_name' => 'field_gen_array_ic',
     'field_permissions' => array(
       'type' => 2,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(
-      'revision_id' => array(
-        0 => 'revision_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'field_collection',
-    'settings' => array(
-      'hide_blank_items' => 1,
-      'path' => '',
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'field_collection',
-  );
-
-  // Exported field_base: 'field_hapmap_ref_panels_ic'
-  $field_bases['field_hapmap_ref_panels_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_hapmap_ref_panels_ic',
-    'field_permissions' => array(
-      'type' => 0,
     ),
     'foreign keys' => array(),
     'indexes' => array(
@@ -609,11 +432,445 @@ function interconnect_studies_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        1 => 'CEU',
-        2 => 'YRI',
-        3 => 'JPT',
-        4 => 'CHB',
-        5 => 'JPT/CHB',
+        1 => 'HumanHap240',
+        2 => 'HumanHap300',
+        3 => 'Human CNV370',
+        4 => 'HumanHap550',
+        5 => 'Human610Quad',
+        6 => 'HumanHap650Y',
+        7 => 'Human660W',
+        8 => 'Human670-QuadCustom',
+        9 => 'HumanOmniExpress-12',
+        10 => 'HumanOmniExpress-24',
+        11 => 'HumanOmniExpressExome-8',
+        12 => 'OmniExpressExome-8',
+        13 => 'HumanOmni25Exome-8',
+        14 => 'HumanOmniZhongHua-8',
+        15 => 'Human1M',
+        16 => 'Human1M-Duo',
+        17 => 'HumanOmni1-Quad',
+        18 => 'HumanOmni1S',
+        19 => 'Human1.2MDuoCustom',
+        20 => 'HumanOmni2.5-4',
+        21 => 'HumanOmni2.5-8',
+        22 => 'HumanOmni5-4',
+        23 => 'HumanCytoSNP-12',
+        24 => 'HumanCore-12',
+        25 => 'HumanCore-24',
+        26 => 'HumanExome-12',
+        27 => 'HumanCoreExome-12',
+        28 => 'HumanCoreExome-24',
+        29 => 'Cardio-Metabo_Chip',
+        30 => 'CVDSNP55',
+        31 => 'PsychArray',
+        32 => 'Affymetrix 500K (Nsp and Sty Chips)',
+        33 => 'Affymetrix 6.0 (1M chip)',
+        999 => 'Other',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_genotype_african_ic'
+  $field_bases['field_genotype_african_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotype_african_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_genotype_east_asian_ic'
+  $field_bases['field_genotype_east_asian_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotype_east_asian_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_genotype_euro_ic'
+  $field_bases['field_genotype_euro_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotype_euro_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_genotype_indig_am_ic'
+  $field_bases['field_genotype_indig_am_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotype_indig_am_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_genotype_indig_aus_ic'
+  $field_bases['field_genotype_indig_aus_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotype_indig_aus_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_genotype_indig_pac_ic'
+  $field_bases['field_genotype_indig_pac_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotype_indig_pac_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_genotype_mid_e_ic'
+  $field_bases['field_genotype_mid_e_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotype_mid_e_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_genotype_num_indv_ic'
+  $field_bases['field_genotype_num_indv_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotype_num_indv_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'integer',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_genotype_other_ic'
+  $field_bases['field_genotype_other_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotype_other_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_genotype_south_asian_ic'
+  $field_bases['field_genotype_south_asian_ic'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotype_south_asian_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'revision_id' => array(
+        0 => 'revision_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'field_collection',
+    'settings' => array(
+      'hide_blank_items' => 1,
+      'path' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'field_collection',
+  );
+
+  // Exported field_base: 'field_genotyping_array_ic'
+  $field_bases['field_genotyping_array_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotyping_array_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => 'HumanHap240',
+        2 => 'HumanHap300',
+        3 => 'Human CNV370',
+        4 => 'HumanHap550',
+        5 => 'Human610Quad',
+        6 => 'HumanHap650Y',
+        7 => 'Human660W',
+        8 => 'Human670-QuadCustom',
+        9 => 'HumanOmniExpress-12',
+        10 => 'HumanOmniExpress-24',
+        11 => 'HumanOmniExpressExome-8',
+        12 => 'OmniExpressExome-8',
+        13 => 'HumanOmni25Exome-8',
+        14 => 'HumanOmniZhongHua-8',
+        15 => 'Human1M',
+        16 => 'Human1M-Duo',
+        17 => 'HumanOmni1-Quad',
+        18 => 'HumanOmni1S',
+        19 => 'Human1.2MDuoCustom',
+        20 => 'HumanOmni2.5-4',
+        21 => 'HumanOmni2.5-8',
+        22 => 'HumanOmni5-4',
+        23 => 'HumanCytoSNP-12',
+        24 => 'HumanCore-12',
+        25 => 'HumanCore-24',
+        26 => 'HumanExome-12',
+        27 => 'HumanCoreExome-12',
+        28 => 'HumanCoreExome-24',
+        29 => 'Cardio-Metabo_Chip',
+        30 => 'CVDSNP55',
+        31 => 'PsychArray',
+        32 => 'Affymetrix 500K (Nsp and Sty Chips)',
+        33 => 'Affymetrix 6.0 (1M chip)',
+        999 => 'Other',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'integer',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_integer',
+  );
+
+  // Exported field_base: 'field_genotyping_platform'
+  $field_bases['field_genotyping_platform'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_genotyping_platform',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => 'HumanHap240',
+        2 => 'HumanHap300',
+        3 => 'Human CNV370',
+        4 => 'HumanHap550',
+        5 => 'Human610Quad',
+        6 => 'HumanHap650Y',
+        7 => 'Human660W',
+        8 => 'Human670-QuadCustom',
+        9 => 'HumanOmniExpress-12',
+        10 => 'HumanOmniExpress-24',
+        11 => 'HumanOmniExpressExome-8',
+        12 => 'OmniExpressExome-8',
+        13 => 'HumanOmni25Exome-8',
+        14 => 'HumanOmniZhongHua-8',
+        15 => 'Human1M',
+        16 => 'Human1M-Duo',
+        17 => 'HumanOmni1-Quad',
+        18 => 'HumanOmni1S',
+        19 => 'Human1.2MDuoCustom',
+        20 => 'HumanOmni2.5-4',
+        21 => 'HumanOmni2.5-8',
+        22 => 'HumanOmni5-4',
+        23 => 'HumanCytoSNP-12',
+        24 => 'HumanCore-12',
+        25 => 'HumanCore-24',
+        26 => 'HumanExome-12',
+        27 => 'HumanCoreExome-12',
+        28 => 'HumanCoreExome-24',
+        29 => 'Cardio-Metabo_Chip',
+        30 => 'CVDSNP55',
+        31 => 'PsychArray',
+        32 => 'Affymetrix 500K (Nsp and Sty Chips)',
+        33 => 'Affymetrix 6.0 (1M chip)',
         999 => 'Other',
       ),
       'allowed_values_function' => '',
@@ -621,40 +878,6 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_integer',
-  );
-
-  // Exported field_base: 'field_hapmap_release_date_ic'
-  $field_bases['field_hapmap_release_date_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_hapmap_release_date_ic',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'date',
-    'settings' => array(
-      'cache_count' => 4,
-      'cache_enabled' => 0,
-      'granularity' => array(
-        'day' => 0,
-        'hour' => 0,
-        'minute' => 0,
-        'month' => 'month',
-        'second' => 0,
-        'year' => 'year',
-      ),
-      'profile2_private' => FALSE,
-      'timezone_db' => '',
-      'todate' => '',
-      'tz_handling' => 'none',
-    ),
-    'translatable' => 0,
-    'type' => 'datetime',
   );
 
   // Exported field_base: 'field_health_info_ic'
@@ -730,6 +953,283 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
+  );
+
+  // Exported field_base: 'field_imp_panel_release_date_ic'
+  $field_bases['field_imp_panel_release_date_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_imp_panel_release_date_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'date',
+    'settings' => array(
+      'cache_count' => 4,
+      'cache_enabled' => 0,
+      'granularity' => array(
+        'day' => 0,
+        'hour' => 0,
+        'minute' => 0,
+        'month' => 'month',
+        'second' => 0,
+        'year' => 'year',
+      ),
+      'profile2_private' => FALSE,
+      'timezone_db' => '',
+      'todate' => '',
+      'tz_handling' => 'none',
+    ),
+    'translatable' => 0,
+    'type' => 'datetime',
+  );
+
+  // Exported field_base: 'field_imputation_panel'
+  $field_bases['field_imputation_panel'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_imputation_panel',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => '1000G P3 (Oct 2014)',
+        2 => '1000G P1 (Jun 2014)',
+        3 => '1000G P1 (Dec 2013)',
+        4 => '1000G P1 (Sep 2013)',
+        5 => '1000G P1 (Mar 2012)',
+        6 => '1000G P1 (Jun 2011)',
+        7 => '1000G P1 (Dec 2010)',
+        8 => '1000G Pilot / HapMap3 (Jun 2010 / Feb 2009)',
+        9 => '1000G Pilot (Jun 2010)',
+        10 => 'HapMap3 (Feb 2009)',
+        11 => 'HapMap2 (Oct 2008)',
+        12 => 'HapMap2 (Jan 2008)',
+        13 => 'HapMap2 (Jul 2006)',
+        999 => 'Other',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_integer',
+  );
+
+  // Exported field_base: 'field_imputation_panel_ic'
+  $field_bases['field_imputation_panel_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_imputation_panel_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => '1000G P3 (Oct 2014)',
+        2 => '1000G P1 (Jun 2014)',
+        3 => '1000G P1 (Dec 2013)',
+        4 => '1000G P1 (Sep 2013)',
+        5 => '1000G P1 (Mar 2012)',
+        6 => '1000G P1 (Jun 2011)',
+        7 => '1000G P1 (Dec 2010)',
+        8 => '1000G Pilot / HapMap3 (Jun 2010 / Feb 2009)',
+        9 => '1000G Pilot (Jun 2010)',
+        10 => 'HapMap3 (Feb 2009)',
+        11 => 'HapMap2 (Oct 2008)',
+        12 => 'HapMap2 (Jan 2008)',
+        13 => 'HapMap2 (Jul 2006)',
+        999 => 'Other',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'integer',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_integer',
+  );
+
+  // Exported field_base: 'field_impute_panel_ic'
+  $field_bases['field_impute_panel_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_impute_panel_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => '1000G P3 (Oct 2014)',
+        2 => '1000G P1 (Jun 2014)',
+        3 => '1000G P1 (Dec 2013)',
+        4 => '1000G P1 (Sep 2013)',
+        5 => '1000G P1 (Mar 2012)',
+        6 => '1000G P1 (Jun 2011)',
+        7 => '1000G P1 (Dec 2010)',
+        8 => '1000G Pilot / HapMap3 (Jun 2010 / Feb 2009)',
+        9 => '1000G Pilot (Jun 2010)',
+        10 => 'HapMap3 (Feb 2009)',
+        11 => 'HapMap2 (Oct 2008)',
+        12 => 'HapMap2 (Jan 2008)',
+        13 => 'HapMap2 (Jul 2006)',
+        999 => 'Other',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
+  // Exported field_base: 'field_indig_am_mds_plots_ic'
+  $field_bases['field_indig_am_mds_plots_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_indig_am_mds_plots_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'fid' => array(
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+        'table' => 'file_managed',
+      ),
+    ),
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'profile2_private' => FALSE,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
+  );
+
+  // Exported field_base: 'field_indig_aus_mds_plots_ic'
+  $field_bases['field_indig_aus_mds_plots_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_indig_aus_mds_plots_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'fid' => array(
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+        'table' => 'file_managed',
+      ),
+    ),
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'profile2_private' => FALSE,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
+  );
+
+  // Exported field_base: 'field_indig_pac_mds_plots_ic'
+  $field_bases['field_indig_pac_mds_plots_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_indig_pac_mds_plots_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'fid' => array(
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+        'table' => 'file_managed',
+      ),
+    ),
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'profile2_private' => FALSE,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
   );
 
   // Exported field_base: 'field_interv_other_ic'
@@ -808,68 +1308,6 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_list_of_arrays_ic'
-  $field_bases['field_list_of_arrays_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_list_of_arrays_ic',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        1 => 'HumanHap240',
-        2 => 'HumanHap300',
-        3 => 'Human CNV370',
-        4 => 'HumanHap550',
-        5 => 'Human610Quad',
-        6 => 'HumanHap650Y',
-        7 => 'Human660W',
-        8 => 'Human670-QuadCustom',
-        9 => 'HumanOmniExpress-12',
-        10 => 'HumanOmniExpress-24',
-        11 => 'HumanOmniExpressExome-8',
-        12 => 'OmniExpressExome-8',
-        13 => 'HumanOmni25Exome-8',
-        14 => 'HumanOmniZhongHua-8',
-        15 => 'Human1M',
-        16 => 'Human1M-Duo',
-        17 => 'HumanOmni1-Quad',
-        18 => 'HumanOmni1S',
-        19 => 'Human1.2MDuoCustom',
-        20 => 'HumanOmni2.5-4',
-        21 => 'HumanOmni2.5-8',
-        22 => 'HumanOmni5-4',
-        23 => 'HumanCytoSNP-12',
-        24 => 'HumanCore-12',
-        25 => 'HumanCore-24',
-        26 => 'HumanExome-12',
-        27 => 'HumanCoreExome-12',
-        28 => 'HumanCoreExome-24',
-        29 => 'Cardio-Metabo_Chip',
-        30 => 'CVDSNP55',
-        31 => 'PsychArray',
-        32 => 'Affymetrix 500K (Nsp and Sty Chips)',
-        33 => 'Affymetrix 6.0 (1M chip)',
-        999 => 'Other',
-      ),
-      'allowed_values_function' => '',
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'list_integer',
-  );
-
   // Exported field_base: 'field_measure_diet_ic'
   $field_bases['field_measure_diet_ic'] = array(
     'active' => 1,
@@ -942,6 +1380,27 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
+  // Exported field_base: 'field_number_of_individuals'
+  $field_bases['field_number_of_individuals'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_number_of_individuals',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
   // Exported field_base: 'field_number_of_participants_ic'
   $field_bases['field_number_of_participants_ic'] = array(
     'active' => 1,
@@ -967,68 +1426,6 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'number_integer',
-  );
-
-  // Exported field_base: 'field_other_1000genomes_pan_ic'
-  $field_bases['field_other_1000genomes_pan_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_other_1000genomes_pan_ic',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
-  );
-
-  // Exported field_base: 'field_other_arrays_ic'
-  $field_bases['field_other_arrays_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_other_arrays_ic',
-    'foreign keys' => array(
-      'format' => array(
-        'columns' => array(
-          'format' => 'format',
-        ),
-        'table' => 'filter_format',
-      ),
-    ),
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(
-      'max_length' => 255,
-    ),
-    'translatable' => 0,
-    'type' => 'text',
   );
 
   // Exported field_base: 'field_other_case_ic'
@@ -1070,13 +1467,55 @@ function interconnect_studies_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_other_hapmap_ref_pan_ic'
-  $field_bases['field_other_hapmap_ref_pan_ic'] = array(
+  // Exported field_base: 'field_other_gen_arrays_ic'
+  $field_bases['field_other_gen_arrays_ic'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_other_hapmap_ref_pan_ic',
+    'field_name' => 'field_other_gen_arrays_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_other_imputation_panel'
+  $field_bases['field_other_imputation_panel'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_other_imputation_panel',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
     'foreign keys' => array(
       'format' => array(
         'columns' => array(
@@ -1094,6 +1533,147 @@ function interconnect_studies_field_default_field_bases() {
     'module' => 'text',
     'settings' => array(
       'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_other_impute_panel_ic'
+  $field_bases['field_other_impute_panel_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_other_impute_panel_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_other_mds_plots_ic'
+  $field_bases['field_other_mds_plots_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_other_mds_plots_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'fid' => array(
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+        'table' => 'file_managed',
+      ),
+    ),
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'profile2_private' => FALSE,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
+  );
+
+  // Exported field_base: 'field_other_platforms'
+  $field_bases['field_other_platforms'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_other_platforms',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_other_reference_population'
+  $field_bases['field_other_reference_population'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_other_reference_population',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+      'profile2_private' => FALSE,
     ),
     'translatable' => 0,
     'type' => 'text',
@@ -1313,27 +1893,6 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
-  );
-
-  // Exported field_base: 'field_proportion_of_individ_ic'
-  $field_bases['field_proportion_of_individ_ic'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_proportion_of_individ_ic',
-    'field_permissions' => array(
-      'type' => 0,
-    ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'profile2_private' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_race_african_ic'
@@ -1720,6 +2279,212 @@ function interconnect_studies_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'date',
+  );
+
+  // Exported field_base: 'field_reference_pop_ic'
+  $field_bases['field_reference_pop_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_reference_pop_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'All',
+        1 => 'Cosmopolitan',
+        2 => 'ASW',
+        3 => 'CEU',
+        4 => 'CHB',
+        5 => 'CHS',
+        6 => 'CLM',
+        7 => 'FIN',
+        8 => 'GBR',
+        9 => 'IBS',
+        10 => 'JPT',
+        11 => 'JPT/CHB',
+        12 => 'LWK',
+        13 => 'MXL',
+        14 => 'PUR',
+        15 => 'TSI',
+        16 => 'YRI',
+        999 => 'Other',
+      ),
+      'allowed_values_function' => '',
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'integer',
+      ),
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_integer',
+  );
+
+  // Exported field_base: 'field_reference_pop_other_ic'
+  $field_bases['field_reference_pop_other_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_reference_pop_other_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'field_description_infos' => array(
+        'field_description' => 0,
+        'field_description_body' => '',
+        'field_description_label' => '',
+        'field_description_value_type' => 'text',
+      ),
+      'max_length' => 255,
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_reference_population'
+  $field_bases['field_reference_population'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_reference_population',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'All',
+        1 => 'Cosmopolitan',
+        2 => 'ASW',
+        3 => 'CEU',
+        4 => 'CHB',
+        5 => 'CHS',
+        6 => 'CLM',
+        7 => 'FIN',
+        8 => 'GBR',
+        9 => 'IBS',
+        10 => 'JPT',
+        11 => 'JPT/CHB',
+        12 => 'LWK',
+        13 => 'MXL',
+        14 => 'PUR',
+        15 => 'TSI',
+        16 => 'YRI',
+        999 => 'Other',
+      ),
+      'allowed_values_function' => '',
+      'profile2_private' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_integer',
+  );
+
+  // Exported field_base: 'field_release_date'
+  $field_bases['field_release_date'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_release_date',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(),
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'date',
+    'settings' => array(
+      'cache_count' => 4,
+      'cache_enabled' => 0,
+      'granularity' => array(
+        'day' => 0,
+        'hour' => 0,
+        'minute' => 0,
+        'month' => 'month',
+        'second' => 0,
+        'year' => 'year',
+      ),
+      'profile2_private' => FALSE,
+      'timezone_db' => '',
+      'todate' => '',
+      'tz_handling' => 'none',
+    ),
+    'translatable' => 0,
+    'type' => 'datetime',
+  );
+
+  // Exported field_base: 'field_s_asian_mds_plots_ic'
+  $field_bases['field_s_asian_mds_plots_ic'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_s_asian_mds_plots_ic',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
+    'foreign keys' => array(
+      'fid' => array(
+        'columns' => array(
+          'fid' => 'fid',
+        ),
+        'table' => 'file_managed',
+      ),
+    ),
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'profile2_private' => FALSE,
+      'uri_scheme' => 'public',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
   );
 
   // Exported field_base: 'field_trial_number_ic'
