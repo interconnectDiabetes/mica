@@ -84,8 +84,8 @@ function interconnect_studies_field_group_info_alter(&$data) {
       'required_fields' => 1,
       'classes' => 'group-main-ic',
       'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                          <br>
-                                                                                                                                          <br>',
+                                                                                                                                                      <br>
+                                                                                                                                                      <br>',
     ); /* WAS: '' */
     $data['group_pop_selection_criteria|node|population|form']->data['format_settings']['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
     $data['group_pop_selection_criteria|node|population|form']->data['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
@@ -235,8 +235,10 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
     ); /* WAS: '' */
   }
   if (isset($data['node-study-body'])) {
+    $data['node-study-body']['display']['default']['type'] = 'hidden'; /* WAS: 'text_default' */
     $data['node-study-body']['required'] = 0; /* WAS: 1 */
     $data['node-study-body']['widget']['weight'] = 5; /* WAS: 4 */
+    unset($data['node-study-body']['display']['default']['module']);
   }
   if (isset($data['node-study-field_acroym'])) {
     $data['node-study-field_acroym']['description'] = 'If applicable, enter study acronym'; /* WAS: 'Acronym of the study if applicable.' */

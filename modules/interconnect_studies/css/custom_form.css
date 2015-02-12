@@ -1,5 +1,8 @@
 
-
+.megaclass div.form-wrapper{
+	float: left;
+	padding-left: 20px;
+}
 
 label.control-label {
 	font-weight: bold;

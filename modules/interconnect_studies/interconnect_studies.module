@@ -428,7 +428,8 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	);
 	
 	//genotyping dependencies
-		
+	
+	dependency_setup('field_eth_his_lat_ic','field_genotype_his_lat_ic','field_his_lat_mds_plots_ic',$form);	
 	dependency_setup('field_race_african_ic','field_genotype_african_ic','field_african_mds_plots_ic',$form);
 	dependency_setup('field_race_e_asian_ic','field_genotype_east_asian_ic','field_e_asian_mds_plots_ic',$form);
 	dependency_setup('field_race_s_asian_ic','field_genotype_south_asian_ic','field_s_asian_mds_plots_ic',$form);
@@ -441,8 +442,7 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	
 	// add a callback to a function that disables the text input for populations
 	$lang = $form['field_study_populations']['#language'];
-	$form['field_study_populations'][$lang]['#after_build'] = array('field_study_populations_after_build','field_form_element_after_build');
-	
+	$form['field_study_populations'][$lang]['#after_build'] = array('field_form_element_after_build','field_study_populations_after_build');
 }
 
 //function to assist with stopping users entering something in the populations field
@@ -450,7 +450,7 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 function field_study_populations_after_build($form, &$form_state) {
 	foreach($form as $k => $v) {
 		if (is_numeric($k)){
-			$form[$k]['nid']['#attributes']['disabled'] = TRUE;
+			$form[$k]['nid']['#attributes']['readonly'] = TRUE;
 			}	
 
 		}
@@ -704,10 +704,12 @@ function interconnect_studies_node_view_alter(&$build){
 
 //function to run when pressing save button for study - stay on the same page after save
 function _interconnect_studies_save_study_submit($form, &$form_state) {
+	
 	if (isset($form['actions']['_interconnect_studies_save_study_submit'])) {
 		$form_state['redirect'] = 'node/'.$form_state['nid'].'/edit';
 		$form_state['nid'] = NULL;
 	}
+	
 }
 
 //function to run when pressing save and add population button

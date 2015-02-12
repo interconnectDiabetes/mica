@@ -922,6 +922,310 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'field_collection_item-field_genotype_his_lat_ic-field_genotyping_platform'
+  $field_instances['field_collection_item-field_genotype_his_lat_ic-field_genotyping_platform'] = array(
+    'bundle' => 'field_genotype_his_lat_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_genotyping_platform',
+    'label' => 'Genotyping platform',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_his_lat_ic-field_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_his_lat_ic-field_imputation_panel'] = array(
+    'bundle' => 'field_genotype_his_lat_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 5,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_imputation_panel',
+    'label' => 'Imputation panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_his_lat_ic-field_number_of_individuals'
+  $field_instances['field_collection_item-field_genotype_his_lat_ic-field_number_of_individuals'] = array(
+    'bundle' => 'field_genotype_his_lat_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 2,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_number_of_individuals',
+    'label' => 'Number of individuals',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_his_lat_ic-field_other_imputation_panel'
+  $field_instances['field_collection_item-field_genotype_his_lat_ic-field_other_imputation_panel'] = array(
+    'bundle' => 'field_genotype_his_lat_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_imputation_panel',
+    'label' => 'Other Imputation Panel',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_his_lat_ic-field_other_platforms'
+  $field_instances['field_collection_item-field_genotype_his_lat_ic-field_other_platforms'] = array(
+    'bundle' => 'field_genotype_his_lat_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_platforms',
+    'label' => 'Other platforms',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_his_lat_ic-field_other_reference_population'
+  $field_instances['field_collection_item-field_genotype_his_lat_ic-field_other_reference_population'] = array(
+    'bundle' => 'field_genotype_his_lat_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_other_reference_population',
+    'label' => 'Other reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_his_lat_ic-field_reference_population'
+  $field_instances['field_collection_item-field_genotype_his_lat_ic-field_reference_population'] = array(
+    'bundle' => 'field_genotype_his_lat_ic',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 6,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_reference_population',
+    'label' => 'Reference population',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_genotype_his_lat_ic-field_release_date'
+  $field_instances['field_collection_item-field_genotype_his_lat_ic-field_release_date'] = array(
+    'bundle' => 'field_genotype_his_lat_ic',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 4,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_release_date',
+    'label' => 'Release date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'description_display' => 'before',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+10',
+      ),
+      'type' => 'date_select',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'field_collection_item-field_genotype_indig_am_ic-field_genotyping_platform'
   $field_instances['field_collection_item-field_genotype_indig_am_ic-field_genotyping_platform'] = array(
     'bundle' => 'field_genotype_indig_am_ic',
@@ -2962,9 +3266,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -3007,7 +3310,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 45,
@@ -3046,7 +3348,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 40,
@@ -3085,7 +3386,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 41,
@@ -3127,7 +3427,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 68,
@@ -3166,7 +3465,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 73,
@@ -3206,9 +3504,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -3251,13 +3548,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 53,
       ),
@@ -3298,9 +3589,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -3343,7 +3633,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 49,
@@ -3382,7 +3671,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 50,
@@ -3424,15 +3712,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 83,
       ),
       'teaser' => array(
@@ -3469,15 +3750,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 87,
       ),
       'teaser' => array(
@@ -3514,15 +3788,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 87,
       ),
       'teaser' => array(
@@ -3559,15 +3826,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 87,
       ),
       'teaser' => array(
@@ -3604,15 +3864,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 87,
       ),
       'teaser' => array(
@@ -3649,15 +3902,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 87,
       ),
       'teaser' => array(
@@ -3694,15 +3940,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 87,
       ),
       'teaser' => array(
@@ -3739,15 +3978,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 87,
       ),
       'teaser' => array(
@@ -3784,15 +4016,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 87,
       ),
       'teaser' => array(
@@ -3829,7 +4054,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 64,
@@ -3865,7 +4089,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 65,
@@ -3898,6 +4121,49 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-study-field_his_lat_mds_plots_ic'
+  $field_instances['node-study-field_his_lat_mds_plots_ic'] = array(
+    'bundle' => 'study',
+    'deleted' => 0,
+    'description' => 'Please run the MDS script (<a href="/sites/default/files/2014-08-08_Files4MDS.zip">here</a>) and upload the output',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 88,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_his_lat_mds_plots_ic',
+    'label' => 'Upload ancestry scatter plot',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'before',
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 142,
+    ),
+  );
+
   // Exported field_instance: 'node-study-field_indig_am_mds_plots_ic'
   $field_instances['node-study-field_indig_am_mds_plots_ic'] = array(
     'bundle' => 'study',
@@ -3906,9 +4172,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -3950,9 +4215,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -3994,9 +4258,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4039,7 +4302,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 44,
@@ -4081,7 +4343,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 43,
@@ -4120,7 +4381,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 66,
@@ -4159,7 +4419,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 67,
@@ -4198,13 +4457,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 51,
       ),
@@ -4245,7 +4498,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 46,
@@ -4286,9 +4538,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4330,14 +4581,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 52,
       ),
@@ -4385,13 +4629,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 54,
       ),
@@ -4433,13 +4671,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 55,
       ),
@@ -4481,13 +4713,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 57,
       ),
@@ -4529,13 +4755,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 58,
       ),
@@ -4577,13 +4797,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 59,
       ),
@@ -4625,13 +4839,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 60,
       ),
@@ -4673,13 +4881,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 61,
       ),
@@ -4721,13 +4923,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 62,
       ),
@@ -4769,7 +4965,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 63,
@@ -4810,13 +5005,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 56,
       ),
@@ -4858,7 +5047,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 69,
@@ -4895,14 +5083,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 48,
       ),
@@ -4949,14 +5130,7 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
+        'settings' => array(),
         'type' => 'hidden',
         'weight' => 47,
       ),
@@ -5003,9 +5177,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -5048,7 +5221,6 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 42,

@@ -80,6 +80,16 @@ function interconnect_studies_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'create field_genotype_his_lat_ic'.
+  $permissions['create field_genotype_his_lat_ic'] = array(
+    'name' => 'create field_genotype_his_lat_ic',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'consortium administrator' => 'consortium administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create field_genotype_indig_am_ic'.
   $permissions['create field_genotype_indig_am_ic'] = array(
     'name' => 'create field_genotype_indig_am_ic',
@@ -163,6 +173,16 @@ function interconnect_studies_user_default_permissions() {
   // Exported permission: 'create field_genotyping_platform'.
   $permissions['create field_genotyping_platform'] = array(
     'name' => 'create field_genotyping_platform',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'consortium administrator' => 'consortium administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'create field_his_lat_mds_plots_ic'.
+  $permissions['create field_his_lat_mds_plots_ic'] = array(
+    'name' => 'create field_his_lat_mds_plots_ic',
     'roles' => array(
       'administrator' => 'administrator',
       'consortium administrator' => 'consortium administrator',
@@ -440,6 +460,16 @@ function interconnect_studies_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'edit field_genotype_his_lat_ic'.
+  $permissions['edit field_genotype_his_lat_ic'] = array(
+    'name' => 'edit field_genotype_his_lat_ic',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'consortium administrator' => 'consortium administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit field_genotype_indig_am_ic'.
   $permissions['edit field_genotype_indig_am_ic'] = array(
     'name' => 'edit field_genotype_indig_am_ic',
@@ -523,6 +553,16 @@ function interconnect_studies_user_default_permissions() {
   // Exported permission: 'edit field_genotyping_platform'.
   $permissions['edit field_genotyping_platform'] = array(
     'name' => 'edit field_genotyping_platform',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'consortium administrator' => 'consortium administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit field_his_lat_mds_plots_ic'.
+  $permissions['edit field_his_lat_mds_plots_ic'] = array(
+    'name' => 'edit field_his_lat_mds_plots_ic',
     'roles' => array(
       'administrator' => 'administrator',
       'consortium administrator' => 'consortium administrator',
@@ -800,6 +840,16 @@ function interconnect_studies_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'edit own field_genotype_his_lat_ic'.
+  $permissions['edit own field_genotype_his_lat_ic'] = array(
+    'name' => 'edit own field_genotype_his_lat_ic',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'consortium administrator' => 'consortium administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit own field_genotype_indig_am_ic'.
   $permissions['edit own field_genotype_indig_am_ic'] = array(
     'name' => 'edit own field_genotype_indig_am_ic',
@@ -883,6 +933,16 @@ function interconnect_studies_user_default_permissions() {
   // Exported permission: 'edit own field_genotyping_platform'.
   $permissions['edit own field_genotyping_platform'] = array(
     'name' => 'edit own field_genotyping_platform',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'consortium administrator' => 'consortium administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit own field_his_lat_mds_plots_ic'.
+  $permissions['edit own field_his_lat_mds_plots_ic'] = array(
+    'name' => 'edit own field_his_lat_mds_plots_ic',
     'roles' => array(
       'administrator' => 'administrator',
       'consortium administrator' => 'consortium administrator',
@@ -1160,6 +1220,16 @@ function interconnect_studies_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'view field_genotype_his_lat_ic'.
+  $permissions['view field_genotype_his_lat_ic'] = array(
+    'name' => 'view field_genotype_his_lat_ic',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'consortium administrator' => 'consortium administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view field_genotype_indig_am_ic'.
   $permissions['view field_genotype_indig_am_ic'] = array(
     'name' => 'view field_genotype_indig_am_ic',
@@ -1243,6 +1313,16 @@ function interconnect_studies_user_default_permissions() {
   // Exported permission: 'view field_genotyping_platform'.
   $permissions['view field_genotyping_platform'] = array(
     'name' => 'view field_genotyping_platform',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'consortium administrator' => 'consortium administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view field_his_lat_mds_plots_ic'.
+  $permissions['view field_his_lat_mds_plots_ic'] = array(
+    'name' => 'view field_his_lat_mds_plots_ic',
     'roles' => array(
       'administrator' => 'administrator',
       'consortium administrator' => 'consortium administrator',
@@ -1520,6 +1600,16 @@ function interconnect_studies_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'view own field_genotype_his_lat_ic'.
+  $permissions['view own field_genotype_his_lat_ic'] = array(
+    'name' => 'view own field_genotype_his_lat_ic',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'consortium administrator' => 'consortium administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view own field_genotype_indig_am_ic'.
   $permissions['view own field_genotype_indig_am_ic'] = array(
     'name' => 'view own field_genotype_indig_am_ic',
@@ -1603,6 +1693,16 @@ function interconnect_studies_user_default_permissions() {
   // Exported permission: 'view own field_genotyping_platform'.
   $permissions['view own field_genotyping_platform'] = array(
     'name' => 'view own field_genotyping_platform',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'consortium administrator' => 'consortium administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view own field_his_lat_mds_plots_ic'.
+  $permissions['view own field_his_lat_mds_plots_ic'] = array(
+    'name' => 'view own field_his_lat_mds_plots_ic',
     'roles' => array(
       'administrator' => 'administrator',
       'consortium administrator' => 'consortium administrator',

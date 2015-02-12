@@ -55,26 +55,26 @@ function _interconnect_studies_block_study_ethnicity($study) {
   if (is_numeric($study)) {
     $study = node_load($study);
   }
-
   $weight = 0;
   $wrapper = entity_metadata_wrapper('node', $study);
   $content = array(
 	_interconnect_studies_block_eth_his_lat($study, $weight),
-	array('#markup' => 'Approximate percentage of participants in each main group represented in the study:',
+	array(array(
+	'#markup' => 'Approximate number of participants in each main group represented in the study:',
 	'#prefix' => '<br><b><u>',
 	'#suffix' => '</u></b>',
-	'#weight' => ++$weight),
-	field_view_field('node', $study, 'field_race_african_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	field_view_field('node', $study, 'field_race_e_asian_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	field_view_field('node', $study, 'field_race_s_asian_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	field_view_field('node', $study, 'field_race_euro_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	field_view_field('node', $study, 'field_race_indig_am_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	field_view_field('node', $study, 'field_race_indig_aus_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	field_view_field('node', $study, 'field_race_indig_pac_ic', array('label' => 'inline', 'weight' => ++$weight)),
-	field_view_field('node', $study, 'field_race_mid_e_ic', array('label' => 'inline', 'weight' => ++$weight)),	
-  );
-  $content[] = _interconnect_studies_block_ethnicity_field_other($wrapper, ++$weight);
-  $content = array_merge($content, _interconnect_studies_block_genotype($study, ++$weight));
+	'#weight' => ++$weight)),
+	_interconnect_studies_block_genotype($study, ++$weight,'field_race_african_ic', 'field_african_mds_plots_ic', 'field_genotype_african_ic'),
+	_interconnect_studies_block_genotype($study, ++$weight,'field_race_e_asian_ic', 'field_e_asian_mds_plots_ic', 'field_genotype_east_asian_ic'),
+	_interconnect_studies_block_genotype($study, ++$weight,'field_race_s_asian_ic', 'field_s_asian_mds_plots_ic', 'field_genotype_south_asian_ic'),
+	_interconnect_studies_block_genotype($study, ++$weight,'field_race_euro_ic', 'field_euro_mds_plots_ic', 'field_genotype_euro_ic'),
+	_interconnect_studies_block_genotype($study, ++$weight,'field_race_indig_am_ic', 'field_indig_am_mds_plots_ic', 'field_genotype_indig_am_ic'),
+	_interconnect_studies_block_genotype($study, ++$weight,'field_race_indig_aus_ic', 'field_indig_aus_mds_plots_ic', 'field_genotype_indig_aus_ic'),
+	_interconnect_studies_block_genotype($study, ++$weight,'field_race_indig_pac_ic', 'field_indig_pac_mds_plots_ic', 'field_genotype_indig_pac_ic'),
+	_interconnect_studies_block_genotype($study, ++$weight,'field_race_mid_e_ic', 'field_mid_e_mds_plots_ic', 'field_genotype_mid_e_ic'),	
+	);
+
+  $content[] = _interconnect_studies_block_ethnicity_field_other($study, $wrapper, ++$weight);
   
   return array(
     'subject' => t('Broad categories of ethnic and racial groups recruited') . '<a name="ethnicity-info"> </a>',
@@ -332,7 +332,7 @@ function _interconnect_studies_block_study_general_design_field_act_participants
   return empty($field['#items']) ? NULL : $field;
 }
 
-function _interconnect_studies_block_ethnicity_field_other($study_wrapper, $weight) {
+function _interconnect_studies_block_ethnicity_field_other($study, $study_wrapper, $weight) {
   $field = array(
     '#theme' => 'field',
     '#weight' => $weight,
@@ -352,8 +352,19 @@ function _interconnect_studies_block_ethnicity_field_other($study_wrapper, $weig
     $field['#items'][] = (!empty($other_group)?'('.$other_group.') ':'').number_format($other_number, 0, '.', ' ');
     $field[]['#markup'] = (!empty($other_group)?'('.$other_group.') ':'').number_format($other_number, 0, '.', ' ');
   }
+  else {
+	$field = NULL;
+  }
 
-  return empty($field['#items']) ? NULL : $field;
+	$content[$weight] = $field;
+	$field = field_view_field('node', $study, 'field_his_lat_mds_plots_ic', array('label' => 'inline', 'weight' => ++$weight));
+	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
+	$field = field_view_field('node', $study, 'field_genotype_his_lat_ic', array('label' => 'inline', 'weight' => ++$weight));
+	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
+
+	return empty($content) ? NULL : $content;
+  
+ // return empty($field['#items']) ? NULL : $field;
 }
 
 function _interconnect_studies_block_europe(){
@@ -372,24 +383,25 @@ function _interconnect_studies_block_europe(){
 
 function _interconnect_studies_block_eth_his_lat($study, $weight){
 	$field = field_view_field('node', $study, 'field_eth_his_lat_ic', array('label' => 'inline', 'weight' => $weight));
-	$field['#title'] = 'Approximate percentage of participants that are of Hispanic or Latino origin';
-	return empty($field['#items']) ? NULL : $field;
+	$field['#title'] = 'Approximate number of participants that are of Hispanic or Latino origin';
+	$content[$weight] = $field;
+	$field = field_view_field('node', $study, 'field_his_lat_mds_plots_ic', array('label' => 'inline', 'weight' => ++$weight));
+	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
+	$field = field_view_field('node', $study, 'field_genotype_his_lat_ic', array('label' => 'inline', 'weight' => ++$weight));
+	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
+
+	return empty($content) ? NULL : $content;
 }
 
-function _interconnect_studies_block_genotype($study, $weight){
+function _interconnect_studies_block_genotype($study, $weight, $race, $mds, $genotype){
 
 	$content = array();
-	$content[$weight] = array('#markup' => 'Genotyping information:',
-	'#prefix' => '<br><b><u>',
-	'#suffix' => '</u></b>',
-	'#weight' => $weight);
-	$field = field_view_field('node', $study, 'field_genotyping_arrays_ic', array('label' => 'inline', 'weight' => ++$weight));
+	$content[$weight] = array();
+	$field = field_view_field('node', $study, $race, array('label' => 'inline', 'weight' => ++$weight));
 	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
-	$field = field_view_field('node', $study, 'field_hapmap_ref_panel_ic', array('label' => 'inline', 'weight' => ++$weight));
+	$field = field_view_field('node', $study, $mds, array('label' => 'inline', 'weight' => ++$weight));
 	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
-	$field = field_view_field('node', $study, 'field_1000_genomes_ref_pan_ic', array('label' => 'inline', 'weight' => ++$weight));
+	$field = field_view_field('node', $study, $genotype, array('label' => 'inline', 'weight' => ++$weight));
 	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
-	$field = field_view_field('node', $study, 'field_custom_ref_panels_ic', array('label' => 'inline', 'weight' => ++$weight));
-	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
-	return sizeof($content) < 6 ? array() : $content;
+	return sizeof($content) < 4 ? array() : $content;
 }

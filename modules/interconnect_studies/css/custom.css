@@ -1,3 +1,8 @@
+
+.field-type-field-collection.field-label-inline.clearfix div.field-items{
+ width: 100%;
+ }
+
 #block-interconnect-studies-study-general-info-ic .field-name-field-design .field-item {
   .other-sub-title {
     font-weight: bold;

@@ -197,6 +197,8 @@ function interconnect_studies_field_group_info() {
     'weight' => '15',
     'children' => array(
       0 => 'field_eth_his_lat_ic',
+      1 => 'field_genotype_his_lat_ic',
+      2 => 'field_his_lat_mds_plots_ic',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

@@ -62,8 +62,8 @@ function interconnect_studies_features_override_default_overrides() {
     'required_fields' => 1,
     'classes' => 'group-main-ic',
     'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                        <br>
-                                                                                                                                        <br>',
+                                                                                                                                                    <br>
+                                                                                                                                                    <br>',
   );
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|format_settings|label"] = 'Participant selection criteria';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|label"] = 'Participant selection criteria';
@@ -171,6 +171,8 @@ function interconnect_studies_features_override_default_overrides() {
     'type' => 'text_textfield',
     'weight' => 0,
   );
+  $overrides["field_instance.node-study-body.display|default|module"]["DELETED"] = TRUE;
+  $overrides["field_instance.node-study-body.display|default|type"] = 'hidden';
   $overrides["field_instance.node-study-body.required"] = 0;
   $overrides["field_instance.node-study-body.widget|weight"] = 5;
   $overrides["field_instance.node-study-field_acroym.description"] = 'If applicable, enter study acronym';
