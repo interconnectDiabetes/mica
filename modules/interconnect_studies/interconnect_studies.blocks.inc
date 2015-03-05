@@ -10,6 +10,7 @@ function _interconnect_studies_block_study_general_info($study) {
 		field_view_field('node', $study, 'title_field', array('label' => 'inline', 'weight' => ++$weight)),
 		field_view_field('node', $study, 'field_acroym', array('label' => 'inline', 'weight' => ++$weight)),
 		field_view_field('node', $study, 'field_contacts_ref', array('label' => 'inline', 'weight' => ++$weight)),
+		field_view_field('node', $study, 'field_study_info_public', array('label' => 'inline', 'weight' => ++$weight)),		
 		field_view_field('node', $study, 'field_marker_paper', array('label' => 'inline', 'weight' => ++$weight)),
 		field_view_field('node', $study, 'field_pubmedid', array(
 			'label' => 'inline',
@@ -357,9 +358,9 @@ function _interconnect_studies_block_ethnicity_field_other($study, $study_wrappe
   }
 
 	$content[$weight] = $field;
-	$field = field_view_field('node', $study, 'field_his_lat_mds_plots_ic', array('label' => 'inline', 'weight' => ++$weight));
+	$field = field_view_field('node', $study, 'field_other_mds_plots_ic', array('label' => 'inline', 'weight' => ++$weight));
 	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
-	$field = field_view_field('node', $study, 'field_genotype_his_lat_ic', array('label' => 'inline', 'weight' => ++$weight));
+	$field = field_view_field('node', $study, 'field_genotype_other_ic', array('label' => 'inline', 'weight' => ++$weight));
 	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
 
 	return empty($content) ? NULL : $content;

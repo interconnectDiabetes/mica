@@ -30,14 +30,16 @@ function interconnect_studies_field_group_info_alter(&$data) {
     $data['group_general_design|node|study|form']->data['format_settings']['label'] = 'General Design'; /* WAS: '' */
   }
   if (isset($data['group_general_info|node|study|form'])) {
-    $data['group_general_info|node|study|form']->data['children']['4'] = 'group_marker_paper'; /* WAS: 'field_networks' */
+    $data['group_general_info|node|study|form']->data['children']['4'] = 'field_study_info_public'; /* WAS: 'field_networks' */
+    $data['group_general_info|node|study|form']->data['children']['5'] = 'group_marker_paper'; /* WAS: 'group_study_name' */
+    $data['group_general_info|node|study|form']->data['children']['6'] = 'group_study_name'; /* WAS: '' */
   }
   if (isset($data['group_marker_paper|node|study|form'])) {
     $data['group_marker_paper|node|study|form']->data['format_settings']['formatter'] = 'open'; /* WAS: 'closed' */
     $data['group_marker_paper|node|study|form']->data['format_settings']['label'] = 'Study Reference Paper'; /* WAS: 'Marker Paper' */
     $data['group_marker_paper|node|study|form']->data['format_type'] = 'fieldset'; /* WAS: 'htab' */
     $data['group_marker_paper|node|study|form']->data['label'] = 'Study Reference Paper'; /* WAS: 'Marker Paper' */
-    $data['group_marker_paper|node|study|form']->data['weight'] = 4; /* WAS: 12 */
+    $data['group_marker_paper|node|study|form']->data['weight'] = 175; /* WAS: 12 */
     $data['group_marker_paper|node|study|form']->parent_name = 'group_general_info'; /* WAS: 'group_tabs' */
   }
   if (isset($data['group_methods|node|study|form'])) {
@@ -84,8 +86,8 @@ function interconnect_studies_field_group_info_alter(&$data) {
       'required_fields' => 1,
       'classes' => 'group-main-ic',
       'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                                      <br>
-                                                                                                                                                      <br>',
+                                                                                                                                                                                          <br>
+                                                                                                                                                                                          <br>',
     ); /* WAS: '' */
     $data['group_pop_selection_criteria|node|population|form']->data['format_settings']['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
     $data['group_pop_selection_criteria|node|population|form']->data['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
@@ -237,7 +239,7 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   if (isset($data['node-study-body'])) {
     $data['node-study-body']['display']['default']['type'] = 'hidden'; /* WAS: 'text_default' */
     $data['node-study-body']['required'] = 0; /* WAS: 1 */
-    $data['node-study-body']['widget']['weight'] = 5; /* WAS: 4 */
+    $data['node-study-body']['widget']['weight'] = 176; /* WAS: 4 */
     unset($data['node-study-body']['display']['default']['module']);
   }
   if (isset($data['node-study-field_acroym'])) {
@@ -246,6 +248,7 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   }
   if (isset($data['node-study-field_contacts_ref'])) {
     $data['node-study-field_contacts_ref']['description'] = 'Enter the details of the person(s) who could provide additional information about the study by clicking the Create Contact button. Edit an existing contact by clicking the Edit button.'; /* WAS: 'Enter the Contact full name. You will be able to edit these Contacts once the Study will be saved.' */
+    $data['node-study-field_contacts_ref']['widget']['weight'] = 174; /* WAS: 3 */
   }
   if (isset($data['node-study-field_marker_paper'])) {
     $data['node-study-field_marker_paper']['label'] = 'Study Reference Paper'; /* WAS: 'Marker paper' */
@@ -258,6 +261,6 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   }
   if (isset($data['node-study-field_website'])) {
     $data['node-study-field_website']['description'] = 'Enter study website URL'; /* WAS: '' */
-    $data['node-study-field_website']['widget']['weight'] = 6; /* WAS: 5 */
+    $data['node-study-field_website']['widget']['weight'] = 177; /* WAS: 5 */
   }
 }

@@ -24,12 +24,14 @@ function interconnect_studies_features_override_default_overrides() {
     'description' => '',
   );
   $overrides["field_group.group_general_design|node|study|form.data|format_settings|label"] = 'General Design';
-  $overrides["field_group.group_general_info|node|study|form.data|children|4"] = 'group_marker_paper';
+  $overrides["field_group.group_general_info|node|study|form.data|children|4"] = 'field_study_info_public';
+  $overrides["field_group.group_general_info|node|study|form.data|children|5"] = 'group_marker_paper';
+  $overrides["field_group.group_general_info|node|study|form.data|children|6"] = 'group_study_name';
   $overrides["field_group.group_marker_paper|node|study|form.data|format_settings|formatter"] = 'open';
   $overrides["field_group.group_marker_paper|node|study|form.data|format_settings|label"] = 'Study Reference Paper';
   $overrides["field_group.group_marker_paper|node|study|form.data|format_type"] = 'fieldset';
   $overrides["field_group.group_marker_paper|node|study|form.data|label"] = 'Study Reference Paper';
-  $overrides["field_group.group_marker_paper|node|study|form.data|weight"] = 4;
+  $overrides["field_group.group_marker_paper|node|study|form.data|weight"] = 175;
   $overrides["field_group.group_marker_paper|node|study|form.parent_name"] = 'group_general_info';
   $overrides["field_group.group_methods|node|study|form.data|children"] = array(
     0 => 'group_general_design',
@@ -62,8 +64,8 @@ function interconnect_studies_features_override_default_overrides() {
     'required_fields' => 1,
     'classes' => 'group-main-ic',
     'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                                    <br>
-                                                                                                                                                    <br>',
+                                                                                                                                                                                        <br>
+                                                                                                                                                                                        <br>',
   );
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|format_settings|label"] = 'Participant selection criteria';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|label"] = 'Participant selection criteria';
@@ -174,15 +176,16 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-study-body.display|default|module"]["DELETED"] = TRUE;
   $overrides["field_instance.node-study-body.display|default|type"] = 'hidden';
   $overrides["field_instance.node-study-body.required"] = 0;
-  $overrides["field_instance.node-study-body.widget|weight"] = 5;
+  $overrides["field_instance.node-study-body.widget|weight"] = 176;
   $overrides["field_instance.node-study-field_acroym.description"] = 'If applicable, enter study acronym';
   $overrides["field_instance.node-study-field_acroym.widget|weight"] = -4;
   $overrides["field_instance.node-study-field_contacts_ref.description"] = 'Enter the details of the person(s) who could provide additional information about the study by clicking the Create Contact button. Edit an existing contact by clicking the Edit button.';
+  $overrides["field_instance.node-study-field_contacts_ref.widget|weight"] = 174;
   $overrides["field_instance.node-study-field_marker_paper.label"] = 'Study Reference Paper';
   $overrides["field_instance.node-study-field_pubmedid.description"] = 'If available, enter marker paper’s Pubmed ID.  ';
   $overrides["field_instance.node-study-field_study_populations.label"] = 'Sampling Frames';
   $overrides["field_instance.node-study-field_website.description"] = 'Enter study website URL';
-  $overrides["field_instance.node-study-field_website.widget|weight"] = 6;
+  $overrides["field_instance.node-study-field_website.widget|weight"] = 177;
 
   // Exported overrides for: node
 

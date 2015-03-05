@@ -177,8 +177,8 @@ function interconnect_studies_menu_local_tasks_alter(&$data, $router_item, $root
 
 function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	
-	// Removed - RL wants approximate %
-	//$form['#validate'][] = '_interconnect_studies_validate';
+
+	$form['#validate'][] = '_interconnect_studies_validate';
 	
 	$form['actions']['_mica_studies_save_add_population_submit'] = array(
 		'#access' => TRUE,
@@ -288,8 +288,24 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	$form['mica_dataset']['#type'] = 'hidden';
 	$form['mica_opal']['#type'] = 'hidden';
 	$form['field_dummy_ic']['#type'] = 'hidden';
-	$form['field_study_populations']['#type'] = 'container';
 	
+	// To stop populations being created before the study is saved
+	
+	if ($form['nid']['#value'])
+		{
+			$form['#groups']['group_sample_pop_ic']->format_settings['instance_settings']['description'] = 'All studies represent
+				a sample from a larger population. Some studies will have multiple samples. 
+				Please add sampling frames below by clicking the Create Population button. 
+				You can add more sampling frames if needed. Existing sampling frames can be changed 
+				by clicking the Edit button.';
+			$form['field_study_populations']['#type'] = 'container';
+		}
+	else {
+		$form['field_study_populations']['#type'] = 'hidden';
+			$form['#groups']['group_sample_pop_ic']->format_settings['instance_settings']['description'] = 'All studies represent
+				a sample from a larger population. Some studies will have multiple samples. 
+				To add sampling frames, you will first need to save your study.';
+	}
 
 	// hide some field labels to improve formatting
 	$language=$form['field_marker_paper']['#language'];
@@ -425,6 +441,12 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	$lang = $form['field_race_other_text_ic']['#language'];
 	$form['field_race_other_text_ic']['#states']['visible'] = array(
         ':input[name="field_race_other_ic['.$lang.'][0][value]"]' => array('filled' => TRUE),
+	);
+	
+	// bespoke filled state for actual number of participants
+	$lang = $form['field_participants_date_ic']['#language'];
+	$form['field_participants_date_ic']['#states']['visible'] = array(
+        ':input[name="field_number_of_participants_ic['.$lang.'][0][value]"]' => array('filled' => TRUE),
 	);
 	
 	//genotyping dependencies
@@ -846,39 +868,48 @@ function interconnect_studies_block_list_alter(&$blocks) {
 	}
 }
 
-//function to validate that groups add to 100%
- function _interconnect_studies_validate($node, $form) {
+
+ function _interconnect_studies_validate($form, $form_state) {
+	
+	_mica_studies_form_validate_field($form, $form_state, 'field_design_ic', 'field_design_other_ic', 'other'); 
+	_mica_studies_form_validate_field($form, $form_state, 'field_recruit_cont_ic', 'field_recruit_end_ic', '0');
+	_mica_studies_form_validate_field($form, $form_state, 'field_family_ic', 'field_family_other_ic', 'other');
+	_mica_studies_form_validate_field($form, $form_state, 'field_design_ic', 'field_interv_type_ic', 'clinical_trial');
+	_mica_studies_form_validate_field($form, $form_state, 'field_design_ic', 'field_trial_number_ic', 'clinical_trial');  
+	
+	
+	//Removed as no longer percentages
  
-	$language = $node['field_race_african_ic']['#language'];
-	$total = $node['field_race_african_ic'][$language]['0']['value']['#value'];
-	$language = $node['field_race_e_asian_ic']['#language'];
-	$total = $total + $node['field_race_e_asian_ic'][$language]['0']['value']['#value'];
-	$language = $node['field_race_s_asian_ic']['#language'];
-	$total = $total + $node['field_race_s_asian_ic'][$language]['0']['value']['#value'];
-	$language = $node['field_race_euro_ic']['#language'];
-	$total = $total + $node['field_race_euro_ic'][$language]['0']['value']['#value'];
-	$language = $node['field_race_indig_am_ic']['#language'];
-	$total = $total + $node['field_race_indig_am_ic'][$language]['0']['value']['#value'];
-	$language = $node['field_race_indig_aus_ic']['#language'];
-	$total = $total + $node['field_race_indig_aus_ic'][$language]['0']['value']['#value'];
-	$language = $node['field_race_indig_pac_ic']['#language'];
-	$total = $total + $node['field_race_indig_pac_ic'][$language]['0']['value']['#value'];
-	$language = $node['field_race_mid_e_ic']['#language'];
-	$total = $total + $node['field_race_mid_e_ic'][$language]['0']['value']['#value'];
-	$language = $node['field_race_other_ic']['#language'];
-	$total = $total + $node['field_race_other_ic'][$language]['0']['value']['#value'];		
+	// $language = $node['field_race_african_ic']['#language'];
+	// $total = $node['field_race_african_ic'][$language]['0']['value']['#value'];
+	// $language = $node['field_race_e_asian_ic']['#language'];
+	// $total = $total + $node['field_race_e_asian_ic'][$language]['0']['value']['#value'];
+	// $language = $node['field_race_s_asian_ic']['#language'];
+	// $total = $total + $node['field_race_s_asian_ic'][$language]['0']['value']['#value'];
+	// $language = $node['field_race_euro_ic']['#language'];
+	// $total = $total + $node['field_race_euro_ic'][$language]['0']['value']['#value'];
+	// $language = $node['field_race_indig_am_ic']['#language'];
+	// $total = $total + $node['field_race_indig_am_ic'][$language]['0']['value']['#value'];
+	// $language = $node['field_race_indig_aus_ic']['#language'];
+	// $total = $total + $node['field_race_indig_aus_ic'][$language]['0']['value']['#value'];
+	// $language = $node['field_race_indig_pac_ic']['#language'];
+	// $total = $total + $node['field_race_indig_pac_ic'][$language]['0']['value']['#value'];
+	// $language = $node['field_race_mid_e_ic']['#language'];
+	// $total = $total + $node['field_race_mid_e_ic'][$language]['0']['value']['#value'];
+	// $language = $node['field_race_other_ic']['#language'];
+	// $total = $total + $node['field_race_other_ic'][$language]['0']['value']['#value'];		
 
-	if($total != 100){
-		$error_elements = array( 'field_race_african_ic', 'field_race_e_asian_ic', 'field_race_s_asian_ic',
-		'field_race_euro_ic', 'field_race_indig_am_ic', 'field_race_indig_aus_ic', 'field_race_indig_pac_ic', 'field_race_mid_e_ic',
-		'field_race_other_ic');
-		foreach ($error_elements as $element) {
-			form_set_error($element,'');
-		}
-		drupal_set_message(t('The fields in the participant characteristics section (i.e. excluding the field Hispanic or Latino
-participants) must sum to 100% '), 'error');
+	// if($total != 100){
+		// $error_elements = array( 'field_race_african_ic', 'field_race_e_asian_ic', 'field_race_s_asian_ic',
+		// 'field_race_euro_ic', 'field_race_indig_am_ic', 'field_race_indig_aus_ic', 'field_race_indig_pac_ic', 'field_race_mid_e_ic',
+		// 'field_race_other_ic');
+		// foreach ($error_elements as $element) {
+			// form_set_error($element,'');
+		// }
+		// drupal_set_message(t('The fields in the participant characteristics section (i.e. excluding the field Hispanic or Latino
+// participants) must sum to 100% '), 'error');
 
-	}
+	// }
 }
 
 //function to add a dependency on two fields with an OR condition

@@ -3266,8 +3266,9 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'file_default',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -3504,8 +3505,9 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'file_default',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -3589,8 +3591,9 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'file_default',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -3814,6 +3817,44 @@ function interconnect_studies_field_default_field_instances() {
       'settings' => array(),
       'type' => 'field_collection_embed',
       'weight' => 151,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_genotype_his_lat_ic'
+  $field_instances['node-study-field_genotype_his_lat_ic'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 87,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_genotype_his_lat_ic',
+    'label' => 'Genotype Arrays',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 141,
     ),
   );
 
@@ -4129,8 +4170,9 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'file_default',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4172,8 +4214,9 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'file_default',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4215,8 +4258,9 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'file_default',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4258,8 +4302,9 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'file_default',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4448,6 +4493,50 @@ function interconnect_studies_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-study-field_mid_e_mds_plots_ic'
+  $field_instances['node-study-field_mid_e_mds_plots_ic'] = array(
+    'bundle' => 'study',
+    'deleted' => 0,
+    'description' => 'Please run the MDS script (<a href="/sites/default/files/2014-08-08_Files4MDS.zip">here</a>) and upload the output',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 88,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_mid_e_mds_plots_ic',
+    'label' => 'Upload ancestry scatter plot',
+    'required' => 0,
+    'settings' => array(
+      'description_display' => 'before',
+      'description_field' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 164,
+    ),
+  );
+
   // Exported field_instance: 'node-study-field_number_of_participants_ic'
   $field_instances['node-study-field_number_of_participants_ic'] = array(
     'bundle' => 'study',
@@ -4538,8 +4627,9 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'file_default',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -5177,8 +5267,9 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'file',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'file_default',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -5209,6 +5300,45 @@ function interconnect_studies_field_default_field_instances() {
       ),
       'type' => 'file_generic',
       'weight' => 149,
+    ),
+  );
+
+  // Exported field_instance: 'node-study-field_study_info_public'
+  $field_instances['node-study-field_study_info_public'] = array(
+    'bundle' => 'study',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 89,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'display_label' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_study_info_public',
+    'label' => 'This information has been obtained from sources available to the public',
+    'required' => 1,
+    'settings' => array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 171,
     ),
   );
 
@@ -5316,6 +5446,7 @@ function interconnect_studies_field_default_field_instances() {
   t('Select the type of people targeted by the study design.');
   t('South Asian / Indian Subcontinent');
   t('Study Design');
+  t('This information has been obtained from sources available to the public');
   t('Trial registration number');
   t('Upload ancestry scatter plot');
   t('What type of intervention is being investigated?');
