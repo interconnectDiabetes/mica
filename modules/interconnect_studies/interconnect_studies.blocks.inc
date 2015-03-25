@@ -111,6 +111,11 @@ function _interconnect_studies_block_available_info($study) {
     'type' => module_exists('i18n') ? 'i18n_text_log' : 'text_long',
 
   ));
+
+	$content['1']['#title'] = 'Does the study have any measures of diet?';
+	$content['2']['#title'] = 'Does the study have any measures of physical activity?';
+	$content['3']['#title'] = 'Does the study have DNA extracted or have a potential source of DNA?';	
+	
   return array(
     'subject' => t('Available Information') . '<a name="available-information"> </a>',
     'content' => array_filter($content),
@@ -176,12 +181,34 @@ function _interconnect_studies_block_study_populations($study, $show_draft) {
 			// $content[$index_pop]['field_pop_pregnancy_ic'][0]['#markup'] = 'No';			
 		  // }
 		// }
+		
+		// remove fields that are included in imports that we don't want to show
+
+		unset($content[$index_pop]['data-collection-event']);
+		unset($content[$index_pop]['body']);
+		unset($content[$index_pop]['field_pop_dce']);
+		unset($content[$index_pop]['field_pop_ethnic_origin']);
+		unset($content[$index_pop]['field_pop_exist_study_part']);
+		unset($content[$index_pop]['field_pop_gender']);
+		unset($content[$index_pop]['field_pop_general_pop_recruit']);
+		unset($content[$index_pop]['field_pop_no_lim_participants_s']);
+		unset($content[$index_pop]['field_pop_no_limits_participants']);
+		unset($content[$index_pop]['field_pop_partcipant_sel_supp_in']);
+		unset($content[$index_pop]['field_pop_participants_nb']);
+		unset($content[$index_pop]['field_pop_participants_nb_s']);
+		unset($content[$index_pop]['field_pop_participants_nb_supp_i']);
+		unset($content[$index_pop]['field_pop_recruit_supp_info']);
+		unset($content[$index_pop]['field_pop_study']);
+		unset($content[$index_pop]['field_pop_supp_infos']);
+		unset($content[$index_pop]['field_pop_territory']);
+
 	}
   }
   return array(
     'subject' => t('Populations from which the sample(s) is drawn') . '<a name="populations"> </a>',
     'content' => array_filter($content),
   );
+
 }
 
 function _interconnect_studies_block_study_available_info_field_health($study_wrapper, $weight) {
@@ -192,15 +219,49 @@ function _interconnect_studies_block_study_available_info_field_health($study_wr
   ));
   $design = $study_wrapper->field_health_info_ic->value();
   $other_sp = $study_wrapper->field_hi_other_diabetes_ic->value();
-  if (in_array('OD_p', $design) && !empty($other_sp)) {
-    $design_other_sp_view = field_view_field('node', $study_wrapper->value(), 'field_hi_other_diabetes_ic');
-    $label = '<span class="other-sub-title">' . $field_view[count($design) - 2]['#markup'] . ': </span>';
-    $field_view[count($design) - 2]['#markup'] = $label . '<span class="other-sub-value">' . $design_other_sp_view[0]['#markup'] . '</span>';
+  // if (in_array('OD_p', $design) && !empty($other_sp)) {
+    // $design_other_sp_view = field_view_field('node', $study_wrapper->value(), 'field_hi_other_diabetes_ic');
+    // $label = '<span class="other-sub-title">' . $field_view[count($design) - 2]['#markup'] . ': </span>';
+    // $field_view[count($design) - 2]['#markup'] = $label . '<span class="other-sub-value">' . $design_other_sp_view[0]['#markup'] . '</span>';
+  // }
+  // if (in_array('OD_i', $design) && !empty($other_sp)) {
+    // $design_other_sp_view = field_view_field('node', $study_wrapper->value(), 'field_hi_other_diabetes_ic');
+    // $label = '<span class="other-sub-title">' . $field_view[count($design) - 1]['#markup'] . ': </span>';
+    // $field_view[count($design) - 1]['#markup'] = $label . '<span class="other-sub-value">' . $design_other_sp_view[0]['#markup'] . '</span>';
+  // }
+    if ((in_array('OD_p', $design) && in_array('OD_i', $design)) ) {
+		if (!empty($other_sp)){
+			$design_other_sp_view = field_view_field('node', $study_wrapper->value(), 'field_hi_other_diabetes_ic');
+		}
+		else {
+			$design_other_sp_view = 'None specified';
+		}
+			$label = '<span class="other-sub-title">Other types of diabetes prevalent at baseline or incident during follow up: </span>';
+			$field_view[count($design) - 2]['#markup'] = $label . '<span class="other-sub-value">' . $design_other_sp_view[0]['#markup'] . '</span>';
+			unset($field_view[count($design)-1]);
   }
-  if (in_array('OD_i', $design) && !empty($other_sp)) {
-    $design_other_sp_view = field_view_field('node', $study_wrapper->value(), 'field_hi_other_diabetes_ic');
-    $label = '<span class="other-sub-title">' . $field_view[count($design) - 1]['#markup'] . ': </span>';
-    $field_view[count($design) - 1]['#markup'] = $label . '<span class="other-sub-value">' . $design_other_sp_view[0]['#markup'] . '</span>';
+  
+     if ((in_array('OD_p', $design) && !in_array('OD_i', $design)) ) {
+		if (!empty($other_sp)){
+			$design_other_sp_view = field_view_field('node', $study_wrapper->value(), 'field_hi_other_diabetes_ic');
+		}
+		else {
+			$design_other_sp_view = 'None specified';
+		}
+			$label = '<span class="other-sub-title">Other types of diabetes prevalent at baseline: </span>';
+			$field_view[count($design) - 1]['#markup'] = $label . '<span class="other-sub-value">' . $design_other_sp_view[0]['#markup'] . '</span>';
+
+  }
+  
+      if ((!in_array('OD_p', $design) && in_array('OD_i', $design)) ) {
+		if (!empty($other_sp)){
+			$design_other_sp_view = field_view_field('node', $study_wrapper->value(), 'field_hi_other_diabetes_ic');
+		}
+		else {
+			$design_other_sp_view = 'None specified';
+		}
+			$label = '<span class="other-sub-title">Other types of diabetes incident during follow up: </span>';
+			$field_view[count($design) - 1]['#markup'] = $label . '<span class="other-sub-value">' . $design_other_sp_view[0]['#markup'] . '</span>';
   }
   return $field_view;
 }
@@ -250,10 +311,9 @@ function _interconnect_studies_block_study_methods_case($study_wrapper, $weight)
   $other_sp = $study_wrapper->field_other_case_ic->value();
   if ($design =='other' && !empty($other_sp)) {
     $design_other_sp_view = field_view_field('node', $study_wrapper->value(), 'field_other_case_ic');
-    $label = '<span class="other-sub-title">' . $field_view[count($design) - 1]['#markup'] . ': </span>';
+    $label = '<span class="other-sub-title"> Other: </span>';
     $field_view[count($design) - 1]['#markup'] = $label . '<span class="other-sub-value">' . $design_other_sp_view[0]['#markup'] . '</span>';
   }
-
   return $field_view;
 }
 
@@ -267,10 +327,10 @@ function _interconnect_studies_block_study_methods_family($study_wrapper, $weigh
   $other_sp = $study_wrapper->field_family_other_ic->value();
   if ($design =='other' && !empty($other_sp)) {
     $design_other_sp_view = field_view_field('node', $study_wrapper->value(), 'field_family_other_ic');
-    $label = '<span class="other-sub-title">' . $field_view[count($design) - 1]['#markup'] . ': </span>';
+    $label = '<span class="other-sub-title"> Other: </span>';
     $field_view[count($design) - 1]['#markup'] = $label . '<span class="other-sub-value">' . $design_other_sp_view[0]['#markup'] . '</span>';
   }
-  $field_view['#title'] = 'Type of people targeted by the study design';
+  $field_view['#title'] = 'Type of people (individuals, families, twins etc.) targeted by the study design';
   return $field_view;
 }
 

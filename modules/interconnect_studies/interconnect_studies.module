@@ -11,24 +11,25 @@ require_once($path_i_studies . '/interconnect_studies.features.inc');
 
 function interconnect_studies_views_default_views_alter(&$views) {
 // Override the standard Mica fields for the study list page
-	if (isset($views['studies_search'])) {
-		$views['studies_search']->display['page_1']->display_options['header']['area']['content'] = 'The following studies are available';
-		$fields_temp = array();
-		$fields_temp['field_acroym'] = $views['studies_search']->display['default']->display_options['fields']['field_acroym'];
-		$fields_temp['title_field'] = $views['studies_search']->display['default']->display_options['fields']['title_field'];
-		$fields_temp['field_design_other_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design_other_sp'];
-		$fields_temp['field_design_other_ic']['id'] = 'field_design_other_ic';
-		$fields_temp['field_design_other_ic']['field'] = 'field_design_other_ic';
-		$fields_temp['field_design_other_ic']['alter']['text'] = ' ([field_design_other_ic])';
-		$fields_temp['field_design_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design'];
-		$fields_temp['field_design_ic']['id'] = 'field_design_ic';
-		$fields_temp['field_design_ic']['field'] = 'field_design_ic';
-		$fields_temp['field_design_ic']['alter']['text'] = '[field_design_ic][field_design_other_ic]';
-		$fields_temp['field_target_number_participants'] = $views['studies_search']->display['default']->display_options['fields']['field_target_number_participants'];
-		$fields_temp['field_study_populations_field_pop_country'] = $views['studies_search']->display['default']->display_options['fields']['field_study_populations_field_pop_country'];
-		unset($views['studies_search']->display['default']->display_options['fields']);
-		$views['studies_search']->display['default']->display_options['fields'] = $fields_temp;
-	}
+	// if (isset($views['studies_search'])) {
+		// $views['studies_search']->display['page_1']->display_options['header']['area']['content'] = 'The following studies are available';
+		// $fields_temp = array();
+		// $fields_temp['field_acroym'] = $views['studies_search']->display['default']->display_options['fields']['field_acroym'];
+		// $fields_temp['title_field'] = $views['studies_search']->display['default']->display_options['fields']['title_field'];
+		// $fields_temp['field_design_other_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design_other_sp'];
+		// $fields_temp['field_design_other_ic']['id'] = 'field_design_other_ic';
+		// $fields_temp['field_design_other_ic']['field'] = 'field_design_other_ic';
+		// $fields_temp['field_design_other_ic']['alter']['text'] = ' ([field_design_other_ic])';
+		// $fields_temp['field_design_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design'];
+		// $fields_temp['field_design_ic']['id'] = 'field_design_ic';
+		// $fields_temp['field_design_ic']['field'] = 'field_design_ic';
+		// $fields_temp['field_design_ic']['alter']['text'] = '[field_design_ic][field_design_other_ic]';
+		// $fields_temp['field_target_number_participants'] = $views['studies_search']->display['default']->display_options['fields']['field_target_number_participants'];
+		// $fields_temp['field_study_populations_field_pop_country'] = $views['studies_search']->display['default']->display_options['fields']['field_study_populations_field_pop_country'];
+		// unset($views['studies_search']->display['default']->display_options['fields']);
+		// $views['studies_search']->display['default']->display_options['fields'] = $fields_temp;
+	// }
+	dpm($views);
 }
 
 /**
@@ -201,39 +202,6 @@ function interconnect_studies_study_form_alter(&$form, &$form_state, $form_id) {
 	$form['actions']['submit']['#type']='hidden';
 	$form['actions']['preview']['#type']='hidden';
   
-  	// add some custom text
-	
-	$form['acustomtext'] = array(
-        '#type' => 'item',
-        '#markup' => '<div ><B>About InterConnect:</B><br>
-		<ul><li>   InterConnect (<a href="www.interconnect-diabetes.eu">www.interconnect-diabetes.eu</a>) is a European Union FP-7 funded project that
-		aims to change the way that data is used in population research into the causes of diabetes and obesity.</li> 
-		<li>It seeks to create the foundation to enable research to move from explaining the differences in risk of diabetes 
-		and obesity <u>within</u> populations to being able to explain differences in risk <u>between</u> populations.</li></ul>
-		<br>
-		<B>About the registry:</B><br>
-		<ul><li>A registry is being set up with the initial purpose of enabling researchers to discover studies relevant
-		to studying gene-environment interaction on the risk of type 1 diabetes, type 2 diabetes or obesity.</li>
-		<li>This first phase of development of the registry is therefore focused on describing the key characteristics
-		of studies in a searchable format.</li></ul>
-		<br>
-		<B>What we ask of you now:</B><br>
-		<ul><li>The registry data collection form has been designed with a view to minimising the input needed from study
-		Principal Investigators and we have populated it as fully as we can from publicly available information.</li>
-		<li>We ask that you simply check that it is correct and add further information as appropriate.
-		The entry will then be displayed on the InterConnect website as part of the study registry.</li></ul>
-		<br>
-		<B>What we plan for the future:</B><br>
-		<ul><li>No single study will have all the information required to understand the basis of difference in risk of diabetes 
-		and obesity between populations.</li>
-		<li>The development of the registry is the first step in creating an integrated platform to facilitate collaboration
-		and cross-study analyses.</li>
-		<li>We hope that you will engage with InterConnect in the future, as we develop the study registry with more 
-		detailed information to support data harmonisation and provide tools for federated data meta-analysis.</li></ul>
-		</div>',
-        '#weight' => -10, // Adjust so that you can place it whereever 
-        );
-	
 	//Hide unused groups
 	
 	$form['#groups']['group_access']->format_type = 'hidden';
@@ -702,6 +670,7 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	$language = $form['field_pop_locality_ic']['#language'];  
 	unset($form['field_pop_locality_ic'][$language]['#options']['_none']);
 	$form['field_pop_locality_ic'][$language]['#options']['_none'] = 'N/A';
+	
 }
 
 //function to remove the additional clutter for the long text fields
@@ -722,7 +691,122 @@ function interconnect_studies_node_view_alter(&$build){
 		$key = key($build['field_pop_src_recruit']);
 		$build['field_pop_src_recruit'][$key]['#markup'] = '<div class="inner-label">Other Source:</div><div class="inner-value">' . $correct_val .'</div>';
 	  }
+	  
+	  //This removes the non-InterConnect fields on the view population page
+	    if($build['#bundle'] != 'page'){
+			_node_unset($build,'body');
+		}
+		_node_unset($build,'field_pop_dce');
+		_node_unset($build,'data-collection-event');
+		_node_unset($build,'field_pop_ethnic_origin');
+		_node_unset($build,'field_pop_exist_study_part');
+		_node_unset($build,'field_pop_gender');
+		_node_unset($build,'field_pop_general_pop_recruit');
+		_node_unset($build,'field_pop_no_lim_participants_s');
+		_node_unset($build,'field_pop_no_limits_participants');
+		_node_unset($build,'field_pop_partcipant_sel_supp_in');
+		_node_unset($build,'field_pop_participants_nb');
+		_node_unset($build,'field_pop_participants_nb_s');
+		_node_unset($build,'field_pop_participants_nb_supp_i');
+		_node_unset($build,'field_pop_recruit_supp_info');
+		_node_unset($build,'field_pop_study');
+		_node_unset($build,'field_pop_supp_infos');
+		_node_unset($build,'field_pop_territory');
+		
+		//undo existing pop_selection_criteria
+		if (isset($build['field_pop_select_criteria']['#items'])){
+			foreach($build['field_pop_select_criteria']['#items'] as $key => $value){
+				unset($build['field_pop_select_criteria'][$key]);
+				unset($build['field_pop_select_criteria']['#items'][$key]);
+			}
+		}
+		
+		//reinstate pop_selection_criteria, borrowing code from mica_studies.population.inc
+		// node->content has been replaced with $build
+		
+		$index = 0;
+		
+		if (isset($build['field_pop_gender_ic'])) {
+			$build['field_pop_gender_ic']['#access'] = FALSE;
+			$build['field_pop_select_criteria']['#items'][$index] = $build['field_pop_gender_ic']['#items'][0];
+			$label_value = t('Gender');
+			$markup = $build['field_pop_gender_ic'][0]['#markup'];
+			$build['field_pop_select_criteria'][$index]['#markup'] = "<div class='inner-label'>$label_value:</div>"
+			  . "<div class='inner-value'>$markup</div>";
+		}
+		
+		
+		if (isset($build['field_pop_age_min']) || isset($build['field_pop_age_max'])) {
+			$index = count($build['field_pop_select_criteria']['#items']);
+
+			if(isset($build['field_pop_age_min']['#items']['0']['value'])){
+				$age_min = $build['field_pop_age_min']['#items']['0']['value'];
+			}
+			if(isset($build['field_pop_age_max']['#items']['0']['value'])){
+				$age_max = $build['field_pop_age_max']['#items']['0']['value'];
+			}
+			if (!empty($age_min) || !empty($age_max)) {
+			  $age_items = array();
+			  $age_markup = '';
+			  if (!empty($age_min)) {
+				$age_items['age_min'] = $build['field_pop_age_min']['#items'][0];
+				$age_markup .= t('minimum') . ' ' . $build['field_pop_age_min'][0]['#markup'];
+			  }
+			  if (!empty($age_max)) {
+				if (!empty($age_min)) {
+				  $age_markup .= ', ';
+				}
+				$age_items['age_max'] = $build['field_pop_age_max']['#items'][0];
+				$age_markup .= t('maximum') . ' ' . $build['field_pop_age_max'][0]['#markup'];
+			  }
+			  $build['field_pop_select_criteria']['#items'][$index] = $age_items;
+			  $label_value = t('Age');
+			  $markup = ucfirst($age_markup);
+			  $build['field_pop_select_criteria'][$index]['#markup'] = "<div class='inner-label'>$label_value:</div>"
+				. "<div class='inner-value'>$markup</div>";
+			}
+		}
+		
+		_interconnect_studies_population_view_selection_criteria_item($build, 'field_pop_country', t('Country'), t('Countries'));
+		_interconnect_studies_population_view_selection_criteria_item($build, 'field_pop_locality_ic', t('Area of residence'));
+		_interconnect_studies_population_view_selection_criteria_item($build, 'field_pop_pregnancy_ic', t('Pregnant women'));
+		_interconnect_studies_population_view_selection_criteria_item($build, 'field_pop_newborn_ic', t('Newborn'));
+		_interconnect_studies_population_view_selection_criteria_item($build, 'field_pop_migration_ic', t('Migration status'));
+		_interconnect_studies_population_view_selection_criteria_item($build, 'field_pop_selection_others_sp', t('Other selection criteria'));
+		_interconnect_studies_population_view_selection_criteria_item($build, 'field_pop_health_status', t('Selection on the basis of a specific pre-existing health condition'));
+
 }
+
+function _node_unset(&$build,$field){
+		if (isset($build[$field])) {
+		unset($build[$field]);
+	  }
+}
+
+function _interconnect_studies_population_view_selection_criteria_item(&$build, $field, $label, $label_plural = NULL) {
+  if (!isset($build[$field])) {
+    return;
+  }
+  $nb_items = count($build[$field]['#items']);
+  if ($nb_items > 0 ) {
+    $index = count($build['field_pop_select_criteria']['#items']);
+    $build['field_pop_select_criteria']['#items'][$index] = $build[$field]['#items'];
+    $markup = '<div class="inner-value">';
+    for ($i = 0; $i < $nb_items; $i++) {
+      $markup .= isset($build[$field][$i]['#markup']) ? $build[$field][$i]['#markup'] : '';
+      if ($i < $nb_items - 1) {
+        $markup .= ', ';
+      }
+    }
+    $markup .= '</div>';
+
+    $build['field_pop_select_criteria'][$index]['#markup'] = '<div class="inner-label">'
+      . t('@label', array('@label' => $nb_items > 1 && strlen($label_plural) > 0 ? $label_plural : $label)) . ':</div>'
+      . $markup;
+    $build[$field]['#access'] = FALSE;
+  }
+}
+
 
 //function to run when pressing save button for study - stay on the same page after save
 function _interconnect_studies_save_study_submit($form, &$form_state) {
