@@ -11,26 +11,26 @@ require_once($path_i_studies . '/interconnect_studies.features.inc');
 
 function interconnect_studies_views_default_views_alter(&$views) {
 // Override the standard Mica fields for the study list page
-	// if (isset($views['studies_search'])) {
-		// $views['studies_search']->display['page_1']->display_options['header']['area']['content'] = 'The following studies are available';
-		// $fields_temp = array();
-		// $fields_temp['field_acroym'] = $views['studies_search']->display['default']->display_options['fields']['field_acroym'];
-		// $fields_temp['title_field'] = $views['studies_search']->display['default']->display_options['fields']['title_field'];
-		// $fields_temp['field_design_other_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design_other_sp'];
-		// $fields_temp['field_design_other_ic']['id'] = 'field_design_other_ic';
-		// $fields_temp['field_design_other_ic']['field'] = 'field_design_other_ic';
-		// $fields_temp['field_design_other_ic']['alter']['text'] = ' ([field_design_other_ic])';
-		// $fields_temp['field_design_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design'];
-		// $fields_temp['field_design_ic']['id'] = 'field_design_ic';
-		// $fields_temp['field_design_ic']['field'] = 'field_design_ic';
-		// $fields_temp['field_design_ic']['alter']['text'] = '[field_design_ic][field_design_other_ic]';
-		// $fields_temp['field_target_number_participants'] = $views['studies_search']->display['default']->display_options['fields']['field_target_number_participants'];
-		// $fields_temp['field_study_populations_field_pop_country'] = $views['studies_search']->display['default']->display_options['fields']['field_study_populations_field_pop_country'];
-		// unset($views['studies_search']->display['default']->display_options['fields']);
-		// $views['studies_search']->display['default']->display_options['fields'] = $fields_temp;
-	// }
-	dpm($views);
+	if (isset($views['studies_search'])) {
+		$views['studies_search']->display['page_1']->display_options['header']['area']['content'] = 'The following studies are available';
+		$fields_temp = array();
+		$fields_temp['field_acroym'] = $views['studies_search']->display['default']->display_options['fields']['field_acroym'];
+		$fields_temp['title_field'] = $views['studies_search']->display['default']->display_options['fields']['title_field'];
+		$fields_temp['field_design_other_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design_other_sp'];
+		$fields_temp['field_design_other_ic']['id'] = 'field_design_other_ic';
+		$fields_temp['field_design_other_ic']['field'] = 'field_design_other_ic';
+		$fields_temp['field_design_other_ic']['alter']['text'] = ' ([field_design_other_ic])';
+		$fields_temp['field_design_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design'];
+		$fields_temp['field_design_ic']['id'] = 'field_design_ic';
+		$fields_temp['field_design_ic']['field'] = 'field_design_ic';
+		$fields_temp['field_design_ic']['alter']['text'] = '[field_design_ic][field_design_other_ic]';
+		$fields_temp['field_target_number_participants'] = $views['studies_search']->display['default']->display_options['fields']['field_target_number_participants'];
+		$fields_temp['field_study_populations_field_pop_country'] = $views['studies_search']->display['default']->display_options['fields']['field_study_populations_field_pop_country'];
+		unset($views['studies_search']->display['default']->display_options['fields']);
+		$views['studies_search']->display['default']->display_options['fields'] = $fields_temp;
+	}
 }
+
 
 /**
  * Implements hook_form_alter
@@ -614,6 +614,12 @@ function interconnect_studies_population_form_alter(&$form, &$form_state, $form_
 	$form['field_pop_recruitment_other']['#after_build'][] = 'remove_text_format';
 	//$form['field_pop_recruitment_other'][$lang][0]['value']['#rows'] = 1;
 	// $form['field_pop_recruitment_other'][$lang][0]['#type'] = 'textfield';
+	
+	//need to put these in to stop 'Text format missing' warning when saving population on imported studies
+	$lang = $form['field_pop_supp_infos']['#language'];	
+	$form['field_pop_supp_infos'][$lang][0]["#format"]= 'plain_text';
+	$lang = $form['body']['#language'];	
+	$form['body'][$lang][0]["#format"]= 'plain_text';
 	
 	//set the title
 	
