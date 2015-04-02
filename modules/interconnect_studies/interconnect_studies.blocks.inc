@@ -61,7 +61,7 @@ function _interconnect_studies_block_study_ethnicity($study) {
   $content = array(
 	_interconnect_studies_block_eth_his_lat($study, $weight),
 	array(array(
-	'#markup' => 'Approximate number of participants in each main group represented in the study:',
+	'#markup' => 'Approximate number of participants in each main racial group represented in the study:',
 	'#prefix' => '<br><b><u>',
 	'#suffix' => '</u></b>',
 	'#weight' => ++$weight)),
@@ -76,7 +76,6 @@ function _interconnect_studies_block_study_ethnicity($study) {
 	);
 
   $content[] = _interconnect_studies_block_ethnicity_field_other($study, $wrapper, ++$weight);
-  
   return array(
     'subject' => t('Broad categories of ethnic and racial groups recruited') . '<a name="ethnicity-info"> </a>',
     'content' => array_filter($content),
@@ -204,6 +203,7 @@ function _interconnect_studies_block_study_populations($study, $show_draft) {
 
 	}
   }
+  
   return array(
     'subject' => t('Populations from which the sample(s) is drawn') . '<a name="populations"> </a>',
     'content' => array_filter($content),
@@ -263,6 +263,7 @@ function _interconnect_studies_block_study_available_info_field_health($study_wr
 			$label = '<span class="other-sub-title">Other types of diabetes incident during follow up: </span>';
 			$field_view[count($design) - 1]['#markup'] = $label . '<span class="other-sub-value">' . $design_other_sp_view[0]['#markup'] . '</span>';
   }
+
   return $field_view;
 }
 

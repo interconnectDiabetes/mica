@@ -781,6 +781,78 @@ function interconnect_studies_node_view_alter(&$build){
 		_interconnect_studies_population_view_selection_criteria_item($build, 'field_pop_selection_others_sp', t('Other selection criteria'));
 		_interconnect_studies_population_view_selection_criteria_item($build, 'field_pop_health_status', t('Selection on the basis of a specific pre-existing health condition'));
 
+		
+	// sort out formatting on sources of recruitment	
+	if($build['#bundle'] == 'population'){
+	  
+	  $build['field_pop_src_recruit']['#label_display'] = 'above';
+	  
+		  $needle = array('value' => 'specific_population');
+		   $specific_population_index = array_search($needle, $build['field_pop_src_recruit']['#items']);
+		  if ($specific_population_index !== FALSE) {
+			$_pop_specific_pop = $build['field_pop_specific_pop']['#items'];
+			$field_pop_specific_pop = $build['field_pop_specific_pop'];
+
+			$build['field_pop_src_recruit'][$specific_population_index]['#markup'] = 'Specific population';
+			
+			if (!empty($_pop_specific_pop)) {
+
+			  $nb = count($_pop_specific_pop);
+			  $content_speci_pop = array();
+			  for ($i = 0; $i < $nb; $i++) {
+				$content_speci_pop[$i] = $field_pop_specific_pop[$i]['#markup'];
+			  }
+
+				$needle = array('value' => 'other');
+			  $other_index_spec_pop = array_search($needle, $_pop_specific_pop);
+			  if ($other_index_spec_pop !== FALSE) {
+				$field_pop_specific_pop_other_sp = $build['field_pop_specific_pop_other_sp'];
+				if (!empty($field_pop_specific_pop_other_sp)) {
+				  $_labal_other = $content_speci_pop[$other_index_spec_pop];
+				  $content_speci_pop[$other_index_spec_pop] = NULL;
+				  $build['field_pop_src_recruit'][$specific_population_index]['#markup'] = '<div class="inner-label">'
+					. $build['field_pop_src_recruit'][$specific_population_index]['#markup']
+					. ':</div><div class="inner-value">'
+					. implode(', ', $content_speci_pop)
+					. '</div>'
+					. '<div class="inner-value">'
+					. $_labal_other
+					. ':</div><div class="inner-value">'
+					. $build['field_pop_specific_pop_other_sp']['#items'][0]['value']
+					. '</div>';
+
+				}
+				else {
+				  $build['field_pop_src_recruit'][$specific_population_index]['#markup'] = '<div class="inner-label">'
+					. $build['field_pop_src_recruit'][$specific_population_index]['#markup']
+					. ':<div class="inner-value">'
+					. implode(', ', $content_speci_pop)
+					. '</div></div>';
+				}
+			  }
+
+			}
+		  }
+		  
+		$needle = array('value' => 'other');  
+		$other_index = array_search($needle, $build['field_pop_src_recruit']['#items']);
+		  if ($other_index !== FALSE) {
+			$field_pop_recruitment_other = $build['field_pop_recruitment_other']['#items'];
+			$build['field_pop_src_recruit'][$other_index]['#markup'] = 'Other Source';
+			if (!empty($field_pop_recruitment_other)) {
+
+			  $build['field_pop_src_recruit'][$other_index]['#markup'] = '<div class="inner-label">'
+				. $build['field_pop_src_recruit'][$other_index]['#markup']
+				. ':</div><div class="inner-value">'
+				. $field_pop_recruitment_other[0]['value']
+				. '</div>';
+
+			}
+		  }
+		  
+	}
+  
+		
 }
 
 function _node_unset(&$build,$field){

@@ -86,8 +86,8 @@ function interconnect_studies_field_group_info_alter(&$data) {
       'required_fields' => 1,
       'classes' => 'group-main-ic',
       'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                                                                                <br>
-                                                                                                                                                                                                <br>',
+                                                                                                                                                                                                            <br>
+                                                                                                                                                                                                            <br>',
     ); /* WAS: '' */
     $data['group_pop_selection_criteria|node|population|form']->data['format_settings']['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
     $data['group_pop_selection_criteria|node|population|form']->data['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
@@ -249,6 +249,12 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   if (isset($data['node-study-field_contacts_ref'])) {
     $data['node-study-field_contacts_ref']['description'] = 'Enter the details of the person(s) who could provide additional information about the study by clicking the Create Contact button. Edit an existing contact by clicking the Edit button.'; /* WAS: 'Enter the Contact full name. You will be able to edit these Contacts once the Study will be saved.' */
     $data['node-study-field_contacts_ref']['widget']['weight'] = 174; /* WAS: 3 */
+  }
+  if (isset($data['node-study-field_logo'])) {
+    $data['node-study-field_logo']['display']['default']['type'] = 'hidden'; /* WAS: 'image' */
+    unset($data['node-study-field_logo']['display']['default']['module']);
+    unset($data['node-study-field_logo']['display']['default']['settings']['image_link']);
+    unset($data['node-study-field_logo']['display']['default']['settings']['image_style']);
   }
   if (isset($data['node-study-field_marker_paper'])) {
     $data['node-study-field_marker_paper']['label'] = 'Study Reference Paper'; /* WAS: 'Marker paper' */

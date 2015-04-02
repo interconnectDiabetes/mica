@@ -64,8 +64,8 @@ function interconnect_studies_features_override_default_overrides() {
     'required_fields' => 1,
     'classes' => 'group-main-ic',
     'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                                                                              <br>
-                                                                                                                                                                                              <br>',
+                                                                                                                                                                                                          <br>
+                                                                                                                                                                                                          <br>',
   );
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|format_settings|label"] = 'Participant selection criteria';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|label"] = 'Participant selection criteria';
@@ -181,6 +181,10 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-study-field_acroym.widget|weight"] = -4;
   $overrides["field_instance.node-study-field_contacts_ref.description"] = 'Enter the details of the person(s) who could provide additional information about the study by clicking the Create Contact button. Edit an existing contact by clicking the Edit button.';
   $overrides["field_instance.node-study-field_contacts_ref.widget|weight"] = 174;
+  $overrides["field_instance.node-study-field_logo.display|default|module"]["DELETED"] = TRUE;
+  $overrides["field_instance.node-study-field_logo.display|default|settings|image_link"]["DELETED"] = TRUE;
+  $overrides["field_instance.node-study-field_logo.display|default|settings|image_style"]["DELETED"] = TRUE;
+  $overrides["field_instance.node-study-field_logo.display|default|type"] = 'hidden';
   $overrides["field_instance.node-study-field_marker_paper.label"] = 'Study Reference Paper';
   $overrides["field_instance.node-study-field_pubmedid.description"] = 'If available, enter marker paper’s Pubmed ID.  ';
   $overrides["field_instance.node-study-field_study_populations.label"] = 'Sampling Frames';
