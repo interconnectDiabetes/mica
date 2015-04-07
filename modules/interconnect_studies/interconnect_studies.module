@@ -823,7 +823,6 @@ function interconnect_studies_node_view_alter(&$build){
 				
 				}
 				else {
-					dpm("I ran");
 				  $build['field_pop_src_recruit'][$specific_population_index]['#markup'] = '<div class="inner-label">'
 					. $build['field_pop_src_recruit'][$specific_population_index]['#markup']
 					. ':</div><div class="inner-value">'
