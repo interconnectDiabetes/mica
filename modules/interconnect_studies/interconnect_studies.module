@@ -794,7 +794,7 @@ function interconnect_studies_node_view_alter(&$build){
 			$field_pop_specific_pop = $build['field_pop_specific_pop'];
 
 			$build['field_pop_src_recruit'][$specific_population_index]['#markup'] = 'Specific population';
-			
+
 			if (!empty($_pop_specific_pop)) {
 
 			  $nb = count($_pop_specific_pop);
@@ -802,12 +802,12 @@ function interconnect_studies_node_view_alter(&$build){
 			  for ($i = 0; $i < $nb; $i++) {
 				$content_speci_pop[$i] = $field_pop_specific_pop[$i]['#markup'];
 			  }
-
+			
 				$needle = array('value' => 'other');
 			  $other_index_spec_pop = array_search($needle, $_pop_specific_pop);
-			  if ($other_index_spec_pop !== FALSE) {
+
+				if (!empty($other_index_spec_pop)) {  
 				$field_pop_specific_pop_other_sp = $build['field_pop_specific_pop_other_sp'];
-				if (!empty($field_pop_specific_pop_other_sp)) {
 				  $_labal_other = $content_speci_pop[$other_index_spec_pop];
 				  $content_speci_pop[$other_index_spec_pop] = NULL;
 				  $build['field_pop_src_recruit'][$specific_population_index]['#markup'] = '<div class="inner-label">'
@@ -820,16 +820,18 @@ function interconnect_studies_node_view_alter(&$build){
 					. ':</div><div class="inner-value">'
 					. $build['field_pop_specific_pop_other_sp']['#items'][0]['value']
 					. '</div>';
-
+				
 				}
 				else {
+					dpm("I ran");
 				  $build['field_pop_src_recruit'][$specific_population_index]['#markup'] = '<div class="inner-label">'
 					. $build['field_pop_src_recruit'][$specific_population_index]['#markup']
-					. ':<div class="inner-value">'
+					. ':</div><div class="inner-value">'
 					. implode(', ', $content_speci_pop)
-					. '</div></div>';
+					. '</div>';
+					
 				}
-			  }
+			  
 
 			}
 		  }
