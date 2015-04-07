@@ -786,7 +786,7 @@ function interconnect_studies_node_view_alter(&$build){
 	if($build['#bundle'] == 'population' && isset($build['field_pop_src_recruit']['#items'])){
 	  
 	  $build['field_pop_src_recruit']['#label_display'] = 'above';
-	  dpm($build);
+
 		  $needle = array('value' => 'specific_population');
 		   $specific_population_index = array_search($needle, $build['field_pop_src_recruit']['#items']);
 		  if ($specific_population_index !== FALSE) {
