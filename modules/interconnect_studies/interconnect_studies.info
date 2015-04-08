@@ -1,7 +1,7 @@
 name = interconnect_studies
 core = 7.x
 package = Features
-version = 7.x-1.06-beta
+version = 7.x-1.07-beta
 dependencies[] = ctools
 dependencies[] = date
 dependencies[] = features

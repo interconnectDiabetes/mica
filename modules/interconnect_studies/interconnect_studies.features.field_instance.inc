@@ -3266,9 +3266,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -3505,9 +3504,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -3591,9 +3589,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4170,9 +4167,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4214,9 +4210,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4258,9 +4253,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4302,9 +4296,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4501,9 +4494,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -4627,9 +4619,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -5267,9 +5258,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'file',
         'settings' => array(),
-        'type' => 'file_default',
+        'type' => 'hidden',
         'weight' => 88,
       ),
       'teaser' => array(
@@ -5312,9 +5302,8 @@ function interconnect_studies_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'hidden',
         'weight' => 89,
       ),
       'teaser' => array(

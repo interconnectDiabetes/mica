@@ -462,7 +462,13 @@ function _interconnect_studies_block_genotype($study, $weight, $race, $mds, $gen
 	$field = field_view_field('node', $study, $race, array('label' => 'inline', 'weight' => ++$weight));
 	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
 	$field = field_view_field('node', $study, $mds, array('label' => 'inline', 'weight' => ++$weight));
-	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
+	if (empty($field['#items'])){
+		$content[$weight] = NULL;
+	}
+	else {
+		$field['#title'] = "Uploaded ancestry scatter plot";
+		$content[$weight] = $field;
+	}
 	$field = field_view_field('node', $study, $genotype, array('label' => 'inline', 'weight' => ++$weight));
 	empty($field['#items']) ? $content[$weight] = NULL : $content[$weight] = $field;
 	return sizeof($content) < 4 ? array() : $content;
