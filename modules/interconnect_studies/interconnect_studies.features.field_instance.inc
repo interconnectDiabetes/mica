@@ -5317,7 +5317,7 @@ function interconnect_studies_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_study_info_public',
     'label' => 'This information has been obtained from sources available to the public',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'description_display' => 'after',
       'user_register_form' => FALSE,
