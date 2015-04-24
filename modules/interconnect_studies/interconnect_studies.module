@@ -12,22 +12,27 @@ require_once($path_i_studies . '/interconnect_studies.features.inc');
 function interconnect_studies_views_default_views_alter(&$views) {
 // Override the standard Mica fields for the study list page
 	if (isset($views['studies_search'])) {
+		
 		$views['studies_search']->display['page_1']->display_options['header']['area']['content'] = 'The following studies are available';
 		$fields_temp = array();
 		$fields_temp['field_acroym'] = $views['studies_search']->display['default']->display_options['fields']['field_acroym'];
 		$fields_temp['title_field'] = $views['studies_search']->display['default']->display_options['fields']['title_field'];
 		$fields_temp['field_design_other_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design_other_sp'];
-		$fields_temp['field_design_other_ic']['id'] = 'field_design_other_ic';
-		$fields_temp['field_design_other_ic']['field'] = 'field_design_other_ic';
-		$fields_temp['field_design_other_ic']['alter']['text'] = ' ([field_design_other_ic])';
+		// $fields_temp['field_design_other_ic']['id'] = 'field_design_other_ic';
+		// $fields_temp['field_design_other_ic']['field'] = 'field_design_other_ic';
+		// $fields_temp['field_design_other_ic']['alter']['text'] = ' ([field_design_other_ic])';
 		$fields_temp['field_design_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_design'];
 		$fields_temp['field_design_ic']['id'] = 'field_design_ic';
 		$fields_temp['field_design_ic']['field'] = 'field_design_ic';
-		$fields_temp['field_design_ic']['alter']['text'] = '[field_design_ic][field_design_other_ic]';
-		$fields_temp['field_target_number_participants'] = $views['studies_search']->display['default']->display_options['fields']['field_target_number_participants'];
+		$fields_temp['field_design_ic']['alter']['text'] = '[field_design_ic]';
+		// $fields_temp['field_design_ic']['alter']['text'] = '[field_design_ic][field_design_other_ic]';
+		$fields_temp['field_number_of_participants_ic'] = $views['studies_search']->display['default']->display_options['fields']['field_target_number_participants'];
+		$fields_temp['field_number_of_participants_ic']['id'] = 'field_number_of_participants_ic';
+		$fields_temp['field_number_of_participants_ic']['field'] = 'field_number_of_participants_ic';		
 		$fields_temp['field_study_populations_field_pop_country'] = $views['studies_search']->display['default']->display_options['fields']['field_study_populations_field_pop_country'];
 		unset($views['studies_search']->display['default']->display_options['fields']);
 		$views['studies_search']->display['default']->display_options['fields'] = $fields_temp;
+		
 	}
 }
 
@@ -980,6 +985,15 @@ function interconnect_studies_block_info() {
       'pages' => '<front>',
       'cache' => DRUPAL_CACHE_PER_PAGE,
     ),
+	'contact-ic' => array(
+      'info' => t('Contact'),
+      'weight' => '2',
+      'status' => TRUE,
+      'region' => 'footer',
+      'visibility' => BLOCK_VISIBILITY_NOTLISTED,
+      'pages' => '<front>',
+      'cache' => DRUPAL_CACHE_PER_PAGE,
+    ),
   );
 }
 
@@ -989,6 +1003,7 @@ function interconnect_studies_block_info() {
 
 // function to remove Mica blocks from study page
 function interconnect_studies_block_list_alter(&$blocks) {
+
 	foreach ($blocks as $key => $block) {
 
 		if ($block->module == 'mica_studies') {
@@ -1005,8 +1020,14 @@ function interconnect_studies_block_list_alter(&$blocks) {
 	$study = menu_get_object();
 
 	drupal_add_css(drupal_get_path('module', 'interconnect_studies') . '/css/custom.css', array('group' => CSS_DEFAULT, 'every_page' => TRUE));
-
-	$show_draft = (strpos(current_path(), '/draft') > 0 || $study->status == NODE_NOT_PUBLISHED);
+	if (isset($study->status)){
+		$show_draft = (strpos(current_path(), '/draft') > 0 || $study->status == NODE_NOT_PUBLISHED);
+	}
+	else {
+		$show_draft = FALSE;
+	}
+	
+	
 	if ($show_draft) {
 		$study = workbench_moderation_node_current_load($study);
 	}
@@ -1026,6 +1047,8 @@ function interconnect_studies_block_list_alter(&$blocks) {
 		  return _interconnect_studies_block_study_populations($study, $show_draft);
 		case 'europe-ic':
 		  return _interconnect_studies_block_europe();
+		case 'contact-ic':
+		  return _interconnect_studies_block_contact();		  
 		default:
 		   return NULL;
 	}

@@ -4534,7 +4534,7 @@ function interconnect_studies_field_default_field_instances() {
     'bundle' => 'study',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'If the study is not completed, what is the total number of participants who have been recruited to the study?',
+    'description' => 'What is the total number of participants who have been recruited to the study?',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -4555,6 +4555,7 @@ function interconnect_studies_field_default_field_instances() {
     'label' => 'Actual number of participants recruited to the study',
     'required' => 0,
     'settings' => array(
+      'description_display' => 'after',
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -5316,7 +5317,7 @@ function interconnect_studies_field_default_field_instances() {
     'display_label' => '',
     'entity_type' => 'node',
     'field_name' => 'field_study_info_public',
-    'label' => 'This information has been obtained from sources available to the public',
+    'label' => 'This information has been verified by a contact associated with the study',
     'required' => 0,
     'settings' => array(
       'description_display' => 'after',
@@ -5395,7 +5396,6 @@ function interconnect_studies_field_default_field_instances() {
   t('Hispanic / Latino');
   t('If available, please provide the trial registration number');
   t('If recruitment has finished, when did it end?');
-  t('If the study is not completed, what is the total number of participants who have been recruited to the study?');
   t('Imputation panel');
   t('Indigenous American / American Indian / Native American / Alaskan Native');
   t('Indigenous Australian / Aboriginal Australian');
@@ -5435,9 +5435,10 @@ function interconnect_studies_field_default_field_instances() {
   t('Select the type of people targeted by the study design.');
   t('South Asian / Indian Subcontinent');
   t('Study Design');
-  t('This information has been obtained from sources available to the public');
+  t('This information has been verified by a contact associated with the study');
   t('Trial registration number');
   t('Upload ancestry scatter plot');
+  t('What is the total number of participants who have been recruited to the study?');
   t('What type of intervention is being investigated?');
   t('When did recruitment start?');
   t('dummy_ic');

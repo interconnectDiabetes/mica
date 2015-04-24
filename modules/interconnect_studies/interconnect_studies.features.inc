@@ -14,6 +14,16 @@ function interconnect_studies_ctools_plugin_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_field_default_field_bases_alter().
+ */
+function interconnect_studies_field_default_field_bases_alter(&$data) {
+  if (isset($data['field_target_number_participants'])) {
+    $data['field_target_number_participants']['settings']['field_description_infos']['field_description_body'] = 'Number of participants planned to be recruited.'; /* WAS: 'Number of participants planned to be recruited. If the study is completed, enter the final number of participants.' */
+    $data['field_target_number_participants']['settings']['profile2_private'] = FALSE; /* WAS: '' */
+  }
+}
+
+/**
  * Implements hook_field_group_info_alter().
  */
 function interconnect_studies_field_group_info_alter(&$data) {
@@ -49,7 +59,9 @@ function interconnect_studies_field_group_info_alter(&$data) {
     ); /* WAS: '' */
   }
   if (isset($data['group_nb_participants|node|study|form'])) {
-    $data['group_nb_participants|node|study|form']->data['children']['3'] = 'group_actual_particip_ic'; /* WAS: '' */
+    $data['group_nb_participants|node|study|form']->data['children']['1'] = 'group_actual_particip_ic'; /* WAS: 'group_target_nb_participants' */
+    $data['group_nb_participants|node|study|form']->data['children']['2'] = 'group_target_nb_participants'; /* WAS: 'group_target_nb_samples' */
+    $data['group_nb_participants|node|study|form']->data['children']['3'] = 'group_target_nb_samples'; /* WAS: '' */
     $data['group_nb_participants|node|study|form']->data['format_settings'] = array(
       'label' => 'Number of participants',
       'formatter' => 'open',
@@ -86,8 +98,8 @@ function interconnect_studies_field_group_info_alter(&$data) {
       'required_fields' => 1,
       'classes' => 'group-main-ic',
       'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                                                                                                        <br>
-                                                                                                                                                                                                                        <br>',
+                                                                                                                                                                                                                                                                  <br>
+                                                                                                                                                                                                                                                                  <br>',
     ); /* WAS: '' */
     $data['group_pop_selection_criteria|node|population|form']->data['format_settings']['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
     $data['group_pop_selection_criteria|node|population|form']->data['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
@@ -116,11 +128,21 @@ function interconnect_studies_field_group_info_alter(&$data) {
     $data['group_study_timeline|node|study|form']->parent_name = 'group_general_design'; /* WAS: 'group_methods' */
   }
   if (isset($data['group_tabs|node|study|form'])) {
-    $data['group_tabs|node|study|form']->data['children']['5'] = 'group_methods'; /* WAS: 'group_marker_paper' */
-    $data['group_tabs|node|study|form']->data['children']['6'] = 'group_supp_info'; /* WAS: 'group_methods' */
-    $data['group_tabs|node|study|form']->data['children']['7'] = 'group_available_info_ic'; /* WAS: 'group_supp_info' */
-    $data['group_tabs|node|study|form']->data['children']['8'] = 'group_ethnic_race_ic'; /* WAS: '' */
-    $data['group_tabs|node|study|form']->data['children']['9'] = 'group_sample_pop_ic'; /* WAS: '' */
+    $data['group_tabs|node|study|form']->data['children']['1'] = 'group_available_info_ic'; /* WAS: 'group_access' */
+    $data['group_tabs|node|study|form']->data['children']['2'] = 'group_ethnic_race_ic'; /* WAS: 'group_authorization' */
+    $data['group_tabs|node|study|form']->data['children']['3'] = 'group_sample_pop_ic'; /* WAS: 'group_documents' */
+    $data['group_tabs|node|study|form']->data['children']['4'] = 'group_access'; /* WAS: 'group_general_info' */
+    $data['group_tabs|node|study|form']->data['children']['5'] = 'group_authorization'; /* WAS: 'group_marker_paper' */
+    $data['group_tabs|node|study|form']->data['children']['6'] = 'group_documents'; /* WAS: 'group_methods' */
+    $data['group_tabs|node|study|form']->data['children']['7'] = 'group_general_info'; /* WAS: 'group_supp_info' */
+    $data['group_tabs|node|study|form']->data['children']['8'] = 'group_methods'; /* WAS: '' */
+    $data['group_tabs|node|study|form']->data['children']['9'] = 'group_supp_info'; /* WAS: '' */
+  }
+  if (isset($data['group_target_nb_participants|node|study|form'])) {
+    $data['group_target_nb_participants|node|study|form']->data['weight'] = 10; /* WAS: 8 */
+  }
+  if (isset($data['group_target_nb_samples|node|study|form'])) {
+    $data['group_target_nb_samples|node|study|form']->data['weight'] = 11; /* WAS: 9 */
   }
 }
 
@@ -264,6 +286,17 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   }
   if (isset($data['node-study-field_study_populations'])) {
     $data['node-study-field_study_populations']['label'] = 'Sampling Frames'; /* WAS: 'Populations' */
+  }
+  if (isset($data['node-study-field_target_number_participants'])) {
+    $data['node-study-field_target_number_participants']['description'] = 'Number of participants planned to be recruited.'; /* WAS: 'Number of participants planned to be recruited. If the study is completed, enter the final number of participants.' */
+    $data['node-study-field_target_number_participants']['settings'] = array(
+      'description_display' => 'after',
+      'max' => '',
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => ' participants',
+      'user_register_form' => FALSE,
+    ); /* WAS: '' */
   }
   if (isset($data['node-study-field_website'])) {
     $data['node-study-field_website']['description'] = 'Enter study website URL'; /* WAS: '' */

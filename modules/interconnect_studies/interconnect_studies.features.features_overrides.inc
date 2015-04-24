@@ -12,6 +12,8 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides = array();
 
   // Exported overrides for: field_base
+  $overrides["field_base.field_target_number_participants.settings|field_description_infos|field_description_body"] = 'Number of participants planned to be recruited.';
+  $overrides["field_base.field_target_number_participants.settings|profile2_private"] = FALSE;
 
   // Exported overrides for: field_group
   $overrides["field_group.group_general_design|node|study|form.data|children|0"] = 'field_family_ic';
@@ -37,7 +39,9 @@ function interconnect_studies_features_override_default_overrides() {
     0 => 'group_general_design',
     1 => 'group_nb_participants',
   );
-  $overrides["field_group.group_nb_participants|node|study|form.data|children|3"] = 'group_actual_particip_ic';
+  $overrides["field_group.group_nb_participants|node|study|form.data|children|1"] = 'group_actual_particip_ic';
+  $overrides["field_group.group_nb_participants|node|study|form.data|children|2"] = 'group_target_nb_participants';
+  $overrides["field_group.group_nb_participants|node|study|form.data|children|3"] = 'group_target_nb_samples';
   $overrides["field_group.group_nb_participants|node|study|form.data|format_settings"] = array(
     'label' => 'Number of participants',
     'formatter' => 'open',
@@ -64,8 +68,8 @@ function interconnect_studies_features_override_default_overrides() {
     'required_fields' => 1,
     'classes' => 'group-main-ic',
     'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                                                                                                      <br>
-                                                                                                                                                                                                                      <br>',
+                                                                                                                                                                                                                                                                <br>
+                                                                                                                                                                                                                                                                <br>',
   );
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|format_settings|label"] = 'Participant selection criteria';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|label"] = 'Participant selection criteria';
@@ -88,11 +92,17 @@ function interconnect_studies_features_override_default_overrides() {
   );
   $overrides["field_group.group_study_timeline|node|study|form.data|weight"] = 68;
   $overrides["field_group.group_study_timeline|node|study|form.parent_name"] = 'group_general_design';
-  $overrides["field_group.group_tabs|node|study|form.data|children|5"] = 'group_methods';
-  $overrides["field_group.group_tabs|node|study|form.data|children|6"] = 'group_supp_info';
-  $overrides["field_group.group_tabs|node|study|form.data|children|7"] = 'group_available_info_ic';
-  $overrides["field_group.group_tabs|node|study|form.data|children|8"] = 'group_ethnic_race_ic';
-  $overrides["field_group.group_tabs|node|study|form.data|children|9"] = 'group_sample_pop_ic';
+  $overrides["field_group.group_tabs|node|study|form.data|children|1"] = 'group_available_info_ic';
+  $overrides["field_group.group_tabs|node|study|form.data|children|2"] = 'group_ethnic_race_ic';
+  $overrides["field_group.group_tabs|node|study|form.data|children|3"] = 'group_sample_pop_ic';
+  $overrides["field_group.group_tabs|node|study|form.data|children|4"] = 'group_access';
+  $overrides["field_group.group_tabs|node|study|form.data|children|5"] = 'group_authorization';
+  $overrides["field_group.group_tabs|node|study|form.data|children|6"] = 'group_documents';
+  $overrides["field_group.group_tabs|node|study|form.data|children|7"] = 'group_general_info';
+  $overrides["field_group.group_tabs|node|study|form.data|children|8"] = 'group_methods';
+  $overrides["field_group.group_tabs|node|study|form.data|children|9"] = 'group_supp_info';
+  $overrides["field_group.group_target_nb_participants|node|study|form.data|weight"] = 10;
+  $overrides["field_group.group_target_nb_samples|node|study|form.data|weight"] = 11;
 
   // Exported overrides for: field_instance
   $overrides["field_instance.node-population-field_pop_age_max.display|default|weight"] = 5;
@@ -188,6 +198,15 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-study-field_marker_paper.label"] = 'Study Reference Paper';
   $overrides["field_instance.node-study-field_pubmedid.description"] = 'If available, enter marker paper’s Pubmed ID.  ';
   $overrides["field_instance.node-study-field_study_populations.label"] = 'Sampling Frames';
+  $overrides["field_instance.node-study-field_target_number_participants.description"] = 'Number of participants planned to be recruited.';
+  $overrides["field_instance.node-study-field_target_number_participants.settings"] = array(
+    'description_display' => 'after',
+    'max' => '',
+    'min' => 0,
+    'prefix' => '',
+    'suffix' => ' participants',
+    'user_register_form' => FALSE,
+  );
   $overrides["field_instance.node-study-field_website.description"] = 'Enter study website URL';
   $overrides["field_instance.node-study-field_website.widget|weight"] = 177;
 

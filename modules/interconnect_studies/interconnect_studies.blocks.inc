@@ -5,12 +5,14 @@ function _interconnect_studies_block_study_general_info($study) {
 	if (is_numeric($study)) {
 		$study = node_load($study);
 	}
+	$wrapper = entity_metadata_wrapper('node', $study);
 	$weight = 0;
 	$content = array(
 		field_view_field('node', $study, 'title_field', array('label' => 'inline', 'weight' => ++$weight)),
 		field_view_field('node', $study, 'field_acroym', array('label' => 'inline', 'weight' => ++$weight)),
 		field_view_field('node', $study, 'field_contacts_ref', array('label' => 'inline', 'weight' => ++$weight)),
-		field_view_field('node', $study, 'field_study_info_public', array('label' => 'inline', 'weight' => ++$weight)),		
+		//field_view_field('node', $study, 'field_study_info_public', array('label' => 'inline', 'weight' => ++$weight)),		
+		_interconnect_studies_block_general_field_public($wrapper, ++$weight),
 		field_view_field('node', $study, 'field_marker_paper', array('label' => 'inline', 'weight' => ++$weight)),
 		field_view_field('node', $study, 'field_pubmedid', array(
 			'label' => 'inline',
@@ -25,6 +27,24 @@ function _interconnect_studies_block_study_general_info($study) {
 		'content' => array_filter($content),
 	);
 }
+
+function _interconnect_studies_block_general_field_public($study_wrapper, $weight){
+	$temp_content = field_view_field('node', $study_wrapper->value(), 'field_study_info_public', array('label' => 'inline', 'weight' => $weight));
+	
+	if (!($temp_content == NULL)){
+		$temp_content['#title'] = "Where was the information about this study obtained from?";
+		
+		if ($temp_content['#items'][0]['value'] == 0){
+			$temp_content[0]['#markup'] = "Publicly available sources of information";
+		}
+		else {
+			$temp_content[0]['#markup'] = "Publicly available sources of information and from a contact associated with the study";
+		}
+	}
+	
+	return $temp_content;
+}
+
 
 function _interconnect_studies_block_study_methods($study) {
   // $study can be the study nid
@@ -438,6 +458,23 @@ function _interconnect_studies_block_europe(){
 		<img style="margin-top: -15px;margin-left: -20px;margin-right: 10px" alt="EU" src="/sites/all/themes/mica_subtheme_tom/img/EU.jpg" height="65" width="95">
 	</p>
 	<p> This project is funded by the European Union’s Seventh Framework Programme for research, technological development and demonstration under grant agreement no 602068.</p></div>
+				'
+	   ;
+      return $block;
+}
+
+function _interconnect_studies_block_contact(){
+  $block = array();
+      $block['subject'] = NULL;
+      $block['content'] = 
+	'
+	<div class="span10">
+		<p style="float: left;">
+			<p>Contact us: 
+			<a href="mailto:InterConnectRegistry@mrc-epid.cam.ac.uk">InterConnectRegistry@mrc-epid.cam.ac.uk</a>
+			</p>
+		</p>
+	</div>
 				'
 	   ;
       return $block;

@@ -109,7 +109,7 @@ function interconnect_studies_field_default_field_bases() {
         'cross_sectional' => 'Cross-sectional study',
         'case_control' => 'Case-control study',
         'case_only' => 'Case only study',
-        'other' => 'Other (please specify)',
+        'other' => 'Other',
       ),
       'allowed_values_function' => '',
       'field_description_infos' => array(
