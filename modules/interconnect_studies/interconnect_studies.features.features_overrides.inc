@@ -55,6 +55,9 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|1"] = 'field_pop_specific_pop';
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|2"] = 'field_pop_specific_pop_other_sp';
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|3"] = 'field_pop_src_recruit';
+  $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|4"]["DELETED"] = TRUE;
+  $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|5"]["DELETED"] = TRUE;
+  $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|children|6"]["DELETED"] = TRUE;
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|format_settings|formatter"] = 'open';
   $overrides["field_group.group_pop_recruitment_procedures|node|population|form.data|weight"] = 3;
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|children|10"] = 'group_pop_age';
@@ -68,8 +71,8 @@ function interconnect_studies_features_override_default_overrides() {
     'required_fields' => 1,
     'classes' => 'group-main-ic',
     'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                                                                                                                                                <br>
-                                                                                                                                                                                                                                                                <br>',
+                                                                                                                                                                                                                                                                      <br>
+                                                                                                                                                                                                                                                                      <br>',
   );
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|format_settings|label"] = 'Participant selection criteria';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|label"] = 'Participant selection criteria';
@@ -110,10 +113,11 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-population-field_pop_age_max.settings|suffix"] = ' years';
   $overrides["field_instance.node-population-field_pop_age_min.label"] = 'Minimum age at recruitment';
   $overrides["field_instance.node-population-field_pop_age_min.settings"] = array(
+    'description_display' => 'after',
     'max' => 110,
     'min' => 0,
     'prefix' => '',
-    'suffix' => '',
+    'suffix' => ' years',
     'user_register_form' => FALSE,
   );
   $overrides["field_instance.node-population-field_pop_country.description"] = 'Select the countries of residence of the study participants from the list, selecting all that apply   ';
@@ -198,6 +202,10 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_instance.node-study-field_marker_paper.label"] = 'Study Reference Paper';
   $overrides["field_instance.node-study-field_pubmedid.description"] = 'If available, enter marker paper’s Pubmed ID.  ';
   $overrides["field_instance.node-study-field_study_populations.label"] = 'Sampling Frames';
+  $overrides["field_instance.node-study-field_study_populations.settings"] = array(
+    'description_display' => 'after',
+    'user_register_form' => FALSE,
+  );
   $overrides["field_instance.node-study-field_target_number_participants.description"] = 'Number of participants planned to be recruited.';
   $overrides["field_instance.node-study-field_target_number_participants.settings"] = array(
     'description_display' => 'after',

@@ -85,6 +85,9 @@ function interconnect_studies_field_group_info_alter(&$data) {
     $data['group_pop_recruitment_procedures|node|population|form']->data['children']['3'] = 'field_pop_src_recruit'; /* WAS: 'field_pop_recruitment_other' */
     $data['group_pop_recruitment_procedures|node|population|form']->data['format_settings']['formatter'] = 'open'; /* WAS: 'collapsible' */
     $data['group_pop_recruitment_procedures|node|population|form']->data['weight'] = 3; /* WAS: 1 */
+    unset($data['group_pop_recruitment_procedures|node|population|form']->data['children']['4']);
+    unset($data['group_pop_recruitment_procedures|node|population|form']->data['children']['5']);
+    unset($data['group_pop_recruitment_procedures|node|population|form']->data['children']['6']);
   }
   if (isset($data['group_pop_selection_criteria|node|population|form'])) {
     $data['group_pop_selection_criteria|node|population|form']->data['children']['10'] = 'group_pop_age'; /* WAS: '' */
@@ -98,8 +101,8 @@ function interconnect_studies_field_group_info_alter(&$data) {
       'required_fields' => 1,
       'classes' => 'group-main-ic',
       'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                                                                                                                                                  <br>
-                                                                                                                                                                                                                                                                  <br>',
+                                                                                                                                                                                                                                                                        <br>
+                                                                                                                                                                                                                                                                        <br>',
     ); /* WAS: '' */
     $data['group_pop_selection_criteria|node|population|form']->data['format_settings']['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
     $data['group_pop_selection_criteria|node|population|form']->data['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
@@ -158,10 +161,11 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   if (isset($data['node-population-field_pop_age_min'])) {
     $data['node-population-field_pop_age_min']['label'] = 'Minimum age at recruitment'; /* WAS: 'Minimum age' */
     $data['node-population-field_pop_age_min']['settings'] = array(
+      'description_display' => 'after',
       'max' => 110,
       'min' => 0,
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => ' years',
       'user_register_form' => FALSE,
     ); /* WAS: '' */
   }
@@ -286,6 +290,10 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   }
   if (isset($data['node-study-field_study_populations'])) {
     $data['node-study-field_study_populations']['label'] = 'Sampling Frames'; /* WAS: 'Populations' */
+    $data['node-study-field_study_populations']['settings'] = array(
+      'description_display' => 'after',
+      'user_register_form' => FALSE,
+    ); /* WAS: '' */
   }
   if (isset($data['node-study-field_target_number_participants'])) {
     $data['node-study-field_target_number_participants']['description'] = 'Number of participants planned to be recruited.'; /* WAS: 'Number of participants planned to be recruited. If the study is completed, enter the final number of participants.' */
