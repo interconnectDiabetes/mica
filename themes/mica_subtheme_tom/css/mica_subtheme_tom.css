@@ -16,8 +16,10 @@
 .field-type-date fieldset .date-padding {
   padding: 0;
 }
-
-
+	
+.table-striped tbody tr td.views-field.views-field-field-number-of-participants-ic {
+	text-align: center;
+	}
 
 .front .page-header{
    display:none

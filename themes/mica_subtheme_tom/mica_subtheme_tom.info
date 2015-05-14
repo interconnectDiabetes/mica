@@ -1,6 +1,6 @@
 screenshot  = screenshot.png
 name        = Mica Bootstrap subtheme Tom
-description = It is amazing
+description = Theme for interconnect
 core        = 7.x
 base theme  = mica_bootstrap
 
