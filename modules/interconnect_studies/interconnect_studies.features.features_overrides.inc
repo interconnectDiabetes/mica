@@ -71,8 +71,8 @@ function interconnect_studies_features_override_default_overrides() {
     'required_fields' => 1,
     'classes' => 'group-main-ic',
     'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                                                                                                                                                      <br>
-                                                                                                                                                                                                                                                                      <br>',
+                                                                                                                                                                                                                                                                                                                                  <br>
+                                                                                                                                                                                                                                                                                                                                  <br>',
   );
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|format_settings|label"] = 'Participant selection criteria';
   $overrides["field_group.group_pop_selection_criteria|node|population|form.data|label"] = 'Participant selection criteria';
@@ -108,115 +108,279 @@ function interconnect_studies_features_override_default_overrides() {
   $overrides["field_group.group_target_nb_samples|node|study|form.data|weight"] = 11;
 
   // Exported overrides for: field_instance
-  $overrides["field_instance.node-population-field_pop_age_max.display|default|weight"] = 5;
-  $overrides["field_instance.node-population-field_pop_age_max.label"] = 'Maximum age at recruitment';
-  $overrides["field_instance.node-population-field_pop_age_max.settings|suffix"] = ' years';
-  $overrides["field_instance.node-population-field_pop_age_min.label"] = 'Minimum age at recruitment';
-  $overrides["field_instance.node-population-field_pop_age_min.settings"] = array(
-    'description_display' => 'after',
-    'max' => 110,
-    'min' => 0,
-    'prefix' => '',
-    'suffix' => ' years',
-    'user_register_form' => FALSE,
-  );
-  $overrides["field_instance.node-population-field_pop_country.description"] = 'Select the countries of residence of the study participants from the list, selecting all that apply   ';
-  $overrides["field_instance.node-population-field_pop_country.display"] = array(
-    'default' => array(
-      'label' => 'inline',
-      'module' => 'list',
-      'settings' => array(),
-      'type' => 'list_default',
-      'weight' => 6,
-    ),
-  );
-  $overrides["field_instance.node-population-field_pop_country.label"] = 'Country of residence at time of recruitment';
-  $overrides["field_instance.node-population-field_pop_country.widget|active"] = 1;
-  $overrides["field_instance.node-population-field_pop_ethnic_origin.display|default|weight"] = 12;
-  $overrides["field_instance.node-population-field_pop_ethnic_origin.widget|weight"] = 15;
-  $overrides["field_instance.node-population-field_pop_exist_study_part.display|default|weight"] = 18;
-  $overrides["field_instance.node-population-field_pop_exist_study_part.widget"] = array(
-    'active' => 1,
-    'module' => 'text',
-    'type' => 'text_textfield',
-    'weight' => 51,
-  );
-  $overrides["field_instance.node-population-field_pop_general_pop_recruit.display|default|weight"] = 17;
-  $overrides["field_instance.node-population-field_pop_general_pop_recruit.widget|weight"] = 50;
-  $overrides["field_instance.node-population-field_pop_health_status.description"] = 'Please specify';
-  $overrides["field_instance.node-population-field_pop_health_status.display"] = array(
-    'default' => array(
-      'label' => 'inline',
-      'module' => 'text',
-      'settings' => array(),
-      'type' => 'text_default',
-      'weight' => 13,
-    ),
-  );
-  $overrides["field_instance.node-population-field_pop_health_status.label"] = 'Selection on the basis of a specific pre-existing health condition ';
-  $overrides["field_instance.node-population-field_pop_health_status.widget|weight"] = 12;
-  $overrides["field_instance.node-population-field_pop_partcipant_sel_supp_in.display|default|label"] = 'inline';
-  $overrides["field_instance.node-population-field_pop_partcipant_sel_supp_in.display|default|weight"] = 15;
-  $overrides["field_instance.node-population-field_pop_partcipant_sel_supp_in.widget|weight"] = 16;
-  $overrides["field_instance.node-population-field_pop_recruit_supp_info.display|default|label"] = 'above';
-  $overrides["field_instance.node-population-field_pop_recruit_supp_info.display|default|weight"] = 32;
-  $overrides["field_instance.node-population-field_pop_recruit_supp_info.widget|weight"] = 52;
-  $overrides["field_instance.node-population-field_pop_recruitment_other.display|default|weight"] = 21;
-  $overrides["field_instance.node-population-field_pop_recruitment_other.widget|weight"] = 54;
-  $overrides["field_instance.node-population-field_pop_select_criteria.display|default|label"] = 'inline';
-  $overrides["field_instance.node-population-field_pop_select_criteria.widget|weight"] = 13;
-  $overrides["field_instance.node-population-field_pop_specific_pop.display|default|label"] = 'above';
-  $overrides["field_instance.node-population-field_pop_specific_pop.display|default|weight"] = 33;
-  $overrides["field_instance.node-population-field_pop_specific_pop.widget|weight"] = 55;
-  $overrides["field_instance.node-population-field_pop_specific_pop_other_sp.display|default|weight"] = 20;
-  $overrides["field_instance.node-population-field_pop_specific_pop_other_sp.label"] = 'Other Specific Population';
-  $overrides["field_instance.node-population-field_pop_specific_pop_other_sp.widget|weight"] = 56;
-  $overrides["field_instance.node-population-field_pop_src_recruit.description"] = 'Specify the sources of recruitment';
-  $overrides["field_instance.node-population-field_pop_src_recruit.display|default|label"] = 'inline';
-  $overrides["field_instance.node-population-field_pop_src_recruit.display|default|weight"] = 16;
-  $overrides["field_instance.node-population-field_pop_src_recruit.widget|weight"] = 53;
-  $overrides["field_instance.node-population-title_field.default_value|0"] = array(
-    'value' => 'Population',
-  );
-  $overrides["field_instance.node-population-title_field.display_label"] = '';
-  $overrides["field_instance.node-population-title_field.display|default|weight"] = 31;
-  $overrides["field_instance.node-population-title_field.required"] = 1;
-  $overrides["field_instance.node-population-title_field.widget"] = array(
-    'active' => 1,
-    'module' => 'text',
-    'type' => 'text_textfield',
+  $overrides["field_instance.node-contact-field_contact_country.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'list',
+    'settings' => array(),
+    'type' => 'list_default',
     'weight' => 0,
   );
-  $overrides["field_instance.node-study-body.display|default|module"]["DELETED"] = TRUE;
-  $overrides["field_instance.node-study-body.display|default|type"] = 'hidden';
+  $overrides["field_instance.node-contact-field_contact_email.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'email',
+    'settings' => array(),
+    'type' => 'email_default',
+    'weight' => 0,
+  );
+  $overrides["field_instance.node-contact-field_contact_name.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'name',
+    'settings' => array(
+      'format' => 'default',
+      'markup' => 0,
+      'multiple' => 'default',
+      'multiple_and' => 'text',
+      'multiple_delimiter' => ', ',
+      'multiple_delimiter_precedes_last' => 'never',
+      'multiple_el_al_first' => 1,
+      'multiple_el_al_min' => 3,
+      'output' => 'default',
+    ),
+    'type' => 'name_formatter',
+    'weight' => 0,
+  );
+  $overrides["field_instance.node-population-field_pop_age_max.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'number',
+    'type' => 'number_integer',
+    'weight' => 0,
+  );
+  $overrides["field_instance.node-population-field_pop_age_min.display"] = array();
+  $overrides["field_instance.node-population-field_pop_country.display"] = array();
+  $overrides["field_instance.node-population-field_pop_dce.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'node_reference',
+    'settings' => array(
+      'node_reference_view_mode' => 'full',
+    ),
+    'type' => 'node_reference_node',
+    'weight' => 0,
+  );
+  $overrides["field_instance.node-population-field_pop_health_status.display"] = array();
   $overrides["field_instance.node-study-body.required"] = 0;
-  $overrides["field_instance.node-study-body.widget|weight"] = 176;
-  $overrides["field_instance.node-study-field_acroym.description"] = 'If applicable, enter study acronym';
-  $overrides["field_instance.node-study-field_acroym.widget|weight"] = -4;
-  $overrides["field_instance.node-study-field_contacts_ref.description"] = 'Enter the details of the person(s) who could provide additional information about the study by clicking the Create Contact button. Edit an existing contact by clicking the Edit button.';
-  $overrides["field_instance.node-study-field_contacts_ref.widget|weight"] = 174;
-  $overrides["field_instance.node-study-field_logo.display|default|module"]["DELETED"] = TRUE;
-  $overrides["field_instance.node-study-field_logo.display|default|settings|image_link"]["DELETED"] = TRUE;
-  $overrides["field_instance.node-study-field_logo.display|default|settings|image_style"]["DELETED"] = TRUE;
-  $overrides["field_instance.node-study-field_logo.display|default|type"] = 'hidden';
-  $overrides["field_instance.node-study-field_marker_paper.label"] = 'Study Reference Paper';
-  $overrides["field_instance.node-study-field_pubmedid.description"] = 'If available, enter marker paper’s Pubmed ID.  ';
-  $overrides["field_instance.node-study-field_study_populations.label"] = 'Sampling Frames';
-  $overrides["field_instance.node-study-field_study_populations.settings"] = array(
+  $overrides["field_instance.node-study-body.settings"] = array(
     'description_display' => 'after',
+    'display_summary' => 1,
+    'text_processing' => 1,
     'user_register_form' => FALSE,
   );
-  $overrides["field_instance.node-study-field_target_number_participants.description"] = 'Number of participants planned to be recruited.';
-  $overrides["field_instance.node-study-field_target_number_participants.settings"] = array(
-    'description_display' => 'after',
-    'max' => '',
-    'min' => 0,
-    'prefix' => '',
-    'suffix' => ' participants',
-    'user_register_form' => FALSE,
+  $overrides["field_instance.node-study-field_access_biosamples.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'list',
+    'settings' => array(),
+    'type' => 'list_default',
+    'weight' => 28,
   );
-  $overrides["field_instance.node-study-field_website.description"] = 'Enter study website URL';
-  $overrides["field_instance.node-study-field_website.widget|weight"] = 177;
+  $overrides["field_instance.node-study-field_access_data.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'list',
+    'settings' => array(),
+    'type' => 'list_default',
+    'weight' => 26,
+  );
+  $overrides["field_instance.node-study-field_access_other.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'list',
+    'settings' => array(),
+    'type' => 'list_default',
+    'weight' => 29,
+  );
+  $overrides["field_instance.node-study-field_access_other_sp.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 30,
+  );
+  $overrides["field_instance.node-study-field_acroym.display|diff_standard"] = array(
+    'label' => 'inline',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 32,
+  );
+  $overrides["field_instance.node-study-field_authorising_date_m.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'date',
+    'type' => 'date_default',
+    'weight' => 11,
+  );
+  $overrides["field_instance.node-study-field_authorising_person_name.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 7,
+  );
+  $overrides["field_instance.node-study-field_authorising_person_name_m.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 10,
+  );
+  $overrides["field_instance.node-study-field_authorization_maelstrom.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'list',
+    'settings' => array(),
+    'type' => 'list_default',
+    'weight' => 9,
+  );
+  $overrides["field_instance.node-study-field_authorization_specific.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'list',
+    'settings' => array(),
+    'type' => 'list_default',
+    'weight' => 36,
+  );
+  $overrides["field_instance.node-study-field_contacts_ref.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'node_reference',
+    'type' => 'node_reference_node',
+    'weight' => 34,
+  );
+  $overrides["field_instance.node-study-field_design.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'list',
+    'settings' => array(),
+    'type' => 'list_default',
+    'weight' => 12,
+  );
+  $overrides["field_instance.node-study-field_design_other_sp.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 13,
+  );
+  $overrides["field_instance.node-study-field_documents.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'file',
+    'settings' => array(),
+    'type' => 'file_url_plain',
+    'weight' => 25,
+  );
+  $overrides["field_instance.node-study-field_info_design_follow_up.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 23,
+  );
+  $overrides["field_instance.node-study-field_investigators.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'node_reference',
+    'type' => 'node_reference_node',
+    'weight' => 33,
+  );
+  $overrides["field_instance.node-study-field_marker_paper.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 4,
+  );
+  $overrides["field_instance.node-study-field_no_limits_participants.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'list',
+    'settings' => array(),
+    'type' => 'list_default',
+    'weight' => 18,
+  );
+  $overrides["field_instance.node-study-field_no_limits_samples.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'list',
+    'settings' => array(),
+    'type' => 'list_default',
+    'weight' => 21,
+  );
+  $overrides["field_instance.node-study-field_pubmedid.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 24,
+  );
+  $overrides["field_instance.node-study-field_recruitment_other_sp.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 15,
+  );
+  $overrides["field_instance.node-study-field_recruitment_supp_info.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 16,
+  );
+  $overrides["field_instance.node-study-field_study_end_year.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'number',
+    'type' => 'number_integer',
+    'weight' => 3,
+  );
+  $overrides["field_instance.node-study-field_study_populations.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'node_reference',
+    'type' => 'node_reference_node',
+    'weight' => 22,
+  );
+  $overrides["field_instance.node-study-field_study_study_variable_att.display|diff_standard"] = array(
+    'label' => 'hidden',
+    'module' => 'mica_core',
+    'settings' => array(),
+    'type' => 'node_reference_url_or_plain',
+    'weight' => 39,
+  );
+  $overrides["field_instance.node-study-field_supp_infos.display|diff_standard"] = array(
+    'label' => 'hidden',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 31,
+  );
+  $overrides["field_instance.node-study-field_target_nb_supp_info.display|diff_standard"] = array(
+    'label' => 'hidden',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 20,
+  );
+  $overrides["field_instance.node-study-field_target_number_biosamples.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'number',
+    'type' => 'number_integer',
+    'weight' => 19,
+  );
+  $overrides["field_instance.node-study-field_target_number_participants.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'number',
+    'type' => 'number_integer',
+    'weight' => 17,
+  );
+  $overrides["field_instance.node-study-field_website.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'link',
+    'settings' => array(),
+    'type' => 'link_default',
+    'weight' => 35,
+  );
+  $overrides["field_instance.node-study-field_website.settings|attributes|configurable_title"]["DELETED"] = TRUE;
+  $overrides["field_instance.node-study-field_website.settings|attributes|target"] = 'default';
+  $overrides["field_instance.node-study-field_website.settings|attributes|title"]["DELETED"] = TRUE;
+  $overrides["field_instance.node-study-field_website.settings|description_display"] = 'before';
+  $overrides["field_instance.node-study-field_website.settings|enable_tokens"] = 1;
+  $overrides["field_instance.node-study-field_website.settings|text_processing"] = 0;
+  $overrides["field_instance.node-study-field_website.settings|title"] = 'optional';
+  $overrides["field_instance.node-study-title_field.display|diff_standard"] = array(
+    'label' => 'above',
+    'module' => 'text',
+    'settings' => array(),
+    'type' => 'text_default',
+    'weight' => 27,
+  );
 
   // Exported overrides for: node
 

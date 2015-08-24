@@ -3064,6 +3064,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 3,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3101,6 +3108,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 7,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3143,6 +3157,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'list_default',
         'weight' => 10,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3188,6 +3209,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 9,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3232,6 +3260,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'list_default',
         'weight' => 8,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3269,6 +3304,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 88,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_url_plain',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3314,6 +3356,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 45,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3352,6 +3401,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 40,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3389,6 +3445,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 41,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3431,6 +3494,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 68,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3468,6 +3538,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 73,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3507,6 +3584,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 88,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_url_plain',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3552,6 +3636,18 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 53,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3592,6 +3688,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 88,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_url_plain',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3637,6 +3740,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 49,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3674,6 +3784,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 50,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3716,6 +3833,19 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 83,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3753,6 +3883,19 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 87,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3792,6 +3935,19 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 87,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3829,6 +3985,19 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 87,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3868,6 +4037,19 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 87,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3905,6 +4087,19 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 87,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -3944,6 +4139,19 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 87,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -3981,6 +4189,19 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 87,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4020,6 +4241,19 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 87,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4057,6 +4291,19 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 87,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4096,6 +4343,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 64,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4130,6 +4384,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 65,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4170,6 +4431,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 88,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_url_plain',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4214,6 +4482,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 88,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_url_plain',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4257,6 +4532,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 88,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_url_plain',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4299,6 +4581,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 88,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_url_plain',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4344,6 +4633,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 44,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4385,6 +4681,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 43,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4422,6 +4725,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 66,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4461,6 +4771,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 67,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4497,6 +4814,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 88,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_url_plain',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4542,6 +4866,18 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 51,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4584,6 +4920,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 46,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4623,6 +4966,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 88,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_url_plain',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4666,6 +5016,19 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 52,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4715,6 +5078,18 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 54,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4756,6 +5131,18 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 55,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4799,6 +5186,18 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 57,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4840,6 +5239,18 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 58,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4883,6 +5294,18 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 59,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -4924,6 +5347,18 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 60,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -4967,6 +5402,18 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 61,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5008,6 +5455,18 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 62,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -5051,6 +5510,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 63,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5090,6 +5556,18 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 56,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -5133,6 +5611,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 69,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5168,6 +5653,19 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 48,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -5216,6 +5714,16 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 47,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'interval' => 2,
+          'interval_display' => 'time ago',
+        ),
+        'type' => 'format_interval',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5263,6 +5771,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 88,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_url_plain',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5307,6 +5822,13 @@ function interconnect_studies_field_default_field_instances() {
         'type' => 'hidden',
         'weight' => 89,
       ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
@@ -5344,6 +5866,13 @@ function interconnect_studies_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 42,
+      ),
+      'diff_standard' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
