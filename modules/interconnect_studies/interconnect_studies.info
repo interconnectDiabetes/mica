@@ -1,7 +1,7 @@
 name = interconnect_studies
 core = 7.x
 package = Features
-version = 7.x-1.10-beta
+version = 7.x-1.11-beta
 dependencies[] = ctools
 dependencies[] = date
 dependencies[] = features
@@ -677,4 +677,4 @@ features[user_permission][] = view own field_reference_pop_other_ic
 features[user_permission][] = view own field_reference_population
 features[user_permission][] = view own field_release_date
 features[user_permission][] = view own field_s_asian_mds_plots_ic
-mtime = 1440147275
+mtime = 1440147628

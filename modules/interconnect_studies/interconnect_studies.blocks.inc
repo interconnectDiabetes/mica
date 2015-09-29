@@ -38,7 +38,7 @@ function _interconnect_studies_block_general_field_public($study_wrapper, $weigh
 			$temp_content[0]['#markup'] = "Publicly available sources of information";
 		}
 		else {
-			$temp_content[0]['#markup'] = "Publicly available sources of information and from a contact associated with the study";
+			$temp_content[0]['#markup'] = "Publicly available sources of information, verified by a study contact";
 		}
 	}
 	
