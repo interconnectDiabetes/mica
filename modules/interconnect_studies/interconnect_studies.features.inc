@@ -101,8 +101,8 @@ function interconnect_studies_field_group_info_alter(&$data) {
       'required_fields' => 1,
       'classes' => 'group-main-ic',
       'description' => 'Specify the criteria that were used to select participants (i.e. the selection criteria used to inform recruitment, not the characteristics  of the participants actually recruited)
-                                                                                                                                                                                                                                                                                                                                    <br>
-                                                                                                                                                                                                                                                                                                                                    <br>',
+                                                                                                                                                                                                                                                                                                                                                      <br>
+                                                                                                                                                                                                                                                                                                                                                      <br>',
     ); /* WAS: '' */
     $data['group_pop_selection_criteria|node|population|form']->data['format_settings']['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
     $data['group_pop_selection_criteria|node|population|form']->data['label'] = 'Participant selection criteria'; /* WAS: 'Selection Criteria / Characteristics of the population' */
@@ -200,6 +200,14 @@ function interconnect_studies_field_default_field_instances_alter(&$data) {
   }
   if (isset($data['node-population-field_pop_age_min'])) {
     $data['node-population-field_pop_age_min']['display'] = array(); /* WAS: '' */
+    $data['node-population-field_pop_age_min']['settings'] = array(
+      'description_display' => 'after',
+      'max' => 110,
+      'min' => 0,
+      'prefix' => '',
+      'suffix' => 'years',
+      'user_register_form' => FALSE,
+    ); /* WAS: '' */
   }
   if (isset($data['node-population-field_pop_country'])) {
     $data['node-population-field_pop_country']['display'] = array(); /* WAS: '' */

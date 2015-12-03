@@ -5684,6 +5684,7 @@ function interconnect_studies_field_default_field_instances() {
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5695,7 +5696,7 @@ function interconnect_studies_field_default_field_instances() {
         'input_format_custom' => '',
         'label_position' => 'within',
         'text_parts' => array(),
-        'year_range' => '-50:+0',
+        'year_range' => '-70:+0',
       ),
       'type' => 'date_select',
       'weight' => 127,
@@ -5741,6 +5742,7 @@ function interconnect_studies_field_default_field_instances() {
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
+      'description_display' => 'before',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -5752,7 +5754,7 @@ function interconnect_studies_field_default_field_instances() {
         'input_format_custom' => '',
         'label_position' => 'within',
         'text_parts' => array(),
-        'year_range' => '-50:+0',
+        'year_range' => '-70:+0',
       ),
       'type' => 'date_select',
       'weight' => 125,
